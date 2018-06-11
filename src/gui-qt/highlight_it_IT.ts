@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.0" language="it_IT">
 <context>
     <name>MainWindow</name>
     <message>
@@ -108,7 +108,7 @@ Errore di sintassi Lua: %2</translation>
     <message>
         <location filename="mainwindow.cpp" line="1189"/>
         <source>(user script)</source>
-        <translation type="unfinished"></translation>
+        <translation>(script utente)</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1197"/>
@@ -118,11 +118,11 @@ Errore di sintassi Lua: %2</translation>
     <message>
         <location filename="mainwindow.cpp" line="1200"/>
         <source>Current syntax: %1 %2</source>
-        <translation type="unfinished">Sintassi in uso: %1 %2</translation>
+        <translation>Sintassi in uso: %1 %2</translation>
     </message>
     <message>
         <source>Current syntax: %1</source>
-        <translation type="vanished">Sintassi in uso: %1</translation>
+        <translation>Sintassi in uso: %1</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1219"/>
@@ -153,7 +153,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
 Il file &quot;highlight.ts&quot; per Qt Linguist si trova nella sottocartella &quot;&apos;src/gui-qt&quot;.
 Il file qm generato da lrelease dovrà essere salvato in &quot;gui-files/l10n&quot;.
 
-In caso di difficoltà, o se hai completato o aggiornato una traduzione, contattami tramite posta elettronica: as (at) andre-simon (dot) de</translation>
+In caso di difficoltà, o se hai completato o aggiornato una traduzione, contattami tramite posta elettronica: as (at) andre-simon (dot) de.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1333"/>
@@ -163,7 +163,7 @@ In caso di difficoltà, o se hai completato o aggiornato una traduzione, contatt
     <message>
         <location filename="mainwindow.cpp" line="1344"/>
         <source>Select one or more syntax or theme scripts</source>
-        <translation type="unfinished"></translation>
+        <translation>Scegli uno o più file di sintassi o tema</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1402"/>
@@ -213,7 +213,7 @@ In caso di difficoltà, o se hai completato o aggiornato una traduzione, contatt
         <location filename="mainwindow.ui" line="129"/>
         <source>H&amp;ighlighting options</source>
         <oldsource>High&amp;lighting options</oldsource>
-        <translation type="unfinished">Opzioni di &amp;evidenziatura codice</translation>
+        <translation>Opzioni di &amp;evidenziatura codice</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="177"/>
@@ -347,7 +347,7 @@ In caso di difficoltà, o se hai completato o aggiornato una traduzione, contatt
     <message>
         <location filename="mainwindow.ui" line="332"/>
         <source>Browse output directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri la cartella di destinazione</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="429"/>
@@ -369,12 +369,12 @@ In caso di difficoltà, o se hai completato o aggiornato una traduzione, contatt
     <message>
         <location filename="mainwindow.ui" line="484"/>
         <source>Paste code from clipboard and copy the output back in one step</source>
-        <translation type="unfinished"></translation>
+        <translation>Incolla il codice dagli appunti e copiavi il risultato in un solo passaggio</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="490"/>
         <source>Paste, Convert and Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Incolla, Converti e Copia</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="515"/>
@@ -446,43 +446,43 @@ Nota: La finestra di anteprima potrebbe non mostrare alcuni effetti dei plug-in.
     <message>
         <location filename="mainwindow.ui" line="657"/>
         <source>Scripts</source>
-        <translation type="unfinished"></translation>
+        <translation>Script</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="663"/>
         <source>Choose a custom syntax or theme script.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa un file di sintassi o un tema personalizzati.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="666"/>
         <source>Add custom script to pool</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi script personalizzati</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="677"/>
         <source>You can check one file of each type (syntax and theme) to override the default behaviour. If checked, the scripts will be watched for changes.</source>
         <oldsource>You can check one file of each type (syntax and theme) to override the default behaviour.</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Puoi selezionare un file di ciascun tipo (sintassi e tema) per sovrascrivere il comportamento predefinito. Gli script selezionati saranno monitorati per rilevare cambiamenti nei file.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="686"/>
         <source>Remove the selected scripts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi dall&apos;elenco gli script selezionati.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="696"/>
         <source>Remove all scripts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi dall&apos;elenco tutti gli script.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="714"/>
         <source>Shows decription of a selected script.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra la descrizione dello script selezionato.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="717"/>
         <source>Script description</source>
-        <translation type="unfinished"></translation>
+        <translation>Descrizione dello script</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="756"/>
@@ -554,7 +554,7 @@ Nota: La finestra di anteprima potrebbe non mostrare alcuni effetti dei plug-in.
     <message>
         <source>Set line numbering start</source>
         <translatorcomment>( TIP )</translatorcomment>
-        <translation type="vanished">Imposta valore iniziale dei numeri di riga.</translation>
+        <translation>Imposta valore iniziale dei numeri di riga</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="898"/>
@@ -610,7 +610,7 @@ Rimuovi la sequenza BOM Unicode.</translation>
     </message>
     <message>
         <source>Set the output file ancoding.</source>
-        <translation type="vanished">Imposta la codifica di caratteri per l&apos;output.</translation>
+        <translation>Imposta la codifica di caratteri per l&apos;output.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="879"/>
@@ -621,17 +621,17 @@ Rimuovi la sequenza BOM Unicode.</translation>
     <message>
         <location filename="mainwindow.ui" line="966"/>
         <source>Generate output without version information comment.</source>
-        <translation type="unfinished"></translation>
+        <translation>Genera l&apos;output senza i commenti informativi sulla versione.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="969"/>
         <source>Omit version info comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Ometti commenti di versione</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="978"/>
         <source>Set the output file encoding.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta la codifica caratteri del file di output.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="981"/>
@@ -883,12 +883,12 @@ Il risultato deve combaciare con la codifica di caratteri del file di input.</tr
     <message>
         <location filename="mainwindow.ui" line="1395"/>
         <source>Add HTML MIME Type when copying code to the clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi lo HTML MIME Type al codice copiato negli appunti</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1398"/>
         <source>Copy with MIME type</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia con MIME Type</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1426"/>
@@ -904,17 +904,17 @@ Il risultato deve combaciare con la codifica di caratteri del file di input.</tr
     <message>
         <location filename="mainwindow.ui" line="1436"/>
         <source>Adapt output for the Babel package</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatta l&apos;output al pacchetto Babel</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2273"/>
         <source>Font si&amp;ze:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dimensione carattere:</translation>
     </message>
     <message>
         <source>Make output Babel compatible.</source>
         <translatorcomment>( TIP for LaTeX )</translatorcomment>
-        <translation type="vanished">Rendi l&apos;output compatibile con Babel.</translation>
+        <translation>Rendi l&apos;output compatibile con Babel.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1439"/>
@@ -924,12 +924,12 @@ Il risultato deve combaciare con la codifica di caratteri del file di input.</tr
     <message>
         <location filename="mainwindow.ui" line="1446"/>
         <source>Adapt output for the Beamer package</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatta l&apos;output al pacchetto Beamer</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1449"/>
         <source>Add Beamer compatibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi compatibilità Beamer</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1456"/>
@@ -998,19 +998,19 @@ Puoi selezionare i fogli di stile nel tuo word processor per riformattare testo 
         <location filename="mainwindow.ui" line="1700"/>
         <source>Set page color attribute to background color.</source>
         <translatorcomment>Tip for RTF</translatorcomment>
-        <translation>Imposta l&amp;apos;attributo colore della pagina al colore dello sfondo.</translation>
+        <translation>Imposta l&apos;attributo colore della pagina al colore dello sfondo.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2059"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation>Riformatta e indenta il codice sorgente.
-Quest&amp;apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translation>
+Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translation>
     </message>
     <message>
         <source>Set page color attribute to background color</source>
         <translatorcomment>( TIP for RTF )</translatorcomment>
-        <translation type="vanished">Imposta l&apos;attributo colore della pagina al colore dello sfondo.</translation>
+        <translation>Imposta l&apos;attributo colore della pagina al colore dello sfondo</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1703"/>
@@ -1120,7 +1120,7 @@ Quest&amp;apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</transl
         <source>Reformat and indent your code.
 This feature is enabled tor C, C++, C# and Java code.</source>
         <translatorcomment>( TIP )</translatorcomment>
-        <translation type="vanished">Riformatta e indenta il codice sorgente.
+        <translation>Riformatta e indenta il codice sorgente.
 Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translation>
     </message>
     <message>
@@ -1232,7 +1232,7 @@ Mettere 0 per preservare le tabulazioni.</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="vanished">Dimensione carattere:</translation>
+        <translation>Dimensione carattere:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2295"/>
