@@ -1,0 +1,185 @@
+--[[ "alan.lang" v1.0.0 (2018/06/16) | Alan 3.0beta5 | Highlight v3.43 | Lua 5.3
+********************************************************************************
+*                                                                              *
+*                          ALAN IF Syntax Definition                           *
+*                                                                              *
+*                              by Tristano Ajmone                              *
+*                                                                              *
+********************************************************************************
+Syntax definition for the Alan Interactive Fiction Language:
+    https://www.alanif.se
+Created by Tristano Ajmone:
+    <tajmone@gmail.com>
+    https://github.com/tajmone
+    https://gitlab.com/tajmone
+Released into the public domain according to the Unlicense terms:
+    http://unlicense.org
+--------------------------------------------------------------------------------
+File extensions: "*.alan", "*.i"
+------------------------------------------------------------------------------]]
+Description = "ALAN Interactive Fiction Language"
+
+IgnoreCase = true --> Alan is not case-sensitive
+
+EnableIndentation = false
+
+--[[============================================================================
+                                  IDENTIFIERS                                   
+================================================================================
+RegEx that defines keywords identifier's pattern — ie, which tokens are valid
+keyword candidates. Alan keywords are letters-only, but:
+  (1) Kewyords must not be preceded by a single quote, otherwise it would be a
+      quoted identifier (which can be named like a keyword, but isn't one).
+  (2) Also capture '=>', '.', ',' and ':' as keywords (they are not operators).
+------------------------------------------------------------------------------]]
+Identifiers = [=[ (\=>|\.|,|:|(?<!')\b[a-zA-Z]+\b) ]=]
+
+--==============================================================================
+--                                  COMMENTS                                    
+--==============================================================================
+-- Define SINGLE-LINE-COMMENTS delimiter:
+Comments = {
+  { Block     = false,
+    Nested    = false,
+    Delimiter = { [=[ -- ]=] }
+  }
+}
+--==============================================================================
+--                                 STRINGS                                      
+--==============================================================================
+Strings = {
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--                              STRING DELIMITERS                               
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Delimiter = [=[ " ]=],
+  AssertEqualLength = true,  -- Delimiters must have the same length?
+
+--[[~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                ESCAPE SEQUENCES                                
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Character combinations with special meaning for the printout:
+  $p  => New paragraph (usually one empty line)
+  $n  => New line
+  $i  => Indent on a new line
+  $t  => Insert a tabulation
+  $$  => Do not insert a space
+  $a  => The name of the actor that is executing
+  $l  => The name of the current location
+  $v  => The verb the player used (the first word)
+  $   => Print a dollar sign
+------------------------------------------------------------------------------]]
+  Escape = [=[ [\$][pnitalv\$] ]=],
+
+--[[~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                INTERPOLATION                                   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+These refer to parameters while executing a verb:
+  $<n>   => The parameter <n> (<n> is a digit > 0, e.g. "$1")
+  $+<n>  => Definite form of parameter <n>
+  $0<n>  => Indefinite form of parameter <n>
+  $-<n>  => Negative form of parameter <n>
+  $!<n>  => Pronoun for the parameter <n>
+  $o     => The current object (first parameter) *DEPRECATED*
+------------------------------------------------------------------------------]]
+  Interpolation = [=[ \$[+\-!0]?[1-9]|\$o ]=],
+}
+
+--[[============================================================================
+                                   OPERATORS                                    
+================================================================================
+Arythmetic: '+', '-', '*', '/'
+Comparison: '=', '<', '>', '<=', '>=', '<>', '=='
+Other:
+  (1) parameter indicators: '!', '*'
+--------------------------------------------------------------------------------
+NOTE: This RegEx is designed to avoid capturing '=>' as an operator, because we
+      want to capture it as a keyword (shorthand for 'THEN'). Otherwise it could
+      have been optimized to be much shorter.
+------------------------------------------------------------------------------]]
+Operators = [=[ \+|\-|\*|\/|<|(?<!\=)>|<>|<\=|>\=|\=(?!>)|\=\=|\(|\)|\{|\}|! ]=]
+
+--[[============================================================================
+                                     DIGITS                                     
+================================================================================
+Alan has only integer-type numerals.
+------------------------------------------------------------------------------]]
+Digits = [=[ \b\d+\b ]=]
+
+--==============================================================================
+--                                   KEYWORDS                                   
+--==============================================================================
+-- NOTE: All keywords must be in lowercase here, because of 'IgnoreCase = true'.
+Keywords = {
+--------------------------------------------------------------------------------
+--                              Alan Keywords List                              
+--------------------------------------------------------------------------------
+  { Id = 1,
+    List = {
+      -- Keywords (121):
+      "add", "after", "an", "and", "are", "article", "at", "attributes",
+      "before", "between", "by", "can", "cancel", "character", "characters",
+      "check", "container", "contains", "count", "current", "decrease",
+      "definite", "depend", "depending", "describe", "description", "directly",
+      "do", "does", "each", "else", "elsif", "empty", "end", "entered",
+      "event", "every", "exclude", "exit", "extract", "first", "for", "form",
+      "from", "has", "header", "here", "if", "import", "in", "include",
+      "increase", "indefinite", "initialize", "into", "is", "isa", "it",
+      "last", "limits", "list", "locate", "look", "make", "max", "mentioned",
+      "message", "min", "name", "near", "nearby", "negative", "no", "not",
+      "of", "off", "on", "only", "opaque", "option", "options", "or", "play",
+      "prompt", "pronoun", "quit", "random", "restart", "restore", "save",
+      "say", "schedule", "score", "script", "set", "show", "start", "step",
+      "stop", "strip", "style", "sum", "synonyms", "syntax", "system",
+      "taking", "the", "then", "this", "to", "transcript", "until", "use",
+      "verb", "visits", "wait", "when", "where", "with", "word", "words",
+      -- Treat as keywords:
+      "=>",          --> Shorthand for 'THEN'.
+      ".", ",", ":"  --> These are never used as operators.
+    }
+  },
+--------------------------------------------------------------------------------
+--                 Predefined Alan Classes and Special Entities                 
+--------------------------------------------------------------------------------
+  { Id = 2,
+    List = {
+      -- Built-in usable classes:
+      "actor", "entity", "location", "object", "thing",
+      -- Special entity for protagonist:
+      "hero"
+    }
+  }
+}
+
+--[[****************************************************************************
+*                                                                              *
+*                            CUSTOM HOOK-FUNCTIONS                             *
+*                                                                              *
+********************************************************************************
+
+================================================================================
+#01 -- Ignore Escape Sequences Outside Strings
+================================================================================
+This function ensures that escape sequences outside strings are ignored: tokens
+matching an escape sequence are rejected if the previously parsed token was not
+a string or another escape sequence. Based on André Simon's reply to Issue #23:
+    https://github.com/andre-simon/highlight/issues/23#issuecomment-332002639
+------------------------------------------------------------------------------]]
+function OnStateChange(oldState, newState, token, kwgroup)
+  if  newState == HL_ESC_SEQ and
+      oldState ~= HL_STRING  and
+      oldState ~= HL_ESC_SEQ then
+        return HL_REJECT
+  end
+  return newState
+end
+
+--[[============================================================================
+                                   CHANGELOG                                    
+================================================================================
+This syntax definition abides to Semantic Versioning 2.0.0:
+    http://semver.org
+--------------------------------------------------------------------------------
+v1.0.0 (2018/06/16 | Alan 3.0beta5 | Highlight v3.43)
+    - First release.
+--------------------------------------------------------------------------------
+--]]
