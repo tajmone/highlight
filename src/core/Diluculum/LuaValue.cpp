@@ -192,8 +192,9 @@ namespace Diluculum
 
          default:
             // no constructor needed.
-            memcpy (&data_, &other.data_, sizeof(PossibleTypes));
-            break;
+            //memcpy (&data_, &other.data_, sizeof(PossibleTypes));
+            data_ = other.data_;
+             break;
       }
    }
 
@@ -226,8 +227,9 @@ namespace Diluculum
 
          default:
             // no constructor needed.
-            memcpy (&data_, &rhs.data_, sizeof(PossibleTypes));
-            break;
+            //memcpy (&data_, &rhs.data_, sizeof(PossibleTypes));
+            data_ = rhs.data_;
+             break;
       }
 
       return *this;

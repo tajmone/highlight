@@ -1,6 +1,15 @@
 CHANGELOG Highlight
 
 
+highlight 3.44
+
+xx.xx.2018
+
+-fixed gcc 8 compilation warnings
+-fixed Ruby string interpolation (https://github.com/andre-simon/highlight/issues/70)
+-added support for ALAN IF (thanks to Tristano Ajmone)
+
+---
 highlight 3.43
 
 30.04.2018

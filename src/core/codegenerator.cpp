@@ -2232,7 +2232,7 @@ bool CodeGenerator::initPluginScript(const string& script)
             }
             listIdx++;
         }
-    }  catch (Diluculum::LuaError err) {
+    }  catch (Diluculum::LuaError &err) {
         userScriptError=err.what();
         return false;
     }

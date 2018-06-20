@@ -74,9 +74,10 @@ Keywords={
 Strings = {
   Delimiter=[["]],
   
-   DelimiterPairs= {
+  DelimiterPairs= {
     { Open=[['(?=.*')]], Close=[[']] }
-  }
+  },
+  Escape=[[\A(?!x)x]] 
 }
 
 

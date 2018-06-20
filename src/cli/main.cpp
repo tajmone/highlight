@@ -258,7 +258,7 @@ bool HLCmdLineApp::loadFileTypeConfig ( const string& confName)
             idx++;
         }
 
-    } catch (Diluculum::LuaError err) {
+    } catch (Diluculum::LuaError &err) {
         cerr <<err.what()<<"\n";
         return false;
     }

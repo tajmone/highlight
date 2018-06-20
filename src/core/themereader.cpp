@@ -125,13 +125,13 @@ bool ThemeReader::load ( const string &styleDefinitionPath , OutputType type)
             idx++;
         }
 
-    } catch (Diluculum::LuaFileError err) {
+    } catch (Diluculum::LuaFileError &err) {
         errorMsg = string(err.what());
         return fileOK=false;
-    } catch (Diluculum::TypeMismatchError err) {
+    } catch (Diluculum::TypeMismatchError &err) {
         errorMsg = string(err.what());
         return fileOK=false;
-    } catch (Diluculum::LuaSyntaxError err) {
+    } catch (Diluculum::LuaSyntaxError &err) {
         errorMsg = "syntax error: "+string(err.what());
         return fileOK=false;
     }

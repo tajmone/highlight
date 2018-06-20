@@ -170,25 +170,25 @@ Character classes are only available if the flag regex_constants::char_classes
 is set. The available character classes are:
  
 
-alnum 	Any alpha numeric character. 	 
+alnum 	Any alpha numeric character. 
 alpha 	Any alphabetical character a-z and A-Z. Other characters may
-	also be included depending upon the locale. 	 
-blank 	Any blank character, either a space or a tab. 	 
-cntrl 	Any control character. 	 
-digit 	Any digit 0-9. 	 
-graph 	Any graphical character. 	 
+	also be included depending upon the locale. 
+blank 	Any blank character, either a space or a tab. 
+cntrl 	Any control character. 
+digit 	Any digit 0-9. 
+graph 	Any graphical character. 
 lower 	Any lower case character a-z. Other characters may also be
-	included depending upon the locale. 	 
-print 	Any printable character. 	 
-punct 	Any punctuation character. 	 
-space 	Any whitespace character. 	 
+	included depending upon the locale. 
+print 	Any printable character. 
+punct 	Any punctuation character. 
+space 	Any whitespace character. 
 upper 	Any upper case character A-Z. Other characters may also be
-	included depending upon the locale. 	 
-xdigit 	Any hexadecimal digit character, 0-9, a-f and A-F. 	 
+	included depending upon the locale. 
+xdigit 	Any hexadecimal digit character, 0-9, a-f and A-F. 
 word 	Any word character - all alphanumeric characters plus the
-	underscore. 	 
+	underscore. 
 Unicode Any character whose code is greater than 255, this
-	applies to the wide character traits classes only. 	 
+	applies to the wide character traits classes only. 
 
 There are some shortcuts that can be used in place of the character classes,
 provided the flag regex_constants::escape_in_lists is set then you can use:
@@ -321,20 +321,20 @@ Single character escape sequences
 
 The following escape sequences are aliases for single characters:
  
-Escape sequence 	Character code 	Meaning 	 
-\a 	0x07 	Bell character. 	 
-\f 	0x0C 	Form feed. 	 
-\n 	0x0A 	Newline character. 	 
-\r 	0x0D 	Carriage return. 	 
-\t 	0x09 	Tab character. 	 
-\v 	0x0B 	Vertical tab. 	 
-\e 	0x1B 	ASCII Escape character. 	 
+Escape sequence 	Character code 	Meaning 
+\a 	0x07 	Bell character. 
+\f 	0x0C 	Form feed. 
+\n 	0x0A 	Newline character. 
+\r 	0x0D 	Carriage return. 
+\t 	0x09 	Tab character. 
+\v 	0x0B 	Vertical tab. 
+\e 	0x1B 	ASCII Escape character. 
 \0dd 	0dd 	An octal character code, where dd is one or more octal
-		digits. 	 
+		digits. 
 \xXX 	0xXX 	A hexadecimal character code, where XX is one or more
-		hexadecimal digits. 	 
+		hexadecimal digits. 
 \x{XX} 	0xXX 	A hexadecimal character code, where XX is one or more
-		hexadecimal digits, optionally a Unicode character. 	 
+		hexadecimal digits, optionally a Unicode character. 
 \cZ 	z-@ 	An ASCII escape sequence control-Z, where Z is any ASCII
 		character greater than or equal to the character code for '@'.
 
@@ -346,21 +346,21 @@ The following are provided mostly for perl compatibility, but note that there
 are some differences in the meanings of \l \L \u and \U:
  
 
-\w 	Equivalent to [[:word:]]. 	 
-\W 	Equivalent to [^[:word:]]. 	 
-\s 	Equivalent to [[:space:]]. 	 
-\S 	Equivalent to [^[:space:]]. 	 
-\d 	Equivalent to [[:digit:]]. 	 
-\D 	Equivalent to [^[:digit:]]. 	 
-\l 	Equivalent to [[:lower:]]. 	 
-\L 	Equivalent to [^[:lower:]]. 	 
-\u 	Equivalent to [[:upper:]]. 	 
-\U 	Equivalent to [^[:upper:]]. 	 
-\C 	Any single character, equivalent to '.'. 	 
+\w 	Equivalent to [[:word:]]. 
+\W 	Equivalent to [^[:word:]]. 
+\s 	Equivalent to [[:space:]]. 
+\S 	Equivalent to [^[:space:]]. 
+\d 	Equivalent to [[:digit:]]. 
+\D 	Equivalent to [^[:digit:]]. 
+\l 	Equivalent to [[:lower:]]. 
+\L 	Equivalent to [^[:lower:]]. 
+\u 	Equivalent to [[:upper:]]. 
+\U 	Equivalent to [^[:upper:]]. 
+\C 	Any single character, equivalent to '.'. 
 \X 	Match any Unicode combining character sequence, for example "a\x
-	0301" (a letter a with an acute). 	 
+	0301" (a letter a with an acute). 
 \Q 	The begin quote operator, everything that follows is treated as
-	a literal character until a \E end quote operator is found. 	 
+	a literal character until a \E end quote operator is found. 
 \E 	The end quote operator, terminates a sequence begun with \Q. 
 
 -------------------------------------------------------------------------------
@@ -387,6 +387,9 @@ Highlight method names. Note that a sub expression is used again.
 
 Regex=[[STO\xe2\x88\x91]]
 Unicode characters in a keyword.
+
+[[\A(?!x)x]]
+A never matching expression. Can be used to disable a default syntax element.
 
 ---
 Andre Simon

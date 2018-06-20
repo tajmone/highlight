@@ -377,7 +377,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
             decorateLineEndFct=new Diluculum::LuaFunction(ls["DecorateLineEnd"].value().asFunction());
         }
 
-    } catch (Diluculum::LuaError err) {
+    } catch (Diluculum::LuaError &err) {
         luaErrorMsg = string(err.what());
         return LOAD_FAILED_LUA;
     }

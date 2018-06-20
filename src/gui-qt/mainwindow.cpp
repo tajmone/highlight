@@ -531,7 +531,7 @@ bool MainWindow::loadFileTypeConfig()
             }
             idx++;
         }
-    } catch (Diluculum::LuaError err) {
+    } catch (Diluculum::LuaError &err) {
         QMessageBox::warning(this, "Configuration error", QString::fromStdString( err.what()));
         return false;
     }
@@ -1438,7 +1438,7 @@ void MainWindow::on_lvUserScripts_itemClicked(QListWidgetItem *item)
          } else {
              scriptWatcher.removePath(scriptPath);
          }
-     } catch (Diluculum::LuaError err) {
+     } catch (Diluculum::LuaError &err) {
          QMessageBox::warning(this, "User script error", QString::fromStdString( err.what()));
      }
 }
@@ -1460,7 +1460,7 @@ void MainWindow::on_lvPluginScripts_itemClicked(QListWidgetItem *item)
         ls.doFile ( item->data(Qt::UserRole).toString().toStdString());
         ui->lblPluginDescription->setText(QString::fromStdString(ls["Description"].value().asString()));
         statusBar()->showMessage(tr("Some plug-in effects may not be visible in the preview."));
-    } catch (Diluculum::LuaError err) {
+    } catch (Diluculum::LuaError &err) {
         QMessageBox::warning(this, "Plug-In error", QString::fromStdString( err.what()));
     }
 }

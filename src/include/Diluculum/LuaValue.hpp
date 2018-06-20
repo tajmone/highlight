@@ -295,6 +295,20 @@ namespace Diluculum
 
                PossibleTypes() {}
                ~PossibleTypes() {}
+               
+               // introduced because of gcc8 memcpy warnings
+               PossibleTypes& operator= (const PossibleTypes& rhs)
+                {
+                    typeNumber = rhs.typeNumber;
+                 //   typeString = rhs.typeString;
+                    typeBool = rhs.typeBool;
+                 //   typeLuaValueMap = rhs.typeLuaValueMap;
+                 //   typeFunction = rhs.typeFunction;
+                 //   typeUserData = rhs.typeUserData;
+
+                    return *this;
+                }
+               
          };
 
          /** This stores the actual data of this \c LuaValue.
