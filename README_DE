@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT HANDBUCH -----  Version 3.43   ------------------ April 2017 ---
+---  HIGHLIGHT HANDBUCH -----  Version 3.44   ------------------- Juni 2018 ---
 -------------------------------------------------------------------------------
 
 OSI Certified Open Source Software
@@ -202,7 +202,7 @@ Output formatting options:
  -K, --font-size=<num?>         set font size (specific to output format)
  -l, --line-numbers             print line numbers in output file
  -m, --line-number-start=<cnt>  start line numbering with cnt (assumes -l)
- -s, --style=<style>            set colour style (theme)
+ -s, --style=<style>            set colour style (theme). See --base16
  -t, --replace-tabs=<num>       replace tabs by <num> spaces
  -T, --doc-title=<title>        document title
  -u, --encoding=<enc>           set output encoding which matches input file
@@ -213,6 +213,7 @@ Output formatting options:
      --wrap-no-numbers          omit line numbers of wrapped lines
                                   (assumes -l)
  -z, --zeroes                   pad line numbers with 0's
+     --base16                   use theme of the Base16 theme set
      --delim-cr                 set CR as end-of-line delimiter (MacOS 9)
      --keep-injections          output plug-in injections in spite of -f
      --kw-case=<case>           change case of case insensitive keywords
@@ -711,7 +712,8 @@ Farbdefinitionen legen die Formatierung der Sprachelemente fest, die in den
 Sprachdefinitionen beschrieben wurden.
 
 Die Dateien muessen mit der Endung .theme in themes/ gespeichert werden. 
-Mit der --style (-s) Option wird das Farbschema angewandt.
+Mit der --style (-s) Option wird das Farbschema angewandt. Mit --base16 wird
+eins der mitgelieferten Base16 Themes gelesen (themes/base16/).
 
 Formatattribute:
 
@@ -951,8 +953,9 @@ Andre Simon
 andre.simon1@gmx.de
 http://www.andre-simon.de
 
-Github Projekt mit Git Repository, Bugtracker:
-https://github.com/andre-simon/highlight
+Git Projekt mit Repository, Bugtracker:
+https://gitlab.com/saalen/highlight/
+https://github.com/andre-simon/highlight (wird archiviert)
 
 sf.net Projekt mit SVN Repository, Download Mirror, Bugtracker, Foren:
 http://sourceforge.net/projects/syntaxhighlight/

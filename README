@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT MANUAL -------  Version 3.43   ------------------ April 2018 ---
+---  HIGHLIGHT MANUAL -------  Version 3.44   ------------------- June 2018 ---
 -------------------------------------------------------------------------------
 
 OSI Certified Open Source Software
@@ -201,7 +201,7 @@ Output formatting options:
  -K, --font-size=<num?>         set font size (specific to output format)
  -l, --line-numbers             print line numbers in output file
  -m, --line-number-start=<cnt>  start line numbering with cnt (assumes -l)
- -s, --style=<style>            set colour style (theme)
+ -s, --style=<style>            set colour style (theme). See --base16
  -t, --replace-tabs=<num>       replace tabs by <num> spaces
  -T, --doc-title=<title>        document title
  -u, --encoding=<enc>           set output encoding which matches input file
@@ -212,6 +212,7 @@ Output formatting options:
      --wrap-no-numbers          omit line numbers of wrapped lines
                                   (assumes -l)
  -z, --zeroes                   pad line numbers with 0's
+     --base16                   use theme of the Base16 theme set
      --delim-cr                 set CR as end-of-line delimiter (MacOS 9)
      --keep-injections          output plug-in injections in spite of -f
      --kw-case=<case>           change case of case insensitive keywords
@@ -694,7 +695,8 @@ Colour themes contain the formatting information of the language elements which
 are described in language definitions.
 
 The files have to be stored as *.theme in themes/.
-Apply a theme with the --style option.
+Apply a theme with the --style option. Use --base16 to use one of the included
+Base16 themes (themes/base16/).
 
 
 Format attributes:
@@ -932,8 +934,9 @@ Andre Simon
 andre.simon1@gmx.de
 http://www.andre-simon.de/
 
-Github project with Git repository, bug tracker:
-https://github.com/andre-simon/highlight
+Git project with repository, bug tracker:
+https://gitlab.com/saalen/highlight/
+https://github.com/andre-simon/highlight (will be set to archive mode)
 
 sf.net project with SVN repository, download mirror, bug tracker, help forum:
 http://sourceforge.net/projects/syntaxhighlight/
