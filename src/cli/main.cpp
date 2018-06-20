@@ -93,9 +93,13 @@ int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcar
         temp = ( filePaths[i] ).substr ( where.length() );
         cout <<temp.substr ( 1, temp.length()- wildcard.length() ) << endl;
     }
-    cout <<"\nUse name of the desired "<<what
+    cout <<"\nUse the name of the desired "<<what
          << " with the --" <<option<< " option." << endl;
 
+    if (what=="themes") {
+        cout <<"\nApply --base16 to select a Base16 theme." << endl;
+    }
+         
     printConfigInfo();
     
     return EXIT_SUCCESS;
@@ -421,7 +425,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         return EXIT_FAILURE;
     }
 
-    string themePath=options.getAbsThemePath().empty() ? dataDir.getThemePath ( options.getThemeName() ): options.getAbsThemePath();
+    string themePath=options.getAbsThemePath().empty() ? dataDir.getThemePath ( options.getThemeName(), options.useBase16Theme() ): options.getAbsThemePath();
 
     unique_ptr<highlight::CodeGenerator> generator ( highlight::CodeGenerator::getInstance ( options.getOutputType() ) );
 

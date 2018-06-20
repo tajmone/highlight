@@ -73,8 +73,9 @@ public:
     const string getSystemDataPath ( ) ;
 
     /** \param file file
+     *  \param base16 set to true if the theme is located in the base16 sub dir
         \return Location of given theme */
-    const string getThemePath ( const string & file ) ;
+    const string getThemePath ( const string & file, bool base16=false ) ;
 
     const string getFiletypesConfPath (const string &);
 

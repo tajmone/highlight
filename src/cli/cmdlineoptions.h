@@ -113,6 +113,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_CANVAS           "canvas"
 #define OPT_REFORMAT_OPT     "reformat-option"
 #define OPT_RANGE_OPT        "line-range"
+#define OPT_BASE16           "base16"
 
 // Improve CLI option compatibility with GNU source-highlight
 #define OPT_COMPAT_DOC       "doc"
@@ -323,6 +324,9 @@ public:
     /** \return True if style should be printed */
     bool printOnlyStyle() const;
 
+    /** \return True if Base16 theme should be used */
+    bool useBase16Theme() const;
+
     /** \return The given base font, empty string by default */
     const string& getBaseFont() const ;
 
@@ -460,6 +464,7 @@ private:
     bool opt_pretty_symbols;
     bool opt_delim_CR;
     bool opt_print_style;
+    bool opt_base16_theme;
     bool opt_no_trailing_nl;
     bool opt_keep_injections;
     bool opt_force_stdout;

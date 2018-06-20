@@ -93,7 +93,7 @@ void printHelp()
     cout<<" -K, --font-size=<num?>         set font size (specific to output format)\n";
     cout<<" -l, --line-numbers             print line numbers in output file\n";
     cout<<" -m, --line-number-start=<cnt>  start line numbering with cnt (assumes -l)\n";
-    cout<<" -s, --style=<style>            set colour style (theme)\n";
+    cout<<" -s, --style=<style>            set colour style (theme). See  --base16\n";
     cout<<" -t, --replace-tabs=<num>       replace tabs by <num> spaces\n";
     cout<<" -T, --doc-title=<title>        document title\n";
     cout<<" -u, --encoding=<enc>           set output encoding which matches input file\n";
@@ -104,6 +104,7 @@ void printHelp()
     cout<<"     --wrap-no-numbers          omit line numbers of wrapped lines\n";
     cout<<"                                  (assumes -l)\n";
     cout<<" -z, --zeroes                   pad line numbers with 0's\n";
+    cout<<"     --base16                   use theme of the Base16 theme set\n";
     cout<<"     --delim-cr                 set CR as end-of-line delimiter (MacOS 9)\n";
     cout<<"     --keep-injections          output plug-in injections in spite of -f\n";
     cout<<"     --kw-case=<case>           change case of case insensitive keywords\n";

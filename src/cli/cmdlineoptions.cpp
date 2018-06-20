@@ -48,7 +48,7 @@ enum Optcode {
         S_OPT_PRINT_STYLE, S_OPT_NO_TRAILING_NL, S_OPT_PLUGIN, S_OPT_ABS_CFG_PATH,
         S_OPT_PLUGIN_READFILE, S_OPT_PLUGIN_PARAMETER, S_OPT_LIST_SCRIPTS, S_OPT_CANVAS,
         S_OPT_KEEP_INJECTIONS, S_OPT_FORCE_STDOUT, S_OPT_LATEX_BEAMER, S_OPT_NO_VERSION_INFO,
-        S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT
+        S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16
     };
 
 const Arg_parser::Option options[] = {
@@ -120,6 +120,7 @@ const Arg_parser::Option options[] = {
         { S_OPT_PRETTY_SYMBOLS,   OPT_PRETTY_SYMBOLS,  Arg_parser::no },
         { S_OPT_EOL_DELIM_CR,     OPT_EOL_DELIM_CR,    Arg_parser::no },
         { S_OPT_PRINT_STYLE,      OPT_PRINT_STYLE,     Arg_parser::no },
+        { S_OPT_BASE16,           OPT_BASE16,          Arg_parser::no },
         { S_OPT_NO_TRAILING_NL,   OPT_NO_TRAILING_NL,  Arg_parser::no },
         { S_OPT_KEEP_INJECTIONS,  OPT_KEEP_INJECTIONS, Arg_parser::no },
         { S_OPT_FORCE_STDOUT,     OPT_FORCE_STDOUT,    Arg_parser::no },
@@ -188,6 +189,7 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_pretty_symbols ( false ),
     opt_delim_CR (false),
     opt_print_style(false),
+    opt_base16_theme(false),
     opt_no_trailing_nl(false),
     opt_keep_injections(false),
     opt_force_stdout(false),
@@ -501,6 +503,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         case S_OPT_PRINT_STYLE:
             opt_print_style = true;
             break;
+        case S_OPT_BASE16:
+            opt_base16_theme = true;
+            break;
         case S_OPT_NO_TRAILING_NL:
             opt_no_trailing_nl = true;
             break;
@@ -762,6 +767,11 @@ const vector<string> &CmdLineOptions::getAStyleOptions() const
 bool CmdLineOptions::printOnlyStyle() const
 {
     return opt_print_style;
+}
+
+bool CmdLineOptions::useBase16Theme() const
+{
+    return opt_base16_theme;
 }
 
 string CmdLineOptions::getIndentScheme() const

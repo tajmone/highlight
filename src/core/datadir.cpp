@@ -99,9 +99,14 @@ const string DataDir::getLangPath ( const string & file )
     return searchFile(string("langDefs")+Platform::pathSeparator+file);
 }
 
-const string DataDir::getThemePath ( const string & file)
+const string DataDir::getThemePath ( const string & file, bool base16)
 {
-    return searchFile(string("themes")+Platform::pathSeparator+file);
+    string themesPath=string("themes")+Platform::pathSeparator;
+    
+    if (base16)
+        themesPath=themesPath + "base16" + Platform::pathSeparator;
+    
+    return searchFile(themesPath+file);
 }
 
 const string DataDir::getPluginPath ( const string & file)
