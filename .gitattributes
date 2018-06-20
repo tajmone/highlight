@@ -176,12 +176,27 @@ makefile       text
 *.zip          binary
 
 # ==============================================================================
-#                                GitHub Linguist                                
+#                               Language Settings                               
 # ==============================================================================
-#  -- https://github.com/github/linguist
-# Manually define/override some extension so that GitHub's Linguist library can
+# Manually define/override some file extension so that GitHub and GitLab can
 # 1) correctly gather statistics on source files, and
 # 2) use proper syntax highlighting on GitHub's WebUI.
+
+# ------------------------------------------------------------------------------
+#                           GitLab Syntax Highlighting                          
+# ------------------------------------------------------------------------------
+# https://docs.gitlab.com/ee/user/project/highlighting.html
+
+## =================
+## LANGDEFS & THEMES
+## =================
+*.lang         gitlab-language=Lua
+*.theme        gitlab-language=Lua
+
+# ------------------------------------------------------------------------------
+#                                GitHub Linguist                                
+# ------------------------------------------------------------------------------
+# https://github.com/github/linguist
 
 ## =================
 ## LANGDEFS & THEMES
