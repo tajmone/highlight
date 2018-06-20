@@ -37,7 +37,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include "syntax_chooser.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindowClass), getDataFromCP(false)
+    : QMainWindow(parent), ui(new Ui::MainWindowClass), themesClassicIdx(0), themesBase16Idx(0), getDataFromCP(false)
 {
     ui->setupUi(this);
     this->setWindowTitle(QString("Highlight %1").arg( HIGHLIGHT_VERSION));
@@ -68,18 +68,28 @@ MainWindow::MainWindow(QWidget *parent)
 
 #ifdef Q_OS_OSX
     QDir themesDir(QCoreApplication::applicationDirPath() + "/../Resources/themes");
+    QDir themesDirBase16(QCoreApplication::applicationDirPath() + "/../Resources/themes/base16");
+
 #else
     #ifdef DATA_DIR
-    QDir themesDir(QString(DATA_DIR) + "/themes");
+    QDir themesDirClassic(QString(DATA_DIR) + "/themes");
+    QDir themesDirBase16(QString(DATA_DIR) + "/themes/base16");
     #else
-    QDir themesDir(QDir::currentPath()+"/themes");
+    QDir themesDirClassic(QDir::currentPath()+"/themes");
+    QDir themesDirBase16(QDir::currentPath()+"/themes/base16");
     #endif
 #endif
 
-    QStringList themes = themesDir.entryList(QStringList("*.theme"), QDir::Files, QDir::Name);
-    for (QStringList::const_iterator constIterator = themes.constBegin();
-            constIterator != themes.constEnd(); ++constIterator) {
-        ui->comboTheme->addItem(QString(*constIterator).section('.',0, 0));
+    QStringList filesClassic = themesDirClassic.entryList(QStringList("*.theme"), QDir::Files, QDir::Name);
+    for (QStringList::const_iterator constIterator = filesClassic.constBegin();
+            constIterator != filesClassic.constEnd(); ++constIterator) {
+        themesClassic.append(QString(*constIterator).section('.',0, 0));
+    }
+
+    QStringList filesBase16 = themesDirBase16.entryList(QStringList("*.theme"), QDir::Files, QDir::Name);
+    for (QStringList::const_iterator constIteratorBase16 = filesBase16.constBegin();
+            constIteratorBase16 != filesBase16.constEnd(); ++constIteratorBase16) {
+        themesBase16.append(QString(*constIteratorBase16).section('.',0, 0));
     }
     ui->comboTheme->setCurrentIndex(0);
 
@@ -166,8 +176,22 @@ MainWindow::MainWindow(QWidget *parent)
     setAcceptDrops(true);
 
     readSettings();
+
+    fillThemeCombo();
     plausibility();
     statusBar()->showMessage(tr("Always at your service"), 2500);
+}
+
+void MainWindow::fillThemeCombo()
+{
+    ui->comboTheme->clear();
+    if (ui->cbUseBase16->isChecked()){
+        ui->comboTheme->addItems(themesBase16);
+        ui->comboTheme->setCurrentIndex(themesBase16Idx);
+    } else {
+        ui->comboTheme->addItems(themesClassic);
+        ui->comboTheme->setCurrentIndex(themesClassicIdx);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -290,6 +314,8 @@ void MainWindow::writeSettings()
                       ui->cbHTMLAnchors->isChecked());
     settings.setValue(ui->cbOmitVersionInfo->property(name).toString(),
                       ui->cbOmitVersionInfo->isChecked());
+    settings.setValue(ui->cbUseBase16->property(name).toString(),
+                      ui->cbUseBase16->isChecked());
 
     settings.setValue(ui->cbHTMLEmbedStyle->property(name).toString(),
                       ui->cbHTMLEmbedStyle->isChecked());
@@ -336,8 +362,10 @@ void MainWindow::writeSettings()
                       ui->comboReformat->currentIndex());
     settings.setValue(ui->comboRTFPageSize->property(name).toString(),
                       ui->comboRTFPageSize->currentIndex());
-    settings.setValue(ui->comboTheme->property(name).toString(),
-                      ui->comboTheme->currentIndex());
+
+    settings.setValue("themesClassicIdx", themesClassicIdx);
+    settings.setValue("themesBase16Idx", themesBase16Idx);
+
     settings.setValue(ui->comboEncoding->property(name).toString(),
                       ui->comboEncoding->currentText());
     settings.setValue(ui->comboFontName->property(name).toString(),
@@ -469,8 +497,16 @@ void MainWindow::readSettings()
     ui->comboKwCase->setCurrentIndex(settings.value(ui->comboKwCase->property(name).toString()).toInt());
     ui->comboReformat->setCurrentIndex(settings.value(ui->comboReformat->property(name).toString()).toInt());
     ui->comboRTFPageSize->setCurrentIndex(settings.value(ui->comboRTFPageSize->property(name).toString()).toInt());
-    ui->comboTheme->setCurrentIndex(settings.value(ui->comboTheme->property(name).toString(),0).toInt());
+   // ui->comboTheme->setCurrentIndex(settings.value(ui->comboTheme->property(name).toString(),0).toInt());
     ui->comboSelectSyntax->setCurrentIndex(settings.value(ui->comboSelectSyntax->property(name).toString()).toInt());
+
+    int oldThemeIdx = settings.value(ui->comboTheme->property(name).toString(),0).toInt();
+    themesClassicIdx = settings.value("themesClassicIdx",0).toInt();
+    if (themesClassicIdx==0)
+        themesClassicIdx=oldThemeIdx;
+
+    themesBase16Idx = settings.value("themesBase16Idx",0).toInt();
+    ui->cbUseBase16->setChecked(settings.value(ui->cbUseBase16->property(name).toString()).toBool());
 
     ui->leHTMLStyleFile->setText(settings.value(ui->leHTMLStyleFile->property(name).toString()).toString());
     ui->leHTMLStyleIncFile->setText(settings.value(ui->leHTMLStyleIncFile->property(name).toString()).toString());
@@ -817,6 +853,8 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
     if (ui->cbReformat->isChecked()) {
         generator->initIndentationScheme(ui->comboReformat->currentText().toLower().toStdString());
     }
+
+
 }
 
 highlight::WrapMode MainWindow::getWrappingStyle()
@@ -1104,6 +1142,7 @@ void MainWindow::plausibility()
     ui->comboReformat->setEnabled(ui->cbReformat->isChecked());
     ui->comboKwCase->setEnabled(ui->cbKwCase->isChecked());
     ui->comboTheme->setEnabled(getUserScriptPath("theme").isEmpty());
+    ui->cbUseBase16->setEnabled(getUserScriptPath("theme").isEmpty());
     ui->comboSelectSyntax->setEnabled(getUserScriptPath("lang").isEmpty());
 
     ui->cbHTMLInlineCSS->setEnabled(ui->cbHTMLEmbedStyle->isChecked());
@@ -1161,8 +1200,9 @@ void MainWindow::updatePreview()
         getDataFromCP = sender()==ui->pbPasteFromCB;
     }
 
-    if ((!getDataFromCP && NULL==ui->lvInputFiles->currentItem())
-            || (getDataFromCP && savedClipboardContent.isEmpty())) return;
+    if ( ui->comboTheme->currentIndex()<0
+         || (!getDataFromCP && NULL==ui->lvInputFiles->currentItem())
+         || (getDataFromCP && savedClipboardContent.isEmpty())) return;
 
     int vScroll = ui->browserPreview->verticalScrollBar()->value();
     int hScroll = ui->browserPreview->horizontalScrollBar()->value();
@@ -1187,10 +1227,15 @@ void MainWindow::updatePreview()
     }
 
     QString langPath = getUserScriptPath("lang");
-    QString origin=tr("(user script)");
+    QString langOrigin=tr("(user script)");
     if (langPath.isEmpty()) {
-        origin="";
+        langOrigin="";
         langPath = getDistLangPath(suffix);
+    }
+    QString themePath = getUserScriptPath("theme");
+    QString themeOrigin=tr("(user script)");
+    if (themePath.isEmpty()) {
+        themeOrigin="";
     }
 
     if ( pwgenerator.loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
@@ -1198,7 +1243,11 @@ void MainWindow::updatePreview()
         ui->lbPreview->setText(tr("Preview (%1):").arg(
                                    (getDataFromCP)?tr("clipboard data"):croppedName) );
 
-        statusBar()->showMessage(tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(origin));
+        QString syntaxDesc = tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(langOrigin);
+        QString themeDesc = tr("Current theme: %1 %2").arg(QString::fromStdString(pwgenerator.getThemeDescription())).arg(themeOrigin);
+
+        statusBar()->showMessage(QString("%1 | %2").arg(syntaxDesc, themeDesc));
+
         QString previewData;
 
         // fix utf-8 data preview - to be improved (other encodings??)
@@ -1416,6 +1465,15 @@ void MainWindow::on_pbBrowseOutDir_clicked()
     QDesktopServices::openUrl(QUrl::fromLocalFile(ui->leOutputDest->text()));
 }
 
+// use activated signal to prevent trigger of combo list changes
+void MainWindow::on_comboTheme_activated(int index){
+    if (ui->cbUseBase16->isChecked() ){
+            themesBase16Idx = index;
+    } else {
+            themesClassicIdx = index;
+    }
+}
+
 void MainWindow::on_lvUserScripts_itemClicked(QListWidgetItem *item)
 {
      QString scriptPath= item->data(Qt::UserRole).toString();
@@ -1465,17 +1523,22 @@ void MainWindow::on_lvPluginScripts_itemClicked(QListWidgetItem *item)
     }
 }
 
+void MainWindow::on_cbUseBase16_clicked(){
+    fillThemeCombo();
+}
+
 QString MainWindow::getDistThemePath(){
+    QString themeLocation =  ui->cbUseBase16->isChecked() ? "themes/base16" : "themes";
 #ifdef Q_OS_OSX
-     return QString("%1/../Resources/themes/%2.theme").arg(
-                            QCoreApplication::applicationDirPath()).arg(ui->comboTheme->currentText());
+     return QString("%1/../Resources/%3/%2.theme").arg(
+                            QCoreApplication::applicationDirPath()).arg(ui->comboTheme->currentText(), themeLocation);
 #else
     #ifdef DATA_DIR
-     return  QString("%1themes/%2.theme").arg(
-                            DATA_DIR).arg(ui->comboTheme->currentText());
+     return  QString("%1%3/%2.theme").arg(
+                            DATA_DIR).arg(ui->comboTheme->currentText(), themeLocation);
     #else
-     return  QString("%1/themes/%2.theme").arg(
-                            QDir::currentPath()).arg(ui->comboTheme->currentText());
+     return  QString("%1/%3/%2.theme").arg(
+                            QDir::currentPath()).arg(ui->comboTheme->currentText(), themeLocation);
     #endif
 #endif
 }

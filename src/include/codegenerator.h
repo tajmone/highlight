@@ -403,6 +403,9 @@ public:
     /** \return Syntaxreader description */
     string getSyntaxDescription();
 
+    /** \return Theme description */
+    string getThemeDescription();
+
     /** \return Pointer Syntaxreader, intended for debug output  */
     SyntaxReader* getSyntaxReader()
     {

@@ -9,28 +9,28 @@ Check installation.</source>
         <translation type="obsolete">Не са намерени теми или схеми за подреждане.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="94"/>
+        <location filename="mainwindow.cpp" line="105"/>
         <source>Initialization error</source>
         <translation>Грешка при инициализация</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="95"/>
+        <location filename="mainwindow.cpp" line="106"/>
         <source>Could not find syntax definitions. Check installation.</source>
         <translation>Не могат да бъдат открити синтактични определения.
 Проверете инсталацията.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="182"/>
         <source>Always at your service</source>
         <translation>Винаги на вашите услуги</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="184"/>
+        <location filename="mainwindow.cpp" line="209"/>
         <source>Select one or more files to open</source>
         <translation>Изберете един или повече файлове за отваряне</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="221"/>
+        <location filename="mainwindow.cpp" line="246"/>
         <source>Select destination directory</source>
         <translation>Изберете целева папка</translation>
     </message>
@@ -43,106 +43,112 @@ Check installation.</source>
         <translation type="obsolete">Не може да бъде прочетена информация за маркери в &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="839"/>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="878"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>Output error</source>
         <translation>Изходна грешка</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="839"/>
+        <location filename="mainwindow.cpp" line="878"/>
         <source>Output directory does not exist!</source>
         <translation>Изходната папка не съществува!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>You must define a style output file!</source>
         <translation>Трябва да определите файл със стилови описания за изход!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="902"/>
+        <location filename="mainwindow.cpp" line="941"/>
         <source>Processing %1 (%2/%3)</source>
         <translation>Обработка на %1 (%2/%3)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="908"/>
+        <location filename="mainwindow.cpp" line="947"/>
         <source>Language definition error</source>
         <translation>Грешка в описанието на езика</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="909"/>
+        <location filename="mainwindow.cpp" line="948"/>
         <source>Invalid regular expression in %1:
 %2</source>
         <translation>Недействителен регулярен израз в %1: %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Unknown syntax</source>
         <translation>Непознат синтаксис</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Could not convert %1</source>
         <translation>Невъзможност за превръщане на %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="955"/>
         <source>Lua error</source>
         <translation>Lua грешка</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="955"/>
         <source>Could not convert %1:
 Lua Syntax error: %2</source>
         <translation>Невъзможност за превръщане на %1:\nLua синтактична грешка: %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="989"/>
+        <location filename="mainwindow.cpp" line="1028"/>
         <source>Converted %1 files in %2 ms</source>
         <translation>%1 файла превърнати за %2 мс</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1087"/>
+        <location filename="mainwindow.cpp" line="1126"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation>Превръщането на &quot;%1&quot; не е възможно.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1087"/>
-        <location filename="mainwindow.cpp" line="1198"/>
-        <location filename="mainwindow.cpp" line="1219"/>
+        <location filename="mainwindow.cpp" line="1126"/>
+        <location filename="mainwindow.cpp" line="1244"/>
+        <location filename="mainwindow.cpp" line="1269"/>
         <source>clipboard data</source>
         <translation>данни от системен буфер</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1153"/>
+        <location filename="mainwindow.cpp" line="1193"/>
         <source>%1 options</source>
         <translation>%1 настройки</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1189"/>
+        <location filename="mainwindow.cpp" line="1230"/>
+        <location filename="mainwindow.cpp" line="1236"/>
         <source>(user script)</source>
         <translation>(потребителски скрипт)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1197"/>
+        <location filename="mainwindow.cpp" line="1243"/>
         <source>Preview (%1):</source>
         <translation>Преглед (%1):</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1200"/>
+        <location filename="mainwindow.cpp" line="1246"/>
         <source>Current syntax: %1 %2</source>
         <translation>Текущ синтаксис: %1 %2</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1247"/>
+        <source>Current theme: %1 %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Current syntax: %1</source>
         <translation type="vanished">Текущ синтаксис: %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1219"/>
+        <location filename="mainwindow.cpp" line="1269"/>
         <source>Preview of &quot;%1&quot; not possible.</source>
         <translation>Преглед на &quot;%1&quot; не е възможен.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1459"/>
+        <location filename="mainwindow.cpp" line="1520"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation>Някои ефекти от модули може да не са видими в прегледа.</translation>
     </message>
@@ -151,20 +157,20 @@ Lua Syntax error: %2</source>
         <translation type="obsolete">Избор на ctags файл</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1256"/>
-        <location filename="mainwindow.cpp" line="1260"/>
-        <location filename="mainwindow.cpp" line="1264"/>
-        <location filename="mainwindow.cpp" line="1269"/>
+        <location filename="mainwindow.cpp" line="1306"/>
+        <location filename="mainwindow.cpp" line="1310"/>
+        <location filename="mainwindow.cpp" line="1314"/>
+        <location filename="mainwindow.cpp" line="1319"/>
         <source>Choose a style include file</source>
         <translation>Изберете файл със стилови описания за включване</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1274"/>
+        <location filename="mainwindow.cpp" line="1324"/>
         <source>About providing translations</source>
         <translation>За предоставянето на преводи</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1275"/>
+        <location filename="mainwindow.cpp" line="1325"/>
         <source>The GUI was developed using the Qt toolkit, and translations may be provided using the tools Qt Linguist and lrelease.
 The highlight.ts file for Linguist resides in the src/gui-qt subdirectory.
 The qm file generated by lrelease has to be saved in gui-files/l10n.
@@ -177,17 +183,17 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
 Моля, пишете на as (at) andre-simon (dot) de ако имате проблeми при превода или ако сте завършили или обновили превод.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1333"/>
+        <location filename="mainwindow.cpp" line="1383"/>
         <source>Select one or more plug-ins</source>
         <translation>Изберете един или повече модули</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1344"/>
+        <location filename="mainwindow.cpp" line="1394"/>
         <source>Select one or more syntax or theme scripts</source>
         <translation>Изберете един или повече синтактични или тематични скриптове</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1402"/>
+        <location filename="mainwindow.cpp" line="1454"/>
         <source>Choose a plug-in input file</source>
         <translation>Изберете входен файл с модул</translation>
     </message>
@@ -195,40 +201,40 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
 <context>
     <name>MainWindowClass</name>
     <message>
-        <location filename="mainwindow.ui" line="183"/>
+        <location filename="mainwindow.ui" line="180"/>
         <source>Choose the source code files you want to convert.</source>
         <translation>Избор на изходните файлове, които желаете да превърнете.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="189"/>
+        <location filename="mainwindow.ui" line="186"/>
         <source>Choose input files</source>
         <translation>Избор на входни файлове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="215"/>
+        <location filename="mainwindow.ui" line="212"/>
         <source>List of input files.</source>
         <translation>Списък с входни файлове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="236"/>
         <source>Remove the selected input files.</source>
         <translation>Премахване на избраните входни файлове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="242"/>
-        <location filename="mainwindow.ui" line="556"/>
+        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="553"/>
         <location filename="mainwindow.ui" line="689"/>
         <source>Clear selection</source>
         <translation>Премахване на избраните</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="246"/>
         <source>Remove all input files.</source>
         <translation>Премахване на всички входни файлове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="252"/>
-        <location filename="mainwindow.ui" line="566"/>
+        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="563"/>
         <location filename="mainwindow.ui" line="699"/>
         <source>Clear all</source>
         <translation>Премахване на всички</translation>
@@ -238,18 +244,18 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation type="obsolete">Цел на изхода</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="291"/>
+        <location filename="mainwindow.ui" line="288"/>
         <source>Output directory</source>
         <translation>Изходяща папка</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="310"/>
+        <location filename="mainwindow.ui" line="307"/>
         <source>Select the output directory.</source>
         <translation>Избора на изходящата папка.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="313"/>
-        <location filename="mainwindow.ui" line="643"/>
+        <location filename="mainwindow.ui" line="310"/>
+        <location filename="mainwindow.ui" line="640"/>
         <location filename="mainwindow.ui" line="1286"/>
         <location filename="mainwindow.ui" line="1555"/>
         <location filename="mainwindow.ui" line="1663"/>
@@ -258,12 +264,12 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation>...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="348"/>
+        <location filename="mainwindow.ui" line="345"/>
         <source>Save output in the input file directories.</source>
         <translation>Записване на изхода в папките на входните файлове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="351"/>
+        <location filename="mainwindow.ui" line="348"/>
         <source>Write to source directories</source>
         <translation>Писане във входни папки</translation>
     </message>
@@ -399,14 +405,14 @@ Removes Unicode BOM mark.</source>
         <translation>Височина:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2059"/>
+        <location filename="mainwindow.ui" line="2103"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation>Преформатиране и подреждане на кода.
 Тази възможност е налична за C, C++, C# и Java код.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2384"/>
+        <location filename="mainwindow.ui" line="2431"/>
         <source>&amp;Plug-Ins</source>
         <translation>&amp;Модули</translation>
     </message>
@@ -774,37 +780,37 @@ See ctags.sf.net for details.</source>
         <translation>Файл със стилови описания:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="276"/>
+        <location filename="mainwindow.ui" line="273"/>
         <source>Output destination:</source>
         <translation>Изходяща папка:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="332"/>
+        <location filename="mainwindow.ui" line="329"/>
         <source>Browse output directory</source>
         <translation>Преглед на изходяща папка</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="484"/>
+        <location filename="mainwindow.ui" line="481"/>
         <source>Paste code from clipboard and copy the output back in one step</source>
         <translation>Поставяне на код от системния буфер и копиране на изхода обратно в една стъпка</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="490"/>
+        <location filename="mainwindow.ui" line="487"/>
         <source>Paste, Convert and Copy</source>
         <translation>Поставяне, превръщане и копиране</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="657"/>
+        <location filename="mainwindow.ui" line="654"/>
         <source>Scripts</source>
         <translation>Скриптове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="663"/>
+        <location filename="mainwindow.ui" line="660"/>
         <source>Choose a custom syntax or theme script.</source>
         <translation>Избор на друг синтактичен или тематичен скрипт.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="666"/>
+        <location filename="mainwindow.ui" line="663"/>
         <source>Add custom script to pool</source>
         <translation>Добавяне на потребителски скрипт към склада</translation>
     </message>
@@ -873,49 +879,49 @@ See ctags.sf.net for details.</source>
         <translation>Синтактично оцветяване</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="177"/>
+        <location filename="mainwindow.ui" line="174"/>
         <source>Files</source>
         <translation>Файлове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="438"/>
+        <location filename="mainwindow.ui" line="435"/>
         <source>Paste clipboard content into the preview window.</source>
         <translation>Поставяне на съдържанието на системния буфер в прозореца за преглед.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="441"/>
+        <location filename="mainwindow.ui" line="438"/>
         <source>Paste from clipboard (%1)</source>
         <oldsource>Paste from clipboard</oldsource>
         <translation>Поставяне от системен буфер (%1)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="458"/>
+        <location filename="mainwindow.ui" line="455"/>
         <source>Copy highlighted code into the clipboard.</source>
         <translation>Копиране на оцветения код в системния буфер.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="461"/>
+        <location filename="mainwindow.ui" line="458"/>
         <source>Copy preview to clipboard (%1)</source>
         <oldsource>Copy preview to clipboard</oldsource>
         <translation>Копиране на преглед в системен буфер (%1)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="422"/>
+        <location filename="mainwindow.ui" line="419"/>
         <source>Select syntax:</source>
         <translation>Избор на синтаксис:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="429"/>
+        <location filename="mainwindow.ui" line="426"/>
         <source>Select the correct syntax of the code snippet.</source>
         <translation>Избор на правилния синтаксис за парчето код.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="515"/>
+        <location filename="mainwindow.ui" line="512"/>
         <source>Plug-ins</source>
         <translation>Модули</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="524"/>
+        <location filename="mainwindow.ui" line="521"/>
         <source>Add plug-in to pool</source>
         <translation>Добавяне на модул към склада</translation>
     </message>
@@ -1099,12 +1105,22 @@ You can select the stylesheets in your word processor to reformat additional tex
         <translation>Форматиране</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2023"/>
+        <location filename="mainwindow.ui" line="2032"/>
         <source>Color theme:</source>
         <translation>Цветова тема:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2045"/>
+        <location filename="mainwindow.ui" line="2064"/>
+        <source>Toggle classic theme or Base16 theme selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2067"/>
+        <source>Base16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2086"/>
         <source>Select a colour theme.</source>
         <translation>Избор на цветова тема.</translation>
     </message>
@@ -1115,84 +1131,84 @@ This feature is enabled tor C, C++, C# and Java code.</source>
 Тази възможност е налична за C, C++, C# и Java код.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2063"/>
+        <location filename="mainwindow.ui" line="2107"/>
         <source>Reformat:</source>
         <translation>Преформатиране:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2082"/>
+        <location filename="mainwindow.ui" line="2126"/>
         <source>Choose a formatting scheme.</source>
         <translation>Избор на схема за форматиране.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2096"/>
+        <location filename="mainwindow.ui" line="2140"/>
         <source>Change the keyword case.</source>
         <translation>Промяна на регистъра на ключовите думи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2099"/>
+        <location filename="mainwindow.ui" line="2143"/>
         <source>Keyword case:</source>
         <translation>Регистър за ключови думи:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2118"/>
+        <location filename="mainwindow.ui" line="2162"/>
         <source>Select a keyword case.</source>
         <translation>Избор на регистър за ключови думи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2122"/>
+        <location filename="mainwindow.ui" line="2169"/>
         <source>UPPER</source>
         <translation>ГОРЕН</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2127"/>
+        <location filename="mainwindow.ui" line="2174"/>
         <source>lower</source>
         <translation>долен</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2132"/>
+        <location filename="mainwindow.ui" line="2179"/>
         <source>Capitalize</source>
         <translation>Изречение</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2150"/>
+        <location filename="mainwindow.ui" line="2197"/>
         <source>Tab width:</source>
         <translation>Дължина на табулатор:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2166"/>
+        <location filename="mainwindow.ui" line="2213"/>
         <source>Enter the number of spaces which replace a tab.
 Set the width to 0 to keep tabs.</source>
         <translation>Въвеждане на броя интервали заместващи табулатор.
 Въведете 0 за запазване на табулатори.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2181"/>
+        <location filename="mainwindow.ui" line="2228"/>
         <source>Enable line wrapping.</source>
         <translation>Разрешаване на пренасяне на редове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2184"/>
+        <location filename="mainwindow.ui" line="2231"/>
         <source>Line wrapping</source>
         <translation>Пренасяне на редове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2197"/>
+        <location filename="mainwindow.ui" line="2244"/>
         <source>Enter the maximum line length.</source>
         <translation>Въвеждане на максимална дължина на ред.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2216"/>
+        <location filename="mainwindow.ui" line="2263"/>
         <source>Indent statements and function parameters after wrapping.</source>
         <translation>Подреждане на изрази и параметри на функции след пренасяне.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2219"/>
+        <location filename="mainwindow.ui" line="2266"/>
         <source>Intelligent wrapping</source>
         <translation>Интелигентно пренасяне</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2240"/>
+        <location filename="mainwindow.ui" line="2287"/>
         <source>Font na&amp;me:</source>
         <oldsource>Font name:</oldsource>
         <translation>Име на &amp;шрифт:</translation>
@@ -1206,18 +1222,18 @@ Set the width to 0 to keep tabs.</source>
         <translation type="vanished">Размер на шрифт:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2295"/>
+        <location filename="mainwindow.ui" line="2342"/>
         <source>Enter the font size.</source>
         <translation>Въвеждане на размер на шрифта.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2368"/>
+        <location filename="mainwindow.ui" line="2415"/>
         <source>&amp;Visit andre-simon.de</source>
         <oldsource>Visit andre-simon.de</oldsource>
         <translation>&amp;Посещаване на andre-simon.de</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2379"/>
+        <location filename="mainwindow.ui" line="2426"/>
         <source>&amp;Dock floating panels</source>
         <translation>&amp;Закачане на плаващи панели</translation>
     </message>
@@ -1231,48 +1247,48 @@ Set the width to 0 to keep tabs.</source>
         <translation type="obsolete">Посещаване на сайта</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="386"/>
+        <location filename="mainwindow.ui" line="383"/>
         <source>Start the conversion of your input files.</source>
         <translation>Започва превръщането на входните файлове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="389"/>
+        <location filename="mainwindow.ui" line="386"/>
         <source>Convert files</source>
         <translation>Превръщане на файлове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="399"/>
+        <location filename="mainwindow.ui" line="396"/>
         <source>Copy highlighted code of the seleted file into the clipboard.</source>
         <translation>Копиране на оцветения код на избрания файл в системния буфер.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="414"/>
+        <location filename="mainwindow.ui" line="411"/>
         <source>Clipboard</source>
         <translation>Системен буфер</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="402"/>
+        <location filename="mainwindow.ui" line="399"/>
         <source>Copy file to clipboard</source>
         <translation>Копиране на файл към системен буфер</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="521"/>
+        <location filename="mainwindow.ui" line="518"/>
         <source>Choose a plug-in script.</source>
         <translation>Избор на скрипт на модул.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="535"/>
+        <location filename="mainwindow.ui" line="532"/>
         <source>List of plug-ins. Toggle checkbox to enable the scripts. The preview window may not display all plug-in effects.</source>
         <oldsource>List of plug-ins. Toggle checkbox to enable the scripts.</oldsource>
         <translation>Списък на модули. Щракнете върху отметката, за да разрешите скриптовете. Прозореца за преглед може да не покаже всички ефекти от модули.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="553"/>
+        <location filename="mainwindow.ui" line="550"/>
         <source>Remove the selected plug-ins.</source>
         <translation>Премахване на избраните модули.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="563"/>
+        <location filename="mainwindow.ui" line="560"/>
         <source>Remove all plug-ins.</source>
         <translation>Премахване на всички модули.</translation>
     </message>
@@ -1312,35 +1328,35 @@ Set the width to 0 to keep tabs.</source>
         <translation type="vanished">Можете да използвате системните клавишни комбинации за копиране и поставяне.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="575"/>
+        <location filename="mainwindow.ui" line="572"/>
         <location filename="mainwindow.ui" line="708"/>
         <source>Description</source>
         <translation>Описание</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="587"/>
+        <location filename="mainwindow.ui" line="584"/>
         <source>Shows decription of a selected plug-in script.</source>
         <translation>Показва описание на избрания модул.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="590"/>
+        <location filename="mainwindow.ui" line="587"/>
         <source>Plug-In description</source>
         <translation>Описание на модула</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="618"/>
+        <location filename="mainwindow.ui" line="615"/>
         <source>Plug-in parameter</source>
         <oldsource>Plug-in input file</oldsource>
         <translation>Параметър на модула</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="627"/>
+        <location filename="mainwindow.ui" line="624"/>
         <source>Optional plug-in parameter, this may be a path to a plug-in input file</source>
         <oldsource>Optional path to a plug-in input file</oldsource>
         <translation>Незадължителен параметър на модула, който може да бъде път към файл на модул</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="640"/>
+        <location filename="mainwindow.ui" line="637"/>
         <source>Select the plug-in input file.</source>
         <translation>Избор на входен файл на модула.</translation>
     </message>
@@ -1354,78 +1370,78 @@ Set the width to 0 to keep tabs.</source>
         <translation type="obsolete">Използване на твърди интервали</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2226"/>
+        <location filename="mainwindow.ui" line="2273"/>
         <source>Do not add line numbering to lines which were automatically wrapped.</source>
         <translation>Без номериране на редове, които са били автоматично пренесени.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2229"/>
+        <location filename="mainwindow.ui" line="2276"/>
         <source>Omit line numbers of wrapped lines</source>
         <translation>Пропускане на номер за пренесени редове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2261"/>
+        <location filename="mainwindow.ui" line="2308"/>
         <source>Select or enter the font name. HTML supports a list of fonts, separated with comma.</source>
         <translation>Избор или въвеждане на име на шрифт. HTML поддържа списък с шрифтове, разделени със запетая.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2273"/>
+        <location filename="mainwindow.ui" line="2320"/>
         <source>Font si&amp;ze:</source>
         <translation>Размер на &amp;шрифта:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2310"/>
+        <location filename="mainwindow.ui" line="2357"/>
         <source>&amp;Open files</source>
         <translation>&amp;Отваряне на файлове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2315"/>
+        <location filename="mainwindow.ui" line="2362"/>
         <source>&amp;Exit</source>
         <translation>&amp;Изход</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2320"/>
+        <location filename="mainwindow.ui" line="2367"/>
         <source>&amp;Load</source>
         <translation>&amp;Зареждане</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2325"/>
+        <location filename="mainwindow.ui" line="2372"/>
         <source>&amp;Save</source>
         <translation>&amp;Запазване</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2330"/>
+        <location filename="mainwindow.ui" line="2377"/>
         <source>Load &amp;default project</source>
         <translation>Зареждане на проект по &amp;подразбиране</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2335"/>
+        <location filename="mainwindow.ui" line="2382"/>
         <source>&amp;Readme</source>
         <oldsource>Readme</oldsource>
         <translation>Файл Про&amp;чети ме</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2340"/>
+        <location filename="mainwindow.ui" line="2387"/>
         <source>&amp;Tips</source>
         <translation>&amp;Съвети</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2348"/>
+        <location filename="mainwindow.ui" line="2395"/>
         <source>&amp;Changelog</source>
         <translation>&amp;Журнал на промените</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2353"/>
+        <location filename="mainwindow.ui" line="2400"/>
         <source>&amp;License</source>
         <translation>&amp;Лиценз</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2358"/>
+        <location filename="mainwindow.ui" line="2405"/>
         <source>&amp;About Highlight</source>
         <translation>Относно &amp;Highlight</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2363"/>
+        <location filename="mainwindow.ui" line="2410"/>
         <source>A&amp;bout translations</source>
         <oldsource>About &amp;translations</oldsource>
         <translation>Относно п&amp;реводите</translation>

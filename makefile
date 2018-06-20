@@ -79,6 +79,7 @@ install:
 		
 	${MKDIR} ${DESTDIR}${data_dir} \
 		${DESTDIR}${data_dir}themes \
+		${DESTDIR}${data_dir}themes/base16 \
 		${DESTDIR}${data_dir}langDefs \
 		${DESTDIR}${data_dir}plugins
 	${MKDIR} ${DESTDIR}${man_dir}
@@ -87,6 +88,7 @@ install:
 	${INSTALL_DATA} ./langDefs/*.lang ${DESTDIR}${data_dir}langDefs/
 	${INSTALL_DATA} ./*.conf ${DESTDIR}${conf_dir}
 	${INSTALL_DATA} ./themes/*.theme ${DESTDIR}${data_dir}themes/
+	${INSTALL_DATA} ./themes/base16/*.theme ${DESTDIR}${data_dir}themes/base16/
 	${INSTALL_DATA} ./plugins/*.lua ${DESTDIR}${data_dir}plugins/
 	${INSTALL_DATA} ./man/highlight.1.gz ${DESTDIR}${man_dir}
 	${INSTALL_DATA} ./AUTHORS ${DESTDIR}${doc_dir}

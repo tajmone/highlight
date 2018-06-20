@@ -4,146 +4,152 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="94"/>
+        <location filename="mainwindow.cpp" line="105"/>
         <source>Initialization error</source>
         <translation>Erreur lors de l&apos;initialisation</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="95"/>
+        <location filename="mainwindow.cpp" line="106"/>
         <source>Could not find syntax definitions. Check installation.</source>
         <translation>Impossible de trouver les définitions des syntaxes. Vérifiez votre installation.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="182"/>
         <source>Always at your service</source>
         <translation>Toujours à votre service</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="184"/>
+        <location filename="mainwindow.cpp" line="209"/>
         <source>Select one or more files to open</source>
         <translation>Sélectionnez un ou plusieurs fichiers à ouvrir</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="221"/>
+        <location filename="mainwindow.cpp" line="246"/>
         <source>Select destination directory</source>
         <translation>Sélectionnez un répertoire de destination</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="839"/>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="878"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>Output error</source>
         <translation>Erreur de sortie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="839"/>
+        <location filename="mainwindow.cpp" line="878"/>
         <source>Output directory does not exist!</source>
         <translation>Le répertoire de destination n&apos;existe pas !</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>You must define a style output file!</source>
         <translation>Vous devez définir un fichier de style de sortie !</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="902"/>
+        <location filename="mainwindow.cpp" line="941"/>
         <source>Processing %1 (%2/%3)</source>
         <translation>Traitement de %1 (%2/%3)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="908"/>
+        <location filename="mainwindow.cpp" line="947"/>
         <source>Language definition error</source>
         <translation>Erreur de définition du langage</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="909"/>
+        <location filename="mainwindow.cpp" line="948"/>
         <source>Invalid regular expression in %1:
 %2</source>
         <translation>Expression régulière non valide dans %1 :
 %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Unknown syntax</source>
         <translation>Syntaxe inconnue</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Could not convert %1</source>
         <translation>Impossible de convertir %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="955"/>
         <source>Lua error</source>
         <translation>Erreur Lua</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="955"/>
         <source>Could not convert %1:
 Lua Syntax error: %2</source>
         <translation>Impossible de convertir %1 :
 Erreur de syntaxe Lua : %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="989"/>
+        <location filename="mainwindow.cpp" line="1028"/>
         <source>Converted %1 files in %2 ms</source>
         <translation>%1 fichier(s) converti(s) en %2 ms</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1087"/>
+        <location filename="mainwindow.cpp" line="1126"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation>Conversion de &quot;%1&quot; impossible.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1087"/>
-        <location filename="mainwindow.cpp" line="1198"/>
-        <location filename="mainwindow.cpp" line="1219"/>
+        <location filename="mainwindow.cpp" line="1126"/>
+        <location filename="mainwindow.cpp" line="1244"/>
+        <location filename="mainwindow.cpp" line="1269"/>
         <source>clipboard data</source>
         <translation>données du presse-papiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1153"/>
+        <location filename="mainwindow.cpp" line="1193"/>
         <source>%1 options</source>
         <translation>Options de %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1189"/>
+        <location filename="mainwindow.cpp" line="1230"/>
+        <location filename="mainwindow.cpp" line="1236"/>
         <source>(user script)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1197"/>
+        <location filename="mainwindow.cpp" line="1243"/>
         <source>Preview (%1):</source>
         <translation>Aperçu (%1) :</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1200"/>
+        <location filename="mainwindow.cpp" line="1246"/>
         <source>Current syntax: %1 %2</source>
         <translation>Syntaxe actuelle : %1 %2</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1247"/>
+        <source>Current theme: %1 %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Current syntax: %1</source>
         <translation type="vanished">Syntaxe actuelle : %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1219"/>
+        <location filename="mainwindow.cpp" line="1269"/>
         <source>Preview of &quot;%1&quot; not possible.</source>
         <translation>Impossible de donner un aperçu de &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1256"/>
-        <location filename="mainwindow.cpp" line="1260"/>
-        <location filename="mainwindow.cpp" line="1264"/>
-        <location filename="mainwindow.cpp" line="1269"/>
+        <location filename="mainwindow.cpp" line="1306"/>
+        <location filename="mainwindow.cpp" line="1310"/>
+        <location filename="mainwindow.cpp" line="1314"/>
+        <location filename="mainwindow.cpp" line="1319"/>
         <source>Choose a style include file</source>
         <translation>Choisissez un fichier de style à inclure</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1274"/>
+        <location filename="mainwindow.cpp" line="1324"/>
         <source>About providing translations</source>
         <translation>À propos des traductions</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1275"/>
+        <location filename="mainwindow.cpp" line="1325"/>
         <source>The GUI was developed using the Qt toolkit, and translations may be provided using the tools Qt Linguist and lrelease.
 The highlight.ts file for Linguist resides in the src/gui-qt subdirectory.
 The qm file generated by lrelease has to be saved in gui-files/l10n.
@@ -156,22 +162,22 @@ Le fichier .qm généré par lrelease doit être sauvegardé dans gui-files/l10n
 Veuillez m&apos;envoyer une note à l&apos;adresse « as (at) andre-simon (dot) de » si vous rencontrez des problèmes durant la traduction ou si vous avez terminé ou mis à jour une traduction.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1333"/>
+        <location filename="mainwindow.cpp" line="1383"/>
         <source>Select one or more plug-ins</source>
         <translation>Sélectionner un ou plusieurs greffons</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1344"/>
+        <location filename="mainwindow.cpp" line="1394"/>
         <source>Select one or more syntax or theme scripts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1402"/>
+        <location filename="mainwindow.cpp" line="1454"/>
         <source>Choose a plug-in input file</source>
         <translation>Choisissez un fichier d&apos;entrée pour le greffon</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1459"/>
+        <location filename="mainwindow.cpp" line="1520"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation>Certains effets du greffon peuvent ne pas être visibles dans l&apos;aperçu.</translation>
     </message>
@@ -215,67 +221,67 @@ Veuillez m&apos;envoyer une note à l&apos;adresse « as (at) andre-simon (dot) 
         <translation>Options de coloration</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="177"/>
+        <location filename="mainwindow.ui" line="174"/>
         <source>Files</source>
         <translation>Fichiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="183"/>
+        <location filename="mainwindow.ui" line="180"/>
         <source>Choose the source code files you want to convert.</source>
         <translation>Choisir les fichiers de code source que vous voulez convertir.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="189"/>
+        <location filename="mainwindow.ui" line="186"/>
         <source>Choose input files</source>
         <translation>Choisir les fichiers d&apos;entrée</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="215"/>
+        <location filename="mainwindow.ui" line="212"/>
         <source>List of input files.</source>
         <translation>Liste des fichiers en entrée.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="236"/>
         <source>Remove the selected input files.</source>
         <translation>Supprimer les fichiers sources sélectionnés.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="242"/>
-        <location filename="mainwindow.ui" line="556"/>
+        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="553"/>
         <location filename="mainwindow.ui" line="689"/>
         <source>Clear selection</source>
         <translation>Effacer la sélection</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="246"/>
         <source>Remove all input files.</source>
         <translation>Supprimer tous les fichiers d&apos;entrée.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="252"/>
-        <location filename="mainwindow.ui" line="566"/>
+        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="563"/>
         <location filename="mainwindow.ui" line="699"/>
         <source>Clear all</source>
         <translation>Tout effacer</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="276"/>
+        <location filename="mainwindow.ui" line="273"/>
         <source>Output destination:</source>
         <translation>Destination de la sortie :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="291"/>
+        <location filename="mainwindow.ui" line="288"/>
         <source>Output directory</source>
         <translation>Répertoire de destination</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="310"/>
+        <location filename="mainwindow.ui" line="307"/>
         <source>Select the output directory.</source>
         <translation>Sélectionner le répertoire de destination.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="313"/>
-        <location filename="mainwindow.ui" line="643"/>
+        <location filename="mainwindow.ui" line="310"/>
+        <location filename="mainwindow.ui" line="640"/>
         <location filename="mainwindow.ui" line="1286"/>
         <location filename="mainwindow.ui" line="1555"/>
         <location filename="mainwindow.ui" line="1663"/>
@@ -284,158 +290,158 @@ Veuillez m&apos;envoyer une note à l&apos;adresse « as (at) andre-simon (dot) 
         <translation>…</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="332"/>
+        <location filename="mainwindow.ui" line="329"/>
         <source>Browse output directory</source>
         <translation>Parcourir le répertoire de destination</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="348"/>
+        <location filename="mainwindow.ui" line="345"/>
         <source>Save output in the input file directories.</source>
         <translation>Sauvegarder la sortie dans les répertoires des fichiers d&apos;entrée.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="351"/>
+        <location filename="mainwindow.ui" line="348"/>
         <source>Write to source directories</source>
         <translation>Écrire dans les répertoires sources</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="386"/>
+        <location filename="mainwindow.ui" line="383"/>
         <source>Start the conversion of your input files.</source>
         <translation>Démarrer la conversion de vos fichiers en entrée.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="389"/>
+        <location filename="mainwindow.ui" line="386"/>
         <source>Convert files</source>
         <translation>Convertir les fichiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="399"/>
+        <location filename="mainwindow.ui" line="396"/>
         <source>Copy highlighted code of the seleted file into the clipboard.</source>
         <translation>Copier le code coloré du fichier sélectionné dans le presse-papiers.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="402"/>
+        <location filename="mainwindow.ui" line="399"/>
         <source>Copy file to clipboard</source>
         <translation>Copier le fichier dans le presse-papiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="414"/>
+        <location filename="mainwindow.ui" line="411"/>
         <source>Clipboard</source>
         <translation>Presse-papiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="422"/>
+        <location filename="mainwindow.ui" line="419"/>
         <source>Select syntax:</source>
         <translation>Sélectionner une syntaxe :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="429"/>
+        <location filename="mainwindow.ui" line="426"/>
         <source>Select the correct syntax of the code snippet.</source>
         <translation>Sélectionner la syntaxe correcte de l&apos;extrait de code.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="438"/>
+        <location filename="mainwindow.ui" line="435"/>
         <source>Paste clipboard content into the preview window.</source>
         <translation>Coller le contenu du presse-papiers dans la fenêtre de prévisualisation.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="441"/>
+        <location filename="mainwindow.ui" line="438"/>
         <source>Paste from clipboard (%1)</source>
         <translation>Coller depuis le presse-papiers (%1)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="458"/>
+        <location filename="mainwindow.ui" line="455"/>
         <source>Copy highlighted code into the clipboard.</source>
         <translation>Copier le code coloriée dans le presse-papiers.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="461"/>
+        <location filename="mainwindow.ui" line="458"/>
         <source>Copy preview to clipboard (%1)</source>
         <translation>Copier l&apos;aperçu vers le presse-papiers (%1)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="484"/>
+        <location filename="mainwindow.ui" line="481"/>
         <source>Paste code from clipboard and copy the output back in one step</source>
         <translation>Coller le code depuis le presse-papiers et recopier la sortie en une seule étape</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="490"/>
+        <location filename="mainwindow.ui" line="487"/>
         <source>Paste, Convert and Copy</source>
         <translation>Coller, convertir et copier</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="515"/>
+        <location filename="mainwindow.ui" line="512"/>
         <source>Plug-ins</source>
         <translation>Greffons</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="521"/>
+        <location filename="mainwindow.ui" line="518"/>
         <source>Choose a plug-in script.</source>
         <translation>Choisir un script de greffon.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="524"/>
+        <location filename="mainwindow.ui" line="521"/>
         <source>Add plug-in to pool</source>
         <translation>Ajouter un greffon à la sélection</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="535"/>
+        <location filename="mainwindow.ui" line="532"/>
         <source>List of plug-ins. Toggle checkbox to enable the scripts. The preview window may not display all plug-in effects.</source>
         <translation>Liste des greffons. Cochez pour activer les scripts. La fenêtre de prévisualisation peut ne pas afficher les effets de tous les greffons.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="553"/>
+        <location filename="mainwindow.ui" line="550"/>
         <source>Remove the selected plug-ins.</source>
         <translation>Supprimer les greffons sélectionnés.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="563"/>
+        <location filename="mainwindow.ui" line="560"/>
         <source>Remove all plug-ins.</source>
         <translation>Supprimer tous les greffons.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="575"/>
+        <location filename="mainwindow.ui" line="572"/>
         <location filename="mainwindow.ui" line="708"/>
         <source>Description</source>
         <translation>Description</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="587"/>
+        <location filename="mainwindow.ui" line="584"/>
         <source>Shows decription of a selected plug-in script.</source>
         <translation>Affiche la description d&apos;un script de greffon sélectionné.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="590"/>
+        <location filename="mainwindow.ui" line="587"/>
         <source>Plug-In description</source>
         <translation>Description du greffon</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="618"/>
+        <location filename="mainwindow.ui" line="615"/>
         <source>Plug-in parameter</source>
         <translation>Paramètres du greffon</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="627"/>
+        <location filename="mainwindow.ui" line="624"/>
         <source>Optional plug-in parameter, this may be a path to a plug-in input file</source>
         <translation>Paramètres optionnels du greffon, cela peut être un chemin vers un fichier d&apos;entrée</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="640"/>
+        <location filename="mainwindow.ui" line="637"/>
         <source>Select the plug-in input file.</source>
         <translation>Sélectionner le fichier d&apos;entrée du greffon.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="657"/>
+        <location filename="mainwindow.ui" line="654"/>
         <source>Scripts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="663"/>
+        <location filename="mainwindow.ui" line="660"/>
         <source>Choose a custom syntax or theme script.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="666"/>
+        <location filename="mainwindow.ui" line="663"/>
         <source>Add custom script to pool</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1020,196 +1026,206 @@ Vous pouvez sélectionner les feuilles de style dans votre logiciel de traitemen
         <translation>Formatage</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2023"/>
+        <location filename="mainwindow.ui" line="2032"/>
         <source>Color theme:</source>
         <translation>Thème de couleurs :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2045"/>
+        <location filename="mainwindow.ui" line="2064"/>
+        <source>Toggle classic theme or Base16 theme selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2067"/>
+        <source>Base16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2086"/>
         <source>Select a colour theme.</source>
         <translation>Sélectionner un thème de couleurs.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2059"/>
+        <location filename="mainwindow.ui" line="2103"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation>Reformater et indenter votre code.
 Cette fonctionnalité est activée pour le code C, C++, C# et Java.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2063"/>
+        <location filename="mainwindow.ui" line="2107"/>
         <source>Reformat:</source>
         <translation>Reformatage :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2082"/>
+        <location filename="mainwindow.ui" line="2126"/>
         <source>Choose a formatting scheme.</source>
         <translation>Choisir un schéma de formatage.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2096"/>
+        <location filename="mainwindow.ui" line="2140"/>
         <source>Change the keyword case.</source>
         <translation>Changer la casse.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2099"/>
+        <location filename="mainwindow.ui" line="2143"/>
         <source>Keyword case:</source>
         <translation>Casse des mots-clés :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2118"/>
+        <location filename="mainwindow.ui" line="2162"/>
         <source>Select a keyword case.</source>
         <translation>Sélectionner une casse pour les mots-clés.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2122"/>
+        <location filename="mainwindow.ui" line="2169"/>
         <source>UPPER</source>
         <translation>MAJUSCULE</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2127"/>
+        <location filename="mainwindow.ui" line="2174"/>
         <source>lower</source>
         <translation>minuscule</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2132"/>
+        <location filename="mainwindow.ui" line="2179"/>
         <source>Capitalize</source>
         <translation>Casse de phrase</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2150"/>
+        <location filename="mainwindow.ui" line="2197"/>
         <source>Tab width:</source>
         <translation>Largeur des tabulations :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2166"/>
+        <location filename="mainwindow.ui" line="2213"/>
         <source>Enter the number of spaces which replace a tab.
 Set the width to 0 to keep tabs.</source>
         <translation>Saisir le nombre d&apos;espaces qui remplacent une tabulation.
 Définir la largeur à 0 pour conserver les tabulations.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2181"/>
+        <location filename="mainwindow.ui" line="2228"/>
         <source>Enable line wrapping.</source>
         <translation>Activer le retour à la ligne automatique.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2184"/>
+        <location filename="mainwindow.ui" line="2231"/>
         <source>Line wrapping</source>
         <translation>Retour à la ligne</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2197"/>
+        <location filename="mainwindow.ui" line="2244"/>
         <source>Enter the maximum line length.</source>
         <translation>Saisir la taille maximale d&apos;une ligne.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2216"/>
+        <location filename="mainwindow.ui" line="2263"/>
         <source>Indent statements and function parameters after wrapping.</source>
         <translation>Indenter les déclarations et les paramètres de fonctions après le retour à ligne automatique.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2219"/>
+        <location filename="mainwindow.ui" line="2266"/>
         <source>Intelligent wrapping</source>
         <translation>Retour à la ligne intelligent</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2226"/>
+        <location filename="mainwindow.ui" line="2273"/>
         <source>Do not add line numbering to lines which were automatically wrapped.</source>
         <translation>Ne pas ajouter des numéros aux retours à la ligne automatiques.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2229"/>
+        <location filename="mainwindow.ui" line="2276"/>
         <source>Omit line numbers of wrapped lines</source>
         <translation>Omettre les numéros de ligne pour les retours à la ligne</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2240"/>
+        <location filename="mainwindow.ui" line="2287"/>
         <source>Font na&amp;me:</source>
         <translation>No&amp;m de la police :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2261"/>
+        <location filename="mainwindow.ui" line="2308"/>
         <source>Select or enter the font name. HTML supports a list of fonts, separated with comma.</source>
         <translation>Sélectionner ou saisir le nom d&apos;une police. L&apos;HTML supporte une liste de polices, séparées par des virgules.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2273"/>
+        <location filename="mainwindow.ui" line="2320"/>
         <source>Font si&amp;ze:</source>
         <translation>&amp;Taille de la police :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2295"/>
+        <location filename="mainwindow.ui" line="2342"/>
         <source>Enter the font size.</source>
         <translation>Saisissez la taille de police.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2310"/>
+        <location filename="mainwindow.ui" line="2357"/>
         <source>&amp;Open files</source>
         <translation>&amp;Ouvrir des fichiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2315"/>
+        <location filename="mainwindow.ui" line="2362"/>
         <source>&amp;Exit</source>
         <translation>Quitt&amp;er</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2320"/>
+        <location filename="mainwindow.ui" line="2367"/>
         <source>&amp;Load</source>
         <translation>&amp;Charger</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2325"/>
+        <location filename="mainwindow.ui" line="2372"/>
         <source>&amp;Save</source>
         <translation>&amp;Sauvegarder</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2330"/>
+        <location filename="mainwindow.ui" line="2377"/>
         <source>Load &amp;default project</source>
         <translation>Charger le projet par &amp;défaut</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2335"/>
+        <location filename="mainwindow.ui" line="2382"/>
         <source>&amp;Readme</source>
         <translation>Lise&amp;z-moi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2340"/>
+        <location filename="mainwindow.ui" line="2387"/>
         <source>&amp;Tips</source>
         <translation>As&amp;tuces</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2348"/>
+        <location filename="mainwindow.ui" line="2395"/>
         <source>&amp;Changelog</source>
         <translation>Journal des &amp;changements</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2353"/>
+        <location filename="mainwindow.ui" line="2400"/>
         <source>&amp;License</source>
         <translation>&amp;Licence</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2358"/>
+        <location filename="mainwindow.ui" line="2405"/>
         <source>&amp;About Highlight</source>
         <translation>&amp;À propos de Highlight</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2363"/>
+        <location filename="mainwindow.ui" line="2410"/>
         <source>A&amp;bout translations</source>
         <translation>À propos des tra&amp;ductions</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2368"/>
+        <location filename="mainwindow.ui" line="2415"/>
         <source>&amp;Visit andre-simon.de</source>
         <translation>&amp;Visiter andre-simon.de</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2379"/>
+        <location filename="mainwindow.ui" line="2426"/>
         <source>&amp;Dock floating panels</source>
         <translation>A&amp;ccrocher les panneaux flottants</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2384"/>
+        <location filename="mainwindow.ui" line="2431"/>
         <source>&amp;Plug-Ins</source>
         <translation>&amp;Greffons</translation>
     </message>

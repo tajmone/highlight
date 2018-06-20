@@ -2011,6 +2011,9 @@ You can select the stylesheets in your word processor to reformat additional tex
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>6</number>
+           </property>
            <item>
             <widget class="QLabel" name="label_5">
              <property name="sizePolicy">
@@ -2019,11 +2022,49 @@ You can select the stylesheets in your word processor to reformat additional tex
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="text">
               <string>Color theme:</string>
              </property>
              <property name="buddy">
               <cstring>comboTheme</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Expanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cbUseBase16">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Toggle classic theme or Base16 theme selection.</string>
+             </property>
+             <property name="text">
+              <string>Base16</string>
              </property>
             </widget>
            </item>
@@ -2037,7 +2078,7 @@ You can select the stylesheets in your word processor to reformat additional tex
              </property>
              <property name="maximumSize">
               <size>
-               <width>120</width>
+               <width>200</width>
                <height>16777215</height>
               </size>
              </property>
@@ -2046,6 +2087,9 @@ You can select the stylesheets in your word processor to reformat additional tex
              </property>
              <property name="currentIndex">
               <number>-1</number>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2116,6 +2160,9 @@ This feature is enabled for C, C++, C# and Java code.</string>
              </property>
              <property name="toolTip">
               <string>Select a keyword case.</string>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToContents</enum>
              </property>
              <item>
               <property name="text">
@@ -2248,7 +2295,7 @@ Set the width to 0 to keep tabs.</string>
             <widget class="QFontComboBox" name="comboFontName">
              <property name="maximumSize">
               <size>
-               <width>120</width>
+               <width>150</width>
                <height>16777215</height>
               </size>
              </property>
@@ -2287,7 +2334,7 @@ Set the width to 0 to keep tabs.</string>
              </property>
              <property name="maximumSize">
               <size>
-               <width>120</width>
+               <width>150</width>
                <height>16777215</height>
               </size>
              </property>

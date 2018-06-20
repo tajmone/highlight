@@ -89,6 +89,9 @@ private:
     QShortcut *copyShortcut;
     QShortcut *pasteShortcut;
     QFileSystemWatcher scriptWatcher;
+    QStringList themesClassic;
+    QStringList themesBase16;
+    int themesClassicIdx, themesBase16Idx;
 
     bool getDataFromCP;
 
@@ -115,6 +118,7 @@ private:
     string getFileSuffix(const string& fileName);
     string getFileBaseName(const string& fileName);
     void readLuaList(const string& paramName, const string& langName, Diluculum::LuaValue &luaVal, MMap* extMap);
+    void fillThemeCombo();
 
     void dragEnterEvent(QDragEnterEvent *event);
     void dragMoveEvent(QDragMoveEvent *event);
@@ -168,6 +172,9 @@ private slots:
     void on_pbBrowseOutDir_clicked();
     void on_lvUserScripts_itemClicked(QListWidgetItem *item);
     void on_lvPluginScripts_itemClicked(QListWidgetItem *item);
+
+    void on_comboTheme_activated(int index);
+    void on_cbUseBase16_clicked();
 };
 
 #endif // MAINWINDOW_H

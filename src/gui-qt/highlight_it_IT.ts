@@ -1,149 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<TS version="2.1" language="it_IT">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="94"/>
+        <location filename="mainwindow.cpp" line="105"/>
         <source>Initialization error</source>
         <translation>Errore di inizializzazione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="95"/>
+        <location filename="mainwindow.cpp" line="106"/>
         <source>Could not find syntax definitions. Check installation.</source>
         <translation>Non ho trovato definizioni sintattiche. Controlla l&apos;installazione.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="182"/>
         <source>Always at your service</source>
         <translation>Sempre a tua disposizione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="184"/>
+        <location filename="mainwindow.cpp" line="209"/>
         <source>Select one or more files to open</source>
         <translation>Seleziona uno o più file da aprire</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="221"/>
+        <location filename="mainwindow.cpp" line="246"/>
         <source>Select destination directory</source>
         <translation>Seleziona la cartella di destinazione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="839"/>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="878"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>Output error</source>
         <translation>Errore di output</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="839"/>
+        <location filename="mainwindow.cpp" line="878"/>
         <source>Output directory does not exist!</source>
         <translation>Cartella di destinazione inesistente!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>You must define a style output file!</source>
         <translation>Devi definire un file di destinazione per lo stile!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="902"/>
+        <location filename="mainwindow.cpp" line="941"/>
         <source>Processing %1 (%2/%3)</source>
         <translation>Sto processando %1 (%2/%3)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="908"/>
+        <location filename="mainwindow.cpp" line="947"/>
         <source>Language definition error</source>
         <translation>Errore nella definizione del linguaggio</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="909"/>
+        <location filename="mainwindow.cpp" line="948"/>
         <source>Invalid regular expression in %1:
 %2</source>
         <translation>Espressione regolare non valida in %1:
 %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Unknown syntax</source>
         <translation>Sintassi sconosciuta</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Could not convert %1</source>
         <translation>Impossibile convertire %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="955"/>
         <source>Lua error</source>
         <translation>Errore Lua</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="955"/>
         <source>Could not convert %1:
 Lua Syntax error: %2</source>
         <translation>Impossibile convertire %1:
 Errore di sintassi Lua: %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="989"/>
+        <location filename="mainwindow.cpp" line="1028"/>
         <source>Converted %1 files in %2 ms</source>
         <translation>Convertiti %1 file in %2 ms</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1087"/>
+        <location filename="mainwindow.cpp" line="1126"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation>Impossibile convertire &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1087"/>
-        <location filename="mainwindow.cpp" line="1198"/>
-        <location filename="mainwindow.cpp" line="1219"/>
+        <location filename="mainwindow.cpp" line="1126"/>
+        <location filename="mainwindow.cpp" line="1244"/>
+        <location filename="mainwindow.cpp" line="1269"/>
         <source>clipboard data</source>
         <translation>dati negli appunti</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1153"/>
+        <location filename="mainwindow.cpp" line="1193"/>
         <source>%1 options</source>
         <translation>opzioni %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1189"/>
+        <location filename="mainwindow.cpp" line="1230"/>
+        <location filename="mainwindow.cpp" line="1236"/>
         <source>(user script)</source>
         <translation>(script utente)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1197"/>
+        <location filename="mainwindow.cpp" line="1243"/>
         <source>Preview (%1):</source>
         <translation>Anteprima (%1):</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1200"/>
+        <location filename="mainwindow.cpp" line="1246"/>
         <source>Current syntax: %1 %2</source>
         <translation>Sintassi in uso: %1 %2</translation>
     </message>
     <message>
-        <source>Current syntax: %1</source>
-        <translation>Sintassi in uso: %1</translation>
+        <location filename="mainwindow.cpp" line="1247"/>
+        <source>Current theme: %1 %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1219"/>
+        <source>Current syntax: %1</source>
+        <translation type="vanished">Sintassi in uso: %1</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1269"/>
         <source>Preview of &quot;%1&quot; not possible.</source>
         <translation>Impossibile mostrare l&apos;anteprima di &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1256"/>
-        <location filename="mainwindow.cpp" line="1260"/>
-        <location filename="mainwindow.cpp" line="1264"/>
-        <location filename="mainwindow.cpp" line="1269"/>
+        <location filename="mainwindow.cpp" line="1306"/>
+        <location filename="mainwindow.cpp" line="1310"/>
+        <location filename="mainwindow.cpp" line="1314"/>
+        <location filename="mainwindow.cpp" line="1319"/>
         <source>Choose a style include file</source>
         <translation>Scegli il file di stile da includere</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1274"/>
+        <location filename="mainwindow.cpp" line="1324"/>
         <source>About providing translations</source>
         <translation>Come contribuire alla traduzione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1275"/>
+        <location filename="mainwindow.cpp" line="1325"/>
         <source>The GUI was developed using the Qt toolkit, and translations may be provided using the tools Qt Linguist and lrelease.
 The highlight.ts file for Linguist resides in the src/gui-qt subdirectory.
 The qm file generated by lrelease has to be saved in gui-files/l10n.
@@ -156,23 +162,23 @@ Il file qm generato da lrelease dovrà essere salvato in &quot;gui-files/l10n&qu
 In caso di difficoltà, o se hai completato o aggiornato una traduzione, contattami tramite posta elettronica: as (at) andre-simon (dot) de.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1333"/>
+        <location filename="mainwindow.cpp" line="1383"/>
         <source>Select one or more plug-ins</source>
         <translation>Seleziona uno o più plug-in</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1344"/>
+        <location filename="mainwindow.cpp" line="1394"/>
         <source>Select one or more syntax or theme scripts</source>
         <translation>Scegli uno o più file di sintassi o tema</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1402"/>
+        <location filename="mainwindow.cpp" line="1454"/>
         <source>Choose a plug-in input file</source>
         <translatorcomment>( TIP ) Plug-ins -&gt; Plug-in parameter -&gt; [...]</translatorcomment>
         <translation>Scegli il file di input per il plug-in</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1459"/>
+        <location filename="mainwindow.cpp" line="1520"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation>Alcuni effetti dei plug-in potrebbero non essere visualizzati nell&apos;anteprima.</translation>
     </message>
@@ -216,73 +222,73 @@ In caso di difficoltà, o se hai completato o aggiornato una traduzione, contatt
         <translation>Opzioni di &amp;evidenziatura codice</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="177"/>
+        <location filename="mainwindow.ui" line="174"/>
         <source>Files</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="183"/>
+        <location filename="mainwindow.ui" line="180"/>
         <source>Choose the source code files you want to convert.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli i file sorgente da convertire.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="189"/>
+        <location filename="mainwindow.ui" line="186"/>
         <source>Choose input files</source>
         <translation>Scegli i file di input</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="215"/>
+        <location filename="mainwindow.ui" line="212"/>
         <source>List of input files.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Elenco dei file di input.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="236"/>
         <source>Remove the selected input files.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Rimuovi dall&apos;elenco i file di input selezionati.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="242"/>
-        <location filename="mainwindow.ui" line="556"/>
+        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="553"/>
         <location filename="mainwindow.ui" line="689"/>
         <source>Clear selection</source>
         <translation>Rimuovi selezione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="246"/>
         <source>Remove all input files.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Rimuovi dall&apos;elenco tutti i file di input.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="252"/>
-        <location filename="mainwindow.ui" line="566"/>
+        <location filename="mainwindow.ui" line="249"/>
+        <location filename="mainwindow.ui" line="563"/>
         <location filename="mainwindow.ui" line="699"/>
         <source>Clear all</source>
         <translation>Rimuovi tutto</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="276"/>
+        <location filename="mainwindow.ui" line="273"/>
         <source>Output destination:</source>
         <translation>Destinazione output:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="291"/>
+        <location filename="mainwindow.ui" line="288"/>
         <source>Output directory</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Cartella di destinazione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="310"/>
+        <location filename="mainwindow.ui" line="307"/>
         <source>Select the output directory.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli la cartella di destinazione.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="313"/>
-        <location filename="mainwindow.ui" line="643"/>
+        <location filename="mainwindow.ui" line="310"/>
+        <location filename="mainwindow.ui" line="640"/>
         <location filename="mainwindow.ui" line="1286"/>
         <location filename="mainwindow.ui" line="1555"/>
         <location filename="mainwindow.ui" line="1663"/>
@@ -291,170 +297,170 @@ In caso di difficoltà, o se hai completato o aggiornato una traduzione, contatt
         <translation>...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="348"/>
+        <location filename="mainwindow.ui" line="345"/>
         <source>Save output in the input file directories.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Salva l&apos;output nelle cartelle dei file di input.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="351"/>
+        <location filename="mainwindow.ui" line="348"/>
         <source>Write to source directories</source>
         <translation>Scrivi nelle cartelle dei sorgenti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="386"/>
+        <location filename="mainwindow.ui" line="383"/>
         <source>Start the conversion of your input files.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Avvia la conversione dei file di input.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="389"/>
+        <location filename="mainwindow.ui" line="386"/>
         <source>Convert files</source>
         <translation>Converti file</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="399"/>
+        <location filename="mainwindow.ui" line="396"/>
         <source>Copy highlighted code of the seleted file into the clipboard.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Copia negli appunti il codice con sintassi evidenziata del file selezionato.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="402"/>
+        <location filename="mainwindow.ui" line="399"/>
         <source>Copy file to clipboard</source>
         <translation>Copia file negli appunti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="414"/>
+        <location filename="mainwindow.ui" line="411"/>
         <source>Clipboard</source>
         <translation>Appunti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="438"/>
+        <location filename="mainwindow.ui" line="435"/>
         <source>Paste clipboard content into the preview window.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Incolla il contenuto degli appunti nella finestra di anteprima.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="441"/>
+        <location filename="mainwindow.ui" line="438"/>
         <source>Paste from clipboard (%1)</source>
         <translation>Incolla appunti (%1)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="422"/>
+        <location filename="mainwindow.ui" line="419"/>
         <source>Select syntax:</source>
         <translation>Scegli la sintassi:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="332"/>
+        <location filename="mainwindow.ui" line="329"/>
         <source>Browse output directory</source>
         <translation>Apri la cartella di destinazione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="429"/>
+        <location filename="mainwindow.ui" line="426"/>
         <source>Select the correct syntax of the code snippet.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli la sintassi appropriata per il frammento di codice.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="458"/>
+        <location filename="mainwindow.ui" line="455"/>
         <source>Copy highlighted code into the clipboard.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Copia negli appunti il codice con sintassi evidenziata.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="461"/>
+        <location filename="mainwindow.ui" line="458"/>
         <source>Copy preview to clipboard (%1)</source>
         <translation>Copia negli appunti l&apos;anteprima (%1)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="484"/>
+        <location filename="mainwindow.ui" line="481"/>
         <source>Paste code from clipboard and copy the output back in one step</source>
         <translation>Incolla il codice dagli appunti e copiavi il risultato in un solo passaggio</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="490"/>
+        <location filename="mainwindow.ui" line="487"/>
         <source>Paste, Convert and Copy</source>
         <translation>Incolla, Converti e Copia</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="515"/>
+        <location filename="mainwindow.ui" line="512"/>
         <source>Plug-ins</source>
         <translation>Plug-in</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="521"/>
+        <location filename="mainwindow.ui" line="518"/>
         <source>Choose a plug-in script.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli uno o più script di plug-in da aggiungere all&apos;elenco.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="524"/>
+        <location filename="mainwindow.ui" line="521"/>
         <source>Add plug-in to pool</source>
         <translation>Aggiungi plug-in</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="535"/>
+        <location filename="mainwindow.ui" line="532"/>
         <source>List of plug-ins. Toggle checkbox to enable the scripts. The preview window may not display all plug-in effects.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Elenco dei plug-in. Spunta la casella di un plug-in per attivarlo
 Nota: La finestra di anteprima potrebbe non mostrare alcuni effetti dei plug-in.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="553"/>
+        <location filename="mainwindow.ui" line="550"/>
         <source>Remove the selected plug-ins.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Rimuovi dall&apos;elenco i plug-in selezionati.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="563"/>
+        <location filename="mainwindow.ui" line="560"/>
         <source>Remove all plug-ins.</source>
         <translation>Rimuovi dall&apos;elenco tutti i plug-in.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="575"/>
+        <location filename="mainwindow.ui" line="572"/>
         <location filename="mainwindow.ui" line="708"/>
         <source>Description</source>
         <translation>Descrizione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="587"/>
+        <location filename="mainwindow.ui" line="584"/>
         <source>Shows decription of a selected plug-in script.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Mostra la descrizione del plug-in selezionato.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="590"/>
+        <location filename="mainwindow.ui" line="587"/>
         <source>Plug-In description</source>
         <translation>Descrizione del plug-in</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="618"/>
+        <location filename="mainwindow.ui" line="615"/>
         <source>Plug-in parameter</source>
         <translation>Parametro del plug-in</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="627"/>
+        <location filename="mainwindow.ui" line="624"/>
         <source>Optional plug-in parameter, this may be a path to a plug-in input file</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Parametro opzionale passato al plug-in, può anche essere il percorso di in file di input</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="640"/>
+        <location filename="mainwindow.ui" line="637"/>
         <source>Select the plug-in input file.</source>
         <translation>Scegli il file di input per il plug-in.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="657"/>
+        <location filename="mainwindow.ui" line="654"/>
         <source>Scripts</source>
         <translation>Script</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="663"/>
+        <location filename="mainwindow.ui" line="660"/>
         <source>Choose a custom syntax or theme script.</source>
         <translation>Usa un file di sintassi o un tema personalizzati.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="666"/>
+        <location filename="mainwindow.ui" line="663"/>
         <source>Add custom script to pool</source>
         <translation>Aggiungi script personalizzati</translation>
     </message>
@@ -554,7 +560,7 @@ Nota: La finestra di anteprima potrebbe non mostrare alcuni effetti dei plug-in.
     <message>
         <source>Set line numbering start</source>
         <translatorcomment>( TIP )</translatorcomment>
-        <translation>Imposta valore iniziale dei numeri di riga</translation>
+        <translation type="vanished">Imposta valore iniziale dei numeri di riga</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="898"/>
@@ -610,7 +616,7 @@ Rimuovi la sequenza BOM Unicode.</translation>
     </message>
     <message>
         <source>Set the output file ancoding.</source>
-        <translation>Imposta la codifica di caratteri per l&apos;output.</translation>
+        <translation type="vanished">Imposta la codifica di caratteri per l&apos;output.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="879"/>
@@ -907,14 +913,24 @@ Il risultato deve combaciare con la codifica di caratteri del file di input.</tr
         <translation>Adatta l&apos;output al pacchetto Babel</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2273"/>
+        <location filename="mainwindow.ui" line="2064"/>
+        <source>Toggle classic theme or Base16 theme selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2067"/>
+        <source>Base16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2320"/>
         <source>Font si&amp;ze:</source>
         <translation>&amp;Dimensione carattere:</translation>
     </message>
     <message>
         <source>Make output Babel compatible.</source>
         <translatorcomment>( TIP for LaTeX )</translatorcomment>
-        <translation>Rendi l&apos;output compatibile con Babel.</translation>
+        <translation type="vanished">Rendi l&apos;output compatibile con Babel.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1439"/>
@@ -1001,7 +1017,7 @@ Puoi selezionare i fogli di stile nel tuo word processor per riformattare testo 
         <translation>Imposta l&apos;attributo colore della pagina al colore dello sfondo.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2059"/>
+        <location filename="mainwindow.ui" line="2103"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation>Riformatta e indenta il codice sorgente.
@@ -1010,7 +1026,7 @@ Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translatio
     <message>
         <source>Set page color attribute to background color</source>
         <translatorcomment>( TIP for RTF )</translatorcomment>
-        <translation>Imposta l&apos;attributo colore della pagina al colore dello sfondo</translation>
+        <translation type="vanished">Imposta l&apos;attributo colore della pagina al colore dello sfondo</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1703"/>
@@ -1106,12 +1122,12 @@ Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translatio
         <translation>Formattazione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2023"/>
+        <location filename="mainwindow.ui" line="2032"/>
         <source>Color theme:</source>
         <translation>Tema:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2045"/>
+        <location filename="mainwindow.ui" line="2086"/>
         <source>Select a colour theme.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Seleziona un tema di colori.</translation>
@@ -1120,60 +1136,60 @@ Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translatio
         <source>Reformat and indent your code.
 This feature is enabled tor C, C++, C# and Java code.</source>
         <translatorcomment>( TIP )</translatorcomment>
-        <translation>Riformatta e indenta il codice sorgente.
+        <translation type="vanished">Riformatta e indenta il codice sorgente.
 Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2063"/>
+        <location filename="mainwindow.ui" line="2107"/>
         <source>Reformat:</source>
         <translation>Riformatta:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2082"/>
+        <location filename="mainwindow.ui" line="2126"/>
         <source>Choose a formatting scheme.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli uno schema di formattazione.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2096"/>
+        <location filename="mainwindow.ui" line="2140"/>
         <source>Change the keyword case.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli il criterio di maiuscolo/minuscolo con cui riformattare le keyword.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2099"/>
+        <location filename="mainwindow.ui" line="2143"/>
         <source>Keyword case:</source>
         <translatorcomment>NOTA: letter case è intraducibile, keyword ha più senso non tradurlo.</translatorcomment>
         <translation>Keyword:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2118"/>
+        <location filename="mainwindow.ui" line="2162"/>
         <source>Select a keyword case.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Scegli maiuscolo/minuscolo.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2122"/>
+        <location filename="mainwindow.ui" line="2169"/>
         <source>UPPER</source>
         <translation>MAIUSCOLO</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2127"/>
+        <location filename="mainwindow.ui" line="2174"/>
         <source>lower</source>
         <translation>minuscolo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2132"/>
+        <location filename="mainwindow.ui" line="2179"/>
         <source>Capitalize</source>
         <translation>Iniziali Maiuscole</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2150"/>
+        <location filename="mainwindow.ui" line="2197"/>
         <source>Tab width:</source>
         <translation>Tabulazione:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2166"/>
+        <location filename="mainwindow.ui" line="2213"/>
         <source>Enter the number of spaces which replace a tab.
 Set the width to 0 to keep tabs.</source>
         <translatorcomment>( TIP )</translatorcomment>
@@ -1181,137 +1197,137 @@ Set the width to 0 to keep tabs.</source>
 Mettere 0 per preservare le tabulazioni.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2181"/>
+        <location filename="mainwindow.ui" line="2228"/>
         <source>Enable line wrapping.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Abilita la funzione di a capo automatico.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2184"/>
+        <location filename="mainwindow.ui" line="2231"/>
         <source>Line wrapping</source>
         <translation>A capo automatico</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2197"/>
+        <location filename="mainwindow.ui" line="2244"/>
         <source>Enter the maximum line length.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Inserisci la lunghezza massima di riga (numero di caratteri).</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2216"/>
+        <location filename="mainwindow.ui" line="2263"/>
         <source>Indent statements and function parameters after wrapping.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Dopo un a capo automatico, indenta istruzioni e parametri delle funzioni.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2219"/>
+        <location filename="mainwindow.ui" line="2266"/>
         <source>Intelligent wrapping</source>
         <translation>A capo automatico intelligente</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2226"/>
+        <location filename="mainwindow.ui" line="2273"/>
         <source>Do not add line numbering to lines which were automatically wrapped.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Non inserire il numero di riga nelle righe su cui si è andati a capo automaticamente.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2229"/>
+        <location filename="mainwindow.ui" line="2276"/>
         <source>Omit line numbers of wrapped lines</source>
         <translation>Non numerare quando vai a capo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2240"/>
+        <location filename="mainwindow.ui" line="2287"/>
         <source>Font na&amp;me:</source>
         <translation>Tipo di ca&amp;rattere:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2261"/>
+        <location filename="mainwindow.ui" line="2308"/>
         <source>Select or enter the font name. HTML supports a list of fonts, separated with comma.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Seleziona o digita il nome del font di carattere. HTML supporta un elenco di font, separati da virgole.</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation>Dimensione carattere:</translation>
+        <translation type="vanished">Dimensione carattere:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2295"/>
+        <location filename="mainwindow.ui" line="2342"/>
         <source>Enter the font size.</source>
         <translatorcomment>( TIP )</translatorcomment>
         <translation>Inserisci la dimensione del font di carattere.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2310"/>
+        <location filename="mainwindow.ui" line="2357"/>
         <source>&amp;Open files</source>
         <translation>Apri &amp;File</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2315"/>
+        <location filename="mainwindow.ui" line="2362"/>
         <source>&amp;Exit</source>
         <translation>&amp;Esci</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2320"/>
+        <location filename="mainwindow.ui" line="2367"/>
         <source>&amp;Load</source>
         <translatorcomment>NOTE: Can&apos;t find this entry in GUI for Windows!</translatorcomment>
         <translation>&amp;Apri</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2325"/>
+        <location filename="mainwindow.ui" line="2372"/>
         <source>&amp;Save</source>
         <translatorcomment>NOTE: Can&apos;t find this entry in GUI for Windows!</translatorcomment>
         <translation>&amp;Salva</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2330"/>
+        <location filename="mainwindow.ui" line="2377"/>
         <source>Load &amp;default project</source>
         <translatorcomment>NOTE: Can&apos;t find this entry in GUI for Windows!</translatorcomment>
         <translation>Apri progetto &amp;predefinito</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2335"/>
+        <location filename="mainwindow.ui" line="2382"/>
         <source>&amp;Readme</source>
         <translation>&amp;Leggimi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2340"/>
+        <location filename="mainwindow.ui" line="2387"/>
         <source>&amp;Tips</source>
         <translatorcomment>NOTE: Can&apos;t find this entry in GUI for Windows!</translatorcomment>
         <translation>&amp;Trucchi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2348"/>
+        <location filename="mainwindow.ui" line="2395"/>
         <source>&amp;Changelog</source>
         <translatorcomment>NOTA: Non ha senso tradurre questo termine, questo tipo di utenza lo conosce e lo usa.</translatorcomment>
         <translation>&amp;Changelog</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2353"/>
+        <location filename="mainwindow.ui" line="2400"/>
         <source>&amp;License</source>
         <translation>&amp;Licenza</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2358"/>
+        <location filename="mainwindow.ui" line="2405"/>
         <source>&amp;About Highlight</source>
         <translation>&amp;Informazioni su Highlight</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2363"/>
+        <location filename="mainwindow.ui" line="2410"/>
         <source>A&amp;bout translations</source>
         <translation>Tra&amp;durre Highlight</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2368"/>
+        <location filename="mainwindow.ui" line="2415"/>
         <source>&amp;Visit andre-simon.de</source>
         <translation>&amp;Visita andre-simon.de</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2379"/>
+        <location filename="mainwindow.ui" line="2426"/>
         <source>&amp;Dock floating panels</source>
         <translation>&amp;Parcheggia le finestre fluttuanti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2384"/>
+        <location filename="mainwindow.ui" line="2431"/>
         <source>&amp;Plug-Ins</source>
         <translation>&amp;Plug-in</translation>
     </message>

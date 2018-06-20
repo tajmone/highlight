@@ -430,7 +430,11 @@ string CodeGenerator::getSyntaxDescription()
     return (currentSyntax)? currentSyntax->getDescription(): "syntax undef";
 
 }
+string CodeGenerator::getThemeDescription()
+{
+    return docStyle.getDescription();
 
+}
 unsigned int CodeGenerator::getLineNumber()
 {
     return lineNumber;
