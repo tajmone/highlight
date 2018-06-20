@@ -12,6 +12,7 @@ xx.xx.2018
   (thanks to Tristano Ajmone)
 -GUI: added Base16 theme selection checkbox
 -CLI: added --base16 option to enable the new themes
+-CLI: accept - as argument to read fromm stdin (https://github.com/andre-simon/highlight/issues/73)
 
 ---
 highlight 3.43

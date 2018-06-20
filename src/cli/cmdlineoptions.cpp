@@ -556,8 +556,11 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
     if (readInputFilenames) {
         if ( argind < parser.arguments() ) { //still args left
             if ( inputFileNames.empty() ) {
+                string fName;
                 while ( argind < parser.arguments() ) {
-                    inputFileNames.push_back ( parser.argument ( argind++ ) );
+                    fName=parser.argument ( argind++ );
+                    if (fName=="-") fName = ""; // handle single "-" as empty arg to trigger reading from stdin
+                    inputFileNames.push_back ( fName );
                 }
             }
         } else if ( inputFileNames.empty() ) {
