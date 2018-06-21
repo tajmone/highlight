@@ -5,11 +5,10 @@
 AppName=Highlight Code Converter
 
 AppVerName=Highlight
-OutputBaseFilename=highlight-setup-3.29
+OutputBaseFilename=highlight-setup-3.44
 
 AppPublisher=André Simon
 AppPublisherURL=http://www.andre-simon.de
-AppSupportURL=http://wiki.andre-simon.de
 AppUpdatesURL=http://www.andre-simon.de
 DefaultDirName={pf}\Highlight
 DefaultGroupName=Highlight Code Converter
@@ -29,6 +28,7 @@ Source: "dlls\*.dll"; DestDir: "{app}";  Flags: ignoreversion
 Source: "hl_icon_exe.ico"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\langDefs\*.lang"; DestDir: "{app}\langDefs\";  Flags: ignoreversion sortfilesbyextension
 Source: "..\..\themes\*.theme"; DestDir: "{app}\themes\";  Flags: ignoreversion sortfilesbyextension
+Source: "..\..\themes\base16\*.theme"; DestDir: "{app}\themes\base16\";  Flags: ignoreversion sortfilesbyextension
 Source: "..\..\README*"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\TODO"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\AUTHORS"; DestDir: "{app}";  Flags: ignoreversion
@@ -37,20 +37,23 @@ Source: "..\..\COPYING"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\filetypes.conf"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\gui_files\l10n\*.qm"; DestDir: "{app}\gui_files\l10n\";  Flags: ignoreversion sortfilesbyextension
 Source: "..\..\gui_files\ext\*.*"; DestDir: "{app}\gui_files\ext\";  Flags: ignoreversion
-Source: "..\..\examples\*.py";  DestDir: "{app}\examples\";  Flags: ignoreversion;
-Source: "..\..\examples\*.pm";  DestDir: "{app}\examples\";  Flags: ignoreversion;
-Source: "..\..\examples\*.php";  DestDir: "{app}\examples\";  Flags: ignoreversion;
+Source: "..\..\extras\*.py";  DestDir: "{app}\extras\";  Flags: ignoreversion;
+Source: "..\..\extras\*.pm";  DestDir: "{app}\extras\";  Flags: ignoreversion;
+Source: "..\..\extras\*.php";  DestDir: "{app}\extras\";  Flags: ignoreversion;
 Source: "..\..\plugins\*.lua";  DestDir: "{app}\plugins\";  Flags: ignoreversion;
 
 Source: "..\..\highlight.exe";   DestDir: "{app}";  Flags: ignoreversion; Components: cli;
 Source: "..\..\man\*.*";  DestDir: "{app}\man\";  Flags: ignoreversion; Components: cli;
-Source: "..\..\examples\highlight_pipe.*";  DestDir: "{app}\examples\";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\..\examples\swig\*.*";  DestDir: "{app}\examples\swig";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\..\examples\tcl\*.*";  DestDir: "{app}\examples\tcl";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\..\examples\web_plugins\dokuwiki\*.*";  DestDir: "{app}\examples\plugins\dokuwiki\";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\..\examples\web_plugins\movabletype\*.*";  DestDir: "{app}\examples\plugins\movabletype\";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\..\examples\web_plugins\wordpress\*.*";  DestDir: "{app}\examples\plugins\wordpress";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\..\examples\web_plugins\serendipity_event_highlight\*.*";  DestDir: "{app}\examples\plugins\serendipity_event_highlight";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\highlight_pipe.*";  DestDir: "{app}\extras\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\swig\*.*";  DestDir: "{app}\extras\swig";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\tcl\*.*";  DestDir: "{app}\extras\tcl";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\pandoc\*.*";  DestDir: "{app}\extras\pandoc";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\css-themes\*.*";  DestDir: "{app}\extras\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\langDefs-resources\*.*";  DestDir: "{app}\extras\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\web_plugins\dokuwiki\*.*";  DestDir: "{app}\extras\plugins\dokuwiki\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\web_plugins\movabletype\*.*";  DestDir: "{app}\extras\plugins\movabletype\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\web_plugins\wordpress\*.*";  DestDir: "{app}\extras\plugins\wordpress";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\..\extras\web_plugins\serendipity_event_highlight\*.*";  DestDir: "{app}\extras\plugins\serendipity_event_highlight";  Flags: ignoreversion; Components: sourcecode;
 
 Source: "..\include\*.*";  DestDir: "{app}\src\include\";  Flags: ignoreversion; Components: sourcecode;
 Source: "..\include\astyle\*.*";  DestDir: "{app}\src\include\astyle\";  Flags: ignoreversion; Components: sourcecode;

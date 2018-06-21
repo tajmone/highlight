@@ -78,7 +78,7 @@
      <x>0</x>
      <y>0</y>
      <width>957</width>
-     <height>30</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -2071,10 +2071,16 @@ You can select the stylesheets in your word processor to reformat additional tex
            <item>
             <widget class="QComboBox" name="comboTheme">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>0</height>
+              </size>
              </property>
              <property name="maximumSize">
               <size>
@@ -2309,7 +2315,7 @@ Set the width to 0 to keep tabs.</string>
              </property>
              <property name="currentFont">
               <font>
-               <family>Liberation Mono</family>
+               <family>MS Shell Dlg 2</family>
               </font>
              </property>
             </widget>
