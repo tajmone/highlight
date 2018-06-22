@@ -3,7 +3,7 @@ CHANGELOG Highlight
 
 highlight 3.44
 
-xx.xx.2018
+22.06.2018
 
 -fixed gcc 8 compilation warnings
 -fixed Ruby string interpolation (https://github.com/andre-simon/highlight/issues/70)

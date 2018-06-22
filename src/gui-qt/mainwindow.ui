@@ -78,7 +78,7 @@
      <x>0</x>
      <y>0</y>
      <width>957</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -749,7 +749,10 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
+       </property>
+       <property name="movable">
+        <bool>false</bool>
        </property>
        <widget class="QWidget" name="page_general">
         <attribute name="title">
@@ -2315,7 +2318,7 @@ Set the width to 0 to keep tabs.</string>
              </property>
              <property name="currentFont">
               <font>
-               <family>MS Shell Dlg 2</family>
+               <family>DejaVu Sans</family>
               </font>
              </property>
             </widget>

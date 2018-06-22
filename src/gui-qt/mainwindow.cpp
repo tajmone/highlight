@@ -417,12 +417,12 @@ void MainWindow::writeSettings()
                       ui->leHTMLCssPrefix->text());
     settings.setValue(ui->tabIOSelection->property(name).toString(),
                       ui->tabIOSelection->currentIndex());
-
     settings.setValue(ui->sbLineNoWidth->property(name).toString(),
                       ui->sbLineNoWidth->value());
-
     settings.setValue(ui->sbLineNoStart->property(name).toString(),
-                      ui->sbLineNoStart->value());
+                      ui->sbLineNoStart->value());    
+    settings.setValue(ui->tabWidgetOptions->property(name).toString(),
+                      ui->tabWidgetOptions->currentIndex());
 
     settings.endGroup();
 }
@@ -529,6 +529,7 @@ void MainWindow::readSettings()
 
     ui->tabWidget->setCurrentIndex(settings.value(ui->tabWidget->property(name).toString()).toInt());
     ui->tabIOSelection->setCurrentIndex(settings.value(ui->tabIOSelection->property(name).toString()).toInt());
+    ui->tabWidgetOptions->setCurrentIndex(settings.value(ui->tabWidgetOptions->property(name).toString()).toInt());
 
     ui->sbLineNoWidth->setValue(settings.value(ui->sbLineNoWidth->property(name).toString(), 2).toInt());
     ui->sbLineNoStart->setValue(settings.value(ui->sbLineNoStart->property(name).toString(), 1).toInt());

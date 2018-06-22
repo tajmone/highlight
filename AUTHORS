@@ -4,7 +4,7 @@ André Simon <andre.simon1 at gmx de>
 Developer of the Diluculum Lua Wrapper:
 Leandro Motta Barros
 
-Developer of the Artistic Style:
+Developer of the Artistic Style lib:
 Tal Davidson <davidsont at bigfoot com>
 Jim Pattee <jimp03 at email com>
 
@@ -36,7 +36,7 @@ Raphael Droz (Ansible YAML)
 Lydia Duncan (Chapel)
 Max Christian Pohle (VIMScript)
 Jess Austin (Coffeescript)
-Tristano Ajmone (PureBasic, GDScript, FASM, PolyGen, EBNF2)
+Tristano Ajmone (PureBasic, GDScript, FASM, PolyGen, EBNF2, Alan IF)
 Benjamin Kowarsch (Modula2)
 Mate Ory (EBNF)
 Julien Fontanet (BNF)
