@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.0" language="it_IT">
 <context>
     <name>MainWindow</name>
     <message>
@@ -124,11 +124,11 @@ Errore di sintassi Lua: %2</translation>
     <message>
         <location filename="mainwindow.cpp" line="1247"/>
         <source>Current theme: %1 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema in uso: %1 %2</translation>
     </message>
     <message>
         <source>Current syntax: %1</source>
-        <translation type="vanished">Sintassi in uso: %1</translation>
+        <translation>Sintassi in uso: %1</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1269"/>
@@ -560,7 +560,7 @@ Nota: La finestra di anteprima potrebbe non mostrare alcuni effetti dei plug-in.
     <message>
         <source>Set line numbering start</source>
         <translatorcomment>( TIP )</translatorcomment>
-        <translation type="vanished">Imposta valore iniziale dei numeri di riga</translation>
+        <translation>Imposta valore iniziale dei numeri di riga</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="898"/>
@@ -616,7 +616,7 @@ Rimuovi la sequenza BOM Unicode.</translation>
     </message>
     <message>
         <source>Set the output file ancoding.</source>
-        <translation type="vanished">Imposta la codifica di caratteri per l&apos;output.</translation>
+        <translation>Imposta la codifica di caratteri per l&apos;output.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="879"/>
@@ -915,12 +915,12 @@ Il risultato deve combaciare con la codifica di caratteri del file di input.</tr
     <message>
         <location filename="mainwindow.ui" line="2064"/>
         <source>Toggle classic theme or Base16 theme selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterna la selezione tra temi classici e temi Base16.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2067"/>
         <source>Base16</source>
-        <translation type="unfinished"></translation>
+        <translation>Base16</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2320"/>
@@ -930,7 +930,7 @@ Il risultato deve combaciare con la codifica di caratteri del file di input.</tr
     <message>
         <source>Make output Babel compatible.</source>
         <translatorcomment>( TIP for LaTeX )</translatorcomment>
-        <translation type="vanished">Rendi l&apos;output compatibile con Babel.</translation>
+        <translation>Rendi l&apos;output compatibile con Babel.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1439"/>
@@ -1026,7 +1026,7 @@ Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translatio
     <message>
         <source>Set page color attribute to background color</source>
         <translatorcomment>( TIP for RTF )</translatorcomment>
-        <translation type="vanished">Imposta l&apos;attributo colore della pagina al colore dello sfondo</translation>
+        <translation>Imposta l&apos;attributo colore della pagina al colore dello sfondo</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1703"/>
@@ -1136,7 +1136,7 @@ Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translatio
         <source>Reformat and indent your code.
 This feature is enabled tor C, C++, C# and Java code.</source>
         <translatorcomment>( TIP )</translatorcomment>
-        <translation type="vanished">Riformatta e indenta il codice sorgente.
+        <translation>Riformatta e indenta il codice sorgente.
 Quest&apos;opzione è disponibile per i linguaggi C, C++, C# e Java.</translation>
     </message>
     <message>
@@ -1248,7 +1248,7 @@ Mettere 0 per preservare le tabulazioni.</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="vanished">Dimensione carattere:</translation>
+        <translation>Dimensione carattere:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2342"/>
