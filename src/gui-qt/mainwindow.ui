@@ -749,7 +749,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <property name="movable">
         <bool>false</bool>
@@ -2025,9 +2025,15 @@ You can select the stylesheets in your word processor to reformat additional tex
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="minimumSize">
+              <size>
+               <width>110</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
-               <width>100</width>
+               <width>110</width>
                <height>16777215</height>
               </size>
              </property>
