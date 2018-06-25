@@ -28,10 +28,10 @@ end
 
 -- optional parameter: theme description
 function themeUpdate(desc)
-  --if #Keywords==4 then
+  if #Keywords==4 then
     table.insert(Keywords, {Colour= Keywords[1].Colour, Italic=true}) -- SIGNAL, SLOT keywords
     table.insert(Keywords, {Colour= Keywords[2].Colour, Bold=true})   -- Q_* constants
-  --end
+  end
 end
 
 

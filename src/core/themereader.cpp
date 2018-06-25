@@ -118,7 +118,7 @@ bool ThemeReader::load ( const string &styleDefinitionPath , OutputType type)
             keywordStyles.insert ( make_pair ( string(kwName), kwStyle ));
             idx++;
         }
-
+        
         idx=1;
         while (luaState["Injections"][idx].value() !=Diluculum::Nil) {
             themeInjections +=luaState["Injections"][idx].value().asString();

@@ -39,7 +39,8 @@ function syntaxUpdate(desc)
     currentLineNumber = lineNumber
     if (linesToMark[currentLineNumber]) then
       if HL_OUTPUT==HL_FORMAT_RTF then
-        return '\\chcbpat17{'
+        patternIdx = 12 + #Keywords  -- Index of the style which was added before
+        return '\\chcbpat'..patternIdx..'{'
       end
       return '<span class="hl mark">'
     end
