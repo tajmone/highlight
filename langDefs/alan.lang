@@ -1,4 +1,4 @@
---[[ "alan.lang" v1.0.1 (2018/06/26) | Alan 3.0beta5 | Highlight v3.43 | Lua 5.3
+--[[ "alan.lang" v1.0.2 (2018/06/26) | Alan 3.0beta5 | Highlight v3.43 | Lua 5.3
 ********************************************************************************
 *                                                                              *
 *                          ALAN IF Syntax Definition                           *
@@ -31,9 +31,24 @@ keyword candidates. Alan keywords are letters-only, but:
   (1) Kewyords must not be preceded by a single quote, otherwise it would be a
       quoted identifier (which can be named like a keyword, but isn't one).
   (2) Also capture '=>', '.', ',' and ':' as keywords (they are not operators).
-------------------------------------------------------------------------------]]
-Identifiers = [=[ (\=>|\.|,|:|(?<!')\b[a-zA-Z]+\b) ]=]
 
+Quoted IDs Hack
+===============
+We want the Identifiers RegEx to also capture Quoted Identifies, which then will
+not be matched by any actual Keywords list or RegEx, and therefore will be
+rendered as STANDARD text in the highlighted output.
+This hack is needed to avoid highlighting as keywords the contents of Quoted IDs.
+------------------------------------------------------------------------------]]
+Identifiers = [=[ (?x)(
+  # Quoted Identifiers:
+  '.*?'(?!'')|
+  
+  # Special Kewyords:
+  \=>|\.|,|:|
+  
+  # Alan Keywords:
+  (?<!')\b[a-zA-Z]+\b
+            ) ]=]
 --==============================================================================
 --                                  COMMENTS                                    
 --==============================================================================
@@ -181,6 +196,14 @@ end
 This syntax definition abides to Semantic Versioning 2.0.0:
     http://semver.org
 --------------------------------------------------------------------------------
+v1.0.2 (2018/06/26) | Alan 3.0beta5 | Highlight v3.43)
+    - BUG FIXES:
+      - Now Quoted IDs are passed through as STANDARD text. Before, if Quoted IDs
+        contained an Alan keyword or operators, etc., these would be highlighted
+        as such. The new hack adds a pattern to Identifiers' RegEx that will
+        match any Quoted ID, but since these will not match against any actual
+        Keywords list or RegEx, the token will be consumed as STANDARD text and
+        not processed further.
 v1.0.1 (2018/06/26 | Alan 3.0beta5 | Highlight v3.43)
     - BUG FIXES:
       - Escape Sequences after Interpolation (eg: "$1$p") were not captured.
