@@ -1,4 +1,4 @@
---[[ "alan.lang" v1.0.0 (2018/06/16) | Alan 3.0beta5 | Highlight v3.43 | Lua 5.3
+--[[ "alan.lang" v1.0.1 (2018/06/26) | Alan 3.0beta5 | Highlight v3.43 | Lua 5.3
 ********************************************************************************
 *                                                                              *
 *                          ALAN IF Syntax Definition                           *
@@ -161,13 +161,15 @@ Keywords = {
 ================================================================================
 This function ensures that escape sequences outside strings are ignored: tokens
 matching an escape sequence are rejected if the previously parsed token was not
-a string or another escape sequence. Based on André Simon's reply to Issue #23:
+a string, an interpolation or another escape sequence.
+Based on André Simon's reply to Issue #23:
     https://github.com/andre-simon/highlight/issues/23#issuecomment-332002639
 ------------------------------------------------------------------------------]]
 function OnStateChange(oldState, newState, token, kwgroup)
   if  newState == HL_ESC_SEQ and
       oldState ~= HL_STRING  and
-      oldState ~= HL_ESC_SEQ then
+      oldState ~= HL_ESC_SEQ and
+      oldState ~= HL_INTERPOLATION then
         return HL_REJECT
   end
   return newState
@@ -179,6 +181,9 @@ end
 This syntax definition abides to Semantic Versioning 2.0.0:
     http://semver.org
 --------------------------------------------------------------------------------
+v1.0.1 (2018/06/26 | Alan 3.0beta5 | Highlight v3.43)
+    - BUG FIXES:
+      - Escape Sequences after Interpolation (eg: "$1$p") were not captured.
 v1.0.0 (2018/06/16 | Alan 3.0beta5 | Highlight v3.43)
     - First release.
 --------------------------------------------------------------------------------
