@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT MANUAL -------  Version 3.44   ------------------- June 2018 ---
+---  HIGHLIGHT MANUAL -------  Version 3.44   ------------------- July 2018 ---
 -------------------------------------------------------------------------------
 
 OSI Certified Open Source Software
@@ -52,7 +52,7 @@ CONTENT
 
 Highlight converts sourcecode to HTML, XHTML, RTF, ODT, LaTeX, TeX, SVG, BBCode, 
 Pango markup and terminal escape sequences with coloured syntax highlighting.
-Language definitions and colour themes are customizable.
+Syntax definitions and colour themes are customizable.
 
 
 1.1 INTENDED PURPOSE
@@ -61,7 +61,7 @@ Language definitions and colour themes are customizable.
 Highlight was designed to offer a flexible but easy to use syntax highlighter
 for several output formats. No syntax or colouring information is hardcoded,
 instead all relevant data is stored in configuration scripts. These Lua scripts
-may be altered and enhanced with plug-in scripts.
+may be altered and enhanced with plug-ins.
 
 
 1.2 FEATURE LIST
@@ -212,7 +212,7 @@ Output formatting options:
      --wrap-no-numbers          omit line numbers of wrapped lines
                                   (assumes -l)
  -z, --zeroes                   pad line numbers with 0's
-     --base16                   use theme of the Base16 theme set
+     --base16                   use a theme of the Base16 collection
      --delim-cr                 set CR as end-of-line delimiter (MacOS 9)
      --keep-injections          output plug-in injections in spite of -f
      --kw-case=<case>           change case of case insensitive keywords
@@ -287,14 +287,15 @@ in the binary's current directory (instead of using the registry).
 
 If no input or output file name is defined by --input and --output options,
 highlight will use stdin and stdout for file processing.
+Since version 3.44, reading from stdin can also be triggered by the "-" option.
 
 If no input filename is defined by --input or given at the prompt, highlight is
 not able to determine the language type by means of the file extension (except
 some scripting languages which are figured out by the shebang in the first input
-line). In this case you have to pass highlight the given langage with --syntax
-(this should be the file suffix of the source file in most cases).
+line). In this case you have to pass highlight the language with --syntax
+(this usually should be the file suffix of the source file).
 Example: If you want to convert a Python file, highlight needs to load the
-py.lang language definition. The correct argument of --syntax would be "py".
+py.lang definition. The correct argument of --syntax would be "py".
 
 highlight test.py
 highlight < test.py --syntax py       # --syntax option necessary
@@ -303,7 +304,7 @@ cat test.py | highlight --syntax py
 If there exist multiple suffixes (like C, cc, cpp, h for C++ - files),
 they are mapped to a language definition in $CONF_DIR/filetypes.conf.
 
-Highlight enters the batch processing mode if multiple input files are defined
+Highlight enters the batch processing mode if multiple input files are given
 or if --batch-recursive is set.
 In batch mode, highlight will save the generated files using the original
 filename, appending the extension of the chosen output type.
@@ -344,8 +345,8 @@ Since there are limited colours defined for ANSI terminal output, there exists
 only one hard coded colour theme with --out-format=ansi. You should therefore
 use --out-format=xterm256 to enable output in 256 colours. The 256 colour mode
 is supported by recent releases of xterm, rxvt and Putty (among others).
-Recent terminal emulators also support 16m colors, this mode is enabled with
---out-format=truecolors.
+The latest terminal emulators also support 16m colors, this mode is enabled
+with --out-format=truecolors.
 
 highlight --out-format=ansi <inputfile> | less -R
 highlight --out-format=xterm256 <inputfile> | less -R
@@ -356,20 +357,6 @@ Text processing:
 If the language definition is specified as "txt", no highlighting takes place.
 
 highlight -S txt --out-format=latex README > README.tex
-
-
-Examples
---------
-
-highlight --out-format=xhtml  --batch-recursive '*.cpp' --outdir ~/html_code/
-This command converts all *.cpp files in the current directory and its sub-
-directories to xhtml files, and stores the output in /home/you/html_code.
-
-highlight -out-format=latex  * --outdir /home/you/latex_code/
-This command onverts all files to LaTeX, stored in /home/you/latex_code/.
-
-highlight --stdout -s seashell --print-style
-This command prints only the CSS information to stdout (theme: Seashell).
 
 
 2.5 GNU SOURCE-HIGHLIGHT COMPATIBILITY
@@ -395,11 +382,10 @@ These switches provide a common highlighter interface for scripts, plugins etc.
 Prevent parsing of binary input files
 -------------------------------------
 
-If highlight could be invoked with all kinds of input, you can disable parsing
-of binary files using --validate-input. This flag causes highlight to match the
-input file header with a list of magic numbers. If a binary file type is
-detected, highlight quits with an error message. This switch also removes an
-UTF-8 BOM in the output.
+If highlight might process untrusted input, you can disable parsing of binary 
+files using --validate-input. This flag causes highlight to match the input file 
+header with a list of magic numbers. If a binary file type is detected, highlight 
+quits with an error message. This switch also removes an UTF-8 BOM in the output.
 
 Highlight nested code without starting delimiter
 ------------------------------------------------
@@ -410,21 +396,21 @@ This can be useful with LuaTeX files:
 highlight luatex.tex --latex --start-nested=inc_luatex
 
 inc_luatex is a Lua language definition with TeX line comments.
-Note that the nested code section has to end with the ending delimiter defined
-in the host language definition.
+The nested code section has to end with the ending delimiter defined in the host 
+language definition.
 
 Test new configuration scripts
 ------------------------------
 
-The option --config-file helps to test new config files before installing them.
-The given file must be a lang or theme file.
+The option --config-file helps to test new config files. The argument file must be
+a lang or theme.
 
 highlight --config-file xxx.lang --config-file yyy.theme -I
 
 Debug language definitions
 --------------------------
 
-Use --verbose to display the Lua and syntax data.
+Use --verbose to display Lua and syntax data.
 
 Remove an UTF8 BOM:
 -------------------
@@ -483,13 +469,12 @@ Comments:
 
 Arrays:
 array = { first=1, second="2", 3, { 4,5 } }
-Arrays may contain variables and can be nested.
 
 
 3.2 LANGUAGE DEFINITIONS
 -------------------------------------------------------------------------------
 
-A language definition describes all elements of a programming language which
+A language definition describes syntax elements of a programming language which
 will be highlighted by different colours and font types.
 Save the new file in langDefs/, using the following name convention:
 <usual extension of sourcecode files>.lang
@@ -615,32 +600,7 @@ OnStateChange(oldState, newState, token, kwGroupID)
 Return HL_REJECT if the recognized token and state should be discarded; the 
 first character of token will be outputted and highlighted as "oldState".
 
-The highlighting is not working as expected? See src/include/codegenerator.hpp
-for details about the parser.
-
-Examples:
-
-function OnStateChange(oldState, newState, token)
-   if token=="]]" and oldState==HL_STRING and newState==HL_BLOCK_COMMENT_END then
-      return HL_STRING_END
-   end
-   return newState
-end
-
-This function resolves a Lua parsing issue with the "]]" close delimiter which
-ends both comments and strings.
-
-
-function OnStateChange(oldState, newState, token)
-   if token=="'" and oldState==HL_NUMBER and newState==HL_STRING then
-      return HL_NUMBER
-   end   
-   return newState
-end
-
-This hook enables correct parsing of C++14 number separator syntax.
-
-See README_PLUGINS for other available functions.
+See README_PLUGINS for more available functions.
 
 
 Example:
@@ -681,6 +641,16 @@ Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\.|\:|\&|\<|\>|\!|\=|\/|\*|\%|\+|\-|\~]]
 
 EnableIndentation=true
 
+-- resolve issue with C++14 number separator syntax
+function OnStateChange(oldState, newState, token)
+
+   if token=="'" and oldState==HL_NUMBER and newState==HL_STRING then
+      return HL_NUMBER
+   end
+   
+   return newState
+end
+
 
 3.3 REGULAR EXPRESSIONS
 -------------------------------------------------------------------------------
@@ -691,12 +661,12 @@ Please see README_REGEX for the supported regex constructs.
 3.4 THEME DEFINITIONS
 -------------------------------------------------------------------------------
 
-Colour themes contain the formatting information of the language elements which
+Colour themes contain the formatting information of the syntax elements which
 are described in language definitions.
 
 The files have to be stored as *.theme in themes/.
 Apply a theme with the --style option. Use --base16 to use one of the included
-Base16 themes (themes/base16/).
+Base16 themes (located in themes/base16/).
 
 
 Format attributes:
@@ -780,19 +750,17 @@ macros, constants etc.
 
 You define a new group in two steps:
 
- 1. Define a new group in your language definition:
+ 1. Define a new group in your language definition or plug-in:
 
-    Keywords = {
-      -- add your keyword description:
+    table.insert(Keywords, {
       {Id=5, List = {"ERROR", "DEBUG", "WARN"} }
-    }
+    })
 
- 2. Add a corresponding highlighting style in your colour theme:
+ 2. Add a corresponding highlighting style in your colour theme or plug-in:
 
-    Keywords= {
-      --add your keyword style as 5th item in the list:
-      { Colour= "#ff0000", Bold=true },
-    }
+    if #Keywords==4 then
+        table.insert(Keywords, {Colour= "#ff0000", Bold=true})
+    end
 
 It is recommended to define keyword groups in user-defined plugin scripts to
 avoid editing of original highlight files.
@@ -802,7 +770,7 @@ See the cpp_qt.lua sample plug-in script and README_PLUGINS for details.
 3.6 PLUG-INS
 -------------------------------------------------------------------------------
 
-The --plug-in option receives the path of a Lua script which overrides or
+The --plug-in option reads the path of a Lua script which overrides or
 enhances the settings of theme and language definition files. Plug-ins make
 it possible to apply costum settings without the need to edit installed
 configuration files.
@@ -903,7 +871,7 @@ some plugins which integrate highlight in Wiki and Blogging software:
 -Wordpress
 -Serendipity
 
-Other uses of highlight can be found on andre-smon.de
+Other uses of highlight can be found on andre-simon.de
 This site shows several use cases of highlight in projects like Webgit, 
 Evolution, Inkscape, Ranger and more.
 

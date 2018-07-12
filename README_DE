@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT HANDBUCH -----  Version 3.44   ------------------- Juni 2018 ---
+---  HIGHLIGHT HANDBUCH -----  Version 3.44   ------------------- Juli 2018 ---
 -------------------------------------------------------------------------------
 
 OSI Certified Open Source Software
@@ -213,7 +213,7 @@ Output formatting options:
      --wrap-no-numbers          omit line numbers of wrapped lines
                                   (assumes -l)
  -z, --zeroes                   pad line numbers with 0's
-     --base16                   use theme of the Base16 theme set
+     --base16                   use a theme of the Base16 collection
      --delim-cr                 set CR as end-of-line delimiter (MacOS 9)
      --keep-injections          output plug-in injections in spite of -f
      --kw-case=<case>           change case of case insensitive keywords
@@ -289,6 +289,7 @@ Einstellungen im Programmverzeichnis (anstatt zB. die Registry zu benutzen).
 
 Wenn kein Dateiname mit --input bzw. --output angegeben wird, benutzt highlight
 stdin bzw. stdout fuer die Ein- und Ausgabe.
+Seit Version 3.44 wird das Lesen von stdin auch durch die Option "-" ausgeloest.
 
 Wird die Eingabedatei nicht direkt auf der Kommandozeile als Argument bzw. mit
 --input angegeben, kann Highlight die passende Sprachinformation nicht
@@ -364,23 +365,6 @@ Text-Ausgabe:
 Wird als Sprachdefinition txt angegeben, findet keine Syntaxhervorhebung statt.
 
 highlight -S txt --out-format=latex README > readme.tex
-
-
-Beispiele:
-----------
-
-highlight --out-format=xhtml --batch-recursive '*.cpp' --outdir ~/html_code/
-Dieses Kommando konvertiert alle *.cpp Dateien im aktuellen Verzeichnis und den
-Unterverzeichnissen in XHTML-Dateien, und speichert die Ausgabe in
-/home/you/html_code.
-
-highlight -out-format=latex  * --outdir /home/you/latex_code/
-Dieses Kommando konvertiert alle Dateien in LaTeX, und speichert sie in
-/home/you/latex_code/.
-
-highlight --stdout -s seashell --print-style
-Dieses Kommando gibt nur die CSS-Informationen des angegebenen Stils (hier:
-Seashell) nach stdout aus.
 
 
 2.5 GNU SOURCE-HIGHLIGHT KOMPATIBILITAET
@@ -498,13 +482,12 @@ Kommentare:
 
 Arrays:
 array = { first=1, second="2", 3, { 4,5 } }
-Arrays koennen Variablen enthalten und geschachtelt sein.
 
 
 3.2 SPRACHDEFINITIONEN
 -------------------------------------------------------------------------------
 
-Eine Sprachdefinition beschreibt die Elemente einer Programmiersprache, die
+Eine Sprachdefinition beschreibt Syntax-Elemente einer Programmiersprache, die
 durch verschiedene Farben und Schrifttypen hervorgehoben werden.
 Die Datei muss in langDefs/ unter folgendem Namen gespeichert werden:
 
@@ -634,29 +617,6 @@ HL_REJECT wird dann zurueckgegeben, wenn das Token und der erkannte Zustand
 verworfen werden sollen; das erste Zeichzen von Token wird dann ausgegeben und 
 als "oldState" hervorgehoben.
 
-
-Beispiele:
-
-function OnStateChange(oldState, newState, token)
-   if token=="]]" and oldState==HL_STRING and newState==HL_BLOCK_COMMENT_END then
-      return HL_STRING_END
-   end
-   return newState
-end
-
-Diese Funktion loest ein Parsing-Problem in Lua, weil der Begrenzer "]]" Kommentare
-und Strings abschliessen kann.
-
-
-function OnStateChange(oldState, newState, token)
-   if token=="'" and oldState==HL_NUMBER and newState==HL_STRING then
-      return HL_NUMBER
-   end   
-   return newState
-end
-
-Dieser Hook ermoeglicht das korrekte Parsen von C++14 Zahl-Literalen.
-
 Weitere Funktionen sind in README_PLUGINS beschrieben.
 
 
@@ -698,6 +658,16 @@ Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\.|\:|\&|\<|\>|\!|\=|\/|\*|\%|\+|\-|\~]]
 
 EnableIndentation=true
 
+-- resolve issue with C++14 number separator syntax
+function OnStateChange(oldState, newState, token)
+
+   if token=="'" and oldState==HL_NUMBER and newState==HL_STRING then
+      return HL_NUMBER
+   end
+   
+   return newState
+end
+
 
 3.3 REGULAERE AUSDRUECKE
 -------------------------------------------------------------------------------
@@ -713,7 +683,7 @@ Sprachdefinitionen beschrieben wurden.
 
 Die Dateien muessen mit der Endung .theme in themes/ gespeichert werden. 
 Mit der --style (-s) Option wird das Farbschema angewandt. Mit --base16 wird
-eins der mitgelieferten Base16 Themes gelesen (themes/base16/).
+eins der mitgelieferten Base16 Themes gelesen (gespeichert in themes/base16/).
 
 Formatattribute:
 

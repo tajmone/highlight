@@ -104,7 +104,7 @@ void printHelp()
     cout<<"     --wrap-no-numbers          omit line numbers of wrapped lines\n";
     cout<<"                                  (assumes -l)\n";
     cout<<" -z, --zeroes                   pad line numbers with 0's\n";
-    cout<<"     --base16                   use theme of the Base16 theme set\n";
+    cout<<"     --base16                   use a theme of the Base16 collection\n";
     cout<<"     --delim-cr                 set CR as end-of-line delimiter (MacOS 9)\n";
     cout<<"     --keep-injections          output plug-in injections in spite of -f\n";
     cout<<"     --kw-case=<case>           change case of case insensitive keywords\n";
@@ -169,6 +169,7 @@ void printHelp()
     cout<<"\n";
     cout<<"\n";
     cout<<"If no in- or output files are specified, stdin and stdout will be used.\n";
+    cout<<"Since version 3.44, reading from stdin can also be triggered by the '-' option.\n"
     cout<<"HTML will be generated unless an other output format is given. Style definitions\n";
     cout<<"are stored in highlight.css (HTML, XHTML, SVG) or highlight.sty (LaTeX, TeX)\n";
     cout<<"if neither -c nor -I is given.\n";

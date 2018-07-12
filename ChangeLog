@@ -3,7 +3,7 @@ CHANGELOG Highlight
 
 highlight 3.44
 
-22.06.2018
+12.07.2018
 
 -fixed gcc 8 compilation warnings
 -fixed Ruby string interpolation (https://github.com/andre-simon/highlight/issues/70)
@@ -11,6 +11,8 @@ highlight 3.44
 -added 107 Base16 themes [https://github.com/chriskempson/base16] 
   (thanks to Tristano Ajmone)
 -updated Rust reserved words list
+-updated Java reserved words list
+-revised documentation
 -GUI: added Base16 theme selection checkbox
 -CLI: added --base16 option to enable the new themes
 -CLI: accept - as argument to read fromm stdin (https://github.com/andre-simon/highlight/issues/73)

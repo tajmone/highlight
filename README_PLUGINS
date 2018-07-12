@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT PLUGIN MANUAL - Version 3.40   --------------- November 2017 ---
+---  HIGHLIGHT PLUGIN MANUAL - Version 3.44   ------------------- July 2018 ---
 -------------------------------------------------------------------------------
 
 CONTENT
@@ -129,6 +129,7 @@ HL_FORMAT_LATEX: number
 HL_FORMAT_RTF: number
 HL_FORMAT_ANSI: number
 HL_FORMAT_XTERM256: number
+HL_FORMAT_TRUECOLOR: number
 HL_FORMAT_SVG: number
 HL_FORMAT_BBCODE: number
 HL_FORMAT_PANGO: number
@@ -270,6 +271,7 @@ HL_FORMAT_LATEX: number
 HL_FORMAT_RTF: number
 HL_FORMAT_ANSI: number
 HL_FORMAT_XTERM256: number
+HL_FORMAT_TRUECOLOR: number
 HL_FORMAT_SVG: number
 HL_FORMAT_BBCODE: number
 HL_FORMAT_PANGO: number
