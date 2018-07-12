@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+           "GitHub HTML5 Pandoc Template" v2.1 — by Tristano Ajmone           
+==============================================================================
+Copyright © Tristano Ajmone, 2017, MIT License (MIT). Project's home:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License 
+
+Copyright (c) Tristano Ajmone, 2017 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017, released
+under the MIT License (MIT); it contains readaptations of substantial portions
+of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Tristano Ajmone" />
+  <meta name="dcterms.date" content="2018-07-12" />
+  <title>Base16 Highlight Themes</title>
+  <style type="text/css">
+.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word;box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px}.markdown-body a{color:#0366d6;background-color:transparent;text-decoration:none;-webkit-text-decoration-skip:objects}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body a:hover{text-decoration:underline}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body strong{font-weight:600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1{font-size:2em;margin:.67em 0;padding-bottom:.3em;border-bottom:1px solid #eaecef}.markdown-body h2{padding-bottom:.3em;font-size:1.5em;border-bottom:1px solid #eaecef}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body img{border-style:none}.markdown-body svg:not(:root){overflow:hidden}.markdown-body hr{box-sizing:content-box;height:.25em;margin:24px 0;padding:0;overflow:hidden;background-color:#e1e4e8;border:0}.markdown-body hr::before{display:table;content:""}.markdown-body hr::after{display:table;clear:both;content:""}.markdown-body input{margin:0;overflow:visible;font:inherit;font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dd{margin-left:0}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body code{font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace}.markdown-body pre{font:12px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;word-wrap:normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body table{display:block;width:100%;overflow:auto;border-spacing:0;border-collapse:collapse}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body code{padding:.2em 0;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body code::after,.markdown-body code::before{letter-spacing:-.2em;content:"\00a0"}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:0 0;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code::after,.markdown-body pre code::before{content:normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body kbd{box-shadow:inset 0 -1px 0 #959da5;display:inline-block;padding:3px 5px;font:11px/10px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;color:#444d56;vertical-align:middle;background-color:#fcfcfc;border:1px solid #c6cbd1;border-bottom-color:#959da5;border-radius:3px;box-shadow:inset 0 -1px 0 #959da5}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body::before{display:table;content:""}.markdown-body::after{display:table;clear:both;content:""}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.Alert,.Error,.Note,.Success,.Warning{padding:11px;margin-bottom:24px;border-style:solid;border-width:1px;border-radius:4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top:0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom:0}.Alert{color:#246;background-color:#e2eef9;border-color:#bac6d3}.Warning{color:#4c4a42;background-color:#fff9ea;border-color:#dfd8c2}.Error{color:#911;background-color:#fcdede;border-color:#d2b2b2}.Success{color:#22662c;background-color:#e2f9e5;border-color:#bad3be}.Note{color:#2f363d;background-color:#f6f8fa;border-color:#d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color:#246;margin-bottom:0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color:#4c4a42;margin-bottom:0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color:#911;margin-bottom:0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color:#22662c;margin-bottom:0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color:#2f363d;margin-bottom:0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top:0}h1.title,p.subtitle{text-align:center}h1.title.followed-by-subtitle{margin-bottom:0}p.subtitle{font-size:1.5em;font-weight:600;line-height:1.25;margin-top:0;margin-bottom:16px;padding-bottom:.3em}div.line-block{white-space:pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">.styling:nth-of-type(1) ul {padding-left: 8px;}.styling:nth-of-type(1) ul li {list-style-type: none;padding: 0 0 0 65px;position: relative;}.styling:nth-of-type(1) ul li:before {content:"\00a0"; display: block;background-color: #181818;height: 1.5em;width: 60px;position: absolute;top: 0;left: -8px;}.styling ul li:nth-child(1)::before {background-color: #181818;}.styling ul li:nth-child(2)::before { background-color: #282828;}.styling ul li:nth-child(3)::before { background-color: #383838;}.styling ul li:nth-child(4)::before { background-color: #585858;}.styling ul li:nth-child(5)::before { background-color: #b8b8b8;}.styling ul li:nth-child(6)::before { background-color: #d8d8d8;}.styling ul li:nth-child(7)::before { background-color: #e8e8e8;}.styling ul li:nth-child(8)::before { background-color: #f8f8f8;}.styling ul li:nth-child(9)::before { background-color: #ab4642;}.styling ul li:nth-child(10)::before { background-color: #dc9656;}.styling ul li:nth-child(11)::before { background-color: #f7ca88;}.styling ul li:nth-child(12)::before { background-color: #a1b56c;}.styling ul li:nth-child(13)::before { background-color: #86c1b9;}.styling ul li:nth-child(14)::before { background-color: #7cafc2;}.styling ul li:nth-child(15)::before { background-color: #ba8baf;}.styling ul li:nth-child(16)::before { background-color: #a16946;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title">Base16 to Highlight Themes Templates</h1>
+<div class="summary">
+<pre><code>Last edited: 2018-07-13 | Creation date: 2018-07-12</code></pre>
+<p>Written by <a href="https://github.com/tajmone" title="Visit Tristano Ajmone's profile on GitHub">Tristano Ajmone</a>, Copyright © 2018, this document is <a href="#credits" title="see the 'Credits' section">released under MIT License</a> (MIT).</p>
+<p>Latest mustache templates, <strong>v1.0.0</strong> (2018/07/12):</p>
+<ul>
+<li><a href="./base16_highlight.mustache" title="Base16 to Highlight theme mustache template (dark version)"><code>base16_highlight.mustache</code></a></li>
+<li><a href="./base16_highlight_light.mustache" title="Base16 to Highlight theme mustache template (light version)"><code>base16_highlight_light.mustache</code></a></li>
+</ul>
+The templates are <a href="./LICENSE" title="Read the MIT license file">MIT License</a>.
+</div>
+</header>
+<hr>
+<nav id="TOC">
+<h1 class="toc-title">CONTENTS</h1>
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#what-is-base16">What Is Base16?</a></li>
+<li><a href="#whats-in-this-folder">What’s in This Folder?</a></li>
+</ul></li>
+<li><a href="#files-contents">Files Contents</a></li>
+<li><a href="#using-the-templates">Using the Templates</a><ul>
+<li><a href="#dark-vs-light-template">Dark vs Light Template</a></li>
+<li><a href="#mustache">Mustache</a></li>
+</ul></li>
+<li><a href="#color-schemes-guidelines">Color Schemes Guidelines</a><ul>
+<li><a href="#base16-styling-guidelines">Base16 Styling Guidelines</a></li>
+<li><a href="#highlight-themes-guidelines">Highlight Themes Guidelines</a></li>
+</ul></li>
+<li><a href="#license">License</a></li>
+<li><a href="#credits">Credits</a><ul>
+<li><a href="#github-pandoc-template">GitHub Pandoc Template</a></li>
+<li><a href="#base16-eighties">Base16 “Eighties”</a></li>
+</ul></li>
+<li><a href="#links">Links</a><ul>
+<li><a href="#base16">Base16</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+</ul></li>
+</ul>
+</nav>
+<hr>
+<h1 id="introduction">Introduction</h1>
+<p>Base16 was invented by Chris Kempson.</p>
+<h2 id="what-is-base16">What Is Base16?</h2>
+<p>From the <a href="http://chriskempson.com/projects/base16/" title="Visit the Base16 website">Base16 website</a>:</p>
+<blockquote>
+<p>An architecture for building themes based on carefully chosen syntax highlighting using a base of sixteen colours. Base16 provides a set of guidelines detailing how to style syntax and how to code a builder for compiling base16 <em>schemes</em> and <em>templates</em>.</p>
+</blockquote>
+<p>In other words, Base16 is a standard way of coding color schemes with a palette of 16 colors into YAML files; but it’s also a collection of <a href="https://mustache.github.io/" title="Visit mustache website">mustache</a> templates and various tools for programmatically converting color schemes into usable settings files for various tools.</p>
+<p>While Chris Kempson designed the original Base16 color schemes, templates and scripts, Base16 soon gathered momentum and attracted many contributors to the project, shifting the focus from the original project files to its guidelines, making Base16 a common standard used for the constantly growing number of color schemes, templates and tools created and maintained by independent developers.</p>
+<p>Today there are many tools (in various scripting languages) for managing and converting color schemes and templates, and the official <a href="https://github.com/chriskempson/base16" title="Visit the Base16 repository on GitHub">Base16 repository</a> acts as a central reference gathering links to available resources.</p>
+<h2 id="whats-in-this-folder">What’s in This Folder?</h2>
+<p>Here you’ll find some <a href="https://mustache.github.io/" title="Visit mustache website">mustache</a> templates for building Highlight themes from Base16 color schemes (distributed as YAML files).</p>
+<p>These templates were created by Tristano Ajmone and released under the <a href="./LICENSE" title="Read the MIT license file">MIT License</a>.</p>
+<h1 id="files-contents">Files Contents</h1>
+<p>Theme templates:</p>
+<ul>
+<li><a href="./base16_highlight.mustache" title="Base16 to Highlight theme mustache template (dark version)"><code>base16_highlight.mustache</code></a> — base theme template</li>
+<li><a href="./base16_highlight_light.mustache" title="Base16 to Highlight theme mustache template (light version)"><code>base16_highlight_light.mustache</code></a> — light theme template (for schemes that support a light colors version)</li>
+</ul>
+<p>Example files:</p>
+<ul>
+<li><a href="./example.bat"><code>example.bat</code></a> — script to build examples</li>
+<li><a href="./example.pb"><code>example.pb</code></a> — sample source code to highlight</li>
+<li><a href="./example.yaml"><code>example.yaml</code></a> — Base16 “Eighties” color scheme (by <a href="http://chriskempson.com" title="Visit Chris Kempson website (chriskempson.com)">Chris Kempson</a>, MIT License)</li>
+<li><a href="./example.theme"><code>example.theme</code></a> — Base16 “Eighties” converted theme (dark)</li>
+<li><a href="./example_light.theme"><code>example_light.theme</code></a> — Base16 “Eighties” converted theme (light)</li>
+<li><a href="./example-dark.html"><code>example-dark.html</code></a> — highlighting example (dark theme)</li>
+<li><a href="./example-light.html"><code>example-light.html</code></a> — highlighting example (light theme)</li>
+</ul>
+<h1 id="using-the-templates">Using the Templates</h1>
+<p>Please, note that the current templates were created for the original (older) Base16 standard, because it’s still the most used one and almost all color schemes you’ll find on the internet are likely to be using this version.</p>
+<p>The new standard of Base16 (v0.9.0) uses different variable names in both the schemes and mustache templates, as well as adding a few new variables (which are not relevant for creating Highlight themes). Adapting the templates in this folder to the new standard only requires tweaking a few variables names.</p>
+<h2 id="dark-vs-light-template">Dark vs Light Template</h2>
+<p>The base template is <code>base16_highlight.mustache</code>, this is the template you will use in most circumstances.</p>
+<p>Some color schemes are designed to work well by inverting the order of the colors from <code>base00</code> to <code>base07</code>; in such cases the base version is usually the <em>dark</em> version, while the one with the inverted color range is the <em>light</em> version. With such color schemes you can use also the <code>base16_highlight_light.mustache</code> to produce a theme with the inverted color range <code>base00</code> to <code>base07</code> from the same scheme.</p>
+<p>Some color schemes already ship in a dark and light version (ie, as two YAML files, usually named <code>&lt;schemename&gt;_dark.yaml</code> and <code>&lt;schemename&gt;_light.yaml</code>); in this case you should use only the <code>base16_highlight.mustache</code> template with both. In all other cases, you can always try to use both conversion templates and see if the light theme version looks good or not.</p>
+<h2 id="mustache">Mustache</h2>
+<p>To convert a Base16 color scheme to an Highlight theme you’ll need <a href="https://mustache.github.io/" title="Visit mustache website">mustache</a>. Mustache is a logic-less templating system which is available in many programming languages.</p>
+<p>If you’re looking for a quick solution for simply converting Base16 schemes to Highlight themes, you can install these two <a href="https://nodejs.org/" title="Visit Node.js website">Node.js</a> CLI tools:</p>
+<ul>
+<li><strong><a href="https://www.npmjs.com/package/mustache" title="Visit 'mustache.js' page on NPM">mustache.js</a></strong> (by Jan Lehnardt) — JavaScript implementation of <a href="https://mustache.github.io/" title="Visit mustache website">mustache</a>.</li>
+<li><strong><a href="https://www.npmjs.com/package/yaml-utils" title="Visit 'yaml-utils' page on NPM">yaml-utils</a></strong> (by Christopher Brown) — to convert from YAML to JSON.</li>
+</ul>
+<p>In order to build the examples via the scripts in this project, you’ll need to install these two packages globally on your machine (obviously, you’ll need <a href="https://nodejs.org/" title="Visit Node.js website">Node.js</a> too).</p>
+<p>The CLI syntax to convert a Base16 scheme with these tools is:</p>
+<pre class="batch"><code>yaml2json &lt; schemename.yaml | mustache - base16_highlight.mustache &gt; schemename.theme</code></pre>
+<p>… and to produce also a Light version theme (inverted colors in range <code>base00</code> to <code>base07</code>):</p>
+<pre class="batch"><code>yaml2json &lt; schemename.yaml | mustache - base16_highlight_light.mustache &gt; schemename.theme</code></pre>
+<p>For a detailed example, Look at the <a href="./example.bat"><code>example.bat</code></a> script in this folder.</p>
+<p>Of course, you can instead use any mustache tool of your choice to convert Base16 schemes to themes — these mustache templates are not tied to any particular mustache implementation, so they will work with any mustache tool.</p>
+<h1 id="color-schemes-guidelines">Color Schemes Guidelines</h1>
+<p>Here are the official Base16 guidelines on how to create color schemes that should fit any syntax, followed by some Highlight-themes specific guidelines.</p>
+<h2 id="base16-styling-guidelines">Base16 Styling Guidelines</h2>
+<p>From Base16 Website’s <em><a href="http://chriskempson.com/projects/base16/#styling-guidelines">Styling Guidelines v0.2</a></em>:</p>
+<blockquote>
+<p>Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default theme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. <code>base0B</code> (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which <code>base0B</code> should be used to highlight each construct when designing templates for editors.</p>
+<p>Since describing syntax highlighting can be tricky, please see <a href="https://github.com/chriskempson/base16-vim/">base16-vim</a> and <a href="https://github.com/chriskempson/base16-textmate/">base16-textmate</a> for reference. Though it should be noted that each editor will have some discrepancies due the fact that editors generally have different syntax highlighting engines.</p>
+<p>Colors <code>base00</code> to <code>base07</code> are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors <code>base08</code> to <code>base0F</code> are typically individual colors used for types, operators, names and variables. In order to create a dark theme, colors <code>base00</code> to <code>base07</code> should span from dark to light. For a light theme, these colours should span from light to dark.</p>
+<div class="styling">
+<ul>
+<li><code>base00</code> — Default Background</li>
+<li><code>base01</code> — Lighter Background (Used for status bars)</li>
+<li><code>base02</code> — Selection Background</li>
+<li><code>base03</code> — Comments, Invisibles, Line Highlighting</li>
+<li><code>base04</code> — Dark Foreground (Used for status bars)</li>
+<li><code>base05</code> — Default Foreground, Caret, Delimiters, Operators</li>
+<li><code>base06</code> — Light Foreground (Not often used)</li>
+<li><code>base07</code> — Light Background (Not often used)</li>
+<li><code>base08</code> — Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted</li>
+<li><code>base09</code> — Integers, Boolean, Constants, XML Attributes, Markup Link Url</li>
+<li><code>base0A</code> — Classes, Markup Bold, Search Text Background</li>
+<li><code>base0B</code> — Strings, Inherited Class, Markup Code, Diff Inserted</li>
+<li><code>base0C</code> — Support, Regular Expressions, Escape Characters, Markup Quotes</li>
+<li><code>base0D</code> — Functions, Methods, Attribute IDs, Headings</li>
+<li><code>base0E</code> — Keywords, Storage, Selector, Markup Italic, Diff Changed</li>
+<li><code>base0F</code> — Deprecated, Opening/Closing Embedded Language Tags, e.g. <code>&lt;?php ?&gt;</code></li>
+</ul>
+</div>
+</blockquote>
+<h2 id="highlight-themes-guidelines">Highlight Themes Guidelines</h2>
+<p>Here follows my personal interpretation of the above guidelines to map theme elements to Base16 colors.</p>
+<p>Since some Highlight theme elements map to fixed syntax elements (eg, strings, comments, etc.), but there is no way to predict which elements will be mapped by Keyword groups (this will vary from syntax to syntax), I’ve therefore chosen a compromise between the original guidelines and what I leaerned by testing different combinations against various syntaxes, and tried to use as many colors of the scheme as possible (leaving out those that usually produce unreadable text in most schemes).</p>
+<p>Of course, you are free to interpret the guidelines as you wish, and to rearrange the colors in the templates or the converted themes, but the following mapping is the one I’ve implemented in the mustache templates:</p>
+<div class="styling">
+<ul>
+<li><code>base00</code> — <code>Canvas</code></li>
+<li><code>base01</code> — (<em>unused</em>)</li>
+<li><code>base02</code> — (<em>unused</em>)</li>
+<li><code>base03</code> — <code>LineComment</code> + <code>BlockComment</code></li>
+<li><code>base04</code> — <code>LineNum</code></li>
+<li><code>base05</code> — <code>Default</code> + <code>Operator</code></li>
+<li><code>base06</code> — (<em>unused</em>)</li>
+<li><code>base07</code> — (<em>unused</em>)</li>
+<li><code>base08</code> — <code>Keywords</code> (group 3)</li>
+<li><code>base09</code> — <code>Number</code> + <code>Interpolation</code> + <code>Keywords</code> (group 6)</li>
+<li><code>base0A</code> — <code>Keywords</code> (group 4)</li>
+<li><code>base0B</code> — <code>String</code></li>
+<li><code>base0C</code> — <code>Escape</code> + <code>StringPreProc</code></li>
+<li><code>base0D</code> — <code>Keywords</code> (group 2)</li>
+<li><code>base0E</code> — <code>Keywords</code> (group 1)</li>
+<li><code>base0F</code> — <code>PreProcessor</code> + <code>Keywords</code> (group 5)</li>
+</ul>
+</div>
+<h1 id="license">License</h1>
+<ul>
+<li><a href="./LICENSE" title="Read the MIT license file"><code>LICENSE</code></a></li>
+</ul>
+<p>This document and the mustache template files in this folder are copyright by Tristano Ajmone, released under the terms of the MIT License:</p>
+<pre><code>The MIT License
+
+Copyright (c) 2018 Tristano Ajmone: https://gitlab.com/tajmone/highlight-extras</code></pre>
+<p>The full source code of this document is available in pandoc markdown, along with the scripts used to build and update all the contents of this folder:</p>
+<ul>
+<li><a href="https://gitlab.com/tajmone/highlight-extras/tree/master/extras/base16" class="uri">https://gitlab.com/tajmone/highlight-extras/tree/master/extras/base16</a></li>
+</ul>
+<h1 id="credits">Credits</h1>
+<h2 id="github-pandoc-template">GitHub Pandoc Template</h2>
+<p>This document was converted via <a href="http://pandoc.org/" title="Visit the website of pandoc, the universal markup converter">pandoc</a> and <a href="http://cdsoft.fr/pp/" title="Visit the website of PP, the generic Preprocessor (with Pandoc in mind)">PP</a>, using the <strong><a href="https://github.com/tajmone/pandoc-goodies/tree/master/templates/html5/github">GitHub Pandoc HTML5 Template</a></strong>, which is MIT Licensed:</p>
+<pre><code>Copyright (c) Tristano Ajmone, 2017 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.</code></pre>
+<p>For full details about the license, see the comments in the HTML source of this document.</p>
+<h2 id="base16-eighties">Base16 “Eighties”</h2>
+<p>The following files are derived from the Base16 “Eighties” color scheme, copyright by <a href="http://chriskempson.com" title="Visit Chris Kempson website (chriskempson.com)">Chris Kempson</a>, released under MIT License:</p>
+<ul>
+<li><a href="./example.yaml"><code>example.yaml</code></a></li>
+<li><a href="./example.theme"><code>example.theme</code></a></li>
+<li><a href="./example_light.theme"><code>example_light.theme</code></a></li>
+</ul>
+<p>The original scheme was downloaded from:</p>
+<ul>
+<li><a href="https://github.com/chriskempson/base16-builder" class="uri">https://github.com/chriskempson/base16-builder</a></li>
+</ul>
+<pre><code>Base16 Builder is released under the MIT License:
+
+Copyright (C) 2012 Chris Kempson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="http://chriskempson.com" title="Visit Chris Kempson website (chriskempson.com)">Chris Kempson</a> website</li>
+</ul>
+<h2 id="base16">Base16</h2>
+<ul>
+<li><a href="http://chriskempson.com/projects/base16/" title="Visit the Base16 website">Base16 website</a></li>
+<li><a href="https://github.com/chriskempson/base16" title="Visit the Base16 repository on GitHub">Base16 repository</a></li>
+<li><a href="https://github.com/chriskempson/base16-builder">base16-builder</a> (depracated) — the original Base16 Ruby builder.</li>
+</ul>
+<p>Similar Highlight projects:</p>
+<ul>
+<li><a href="https://gitlab.com/tajmone/highlight-extras/tree/master/base16">highlight-extras » Base16</a> — the sources of the 107 Base16 themes found in Highlight’s “<a href="https://gitlab.com/saalen/highlight/tree/master/themes/base16" title="See the '/themes/base16/' folder in Highlight’s source repository on GitLab"><code>/themes/base16/</code></a>” folder.</li>
+<li><a href="https://github.com/bezhermoso/base16-highlight" title="Visit bezhermoso's 'base16-highlight' repository">base16-highlight</a> (buggy) — Highlight templates by bezhermoso, has <a href="https://github.com/bezhermoso/base16-highlight/issues/1" title="View 'base16-highlight' issue regarding variables naming problems">several unresolved issues</a>.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="https://mustache.github.io/" title="Visit mustache website">mustache</a> — official website:
+<ul>
+<li><a href="https://mustache.github.io/mustache.1.html" title="Read mustache man(1)">mustache(1)</a> — manual: General commands.</li>
+<li><a href="https://mustache.github.io/mustache.5.html" title="Read mustache man(5)">mustache(5)</a> — manual: File formats and conventions.</li>
+</ul></li>
+<li><a href="https://nodejs.org/" title="Visit Node.js website">Node.js</a>:
+<ul>
+<li><a href="https://www.npmjs.com/package/mustache" title="Visit 'mustache.js' page on NPM">mustache.js</a> — Node implementation of mustache.</li>
+<li><a href="https://www.npmjs.com/package/yaml-utils" title="Visit 'yaml-utils' page on NPM">yaml-utils</a> — required to convert YAML schemes to JSON.</li>
+</ul></li>
+</ul>
+<!-----------------------------------------------------------------------------
+                               REFERENCE LINKS                                
+------------------------------------------------------------------------------>
+<!-- Files Links ------------------------------------------------------------->
+<!-- In-Doc Links ------------------------------------------------------------>
+<!-- highlight-extras -------------------------------------------------------->
+<!-- Base16 ------------------------------------------------------------------>
+<!-- Dependencies ------------------------------------------------------------>
+<!-- Miscellanea ------------------------------------------------------------->
+<!-- eof -->
+<!-----------------------------------------------------------------------------
+                                AFTER_README.md                                
+------------------------------------------------------------------------------>
+</article>
+</body>
+</html>
