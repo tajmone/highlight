@@ -1,0 +1,82 @@
+--[[ converted using Tristano Ajmone's "base16_highlight_light.mustache" v1.0.0
+================================================================================
+Scheme:   Base16 "Eighties Light"
+Author:   Chris Kempson (http://chriskempson.com)
+License:  MIT License
+================================================================================
+For more info on Chris Kempson's Base16, see:
+    http://chriskempson.com/projects/base16
+------------------------------------------------------------------------------]]
+Description = "Base16 Eighties Light"
+--------------------------------------------------------------------------------
+base00 = "#f2f0ec"
+base01 = "#e8e6df"
+base02 = "#d3d0c8"
+base03 = "#a09f93"
+base04 = "#747369"
+base05 = "#515151"
+base06 = "#393939"
+base07 = "#2d2d2d"
+base08 = "#f2777a"
+base09 = "#f99157"
+base0A = "#ffcc66"
+base0B = "#99cc99"
+base0C = "#66cccc"
+base0D = "#6699cc"
+base0E = "#cc99cc"
+base0F = "#d27b53"
+--------------------------------------------------------------------------------
+Canvas         = { Colour = base00, Italic = false, Bold = false }
+
+Default        = { Colour = base05, Italic = false, Bold = false }
+
+Number         = { Colour = base09, Italic = false, Bold = false }
+
+Operator       = { Colour = base05, Italic = false, Bold = false }
+
+String         = { Colour = base0B, Italic = false, Bold = false }
+
+Escape         = { Colour = base0C, Italic = false, Bold = false }
+StringPreProc  = Escape
+
+Interpolation  = { Colour = base09, Italic = false, Bold = false }
+
+LineComment    = { Colour = base03, Italic = true,  Bold = false } --> Italic
+BlockComment   = LineComment
+
+LineNum        = { Colour = base04, Italic = false, Bold = false }
+
+PreProcessor   = { Colour = base0F, Italic = false, Bold = false }
+
+Keywords = {
+  { Colour = base0E, Italic = false, Bold = true  }, --> kwd 1
+  { Colour = base0D, Italic = false, Bold = true  }, --> kwd 2
+  { Colour = base08, Italic = false, Bold = true  }, --> kwd 3
+  { Colour = base0A, Italic = false, Bold = true  }, --> kwd 4
+  { Colour = base0F, Italic = false, Bold = true  }, --> kwd 5
+  { Colour = base09, Italic = false, Bold = true  }, --> kwd 6
+}
+--[[----------------------------------------------------------------------------
+The MIT License
+
+Copyright (c) 2018 Tristano Ajmone: https://gitlab.com/tajmone/highlight-extras
+Copyright (c) Chris Kempson (http://chriskempson.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+------------------------------------------------------------------------------]]
