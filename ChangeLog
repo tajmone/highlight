@@ -3,19 +3,22 @@ CHANGELOG Highlight
 
 highlight 3.44
 
-12.07.2018
+17.07.2018
 
 -fixed gcc 8 compilation warnings
--fixed Ruby string interpolation (https://github.com/andre-simon/highlight/issues/70)
+-fixed Ruby string interpolation 
+  (https://github.com/andre-simon/highlight/issues/70)
 -added support for ALAN IF (thanks to Tristano Ajmone)
 -added 107 Base16 themes [https://github.com/chriskempson/base16] 
   (thanks to Tristano Ajmone)
--updated Rust reserved words list
--updated Java reserved words list
+-updated Rust and Java reserved words lists
 -revised documentation
+-moved extras/css-themes into extras/themes-resources
+-added extras/themes-resources/base16 (thanks to Tristano Ajmone)
 -GUI: added Base16 theme selection checkbox
 -CLI: added --base16 option to enable the new themes
--CLI: accept - as argument to read fromm stdin (https://github.com/andre-simon/highlight/issues/73)
+-CLI: accept - as argument to read from stdin 
+  (https://github.com/andre-simon/highlight/issues/73)
 
 ---
 highlight 3.43
@@ -25,11 +28,13 @@ highlight 3.43
 -updated astyle code to release 3.1 (Rev. 655)
 -added webkit reformatting style
 -improved several language definitions
--fixed Matlab string recognition (https://github.com/andre-simon/highlight/issues/61)
+-fixed Matlab string recognition 
+  (https://github.com/andre-simon/highlight/issues/61)
 -fixed Autohotkey escape sequence recognition (thanks to Klaus Daube)
 -added excel.lang (https://github.com/andre-simon/highlight/pull/60)
 -improved Qt pro file (https://github.com/andre-simon/highlight/pull/59)
--CLI: added --reformat-option (https://github.com/andre-simon/highlight/issues/62)
+-CLI: added --reformat-option 
+  (https://github.com/andre-simon/highlight/issues/62)
 -CLI: added --line-range (https://github.com/andre-simon/highlight/issues/64)
 -GUI: added Bulgarian translation  (thanks to Georgi Sotirov)
 

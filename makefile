@@ -75,7 +75,9 @@ install:
 		${DESTDIR}${examples_dir}json \
 		${DESTDIR}${examples_dir}pywal \
 		${DESTDIR}${examples_dir}langDefs-resources \
-		${DESTDIR}${examples_dir}css-themes
+		${DESTDIR}${examples_dir}themes-resources \
+		${DESTDIR}${examples_dir}themes-resources/base16 \
+		${DESTDIR}${examples_dir}themes-resources/css-themes
 		
 	${MKDIR} ${DESTDIR}${data_dir} \
 		${DESTDIR}${data_dir}themes \
@@ -108,8 +110,10 @@ install:
 	${INSTALL_DATA} ./extras/pywal/* ${DESTDIR}${examples_dir}pywal
 	${INSTALL_DATA} ./extras/json/* ${DESTDIR}${examples_dir}json
 	${INSTALL_DATA} ./extras/langDefs-resources/* ${DESTDIR}${examples_dir}langDefs-resources
-	${INSTALL_DATA} ./extras/css-themes/* ${DESTDIR}${examples_dir}css-themes
+	${INSTALL_DATA} ./extras/themes-resources/base16/* ${DESTDIR}${examples_dir}themes-resources/base16
+	${INSTALL_DATA} ./extras/themes-resources/css-themes/* ${DESTDIR}${examples_dir}themes-resources/css-themes
 
+	
 	${INSTALL_DATA} ./extras/highlight_pipe.* ${DESTDIR}${examples_dir}
 	${INSTALL_DATA} ./extras/*.py ${DESTDIR}${examples_dir}
 	${INSTALL_PROGRAM} ./src/highlight ${DESTDIR}${bin_dir}
