@@ -169,7 +169,7 @@ void printHelp()
     cout<<"\n";
     cout<<"\n";
     cout<<"If no in- or output files are specified, stdin and stdout will be used.\n";
-    cout<<"Since version 3.44, reading from stdin can also be triggered by the '-' option.\n"
+    cout<<"Since version 3.44, reading from stdin can also be triggered by the '-' option.\n";
     cout<<"HTML will be generated unless an other output format is given. Style definitions\n";
     cout<<"are stored in highlight.css (HTML, XHTML, SVG) or highlight.sty (LaTeX, TeX)\n";
     cout<<"if neither -c nor -I is given.\n";

@@ -39,12 +39,14 @@
     </widget>
    </item>
    <item>
-    <widget class="QTextEdit" name="textEdit">
+    <widget class="QTextBrowser" name="textBrowser">
      <property name="font">
       <font>
-       <family>Courier New</family>
-       <pointsize>8</pointsize>
+       <family>Monospace</family>
       </font>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

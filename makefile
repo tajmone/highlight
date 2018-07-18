@@ -71,6 +71,7 @@ install:
 		${DESTDIR}${examples_dir}web_plugins/movabletype \
 		${DESTDIR}${examples_dir}web_plugins/wordpress \
 		${DESTDIR}${examples_dir}swig \
+		${DESTDIR}${examples_dir}tcl \
 		${DESTDIR}${examples_dir}pandoc \
 		${DESTDIR}${examples_dir}json \
 		${DESTDIR}${examples_dir}pywal \
@@ -106,14 +107,13 @@ install:
 	${INSTALL_DATA} ./extras/web_plugins/movabletype/* ${DESTDIR}${examples_dir}web_plugins/movabletype/
 	${INSTALL_DATA} ./extras/web_plugins/wordpress/* ${DESTDIR}${examples_dir}web_plugins/wordpress/
 	${INSTALL_DATA} ./extras/swig/* ${DESTDIR}${examples_dir}swig
+	${INSTALL_DATA} ./extras/tcl/* ${DESTDIR}${examples_dir}tcl
 	${INSTALL_DATA} ./extras/pandoc/* ${DESTDIR}${examples_dir}pandoc
 	${INSTALL_DATA} ./extras/pywal/* ${DESTDIR}${examples_dir}pywal
 	${INSTALL_DATA} ./extras/json/* ${DESTDIR}${examples_dir}json
 	${INSTALL_DATA} ./extras/langDefs-resources/* ${DESTDIR}${examples_dir}langDefs-resources
 	${INSTALL_DATA} ./extras/themes-resources/base16/* ${DESTDIR}${examples_dir}themes-resources/base16
 	${INSTALL_DATA} ./extras/themes-resources/css-themes/* ${DESTDIR}${examples_dir}themes-resources/css-themes
-
-	
 	${INSTALL_DATA} ./extras/highlight_pipe.* ${DESTDIR}${examples_dir}
 	${INSTALL_DATA} ./extras/*.py ${DESTDIR}${examples_dir}
 	${INSTALL_PROGRAM} ./src/highlight ${DESTDIR}${bin_dir}

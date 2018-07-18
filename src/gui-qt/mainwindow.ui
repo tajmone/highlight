@@ -93,11 +93,23 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
+    <widget class="QMenu" name="menuExtras_2">
+     <property name="title">
+      <string>Extras</string>
+     </property>
+     <addaction name="action_Pandoc"/>
+     <addaction name="action_SWIG"/>
+     <addaction name="action_Themes_Base16"/>
+     <addaction name="action_Themes_CSS"/>
+     <addaction name="action_TCL"/>
+    </widget>
     <addaction name="action_Tips"/>
     <addaction name="action_Manual"/>
     <addaction name="action_Plug_Ins"/>
     <addaction name="action_Changelog"/>
     <addaction name="action_License"/>
+    <addaction name="separator"/>
+    <addaction name="menuExtras_2"/>
     <addaction name="separator"/>
     <addaction name="actionAbout_translations"/>
     <addaction name="separator"/>
@@ -148,7 +160,7 @@
         </size>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <property name="elideMode">
         <enum>Qt::ElideNone</enum>
@@ -2444,6 +2456,31 @@ Set the width to 0 to keep tabs.</string>
   <action name="action_Plug_Ins">
    <property name="text">
     <string>&amp;Plug-Ins</string>
+   </property>
+  </action>
+  <action name="action_Pandoc">
+   <property name="text">
+    <string>Pandoc</string>
+   </property>
+  </action>
+  <action name="action_SWIG">
+   <property name="text">
+    <string>SWIG</string>
+   </property>
+  </action>
+  <action name="action_Themes_Base16">
+   <property name="text">
+    <string>Themes - Base16</string>
+   </property>
+  </action>
+  <action name="action_Themes_CSS">
+   <property name="text">
+    <string>Themes - CSS</string>
+   </property>
+  </action>
+  <action name="action_TCL">
+   <property name="text">
+    <string>TCL</string>
    </property>
   </action>
  </widget>

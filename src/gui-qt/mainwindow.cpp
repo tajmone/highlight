@@ -1274,32 +1274,56 @@ void MainWindow::updatePreview()
     this->setCursor(Qt::ArrowCursor);
 }
 
+void MainWindow::showHelpFile(const QString& file){
+    ShowTextFile show;
+    show.setFileName(file);
+    show.exec();
+}
+
 void MainWindow::on_action_Manual_triggered()
 {
-    ShowTextFile show;
-    show.setFileName("README");
-    show.exec();
+    showHelpFile("README");
 }
 
 void MainWindow::on_action_Changelog_triggered()
 {
-    ShowTextFile show;
-    show.setFileName("ChangeLog");
-    show.exec();
+    showHelpFile("ChangeLog");
 }
 
 void MainWindow::on_action_Plug_Ins_triggered()
 {
-    ShowTextFile show;
-    show.setFileName("README_PLUGINS");
-    show.exec();
+    showHelpFile("README_PLUGINS");
 }
 
 void MainWindow::on_action_License_triggered()
 {
-    ShowTextFile show;
-    show.setFileName("COPYING");
-    show.exec();
+    showHelpFile("COPYING");
+}
+
+
+void MainWindow::on_action_Pandoc_triggered()
+{
+    showHelpFile("extras/pandoc/README.html");
+}
+
+void MainWindow::on_action_SWIG_triggered()
+{
+    showHelpFile("extras/swig/README_SWIG");
+}
+
+void MainWindow::on_action_TCL_triggered()
+{
+    showHelpFile("extras/tcl/README_TCL");
+}
+
+void MainWindow::on_action_Themes_Base16_triggered()
+{
+    showHelpFile("extras/themes-resources/base16/README.html");
+}
+
+void MainWindow::on_action_Themes_CSS_triggered()
+{
+    showHelpFile("extras/themes-resources/css-themes/README.html");
 }
 
 void MainWindow::on_pbHTMLChooseStyleIncFile_clicked()

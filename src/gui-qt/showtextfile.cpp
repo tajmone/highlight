@@ -66,7 +66,7 @@ bool ShowTextFile::setFileName(const QString& fileName)
 #endif
     if ( file.open( QIODevice::ReadOnly) ) {
         QTextStream stream( &file );
-        m_ui->textEdit->setText( stream.readAll() );
+        m_ui->textBrowser->setText( stream.readAll() );
         m_ui->lbTitle->setText(fileName);
     }
     return file.exists();
