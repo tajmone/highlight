@@ -1300,32 +1300,6 @@ void MainWindow::on_action_License_triggered()
     showHelpFile("COPYING");
 }
 
-
-void MainWindow::on_action_Pandoc_triggered()
-{
-    showHelpFile("extras/pandoc/README.html");
-}
-
-void MainWindow::on_action_SWIG_triggered()
-{
-    showHelpFile("extras/swig/README_SWIG");
-}
-
-void MainWindow::on_action_TCL_triggered()
-{
-    showHelpFile("extras/tcl/README_TCL");
-}
-
-void MainWindow::on_action_Themes_Base16_triggered()
-{
-    showHelpFile("extras/themes-resources/base16/README.html");
-}
-
-void MainWindow::on_action_Themes_CSS_triggered()
-{
-    showHelpFile("extras/themes-resources/css-themes/README.html");
-}
-
 void MainWindow::on_pbHTMLChooseStyleIncFile_clicked()
 {
     selectSingleFile(ui->leHTMLStyleIncFile, tr("Choose a style include file"), "*.css");

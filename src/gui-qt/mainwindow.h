@@ -164,12 +164,6 @@ private slots:
     void on_action_About_Highlight_triggered();
     void on_action_Exit_triggered();
 
-    void on_action_Pandoc_triggered();
-    void on_action_SWIG_triggered();
-    void on_action_TCL_triggered();
-    void on_action_Themes_Base16_triggered();
-    void on_action_Themes_CSS_triggered();
-
     void plausibility();
     void updatePreview();
     void openFiles();
