@@ -67,7 +67,7 @@ MainWindow::MainWindow(QWidget *parent)
     // fill themes combo
 
 #ifdef Q_OS_OSX
-    QDir themesDir(QCoreApplication::applicationDirPath() + "/../Resources/themes");
+    QDir themesDirClassic(QCoreApplication::applicationDirPath() + "/../Resources/themes");
     QDir themesDirBase16(QCoreApplication::applicationDirPath() + "/../Resources/themes/base16");
 
 #else
@@ -114,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->pbLATEXChooseStyleIncFile->setMaximumWidth(30);
         ui->pbTEXChooseStyleIncFile->setMaximumWidth(30);
         ui->pbSVGChooseStyleIncFile->setMaximumWidth(30);
+        ui->tabIOSelection->setDocumentMode(false);
     #endif
 
     QObject::connect(ui->pbOpenFiles, SIGNAL(clicked()), this, SLOT(openFiles()));
@@ -420,7 +421,7 @@ void MainWindow::writeSettings()
     settings.setValue(ui->sbLineNoWidth->property(name).toString(),
                       ui->sbLineNoWidth->value());
     settings.setValue(ui->sbLineNoStart->property(name).toString(),
-                      ui->sbLineNoStart->value());    
+                      ui->sbLineNoStart->value());
     settings.setValue(ui->tabWidgetOptions->property(name).toString(),
                       ui->tabWidgetOptions->currentIndex());
 

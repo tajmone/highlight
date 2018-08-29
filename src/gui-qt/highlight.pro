@@ -84,6 +84,6 @@ macx-clang {
     CONFIG += link_pkgconfig
     PKGCONFIG += lua
     LIBS += -L.. -lhighlight
-    LIBS += -llua
+    LIBS += -L/Users/andresimon/Downloads/tarballs/lua-5.3.4/src -llua
     ICON = $${PWD}/highlight.icns
 }
