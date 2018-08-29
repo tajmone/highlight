@@ -186,7 +186,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         int idx=1;
         int kwId=0;
         while (ls["Keywords"][idx].value() !=Diluculum::Nil) {
-            kwId= generateNewKWClass ( ls["Keywords"][idx]["Id"].value().asNumber() );
+            kwId= generateNewKWClass ( ls["Keywords"][idx]["Id"].value().asInteger() );
 
             if (ls["Keywords"][idx]["List"].value()!=Diluculum::Nil) {
                 int listIdx=1;
@@ -199,7 +199,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                 string reString=StringTools::trim(ls["Keywords"][idx]["Regex"].value().asString());
                 int captGroup=-1;
                 if (ls["Keywords"][idx]["Group"].value()!=Diluculum::Nil) {
-                    captGroup=ls["Keywords"][idx]["Group"].value().asNumber();
+                    captGroup=ls["Keywords"][idx]["Group"].value().asInteger();
                 }
                 regex.push_back ( new RegexElement ( KEYWORD, KEYWORD_END, reString, kwId, captGroup ) );
             }

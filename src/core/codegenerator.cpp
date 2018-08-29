@@ -616,7 +616,7 @@ State CodeGenerator::validateState(State newState, State oldState, unsigned int 
 
         resultOfHook = res.size()>=1;
         if (resultOfHook) {
-            State validatedState = (State)res[0].asNumber();
+            State validatedState = (State)res[0].asInteger();
             if ( validatedState== _REJECT) {
                 // proceed using only the first character of the token
                 lineIndex -= (token.length() -1);
