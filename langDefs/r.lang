@@ -1,6 +1,6 @@
 Description="R"
 
-Identifiers=[[ [a-zA-Z_.][\w]* ]]
+Identifiers=[[ [a-zA-Z_\.][\w]* ]]
 
 Keywords={
   { Id=1,
@@ -10,7 +10,7 @@ Keywords={
     List={"NULL", "NA", "Inf", "NaN", "TRUE", "T", "FALSE", "F"},
   },
   { Id=4,
-    Regex=[[([\w+_.])\s*\(]],
+    Regex=[[([\w+_\.]+)\s*\(]],
   }  
 }
 
