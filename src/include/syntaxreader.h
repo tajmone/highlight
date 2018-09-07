@@ -367,11 +367,16 @@ private:
 
     // interface for plug-ins: add keywords dynamically
     static int luaAddKeyword (lua_State *L);
+
+    // interface for plug-ins: remove keywords dynamically
+    static int luaRemoveKeyword (lua_State *L);
     
     // generate a keyword class 
     unsigned int generateNewKWClass ( int classID );
     
     void addKeyword(unsigned int groupID, const string& kw);
+
+    void removeKeyword(const string& kw);
 
     // Functions accessible in Lua State
     Diluculum::LuaFunction* validateStateChangeFct;

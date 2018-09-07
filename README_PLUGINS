@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT PLUGIN MANUAL - Version 3.44   ------------------- July 2018 ---
+---  HIGHLIGHT PLUGIN MANUAL - Version 3.45   -------------- September 2018 ---
 -------------------------------------------------------------------------------
 
 CONTENT
@@ -8,7 +8,7 @@ CONTENT
 1. ABOUT
 2. SCRIPT STRUCTURE
 3. SYNTAX CHUNK ELEMENTS
-   3.1 FUNCTION ADDKEYWORD
+   3.1 FUNCTIONS ADDKEYWORD/REMOVEKEYWORD
    3.2 FUNCTION ONSTATECHANGE
    3.3 DECORATE FUNCTIONS
 4. THEME CHUNK ELEMENTS
@@ -143,6 +143,7 @@ HL_LANG_DIR: string (path of language definition directory)
 Functions:
 
 AddKeyword: function
+RemoveKeyword: function
 OnStateChange: function
 Decorate: function
 DecorateLineBegin: function
@@ -152,12 +153,15 @@ IMPORTANT: Functions will only be executed if they are defined as local
 functions within the "lang" chunk referenced in the Plugins array. 
 They will be ignored when defined elsewhere in the script.
 
+The functions AddKeyword, RemoveKeyword and OnStateChange are also useful in
+language definitions without a plug-in use case.
 
-3.1 FUNCTION ADDKEYWORD
+
+3.1 FUNCTIONS ADDKEYWORD/REMOVEKEYWORD
 -------------------------------------------------------------------------------
 
-This function will add a keyword to one of the the internal keyword lists.
-It has no effect if the keyword was added before.
+The AddKeyword function will add a keyword to one of the the internal keyword 
+lists. It has no effect if the keyword was added before.
 Keywords added with AddKeyword will remain active for all files of the same
 syntax if highlight is in batch mode.
 
@@ -167,12 +171,33 @@ AddKeyword(keyword, kwGroupID)
               kwGroupID: keyword group ID of the keyword
   Returns:    true if successfull
   
+The RemoveKeyword erases the given keyword from the internal list.
+
+RemoveKeyword(keyword)
+
+  Parameters: keyword:   string which should be removed from the keyword list
+  Returns:    true if successfull
+
 
 3.2 FUNCTION ONSTATECHANGE
 -------------------------------------------------------------------------------
 
-As this function is more commonly used in language definitions, refer to README
-for its detailed description.
+This function is a hook which is called if an internal state changes (e.g. from
+HL_STANDARD to HL_KEYWORD if a keyword is found). It can be used to alter
+the new state or to manipulate syntax elements like keyword lists.
+
+OnStateChange(oldState, newState, token, kwGroupID)
+
+  Hook Event: Highlighting parser state change
+  Parameters: oldState:  old state
+              newState:  intended new state
+              token:     the current token which triggered the new state
+              kwGroupID: if newState is HL_KEYWORD, the parameter
+                         contains the keyword group ID
+  Returns:    Correct state to continue OR HL_REJECT
+
+Return HL_REJECT if the recognized token and state should be discarded; the 
+first character of token will be outputted and highlighted as "oldState".
 
 Example for its usage in a plugin context:
 

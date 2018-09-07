@@ -159,6 +159,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         initLuaState(ls, langDefPath, pluginReadFilePath, outputType);
 
         lua_register (ls.getState(),"AddKeyword",luaAddKeyword);
+        lua_register (ls.getState(),"RemoveKeyword",luaRemoveKeyword);
 
         SyntaxReader **s = (SyntaxReader **)lua_newuserdata(ls.getState(), sizeof(SyntaxReader *));
         *s=this;
@@ -391,6 +392,10 @@ void SyntaxReader::addKeyword(unsigned int groupID, const string& kw)
         keywords.insert ( make_pair (kw, groupID ) );
     }
 }
+void SyntaxReader::removeKeyword(const string& kw)
+{
+    keywords.erase(kw);
+}
 
 int SyntaxReader::isKeyword ( const string &s )
 {
@@ -407,6 +412,22 @@ int SyntaxReader::luaAddKeyword (lua_State *L)
         SyntaxReader **a=reinterpret_cast<SyntaxReader **>(lua_touserdata(L, 3));
         if (*a) {
             (*a)->addKeyword(kwgroupID, keyword);
+            retVal=1;
+        }
+    }
+    lua_pushboolean(L, retVal);
+    return 1;
+}
+
+int SyntaxReader::luaRemoveKeyword (lua_State *L)
+{
+    int retVal=0;
+    if (lua_gettop(L)==1) {
+        const char*keyword=lua_tostring(L, 1);
+        lua_getglobal(L, GLOBAL_SR_INSTANCE_NAME);
+        SyntaxReader **a=reinterpret_cast<SyntaxReader **>(lua_touserdata(L, 2));
+        if (*a) {
+            (*a)->removeKeyword(keyword);
             retVal=1;
         }
     }
