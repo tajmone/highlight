@@ -30,6 +30,10 @@ Keywords={
     Regex=[[(\w+)(\s*[:=]\s*function)?\s*\(]],
     Group=1
   },
+   { Id=4,
+    Regex=[[(\w+)\s*:]],
+    Group=1
+  },
 }
 
 Strings={

@@ -1,7 +1,12 @@
 CHANGELOG Highlight
 
+
+highlight 3.45
+
+xx.09.2018
+
 -added RemoveKeyword function for syntax definitions
--added support for ISO and R10 variants of Modula2
+-added support for ISO and R10 variants of Modula2 (thanks to Benjamin Kowarsch)
 -fixed R identifiers (https://gitlab.com/saalen/highlight/merge_requests/77)
 
 ---
