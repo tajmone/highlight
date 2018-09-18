@@ -1,4 +1,4 @@
---[[ "alan.lang" v2.0.0 (2018/09/11) | Alan 3.0beta6 | Highlight v3.44 | Lua 5.3
+--[[ "alan.lang" v2.0.1 (2018/09/18) | Alan 3.0beta6 | Highlight v3.44 | Lua 5.3
 ********************************************************************************
 *                                                                              *
 *                          ALAN IF Syntax Definition                           *
@@ -167,7 +167,7 @@ Keywords = {
 --       desirable to do so).
   { Id = 2,
     List = {
-      "actor", "entity", "literal", "location", "object", "string", "thing",
+      "actor", "entity", "integer", "literal", "location", "object", "string", "thing",
     }
   },
 --------------------------------------------------------------------------------
@@ -213,6 +213,8 @@ end
 This syntax definition abides to Semantic Versioning 2.0.0:
     http://semver.org
 --------------------------------------------------------------------------------
+v2.0.1 (2018/09/18)
+      - Add missing "integer" to the Predefined Alan classes.
 v2.0.0 (2018/09/11) | Alan 3.0beta6 | Highlight v3.44
     - BUG FIXES:
       - Add missing keywords "meta", "indirectly" and "transitively".
