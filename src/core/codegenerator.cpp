@@ -64,6 +64,9 @@ const string CodeGenerator::STY_NAME_LIN="lin";
 const string CodeGenerator::STY_NAME_SYM="opt"; //operator
 const string CodeGenerator::STY_NAME_IPL="ipl"; //interpolation
 
+vector<Diluculum::LuaFunction*> CodeGenerator::pluginChunks;
+
+
 CodeGenerator * CodeGenerator::getInstance ( OutputType type )
 {
     CodeGenerator* generator=NULL;
@@ -138,6 +141,8 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      startLineCnt( 1 ),
      startLineCntCurFile( 1 ),
      maxLineCnt ( UINT_MAX ),
+     inputFilesCnt (0),
+     processedFilesCnt (0),
      terminatingChar ( '\0' ),
      formatter ( NULL ),
      formattingEnabled ( false ),
@@ -160,6 +165,11 @@ CodeGenerator::~CodeGenerator()
     for ( map<string, SyntaxReader*>::iterator it=syntaxReaders.begin(); it!=syntaxReaders.end(); it++ ) {
         delete it->second;
     }
+    
+    for (unsigned int i=0; i<pluginChunks.size(); i++) {
+        delete pluginChunks[i];
+    }
+    pluginChunks.clear();
 }
 
 
@@ -359,6 +369,11 @@ void CodeGenerator::setStartingInputLine ( unsigned int begin )
 void CodeGenerator::setMaxInputLineCnt ( unsigned int cnt )
 {
     maxLineCnt = cnt;
+}
+
+void CodeGenerator::setFilesCnt ( unsigned int cnt )
+{
+    inputFilesCnt = cnt;
 }
 
 bool CodeGenerator::formattingIsPossible()
@@ -1294,21 +1309,97 @@ bool CodeGenerator::validateInputStream()
            || magic_table[magic_index] == magic_utf8;
 }
 
+void CodeGenerator::applyPluginChunk(const string& fctName, string *result, bool *keepDefault) {
+    
+    if ( pluginChunks.size()) {
+    
+        Diluculum::LuaState luaState;
+
+        Diluculum::LuaValueList chunkParams;
+        chunkParams.push_back(currentSyntax->getDescription());
+        for (unsigned int i=0; i<pluginChunks.size(); i++) {
+            luaState.call(*pluginChunks[i], chunkParams, "format user function");
+        }
+        
+        if (luaState.globals().count(fctName)) {
+            Diluculum::LuaFunction* documentFct=new Diluculum::LuaFunction(luaState[fctName].value().asFunction());
+        
+            luaState["HL_INPUT_FILE"] = luaState["HL_PLUGIN_PARAM"] = pluginParameter;
+            luaState["HL_OUTPUT"] = outputType;
+            luaState["HL_FORMAT_HTML"]=HTML;
+            luaState["HL_FORMAT_XHTML"]=XHTML;
+            luaState["HL_FORMAT_TEX"]=TEX;
+            luaState["HL_FORMAT_LATEX"]=LATEX;
+            luaState["HL_FORMAT_RTF"]=RTF;
+            luaState["HL_FORMAT_ANSI"]=ESC_ANSI;
+            luaState["HL_FORMAT_XTERM256"]=ESC_XTERM256;
+            luaState["HL_FORMAT_TRUECOLOR"]=ESC_TRUECOLOR;
+            luaState["HL_FORMAT_SVG"]=SVG;
+            luaState["HL_FORMAT_BBCODE"]=BBCODE;
+            luaState["HL_FORMAT_PANGO"]=PANGO;
+            luaState["HL_FORMAT_ODT"]=ODTFLAT;
+            
+            Diluculum::LuaValueList params;
+            Diluculum::LuaValueMap options;
+            options[Diluculum::LuaValue("title")] =  Diluculum::LuaValue(docTitle);   
+            options[Diluculum::LuaValue("encoding")] =  Diluculum::LuaValue(encoding);   
+            options[Diluculum::LuaValue("fragment")] =  Diluculum::LuaValue(fragmentOutput);   
+            options[Diluculum::LuaValue("font")] =  Diluculum::LuaValue(getBaseFont());   
+            options[Diluculum::LuaValue("fontsize")] =  Diluculum::LuaValue(getBaseFontSize());   
+
+            params.push_back(inputFilesCnt);
+            params.push_back(processedFilesCnt);
+            params.push_back(options);
+            
+            Diluculum::LuaValueList res=luaState.call ( *documentFct, params, fctName+" call")  ;
+            if (res.size()>=1) {
+                *keepDefault=false;
+                *result = res[0].asString();
+                if (res.size()==2)
+                    *keepDefault = res[1].asBoolean();
+            }
+            delete documentFct;
+        }
+    }
+}
+
 void CodeGenerator::printHeader()
 {
-    if ( ! fragmentOutput )
-        *out << getHeader();
+    bool keepDefaultHeader=true;
+    string pluginHeader;
+    
+    processedFilesCnt++;
+    
+    applyPluginChunk("DocumentHeader", &pluginHeader, &keepDefaultHeader);
 
+    if ( ! fragmentOutput && keepDefaultHeader)
+        *out << getHeader();
+    
+    *out << pluginHeader; 
+   
     if ( !fragmentOutput || keepInjections)
         *out << currentSyntax->getHeaderInjection();
 }
 
 void CodeGenerator::printFooter()
 {
+    
+    bool keepDefaultFooter=true;
+    string pluginFooter;
+    
+     //option: replace or append to default header 
+
+    applyPluginChunk("DocumentFooter", &pluginFooter, &keepDefaultFooter);
+    
     if ( !fragmentOutput || keepInjections)
         *out << currentSyntax->getFooterInjection();
 
-    if ( ! fragmentOutput )
+    
+    //TODO XXX output plugin documentFooter() output here
+    //option: replace or precede default footer
+    *out << pluginFooter; 
+    
+    if ( ! fragmentOutput && keepDefaultFooter )
         *out << getFooter();
 }
 
@@ -2217,6 +2308,7 @@ bool CodeGenerator::initPluginScript(const string& script)
 
         userScriptError="";
         Diluculum::LuaState ls;
+        
         ls.doFile (script);
         int listIdx=1;
 
@@ -2234,6 +2326,13 @@ bool CodeGenerator::initPluginScript(const string& script)
                     currentSyntax->addUserChunk(ls["Plugins"][listIdx]["Chunk"].value().asFunction());
                 }
             }
+            // Format plugins
+            else if (ls["Plugins"][listIdx]["Type"].value().asString()=="format") {
+                if (ls["Plugins"][listIdx]["Chunk"].value().type()==LUA_TFUNCTION) {
+                    addUserChunk(ls["Plugins"][listIdx]["Chunk"].value().asFunction());
+                }
+            }
+            
             listIdx++;
         }
     }  catch (Diluculum::LuaError &err) {

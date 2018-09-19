@@ -558,6 +558,8 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         suffix = guessFileType ( options.getSyntax(), "", true );
     }
 
+    generator->setFilesCnt(fileCount);
+        
     while ( i < fileCount && !initError ) {
         if ( !options.syntaxGiven() ) { // determine file type for each file
             suffix = guessFileType ( getFileSuffix ( inFileList[i] ), inFileList[i] );

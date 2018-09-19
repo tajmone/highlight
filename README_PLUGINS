@@ -12,20 +12,21 @@ CONTENT
    3.2 FUNCTION ONSTATECHANGE
    3.3 DECORATE FUNCTIONS
 4. THEME CHUNK ELEMENTS
-5. STEP BY STEP
-6. EXAMPLES
-7. PLUG-IN USAGE
+5. FORMAT CHUNK ELEMENTS
+6. STEP BY STEP
+7. EXAMPLES
+8. PLUG-IN USAGE
 
 
 1. ABOUT
 -------------------------------------------------------------------------------
 
-The plug-in interface allows modifications of syntax parsing and colouring.
-The output's header or footer can be enhanced, and recognized syntax elements
-may be outputted with additional information.
+The plug-in interface allows modifications of syntax parsing, colouring and
+the document's header and footer.
+
 A common task would be to define a new set of syntax keywords, or to add items
 to existing keyword groups. More advanced plug-ins add tooltips based on ctags 
-input or source code folding to the output (see section 6).
+input or source code folding to the output (see section 7).
 
 
 2. SCRIPT STRUCTURE
@@ -36,17 +37,20 @@ on the output:
 
 Description="Plugin Boilerplate"
 
--- optional parameter: syntax description
+-- optional parameter desc: syntax description
 function syntaxUpdate(desc)
 end
 
--- optional parameter: theme description
 function themeUpdate(desc)
+end
+
+function formatUpdate(desc)
 end
 
 Plugins={
   { Type="theme", Chunk=themeUpdate },
   { Type="lang", Chunk=syntaxUpdate },
+  { Type="format", Chunk=formatUpdate },
 }
 
 The first line contains a description which gives a short summary of the
@@ -55,6 +59,8 @@ plug-in effects.
 The next lines contain function definitions:
 The syntaxUpdate function is applied on syntax definition scripts (*.lang),
 whereas the themeUpdate function is applied on colour themes (*.theme).
+The formatUpdate is not executed in a syntax or theme Lua state. It just
+returns strings to override or enhance the document header and footer.
 The desc parameter contains the description string of the loaded syntax
 definition or colour theme. This information can be used to restrict
 modifications to certain kinds of input (i.e. only C code should be
@@ -302,12 +308,72 @@ HL_FORMAT_BBCODE: number
 HL_FORMAT_PANGO: number
 HL_FORMAT_ODT: number
 
-Add additional stying information:
+Add additional styling information:
 
 Injections: table
 
 
-5. STEP BY STEP
+5. FORMAT CHUNK ELEMENTS
+-------------------------------------------------------------------------------
+
+Read only (output document format):
+
+HL_OUTPUT: number
+HL_FORMAT_HTML: number
+HL_FORMAT_XHTML: number
+HL_FORMAT_TEX: number
+HL_FORMAT_LATEX: number
+HL_FORMAT_RTF: number
+HL_FORMAT_ANSI: number
+HL_FORMAT_XTERM256: number
+HL_FORMAT_TRUECOLOR: number
+HL_FORMAT_SVG: number
+HL_FORMAT_BBCODE: number
+HL_FORMAT_PANGO: number
+HL_FORMAT_ODT: number
+
+Functions:
+
+DocumentHeader: function
+DocumentFooter: function
+
+
+5.1 DOCUMENTHEADER FUNCTION
+-------------------------------------------------------------------------------
+
+DocumentHeader(numFiles, currFile, options)
+
+  Hook Event: output of a new file's header
+  Parameters: numFiles: number of files to be generated
+              currFile: current file counter
+              options: Map of the following options
+              options.title: document title
+              options.encoding: document encoding
+              options.fragment: true if header/footer should not be outputted
+              options.font: font name
+              options.fontsize: font size
+              
+  Returns:    [string, boolean?] (or nothing)
+              The string contains the new document header
+              The boolean value indicates if the string should replace the default
+              header (false=default) or if it should be appended to it (true).
+  
+
+5.1 DOCUMENTFOOTER FUNCTION
+-------------------------------------------------------------------------------
+
+DocumentFooter(numFiles, currFile, options)
+
+  Hook Event: output of a new file's footer
+  Parameters: see DocumentHeader
+              
+  Returns:    [string, boolean?] (or nothing)
+              The string contains the new document footer
+              The boolean value indicates if the string should replace the default
+              footer (false=default) or if it should precede it (true).
+  
+
+6. STEP BY STEP
 -------------------------------------------------------------------------------
 
 This example will add reference hyperlinks to Qt keywords:
@@ -385,7 +451,7 @@ Plugins={
 }
 
 
-6. EXAMPLES
+7. EXAMPLES
 -------------------------------------------------------------------------------
 
 The plugins directory contains example scripts, including: 
@@ -436,7 +502,7 @@ Features:    Uses DecorateLineBegin and DecorateLineEnd to add ID-spans to each
              Inserts additional CSS styles with Injections variable.
              
  
-7. PLUG-IN USAGE
+8. PLUG-IN USAGE
 -------------------------------------------------------------------------------
 
 Command line interface:

@@ -372,6 +372,9 @@ public:
     /** \param cnt upper limit of input lines to be processed */
     void setMaxInputLineCnt ( unsigned int cnt );
 
+    /** \param cnt number of input files */
+    void setFilesCnt ( unsigned int cnt );
+
     /** \param keyCase Keyword case */
     void setKeyWordCase ( StringTools::KeywordCase keyCase );
 
@@ -752,6 +755,11 @@ private:
     /**maximum count of input lines to be processed*/
     unsigned int maxLineCnt;
     
+    
+    /**number of files to be processed and counter*/
+    unsigned int inputFilesCnt;
+    unsigned int processedFilesCnt;
+    
     /**last character of the last line*/
     unsigned char terminatingChar;
 
@@ -861,6 +869,23 @@ private:
     bool isOption(const string& arg, const char* op1, const char* op2);
     bool isParamOption(const string& arg, const char* option);
     bool isParamOption(const string& arg, const char* option1, const char* option2);
+  
+    /**
+    	\param chunk Lua function to be added to the function list
+    */
+    void addUserChunk(const Diluculum::LuaFunction& chunk)
+    {
+        pluginChunks.push_back(new Diluculum::LuaFunction(chunk));
+    }
+    
+        // Functions accessible in Lua State
+    //Diluculum::LuaFunction* documentHeaderFct;
+    
+  //  Diluculum::LuaState* luaState; // make member to allow interaction with codeparser instance
+
+    void applyPluginChunk(const string& fctName, string *result, bool *keepDefault);
+    
+    static vector<Diluculum::LuaFunction*> pluginChunks;
     
     /** \deprecated replace by Lua functionality */
     bool checkSpecialCmd();

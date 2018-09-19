@@ -792,6 +792,8 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
     generator->setPrintZeroes(ui->cbPadZeroes->isEnabled() && ui->cbPadZeroes->isChecked());
     generator->setPluginParameter(ui->lePluginReadFilePath->text().toStdString());
     generator->setOmitVersionComment(ui->cbHTMLPasteMIME->isChecked() || ui->cbOmitVersionInfo->isChecked());
+    
+    generator->setFilesCnt( previewMode ? 1 :  ui->lvInputFiles->count() );
 
     QString themePath=getUserScriptPath("theme");
 
