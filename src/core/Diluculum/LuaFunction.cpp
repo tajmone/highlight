@@ -32,28 +32,28 @@ namespace Diluculum
 {
    // - LuaFunction::LuaFunction -----------------------------------------------
    LuaFunction::LuaFunction (const std::string& luaChunk)
-      : functionType_(LUA_LUA_FUNCTION), size_(luaChunk.size())
+      : functionType_(LUA_LUA_FUNCTION), size_(luaChunk.size()), readerFlag_(false)
    {
       data_.typeLuaFunction = new char[size_];
       memcpy(data_.typeLuaFunction, luaChunk.c_str(), size_);
    }
 
    LuaFunction::LuaFunction (const void* data, size_t size)
-      : functionType_(LUA_LUA_FUNCTION), size_(size)
+      : functionType_(LUA_LUA_FUNCTION), size_(size), readerFlag_(false)
    {
       data_.typeLuaFunction = new char[size_];
       memcpy(data_.typeLuaFunction, data, size);
    }
 
    LuaFunction::LuaFunction (lua_CFunction func)
-      : functionType_(LUA_C_FUNCTION), size_(sizeof(lua_CFunction))
+      : functionType_(LUA_C_FUNCTION), size_(sizeof(lua_CFunction)), readerFlag_(false)
    {
       data_.typeCFunction = func;
    }
 
    LuaFunction::LuaFunction (const LuaFunction& other)
       : functionType_(other.functionType_),
-        size_(other.getSize())
+        size_(other.getSize()), readerFlag_(false)
    {
       switch (functionType_)
       {

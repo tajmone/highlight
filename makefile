@@ -15,8 +15,8 @@ data_dir = ${PREFIX}/share/highlight/
 # Location of the highlight binary:
 bin_dir = ${PREFIX}/bin/
 
-# Location of the highlight man page:
-man_dir = ${PREFIX}/share/man/man1/
+# Location of the highlight man pages:
+man_dir = ${PREFIX}/share/man/
 
 # Location of the highlight documentation:
 doc_dir = ${PREFIX}/share/doc/highlight/
@@ -58,7 +58,7 @@ install:
 	@echo "Documentation directory: ${DESTDIR}${doc_dir}"
 	@echo "Plugin directory:        ${DESTDIR}${data_dir}/plugins"
 	@echo "Examples directory:      ${DESTDIR}${examples_dir}"
-	@echo "Manual directory:        ${DESTDIR}${man_dir}"
+	@echo "Manual directory:        ${DESTDIR}${man_dir}man1/"
 	@echo "Binary directory:        ${DESTDIR}${bin_dir}"
 	@echo "Configuration directory: ${DESTDIR}${conf_dir}"
 	@echo
@@ -85,7 +85,8 @@ install:
 		${DESTDIR}${data_dir}themes/base16 \
 		${DESTDIR}${data_dir}langDefs \
 		${DESTDIR}${data_dir}plugins
-	${MKDIR} ${DESTDIR}${man_dir}
+	${MKDIR} ${DESTDIR}${man_dir}man1/
+	${MKDIR} ${DESTDIR}${man_dir}man5/
 	${MKDIR} ${DESTDIR}${bin_dir}
 
 	${INSTALL_DATA} ./langDefs/*.lang ${DESTDIR}${data_dir}langDefs/
@@ -93,7 +94,9 @@ install:
 	${INSTALL_DATA} ./themes/*.theme ${DESTDIR}${data_dir}themes/
 	${INSTALL_DATA} ./themes/base16/*.theme ${DESTDIR}${data_dir}themes/base16/
 	${INSTALL_DATA} ./plugins/*.lua ${DESTDIR}${data_dir}plugins/
-	${INSTALL_DATA} ./man/highlight.1.gz ${DESTDIR}${man_dir}
+	${INSTALL_DATA} ./man/highlight.1.gz ${DESTDIR}${man_dir}man1/
+	${INSTALL_DATA} ./man/filetypes.conf.5.gz ${DESTDIR}${man_dir}man5/
+
 	${INSTALL_DATA} ./AUTHORS ${DESTDIR}${doc_dir}
 	${INSTALL_DATA} ./README ${DESTDIR}${doc_dir}
 	${INSTALL_DATA} ./README_DE ${DESTDIR}${doc_dir}
@@ -146,7 +149,9 @@ uninstall:
 	${RMDIR} ${DESTDIR}${doc_dir}
 	${RMDIR} ${DESTDIR}${conf_dir}
 	${RMDIR} ${DESTDIR}${examples_dir}
-	rm -rf ${DESTDIR}${man_dir}highlight.1.gz
+	rm -rf ${DESTDIR}${man_dir}man1/highlight.1.gz
+	rm -rf ${DESTDIR}${man_dir}man5/filetypes.conf.5.gz
+
 	rm -rf ${DESTDIR}${bin_dir}highlight
 	rm -rf ${DESTDIR}${bin_dir}highlight-gui
 	rm -rf ${DESTDIR}${desktop_apps}highlight.desktop

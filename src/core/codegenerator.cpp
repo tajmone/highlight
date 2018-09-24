@@ -132,7 +132,10 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      baseFontSize("10"),
      lineNumber ( 0 ),
      lineNumberOffset ( 0 ),
+     currentState ( _UNKNOWN ),
+     currentKeywordClass ( 0 ),
      includeStyleDef ( false ),
+     numberCurrentLine ( false ),
      lineIndex ( 0 ),
      lastLineLength( 0 ),
      syntaxChangeIndex(UINT_MAX),
@@ -151,6 +154,8 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      numberWrappedLines ( true ),
      noTrailingNewLine(false),
      resultOfHook(false),
+     lineContainedTestCase(false),
+     applySyntaxTestCase(false),
      keywordCase ( StringTools::CASE_UNCHANGED ),
      eolDelimiter ('\n'),
      outputType ( type )
@@ -482,7 +487,7 @@ bool CodeGenerator::readNewLine ( string &newLine )
     return eof || ( lineNumber == maxLineCnt );
 }
 
-void CodeGenerator::matchRegex ( const string &line, State skipState, unsigned int offset)
+void CodeGenerator::matchRegex ( const string &line, State skipState)
 {
     regexGroups.clear();
     int matchBegin=0;
@@ -501,7 +506,7 @@ void CodeGenerator::matchRegex ( const string &line, State skipState, unsigned i
             groupID = ( regexElem->capturingGroup<0 ) ? cur->size()-1 : regexElem->capturingGroup;
             matchBegin =  cur->position(groupID);
             regexGroups.insert (
-                make_pair ( matchBegin + 1 + offset, ReGroup ( regexElem->open, cur->length(groupID), regexElem->kwClass, regexElem->langName ) ) );
+                make_pair ( matchBegin + 1, ReGroup ( regexElem->open, cur->length(groupID), regexElem->kwClass, regexElem->langName ) ) );
         }
     }
 }
@@ -532,6 +537,17 @@ unsigned char CodeGenerator::getInputChar()
         }
         lastLineLength=lineIndex;
         lineIndex=0;
+        
+        //TODO doku; max 100 columns
+        //TODO leere zeilen ign. 
+        if (!lineContainedTestCase){
+            //if (lastLineLength>0 )
+            stateTrace3 = stateTrace2;
+            stateTrace2.clear();
+        } 
+        
+        lineContainedTestCase=false;
+            
         matchRegex ( line );
         stateTrace.clear();
         return ( eof ) ?'\0':'\n';
@@ -564,6 +580,12 @@ State CodeGenerator::getCurrentState (State oldState)
     if ( c==' ' || c=='\t' ) {
         token= c;
         return _WS;
+    }
+    
+    //TODO add control flag
+    if ( applySyntaxTestCase && c=='^' && (oldState == ML_COMMENT || oldState==SL_COMMENT)  ) {
+        token= c;
+        return _TESTPOS;
     }
         
     // at this position the syntax change takes place
@@ -600,9 +622,16 @@ SKIP_EMBEDDED:
 
             if ( regexGroups[oldIndex].state==IDENTIFIER_BEGIN || regexGroups[oldIndex].state==KEYWORD ) {
                 string reservedWord= ( currentSyntax->isIgnoreCase() ) ? StringTools::change_case ( token ) :token;
-                currentKeywordClass=currentSyntax->isKeyword ( reservedWord );
+                currentKeywordClass=currentSyntax->isKeyword ( reservedWord ); //check in lists (no regex)
+                
+                // for positional Tests; will not be used again for actual input parsing
+                // FIXME not needed?
+                if (currentKeywordClass)
+                    regexGroups[oldIndex]=ReGroup ( KEYWORD, reservedWord.size(), currentKeywordClass, "" );  
+                
                 if ( !currentKeywordClass && regexGroups[oldIndex].state==KEYWORD )
                     currentKeywordClass = regexGroups[oldIndex].kwClass;
+                 
                 return validateState(( currentKeywordClass ) ? KEYWORD : STANDARD, oldState, currentKeywordClass);
             } else {
                 return validateState(regexGroups[oldIndex].state, oldState, 0);
@@ -654,6 +683,13 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
 {
     for ( unsigned int i=0; i< s.length(); i++ ) {
         ss << maskCharacter ( s[i] );
+
+        PositionState ps(currentState, currentKeywordClass);
+        stateTrace2.push_back(ps);
+        
+        //FIXME XXXX
+        if (stateTrace2.size()>200) 
+            stateTrace2.erase(stateTrace2.begin(), stateTrace2.begin() + 100 ); 
     }
 }
 
@@ -680,7 +716,7 @@ Diluculum::LuaValueList CodeGenerator::callDecorateFct(const string&token)
 void CodeGenerator::printMaskedToken (bool flushWhiteSpace, StringTools::KeywordCase tcase )
 {
     if ( flushWhiteSpace )
-        flushWs();
+        flushWs(1);
     string caseToken = StringTools::change_case ( token, tcase );
     if (currentSyntax->getDecorateFct()) {
 
@@ -1048,7 +1084,7 @@ void CodeGenerator::setIndentationOptions (const vector<string>& options){
                 string styleParam = getParam(arg, "k");
                 if (styleParam.length() > 0)
                     align = atoi(styleParam.c_str());
-                else if (align == 1)
+                if (align == 1)
                     formatter->setPointerAlignment(astyle::PTR_ALIGN_TYPE);
                 else if (align == 2)
                     formatter->setPointerAlignment(astyle::PTR_ALIGN_MIDDLE);
@@ -1077,7 +1113,7 @@ void CodeGenerator::setIndentationOptions (const vector<string>& options){
                 string styleParam = getParam(arg, "W");
                 if (styleParam.length() > 0)
                     align = atoi(styleParam.c_str());
-                else if (align == 0)
+                if (align == 0)
                     formatter->setReferenceAlignment(astyle::REF_ALIGN_NONE);
                 else if (align == 1)
                     formatter->setReferenceAlignment(astyle::REF_ALIGN_TYPE);
@@ -1341,7 +1377,7 @@ void CodeGenerator::applyPluginChunk(const string& fctName, string *result, bool
             
             Diluculum::LuaValueList params;
             Diluculum::LuaValueMap options;
-            options[Diluculum::LuaValue("title")] =  Diluculum::LuaValue(docTitle);   
+            options[Diluculum::LuaValue("title")] =  Diluculum::LuaValue( docTitle );   
             options[Diluculum::LuaValue("encoding")] =  Diluculum::LuaValue(encoding);   
             options[Diluculum::LuaValue("fragment")] =  Diluculum::LuaValue(fragmentOutput);   
             options[Diluculum::LuaValue("font")] =  Diluculum::LuaValue(getBaseFont());   
@@ -1387,16 +1423,11 @@ void CodeGenerator::printFooter()
     bool keepDefaultFooter=true;
     string pluginFooter;
     
-     //option: replace or append to default header 
-
     applyPluginChunk("DocumentFooter", &pluginFooter, &keepDefaultFooter);
     
     if ( !fragmentOutput || keepInjections)
         *out << currentSyntax->getFooterInjection();
 
-    
-    //TODO XXX output plugin documentFooter() output here
-    //option: replace or precede default footer
     *out << pluginFooter; 
     
     if ( ! fragmentOutput && keepDefaultFooter )
@@ -1541,7 +1572,7 @@ void CodeGenerator::openTag ( State s )
 void CodeGenerator::closeTag ( State s )
 {
     *out << closeTags[ ( unsigned int ) s];
-    flushWs();
+    flushWs(2);
     currentState=_UNKNOWN;
 }
 
@@ -1554,7 +1585,7 @@ void CodeGenerator::openKWTag ( unsigned int kwClassID )
 void CodeGenerator::closeKWTag ( unsigned int kwClassID )
 {
     *out << closeTags.at(getStyleID ( KEYWORD, kwClassID ) );
-    flushWs();
+    flushWs(3);
     currentState=_UNKNOWN;
 }
 
@@ -1584,7 +1615,7 @@ void CodeGenerator::processRootState()
         while ( getline ( *in, line ) && lineNumber < maxLineCnt ) {
             ++lineNumber;
             insertLineNumber ( !firstLine );
-            flushWs();
+            flushWs(4);
             firstLine=false;
             if (lineNumber>=startLineCntCurFile && lineNumber <=maxLineCnt)
                 maskString ( *out, line );
@@ -1660,7 +1691,8 @@ void CodeGenerator::processRootState()
             }
             insertLineNumber ( !firstLine );
             if (!firstLine || showLineNumbers) {
-                flushWs();
+                flushWs(5);
+                stateTrace2.clear();
                 openTag ( STANDARD );
             }
             firstLine=false;
@@ -1804,6 +1836,97 @@ bool CodeGenerator::processNumberState()
     return eof;
 }
 
+
+string CodeGenerator::getNameOfTest(State s, unsigned int kwClass) {
+    switch (s) {
+        
+        case STANDARD:
+            return STY_NAME_STD;
+        case STRING:
+            return STY_NAME_STR;
+        case NUMBER:
+            return STY_NAME_NUM;
+        case SL_COMMENT:
+            return STY_NAME_SLC;
+        case ML_COMMENT:
+            return STY_NAME_COM;
+        case ESC_CHAR:
+            return STY_NAME_ESC;
+        case DIRECTIVE:
+            return STY_NAME_DIR;
+        case DIRECTIVE_STRING:
+            return STY_NAME_DST;
+        case SYMBOL:
+            return STY_NAME_SYM;
+        case STRING_INTERPOLATION:
+            return STY_NAME_IPL;
+        case _WS:
+            return "ws";
+        case KEYWORD: {
+            char kwName[5] = {0};
+            snprintf(kwName, sizeof(kwName), "kw%c", ('a'+kwClass-1));
+            return string(kwName);
+        }
+        default:
+            return "unknown_test";
+    }
+}
+
+void CodeGenerator::runPositionalTest(){
+    
+    if (!stateTrace2.size() /*&& lineIndex>stateTrace2.size()*/)
+        return;
+    
+    unsigned int assertGroup=0;
+    size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex+1);
+    State assertState=_UNKNOWN;
+    
+    if (!lineContainedTestCase){
+        stateTrace2=stateTrace3;
+    } 
+    
+    if (typeDescPos!=string::npos) {
+    
+        if (line.find(STY_NAME_NUM, typeDescPos)==typeDescPos)
+            assertState=NUMBER;
+        else if (line.find(STY_NAME_STR, typeDescPos)==typeDescPos)
+            assertState=STRING;
+        else if (line.find(STY_NAME_ESC, typeDescPos)==typeDescPos)
+            assertState=ESC_CHAR;
+        else if (line.find(STY_NAME_IPL, typeDescPos)==typeDescPos)
+            assertState=STRING_INTERPOLATION;
+        else if (line.find(STY_NAME_SYM, typeDescPos)==typeDescPos)
+            assertState=SYMBOL;
+        else if (line.find(STY_NAME_DIR, typeDescPos)==typeDescPos)
+            assertState=DIRECTIVE;
+        else if (line.find(STY_NAME_SLC, typeDescPos)==typeDescPos)
+            assertState=SL_COMMENT;
+        else if (line.find(STY_NAME_COM, typeDescPos)==typeDescPos)
+            assertState=ML_COMMENT;
+        else if (line.find("ws", typeDescPos)==typeDescPos)
+            assertState=_WS;
+        else if (line.find(STY_NAME_STD, typeDescPos)==typeDescPos)
+            assertState=STANDARD;
+        else if (line.find(STY_NAME_DST, typeDescPos)==typeDescPos)
+            assertState=DIRECTIVE_STRING;
+        
+        else if (line.find("kw", typeDescPos)==typeDescPos) {
+            assertState=KEYWORD;
+            assertGroup=line[typeDescPos+2] - 'a' +1;
+        }
+    
+        if (stateTrace2[lineIndex-1].state != assertState || assertGroup != stateTrace2[lineIndex-1].kwClass) {
+            ostringstream err;
+            err << inFile << " line " << lineNumber << ", column "<< lineIndex+1 << ": got " << getNameOfTest(stateTrace2[lineIndex-1].state, stateTrace2[lineIndex-1].kwClass)  
+                << " instead of " << getNameOfTest(assertState, assertGroup) ;
+            failedPosTests.push_back(err.str());
+        }
+        
+    }
+    
+    lineContainedTestCase=true; 
+}
+
 bool CodeGenerator::processMultiLineCommentState()
 {
     int commentCount=1;
@@ -1826,6 +1949,11 @@ bool CodeGenerator::processMultiLineCommentState()
             break;
         case _EOF:
             eof = true;
+            break;
+        case _TESTPOS:
+            printMaskedToken();
+            runPositionalTest();
+            
             break;
         case ML_COMMENT:
 
@@ -1853,6 +1981,9 @@ bool CodeGenerator::processMultiLineCommentState()
     } while ( !exitState  &&  !eof );
 
     closeTag ( ML_COMMENT );
+    
+    stateTrace2.clear();
+    
     return eof;
 }
 
@@ -1890,12 +2021,20 @@ bool CodeGenerator::processSingleLineCommentState()
         case _EOF:
             eof = true;
             break;
+        case _TESTPOS:
+            printMaskedToken();
+            runPositionalTest();
+            break;
+     
         default:
             break;
         }
     } while ( !exitState  &&  !eof );
 
     closeTag ( SL_COMMENT );
+    
+    stateTrace2.clear();
+    
     return eof;
 }
 
@@ -2042,6 +2181,7 @@ bool CodeGenerator::processStringState ( State oldState )
     } while ( !exitState && !eof );
 
     closeTag ( myState );
+
     return eof;
 }
 
@@ -2143,11 +2283,11 @@ void CodeGenerator::processWsState()
         return;
     }
 
-    flushWs();
+    flushWs(6);
 
     int cntWs=0;
     lineIndex--;
-
+    PositionState ps(_WS, 0);
     while ( line[lineIndex]==' ' || line[lineIndex]=='\t' ) {
         ++cntWs;
         ++lineIndex;
@@ -2160,20 +2300,29 @@ void CodeGenerator::processWsState()
         }
         *out << maskWsBegin;
         for ( int i=0; i<cntWs; i++ ) {
-              *out <<  spacer;
+            *out <<  spacer;
+            stateTrace2.push_back(ps);
         }
         *out << maskWsEnd;
         if ( excludeWs && styleID!=_UNKNOWN ) {
             *out << openTags[styleID];
         }
     } else {
+    
         *out << spacer; //Bugfix fehlender Space nach Strings
+        stateTrace2.push_back(ps);
     }
     token.clear();
 }
 
-void CodeGenerator::flushWs()
+void CodeGenerator::flushWs(int arg)
 {
+     PositionState ps(_WS, 0);
+     //workaround condition
+     for ( size_t i=0; i<wsBuffer.size() && (arg !=2 || (arg==2 && lineIndex>1)) ; i++ ) {
+        stateTrace2.push_back(ps);
+     }
+     
     *out<<wsBuffer;
     wsBuffer.clear();
 }

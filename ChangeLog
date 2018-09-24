@@ -10,6 +10,7 @@ xx.09.2018
 -added support for ISO and R10 variants of Modula2 (thanks to Benjamin Kowarsch)
 -fixed R identifiers (https://gitlab.com/saalen/highlight/merge_requests/77)
 -added Swift keywords and types
+-added filetypes.conf.5 man page
 
 ---
 highlight 3.44

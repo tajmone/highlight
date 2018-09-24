@@ -346,6 +346,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case S_OPT_COMPAT_LINENUM:
             if ( arg=="0" ) opt_fill_zeroes=true;
+            /* Falls through */
         case 'l':
             opt_linenumbers = true;
             break;

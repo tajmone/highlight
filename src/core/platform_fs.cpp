@@ -196,8 +196,10 @@ void getFileNames ( const string &directory,const string &wildcard, vector<strin
     while ( ( entry = readdir ( dp ) ) != NULL ) {
         // get file status
         string entryFilepath = directory + pathSeparator + entry->d_name;
-        stat ( entryFilepath.c_str(), &statbuf );
-        if ( errno ) return;
+        if ( -1 == stat ( entryFilepath.c_str(), &statbuf ) || errno) {
+            closedir ( dp );
+            return;
+        }
 
         // skip hidden or read only
         if ( entry->d_name[0] == '.' || ! ( statbuf.st_mode & S_IWUSR ) )

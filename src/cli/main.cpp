@@ -127,20 +127,24 @@ int HLCmdLineApp::printInstalledLanguages()
          << " (located in " << directory << "):\n\n";
 
     for ( unsigned int i=0; i< filePaths.size(); i++ ) {
-        Diluculum::LuaState ls;
-        highlight::SyntaxReader::initLuaState(ls, filePaths[i],"");
-        ls.doFile(filePaths[i]);
-        desc = ls["Description"].value().asString();
-        suffix = ( filePaths[i] ).substr ( directory.length() ) ;
-        suffix = suffix.substr ( 1, suffix.length()- wildcard.length() );
-        cout << setw ( 30 ) <<setiosflags ( ios::left ) <<desc<<": "<<suffix;
-        int extCnt=0;
-        for (StringMap::iterator it=assocByExtension.begin(); it!=assocByExtension.end(); it++) {
-            if (it->second==suffix ) {
-                cout << ((++extCnt==1)?" ( ":" ")<<it->first;
+        try {
+            Diluculum::LuaState ls;
+            highlight::SyntaxReader::initLuaState(ls, filePaths[i],"");
+            ls.doFile(filePaths[i]);
+            desc = ls["Description"].value().asString();
+            suffix = ( filePaths[i] ).substr ( directory.length() ) ;
+            suffix = suffix.substr ( 1, suffix.length()- wildcard.length() );
+            cout << setw ( 30 ) <<setiosflags ( ios::left ) <<desc<<": "<<suffix;
+            int extCnt=0;
+            for (StringMap::iterator it=assocByExtension.begin(); it!=assocByExtension.end(); it++) {
+                if (it->second==suffix ) {
+                    cout << ((++extCnt==1)?" ( ":" ")<<it->first;
+                }
             }
+            cout << ((extCnt)?" )":"")<<endl;
+        } catch (std::runtime_error &error) {
+            cout << "Faild to read '" << filePaths[i] << "': " << error.what() << endl;
         }
-        cout << ((extCnt)?" )":"")<<endl;
     }
     cout <<"\nUse name of the desired language"
          << " with the --" OPT_SYNTAX " option." << endl;
@@ -702,6 +706,12 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     }
     if ( numBadFormatting ) {
         printIOErrorReport ( numBadFormatting, badFormattedFiles, "reformat" );
+    }
+    
+    vector<string> posTestErrors = generator->getPosTestErrors();
+    if (posTestErrors.size()){
+        IOError = true;
+        printIOErrorReport ( posTestErrors.size(), posTestErrors, "validate" );
     }
     return ( initError || IOError ) ? EXIT_FAILURE : EXIT_SUCCESS;
 }

@@ -3471,7 +3471,7 @@ bool ASFormatter::isPointerToPointer(const string& line, int currPos) const
 	if (nextText == string::npos || line[nextText] != '*')
 		return false;
 	size_t nextText2 = line.find_first_not_of(" \t", nextText + 1);
-	if (nextText == string::npos)
+	if (nextText2 == string::npos)
 		return false;
 	if (line[nextText2] == ')' || line[nextText2] == '*')
 		return true;

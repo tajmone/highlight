@@ -451,6 +451,7 @@ private:  // functions
 
 private:  // variables
 	int beautifierFileType;
+	bool ownsVectors; /* false for copy-constructor */
 	vector<const string*>* headers;
 	vector<const string*>* nonParenHeaders;
 	vector<const string*>* preBlockStatements;

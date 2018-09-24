@@ -46,6 +46,8 @@ struct PageSize {
 
     PageSize()
     {
+        width = 0;
+        height = 0;
     }
 
     /** Constructor to define page dimensions

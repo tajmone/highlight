@@ -40,6 +40,8 @@ namespace highlight
 
 Colour::Colour ( const string & red, const string & green, const string & blue )
 {
+    rgb.iRed = rgb.iGreen = rgb.iBlue = 0;
+
     ostringstream rgbStream;
     rgbStream << red << " " << green << " " << blue;
     setRGB ( rgbStream.str() );
@@ -52,6 +54,8 @@ Colour::Colour()
 
 Colour::Colour ( const string & colourString )
 {
+    rgb.iRed = rgb.iGreen = rgb.iBlue = 0;
+
     setRGB ( colourString );
 }
 

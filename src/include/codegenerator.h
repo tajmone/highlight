@@ -409,6 +409,8 @@ public:
     /** \return Theme description */
     string getThemeDescription();
 
+    vector<string> getPosTestErrors() { return failedPosTests; }
+    
     /** \return Pointer Syntaxreader, intended for debug output  */
     SyntaxReader* getSyntaxReader()
     {
@@ -620,7 +622,7 @@ protected:
     unsigned int getLastLineLength();
     
     /** print all remaining white space*/
-    void flushWs();
+    void flushWs(int );
 
     /** \return Content of user defined input style */
     string readUserStyleDef();
@@ -783,6 +785,10 @@ private:
 
     /** indicator if current state was set by Lua hook function */
     bool resultOfHook;
+    
+    bool lineContainedTestCase;
+    
+    bool applySyntaxTestCase;
 
     /** flag which determines keyword output (unchangeed, uppercase, lowercase)*/
     StringTools::KeywordCase keywordCase;
@@ -828,7 +834,10 @@ private:
     bool processSymbolState();                ///< process symbols
     void processWsState();                    ///< process whitespace
     bool processSyntaxChangeState(State myState ); ///< process syntax change of embedded languages
-
+    
+    void runPositionalTest();
+    string getNameOfTest(State s, unsigned int kwClass);
+    
     /** print escaped token and clears it
 
        \param flushWhiteSpace set true if white space should be flushed
@@ -839,14 +848,28 @@ private:
 
     /** association of matched regexes and the corresponding keyword class ids*/
     map <int, ReGroup> regexGroups;
+    
+    /** history of states per line position in the current line of input code (max 200 entries) */
+    
+    struct PositionState {
+        State state;
+        unsigned int kwClass;
+        PositionState(const State s, const unsigned int kwc)
+        : state(s), kwClass(kwc){
+            if (s!=KEYWORD) kwClass=0;
+        }
+    };
+    vector<PositionState> stateTrace2, stateTrace3;
 
+    vector<string> failedPosTests; 
+    
     /** association of syntax definitions and their paths*/
     map <string, SyntaxReader*> syntaxReaders;
 
     /** test for regular expressions
         \param line current input line
         \param skipState state which should be ignored*/
-    void matchRegex ( const string &line, State skipState=_UNKNOWN, unsigned int offset=0 );
+    void matchRegex ( const string &line, State skipState=_UNKNOWN );
 
     /** \return true if input is no binary stream */
     bool validateInputStream();
@@ -878,11 +901,6 @@ private:
         pluginChunks.push_back(new Diluculum::LuaFunction(chunk));
     }
     
-        // Functions accessible in Lua State
-    //Diluculum::LuaFunction* documentHeaderFct;
-    
-  //  Diluculum::LuaState* luaState; // make member to allow interaction with codeparser instance
-
     void applyPluginChunk(const string& fctName, string *result, bool *keepDefault);
     
     static vector<Diluculum::LuaFunction*> pluginChunks;

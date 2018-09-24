@@ -72,6 +72,7 @@ ASBeautifier::ASBeautifier()
 	setAlignMethodColon(false);
 
 	// initialize ASBeautifier member vectors
+	ownsVectors = true;
 	beautifierFileType = 9;		// reset to an invalid type
 	headers = new vector<const string*>;
 	nonParenHeaders = new vector<const string*>;
@@ -133,6 +134,7 @@ ASBeautifier::ASBeautifier(const ASBeautifier& other) : ASBase(other)
 	// Copy the pointers to vectors.
 	// This is ok because the original ASBeautifier object
 	// is not deleted until end of job.
+	ownsVectors = false;
 	beautifierFileType = other.beautifierFileType;
 	headers = other.headers;
 	nonParenHeaders = other.nonParenHeaders;
@@ -282,6 +284,9 @@ ASBeautifier::~ASBeautifier()
 	deleteContainer(continuationIndentStackSizeStack);
 	deleteContainer(parenIndentStack);
 	deleteContainer(preprocIndentStack);
+
+	if (ownsVectors)
+		deleteBeautifierVectors();
 }
 
 /**
@@ -1478,7 +1483,7 @@ string ASBeautifier::trim(const string& str) const
 		end--;
 
 	// don't trim if it ends in a continuation
-	if (end > -1 && str[end] == '\\')
+	if (end >= 0 && str[end] == '\\')
 		end = str.length() - 1;
 
 	string returnStr(str, start, end + 1 - start);
@@ -1526,6 +1531,7 @@ vector<vector<const string*>*>* ASBeautifier::copyTempStacks(const ASBeautifier&
  */
 void ASBeautifier::deleteBeautifierVectors()
 {
+	ownsVectors = false;
 	beautifierFileType = 9;		// reset to an invalid type
 	delete headers;
 	delete nonParenHeaders;
@@ -2431,6 +2437,7 @@ int ASBeautifier::computeObjCColonAlignment(const string& line, int colonAlignPo
  */
 int ASBeautifier::getObjCFollowingKeyword(const string& line, int bracePos) const
 {
+	assert(bracePos >= 0);
 	assert(line[bracePos] == '[');
 	size_t firstText = line.find_first_not_of(" \t", bracePos + 1);
 	if (firstText == string::npos)

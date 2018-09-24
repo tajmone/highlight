@@ -443,7 +443,6 @@ private:
     bool opt_show_themes;
     bool opt_show_langdefs;
     bool opt_show_plugins;
-    bool opt_asformat_output;
     bool opt_printindex;
     bool opt_quiet;
     bool opt_replacequotes;
