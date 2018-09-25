@@ -835,11 +835,13 @@ private:
     void processWsState();                    ///< process whitespace
     bool processSyntaxChangeState(State myState ); ///< process syntax change of embedded languages
     
-    void runPositionalTest();
-    string getNameOfTest(State s, unsigned int kwClass);
+    /* checks whether the given state was defined in the same column of the last parsed input line */
+    void runSyntaxTestcases(unsigned int column);
+    
+    /* returns name of testcase state */
+    string getTestcaseName(State s, unsigned int kwClass);
     
     /** print escaped token and clears it
-
        \param flushWhiteSpace set true if white space should be flushed
        \param tcase keyword case
     */
@@ -859,7 +861,7 @@ private:
             if (s!=KEYWORD) kwClass=0;
         }
     };
-    vector<PositionState> stateTrace2, stateTrace3;
+    vector<PositionState> stateTraceCurrent, stateTraceTest;
 
     vector<string> failedPosTests; 
     

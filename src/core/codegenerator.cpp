@@ -424,6 +424,7 @@ void CodeGenerator::reset()
     printNewLines=true;
     syntaxChangeIndex = syntaxChangeLineNo = UINT_MAX;
     startLineCntCurFile = startLineCnt;
+    applySyntaxTestCase=lineContainedTestCase=false;
 }
 
 string CodeGenerator::getThemeInitError()
@@ -538,12 +539,9 @@ unsigned char CodeGenerator::getInputChar()
         lastLineLength=lineIndex;
         lineIndex=0;
         
-        //TODO doku; max 100 columns
-        //TODO leere zeilen ign. 
         if (!lineContainedTestCase){
-            //if (lastLineLength>0 )
-            stateTrace3 = stateTrace2;
-            stateTrace2.clear();
+            stateTraceTest = stateTraceCurrent;
+            stateTraceCurrent.clear();
         } 
         
         lineContainedTestCase=false;
@@ -583,7 +581,7 @@ State CodeGenerator::getCurrentState (State oldState)
     }
     
     //TODO add control flag
-    if ( applySyntaxTestCase && c=='^' && (oldState == ML_COMMENT || oldState==SL_COMMENT)  ) {
+    if ( applySyntaxTestCase && ( c=='^' || c=='<') && (oldState == ML_COMMENT || oldState==SL_COMMENT)  ) {
         token= c;
         return _TESTPOS;
     }
@@ -685,11 +683,10 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
         ss << maskCharacter ( s[i] );
 
         PositionState ps(currentState, currentKeywordClass);
-        stateTrace2.push_back(ps);
+        stateTraceCurrent.push_back(ps);
         
-        //FIXME XXXX
-        if (stateTrace2.size()>200) 
-            stateTrace2.erase(stateTrace2.begin(), stateTrace2.begin() + 100 ); 
+        if (stateTraceCurrent.size()>200) 
+            stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
     }
 }
 
@@ -701,6 +698,7 @@ Diluculum::LuaValueList CodeGenerator::callDecorateFct(const string&token)
     params.push_back(Diluculum::LuaValue(currentState));
     params.push_back(Diluculum::LuaValue(currentKeywordClass));
     string trace(";");
+    string trace2(";");
     if (stateTrace.size()>1){
         for (size_t i=0; i<stateTrace.size()-1;i++){
             trace += std::to_string (stateTrace[i]);
@@ -1229,12 +1227,9 @@ void CodeGenerator::setIndentationOptions (const vector<string>& options){
             {
                 formatter->setObjCColonPaddingMode(astyle::COLON_PAD_BEFORE);
             }
-            
         }
-    
     }
 }
-
 
 LoadResult CodeGenerator::loadLanguage ( const string& langDefPath, bool embedded )
 {
@@ -1447,6 +1442,7 @@ ParseError CodeGenerator::generateFile ( const string &inFileName,
 
     inFile=inFileName;
     outFile=outFileName;
+        
     in = ( inFileName.empty() ? &cin :new ifstream ( inFileName.c_str() ) );
 
     if ( validateInput )
@@ -1526,6 +1522,7 @@ string CodeGenerator::generateStringFromFile ( const string &inFileName )
     reset();
 
     inFile = inFileName;
+    
     in = new ifstream ( inFileName.c_str() );
     out = new ostringstream ();
 
@@ -1610,6 +1607,8 @@ void CodeGenerator::processRootState()
     bool eof=false,
          firstLine=true; // avoid newline before printing the first output line
 
+    applySyntaxTestCase = inFile.find("syntax_test_")!=string::npos;
+    
     if ( currentSyntax->highlightingDisabled() ) {
         string line;
         while ( getline ( *in, line ) && lineNumber < maxLineCnt ) {
@@ -1692,7 +1691,7 @@ void CodeGenerator::processRootState()
             insertLineNumber ( !firstLine );
             if (!firstLine || showLineNumbers) {
                 flushWs(5);
-                stateTrace2.clear();
+                stateTraceCurrent.clear();
                 openTag ( STANDARD );
             }
             firstLine=false;
@@ -1837,7 +1836,7 @@ bool CodeGenerator::processNumberState()
 }
 
 
-string CodeGenerator::getNameOfTest(State s, unsigned int kwClass) {
+string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
     switch (s) {
         
         case STANDARD:
@@ -1872,17 +1871,18 @@ string CodeGenerator::getNameOfTest(State s, unsigned int kwClass) {
     }
 }
 
-void CodeGenerator::runPositionalTest(){
+void CodeGenerator::runSyntaxTestcases(unsigned int column){
     
-    if (!stateTrace2.size() /*&& lineIndex>stateTrace2.size()*/)
+    
+    if (!stateTraceCurrent.size() /*|| lineIndex>stateTraceCurrent.size()*/)
         return;
     
     unsigned int assertGroup=0;
-    size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex+1);
+    size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);
     State assertState=_UNKNOWN;
     
     if (!lineContainedTestCase){
-        stateTrace2=stateTrace3;
+        stateTraceCurrent=stateTraceTest;
     } 
     
     if (typeDescPos!=string::npos) {
@@ -1912,13 +1912,14 @@ void CodeGenerator::runPositionalTest(){
         
         else if (line.find("kw", typeDescPos)==typeDescPos) {
             assertState=KEYWORD;
-            assertGroup=line[typeDescPos+2] - 'a' +1;
+            if (isalpha(line[typeDescPos+2]))
+                assertGroup=line[typeDescPos+2] - 'a' +1;
         }
     
-        if (stateTrace2[lineIndex-1].state != assertState || assertGroup != stateTrace2[lineIndex-1].kwClass) {
+        if (stateTraceCurrent[column].state != assertState || assertGroup != stateTraceCurrent[column].kwClass) {
             ostringstream err;
-            err << inFile << " line " << lineNumber << ", column "<< lineIndex+1 << ": got " << getNameOfTest(stateTrace2[lineIndex-1].state, stateTrace2[lineIndex-1].kwClass)  
-                << " instead of " << getNameOfTest(assertState, assertGroup) ;
+            err << inFile << " line " << lineNumber << ", column "<< column << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
+                << " instead of " << getTestcaseName(assertState, assertGroup) ;
             failedPosTests.push_back(err.str());
         }
         
@@ -1933,6 +1934,7 @@ bool CodeGenerator::processMultiLineCommentState()
     int openDelimID=currentSyntax->getOpenDelimiterID ( token, ML_COMMENT);
     State newState=STANDARD;
     bool eof=false, exitState=false;
+    unsigned int startColumn=lineIndex - token.size() ;
     openTag ( ML_COMMENT );
     do {
         printMaskedToken (newState!=_WS );
@@ -1946,13 +1948,14 @@ bool CodeGenerator::processMultiLineCommentState()
             wsBuffer += closeTags[ML_COMMENT];
             insertLineNumber();
             wsBuffer += openTags[ML_COMMENT];
+            startColumn=0;
             break;
         case _EOF:
             eof = true;
             break;
         case _TESTPOS:
+            runSyntaxTestcases(token=="<" ? startColumn : lineIndex-1 );
             printMaskedToken();
-            runPositionalTest();
             
             break;
         case ML_COMMENT:
@@ -1982,7 +1985,7 @@ bool CodeGenerator::processMultiLineCommentState()
 
     closeTag ( ML_COMMENT );
     
-    stateTrace2.clear();
+    stateTraceCurrent.clear();
     
     return eof;
 }
@@ -1996,6 +1999,7 @@ bool CodeGenerator::processSingleLineCommentState()
 
     State newState=STANDARD;
     bool eof=false, exitState=false;
+    unsigned int startColumn = lineIndex - token.size() ;
 
     openTag ( SL_COMMENT );
     do {
@@ -2022,8 +2026,8 @@ bool CodeGenerator::processSingleLineCommentState()
             eof = true;
             break;
         case _TESTPOS:
+            runSyntaxTestcases(token=="<" ? startColumn : lineIndex-1 );
             printMaskedToken();
-            runPositionalTest();
             break;
      
         default:
@@ -2033,7 +2037,7 @@ bool CodeGenerator::processSingleLineCommentState()
 
     closeTag ( SL_COMMENT );
     
-    stateTrace2.clear();
+    stateTraceCurrent.clear();
     
     return eof;
 }
@@ -2301,7 +2305,7 @@ void CodeGenerator::processWsState()
         *out << maskWsBegin;
         for ( int i=0; i<cntWs; i++ ) {
             *out <<  spacer;
-            stateTrace2.push_back(ps);
+            stateTraceCurrent.push_back(ps);
         }
         *out << maskWsEnd;
         if ( excludeWs && styleID!=_UNKNOWN ) {
@@ -2310,7 +2314,7 @@ void CodeGenerator::processWsState()
     } else {
     
         *out << spacer; //Bugfix fehlender Space nach Strings
-        stateTrace2.push_back(ps);
+        stateTraceCurrent.push_back(ps);
     }
     token.clear();
 }
@@ -2320,7 +2324,7 @@ void CodeGenerator::flushWs(int arg)
      PositionState ps(_WS, 0);
      //workaround condition
      for ( size_t i=0; i<wsBuffer.size() && (arg !=2 || (arg==2 && lineIndex>1)) ; i++ ) {
-        stateTrace2.push_back(ps);
+        stateTraceCurrent.push_back(ps);
      }
      
     *out<<wsBuffer;
