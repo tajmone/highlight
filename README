@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT MANUAL -------  Version 3.44   ------------------- July 2018 ---
+---  HIGHLIGHT MANUAL -------  Version 3.45   -------------- September 2018 ---
 -------------------------------------------------------------------------------
 
 OSI Certified Open Source Software
@@ -22,6 +22,7 @@ CONTENT
    2.5 GNU SOURCE-HIGHLIGHT COMPATIBILITY
    2.6 ADVANCED OPTIONS
    2.7 ENVIRONMENT VARIABLES
+   2.8 SYNTAX TESTING
 
 3. CONFIGURATION
    3.1 FILE FORMAT
@@ -436,6 +437,12 @@ The command line version recognizes these variables:
 
 HIGHLIGHT_DATADIR: sets the path to highlight's configuration scripts
 HIGHLIGHT_OPTIONS: may contain command line options, but no input file paths.
+
+2.8 SYNTAX TESTING
+-------------------------------------------------------------------------------
+
+Since version 2.45, highlight supports special notations within comments to
+test its syntax recognition. See README_TESTCASES for details.
 
 
 3. CONFIGURATION

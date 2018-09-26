@@ -35,8 +35,9 @@ Keywords={
   },
   
   -- fixes issue with expressions like ${SHELL="${CONFIG_SHELL-/bin/sh}"}
+  -- the [^\}]+ part fixes issue with "s#@PATH@#/opt/${pkgname}/bin/# ${pkgdir}/etc/profile.d/${pkgname}.sh"
   { Id=4,
-    Regex=[[\$\{.+\$\{.+?\}.+?\}|\$\{.+?\} ]],
+    Regex=[[\$\{[^\}]+\$\{.+?\}.+?\}|\$\{.+?\} ]],
   },
   { Id=4,
     Regex=[[ \$[\w\#]+ ]],

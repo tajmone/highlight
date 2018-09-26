@@ -2,7 +2,7 @@
                                io_report.h
                              -------------------
     begin                : Mo 16.03.2009
-    copyright            : (C) 2009 by Andre Simon
+    copyright            : (C) 2009-2018 by Andre Simon
     email                : andre.simon1@gmx.de
  ***************************************************************************/
 
@@ -47,9 +47,9 @@ public:
     void addInputErrors(QStringList & list);
     void addOutputErrors(QStringList & list);
     void addReformatErrors(QStringList & list);
+    void addSyntaxTestErrors(QStringList & list);
 
     bool removeInputErrorFiles();
-
 
 protected:
     virtual void changeEvent(QEvent *e);

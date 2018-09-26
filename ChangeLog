@@ -11,6 +11,7 @@ xx.09.2018
 -added support for ISO and R10 variants of Modula2 (thanks to Benjamin Kowarsch)
 -fixed R identifiers (https://gitlab.com/saalen/highlight/merge_requests/77)
 -fixed ALAN IF identifiers (see https://gitlab.com/saalen/highlight/merge_requests/79)
+-fixed issue with Bash string interpolations
 -added Swift keywords and types
 -added filetypes.conf.5 man page (https://gitlab.com/saalen/highlight/issues/83)
 -added Gradle extension mapping (https://gitlab.com/saalen/highlight/merge_requests/80)

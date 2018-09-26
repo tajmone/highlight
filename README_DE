@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT HANDBUCH -----  Version 3.44   ------------------- Juli 2018 ---
+---  HIGHLIGHT HANDBUCH -----  Version 3.45   -------------- September 2018 ---
 -------------------------------------------------------------------------------
 
 OSI Certified Open Source Software
@@ -22,6 +22,7 @@ INHALT
    2.5 GNU SOURCE-HIGHLIGHT KOMPATIBILITAET
    2.6 FORTGESCHRITTENE OPTIONEN
    2.7 UMGEBUNGSVARIABLEN
+   2.8 SYNTAX-TESTS
 
 3. KONFIGURATION
    3.1 DATEIFORMAT
@@ -446,6 +447,12 @@ Die Kommandozeilenversion beruecksichtigt folgende Variablen:
 HIGHLIGHT_DATADIR: setzt den Pfad zum Konfigurationsverzeichnis
 HIGHLIGHT_OPTIONS: kann Kommandozeilenoptionen enthalten, aber keine Pfade zu 
                    Eingabedateien
+
+2.7 SYNTAXTESTS
+-------------------------------------------------------------------------------
+
+Seit Version 2.45 unterstuetzt highlight spezielle Sequenzen in Kommentaren,
+um die eigene Syntaxerkennung zu testen. Mehr dazu in README_TESTCASES.
 
 
 3. KONFIGURATION

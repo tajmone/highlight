@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>436</width>
-    <height>372</height>
+    <width>442</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -68,6 +68,23 @@
    </item>
    <item>
     <widget class="QListWidget" name="listReformatErrors"/>
+   </item>
+   <item>
+    <widget class="Line" name="line_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Failed syntax tests:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="listSyntaxErrors"/>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">

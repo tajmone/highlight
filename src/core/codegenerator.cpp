@@ -539,7 +539,7 @@ unsigned char CodeGenerator::getInputChar()
         lastLineLength=lineIndex;
         lineIndex=0;
         
-        if (!lineContainedTestCase){
+        if (!lineContainedTestCase && applySyntaxTestCase){
             stateTraceTest = stateTraceCurrent;
             stateTraceCurrent.clear();
         } 
@@ -682,11 +682,13 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
     for ( unsigned int i=0; i< s.length(); i++ ) {
         ss << maskCharacter ( s[i] );
 
-        PositionState ps(currentState, currentKeywordClass);
-        stateTraceCurrent.push_back(ps);
-        
-        if (stateTraceCurrent.size()>200) 
-            stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
+        if (applySyntaxTestCase) {
+            PositionState ps(currentState, currentKeywordClass);
+            stateTraceCurrent.push_back(ps);
+            
+            if (stateTraceCurrent.size()>200) 
+                stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
+        }
     }
 }
 
@@ -1836,97 +1838,6 @@ bool CodeGenerator::processNumberState()
 }
 
 
-string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
-    switch (s) {
-        
-        case STANDARD:
-            return STY_NAME_STD;
-        case STRING:
-            return STY_NAME_STR;
-        case NUMBER:
-            return STY_NAME_NUM;
-        case SL_COMMENT:
-            return STY_NAME_SLC;
-        case ML_COMMENT:
-            return STY_NAME_COM;
-        case ESC_CHAR:
-            return STY_NAME_ESC;
-        case DIRECTIVE:
-            return STY_NAME_DIR;
-        case DIRECTIVE_STRING:
-            return STY_NAME_DST;
-        case SYMBOL:
-            return STY_NAME_SYM;
-        case STRING_INTERPOLATION:
-            return STY_NAME_IPL;
-        case _WS:
-            return "ws";
-        case KEYWORD: {
-            char kwName[5] = {0};
-            snprintf(kwName, sizeof(kwName), "kw%c", ('a'+kwClass-1));
-            return string(kwName);
-        }
-        default:
-            return "unknown_test";
-    }
-}
-
-void CodeGenerator::runSyntaxTestcases(unsigned int column){
-    
-    
-    if (!stateTraceCurrent.size() /*|| lineIndex>stateTraceCurrent.size()*/)
-        return;
-    
-    unsigned int assertGroup=0;
-    size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);
-    State assertState=_UNKNOWN;
-    
-    if (!lineContainedTestCase){
-        stateTraceCurrent=stateTraceTest;
-    } 
-    
-    if (typeDescPos!=string::npos) {
-    
-        if (line.find(STY_NAME_NUM, typeDescPos)==typeDescPos)
-            assertState=NUMBER;
-        else if (line.find(STY_NAME_STR, typeDescPos)==typeDescPos)
-            assertState=STRING;
-        else if (line.find(STY_NAME_ESC, typeDescPos)==typeDescPos)
-            assertState=ESC_CHAR;
-        else if (line.find(STY_NAME_IPL, typeDescPos)==typeDescPos)
-            assertState=STRING_INTERPOLATION;
-        else if (line.find(STY_NAME_SYM, typeDescPos)==typeDescPos)
-            assertState=SYMBOL;
-        else if (line.find(STY_NAME_DIR, typeDescPos)==typeDescPos)
-            assertState=DIRECTIVE;
-        else if (line.find(STY_NAME_SLC, typeDescPos)==typeDescPos)
-            assertState=SL_COMMENT;
-        else if (line.find(STY_NAME_COM, typeDescPos)==typeDescPos)
-            assertState=ML_COMMENT;
-        else if (line.find("ws", typeDescPos)==typeDescPos)
-            assertState=_WS;
-        else if (line.find(STY_NAME_STD, typeDescPos)==typeDescPos)
-            assertState=STANDARD;
-        else if (line.find(STY_NAME_DST, typeDescPos)==typeDescPos)
-            assertState=DIRECTIVE_STRING;
-        
-        else if (line.find("kw", typeDescPos)==typeDescPos) {
-            assertState=KEYWORD;
-            if (isalpha(line[typeDescPos+2]))
-                assertGroup=line[typeDescPos+2] - 'a' +1;
-        }
-    
-        if (stateTraceCurrent[column].state != assertState || assertGroup != stateTraceCurrent[column].kwClass) {
-            ostringstream err;
-            err << inFile << " line " << lineNumber << ", column "<< column << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
-                << " instead of " << getTestcaseName(assertState, assertGroup) ;
-            failedPosTests.push_back(err.str());
-        }
-        
-    }
-    
-    lineContainedTestCase=true; 
-}
 
 bool CodeGenerator::processMultiLineCommentState()
 {
@@ -2303,7 +2214,7 @@ void CodeGenerator::processWsState()
             *out << closeTags[styleID];
         }
         *out << maskWsBegin;
-        for ( int i=0; i<cntWs; i++ ) {
+        for ( int i=0; i<cntWs && applySyntaxTestCase; i++ ) {
             *out <<  spacer;
             stateTraceCurrent.push_back(ps);
         }
@@ -2314,7 +2225,8 @@ void CodeGenerator::processWsState()
     } else {
     
         *out << spacer; //Bugfix fehlender Space nach Strings
-        stateTraceCurrent.push_back(ps);
+        if (applySyntaxTestCase)
+            stateTraceCurrent.push_back(ps);
     }
     token.clear();
 }
@@ -2323,13 +2235,106 @@ void CodeGenerator::flushWs(int arg)
 {
      PositionState ps(_WS, 0);
      //workaround condition
-     for ( size_t i=0; i<wsBuffer.size() && (arg !=2 || (arg==2 && lineIndex>1)) ; i++ ) {
+     for ( size_t i=0; i<wsBuffer.size() && (arg !=2 || (arg==2 && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
         stateTraceCurrent.push_back(ps);
      }
      
     *out<<wsBuffer;
     wsBuffer.clear();
 }
+
+string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
+    switch (s) {
+        
+        case STANDARD:
+            return STY_NAME_STD;
+        case STRING:
+            return STY_NAME_STR;
+        case NUMBER:
+            return STY_NAME_NUM;
+        case SL_COMMENT:
+            return STY_NAME_SLC;
+        case ML_COMMENT:
+            return STY_NAME_COM;
+        case ESC_CHAR:
+            return STY_NAME_ESC;
+        case DIRECTIVE:
+            return STY_NAME_DIR;
+        case DIRECTIVE_STRING:
+            return STY_NAME_DST;
+        case SYMBOL:
+            return STY_NAME_SYM;
+        case STRING_INTERPOLATION:
+            return STY_NAME_IPL;
+        case _WS:
+            return "ws";
+        case KEYWORD: {
+            char kwName[5] = {0};
+            snprintf(kwName, sizeof(kwName), "kw%c", ('a'+kwClass-1));
+            return string(kwName);
+        }
+        default:
+            return "unknown_test";
+    }
+}
+
+void CodeGenerator::runSyntaxTestcases(unsigned int column){
+    
+    
+    if (!stateTraceCurrent.size() /*|| lineIndex>stateTraceCurrent.size()*/)
+        return;
+    
+    unsigned int assertGroup=0;
+    size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);
+    State assertState=_UNKNOWN;
+    
+    if (!lineContainedTestCase){
+        stateTraceCurrent=stateTraceTest;
+    } 
+    
+    if (typeDescPos!=string::npos) {
+    
+        if (line.find(STY_NAME_NUM, typeDescPos)==typeDescPos)
+            assertState=NUMBER;
+        else if (line.find(STY_NAME_STR, typeDescPos)==typeDescPos)
+            assertState=STRING;
+        else if (line.find(STY_NAME_ESC, typeDescPos)==typeDescPos)
+            assertState=ESC_CHAR;
+        else if (line.find(STY_NAME_IPL, typeDescPos)==typeDescPos)
+            assertState=STRING_INTERPOLATION;
+        else if (line.find(STY_NAME_SYM, typeDescPos)==typeDescPos)
+            assertState=SYMBOL;
+        else if (line.find(STY_NAME_DIR, typeDescPos)==typeDescPos)
+            assertState=DIRECTIVE;
+        else if (line.find(STY_NAME_SLC, typeDescPos)==typeDescPos)
+            assertState=SL_COMMENT;
+        else if (line.find(STY_NAME_COM, typeDescPos)==typeDescPos)
+            assertState=ML_COMMENT;
+        else if (line.find("ws", typeDescPos)==typeDescPos)
+            assertState=_WS;
+        else if (line.find(STY_NAME_STD, typeDescPos)==typeDescPos)
+            assertState=STANDARD;
+        else if (line.find(STY_NAME_DST, typeDescPos)==typeDescPos)
+            assertState=DIRECTIVE_STRING;
+        
+        else if (line.find("kw", typeDescPos)==typeDescPos) {
+            assertState=KEYWORD;
+            if (isalpha(line[typeDescPos+2]))
+                assertGroup=line[typeDescPos+2] - 'a' +1;
+        }
+    
+        if (stateTraceCurrent[column].state != assertState || assertGroup != stateTraceCurrent[column].kwClass) {
+            ostringstream err;
+            err << inFile << " line " << lineNumber << ", column "<< column << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
+                << " instead of " << getTestcaseName(assertState, assertGroup) ;
+            failedPosTests.push_back(err.str());
+        }
+        
+    }
+    
+    lineContainedTestCase=true; 
+}
+
 
 string CodeGenerator::getNewLine()
 {

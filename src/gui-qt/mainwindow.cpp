@@ -936,7 +936,7 @@ void MainWindow::on_pbStartConversion_clicked()
     QString lastStyleDestDir;
     QSet<QString> usedFileNames;
 
-    QStringList inputErrors, outputErrors, reformatErrors;
+    QStringList inputErrors, outputErrors, reformatErrors, syntaxTestErrors;
 
     for (int i=0; i<ui->lvInputFiles->count(); i++) {
         inFilePath =  ui->lvInputFiles->item(i)->data(Qt::UserRole).toString();
@@ -1029,17 +1029,24 @@ void MainWindow::on_pbStartConversion_clicked()
         }
     }
 
+    vector<string> posTestErrors = generator->getPosTestErrors();
+    for (vector<string>::iterator it=posTestErrors.begin(); it!=posTestErrors.end(); it++ ) {
+           syntaxTestErrors.append(QString::fromStdString(*it));
+    }
+
     statusBar()->showMessage(tr("Converted %1 files in %2 ms").arg(ui->lvInputFiles->count()).arg(t.elapsed()));
     ui->progressBar->reset();
     this->setCursor(Qt::ArrowCursor);
     ui->pbStartConversion->setEnabled(true);
     ui->pbCopyFile2CP->setEnabled(true);
 
-    if (!inputErrors.isEmpty() || !outputErrors.isEmpty() || !reformatErrors.isEmpty()) {
+    if (!inputErrors.isEmpty() || !outputErrors.isEmpty() || !reformatErrors.isEmpty() || !syntaxTestErrors.isEmpty()) {
         io_report report;
         report.addInputErrors(inputErrors);
         report.addOutputErrors(outputErrors);
         report.addReformatErrors(reformatErrors);
+        report.addSyntaxTestErrors(syntaxTestErrors);
+
         report.exec();
         if (report.removeInputErrorFiles()) {
 

@@ -2,7 +2,7 @@
                                io_report.cpp
                              -------------------
     begin                : Mo 16.03.2009
-    copyright            : (C) 2009 by Andre Simon
+    copyright            : (C) 2009-2018 by Andre Simon
     email                : andre.simon1@gmx.de
  ***************************************************************************/
 
@@ -64,6 +64,11 @@ void io_report::addReformatErrors(QStringList & list)
 {
     m_ui->listReformatErrors->clear();
     m_ui->listReformatErrors->addItems(list);
+}
+void io_report::addSyntaxTestErrors(QStringList & list)
+{
+    m_ui->listSyntaxErrors->clear();
+    m_ui->listSyntaxErrors->addItems(list);
 }
 
 bool io_report::removeInputErrorFiles()
