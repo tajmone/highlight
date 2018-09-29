@@ -1,16 +1,15 @@
--------------------------------------------------------------------------------
----  HIGHLIGHT TESTCASES MANUAL - Version 3.45   ----------- September 2018 ---
--------------------------------------------------------------------------------
+
+HIGHLIGHT TESTCASES MANUAL - Version 3.45                       September 2018 
+==============================================================================
 
 CONTENT
--------------------------------------------------------------------------------
+-------
 
 1. ABOUT
 2. TEST CASE NOTATION
 
 
-1. ABOUT
--------------------------------------------------------------------------------
+### 1. ABOUT
 
 Input files whose filenames start with syntax_test_ can contain column and state
 indicators in comment sections to test the highlight syntax recognition of the
@@ -24,8 +23,7 @@ NOTE: This feature is considered experimental. Please report problems and bugs
 
 NOTE: Only the last 100 states of each input line are being tracked.
 
-2. TEST CASE NOTATION
--------------------------------------------------------------------------------
+### 2. TEST CASE NOTATION
 
 A test case is defined by two entities: column and expected state.
 
@@ -49,10 +47,11 @@ kwX: keyword group X (X: a..z)
 The state identifiers match the correspomnding HTML output CSS class names.
 
 
-Example:
+#### Example:
 
 The following C file syntax_test_1.c contains various state indicators:
 
+```c
 #include <iostream>
 #include "myheader"
 // ^ ppc ^^^^^^^^^^ pps       1)  
@@ -71,19 +70,19 @@ int main() {
     return 0;
     /*  <   kwa               5) */ 
 }
+```
 
-
-1) this line contains a test for preprocessor and a preprocessor string.
+1. this line contains a test for preprocessor and a preprocessor string.
    The ^ indicators point at the tested string sections of the previous line.
    
-2) the keyword group kwd is checked (functions are highlighted as kwd in C syntax)
+2. the keyword group kwd is checked (functions are highlighted as kwd in C syntax)
 
-3) The < points to column 0 as the comment starts there. ws tests for whitespace.
+3. The < points to column 0 as the comment starts there. ws tests for whitespace.
 
-4) A source code line can be tested with various test comments.
+4. A source code line can be tested with various test comments.
    Here the opt test looks for the operator two lines before.
 
-5) < points at column 4, the beginning of the comment.
+5. < points at column 4, the beginning of the comment.
 
 
 Running highlight with this file will not produce any additional output, as all 
@@ -92,5 +91,7 @@ tests pass.
 If you change the kwa in 5) to kwb (or any other state), highlight will print an error
 like this:
 
+```
 highlight: Could not validate file:
 syntax_test_1.c line 17, column 4: got kwa instead of kwb
+```
