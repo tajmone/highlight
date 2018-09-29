@@ -1,13 +1,10 @@
--------------------------------------------------------------------------------
---- HIGHLIGHT REGULAR EXPRESSIONS MANUAL --------------------------------------
--------------------------------------------------------------------------------
+HIGHLIGHT REGULAR EXPRESSIONS MANUAL
+==============================================================================
 
 This file is based on the original Boost API documentation:
 http://www.boost.org/doc/libs/1_32_0/libs/regex/doc/syntax.html
 
 Regular expressions can be applied in highlight's syntax definitions.
-
--------------------------------------------------------------------------------
 
 Literals
 --------
@@ -48,7 +45,7 @@ repeat expressions refer to the shortest possible previous sub-expression: a
 single character; a character set, or a sub-expression grouped with "()" for
 example.
 
-Examples:
+### Examples:
 
 "ba*" will match all of "b", "ba", "baaa" etc.
 
@@ -125,7 +122,7 @@ regex_constants::newline_alt is set. Each alternative is the largest possible
 previous sub-expression; this is the opposite behavior from repetition
 operators.
 
-Examples:
+### Examples:
 
 "a(b|c)" could match "ab" or "ac".
 
@@ -141,7 +138,7 @@ character ranges, character classes, collating elements and equivalence classes.
 Set declarations that start with "^" contain the complement of the elements that
 follow.
 
-Examples:
+### Examples:
 
 Character literals:
 
@@ -363,10 +360,8 @@ are some differences in the meanings of \l \L \u and \U:
 	a literal character until a \E end quote operator is found. 
 \E 	The end quote operator, terminates a sequence begun with \Q. 
 
--------------------------------------------------------------------------------
 
-Examples:
----------
+### Examples:
 
 Regex=[[ [A-Z]\w+ ]]
 Highlight identifiers beginning with a capital letter.

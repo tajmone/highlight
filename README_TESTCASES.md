@@ -2,14 +2,9 @@
 HIGHLIGHT TESTCASES MANUAL - Version 3.45                       September 2018 
 ==============================================================================
 
-CONTENT
--------
 
 1. ABOUT
-2. TEST CASE NOTATION
-
-
-### 1. ABOUT
+--------
 
 Input files whose filenames start with syntax_test_ can contain column and state
 indicators in comment sections to test the highlight syntax recognition of the
@@ -23,7 +18,8 @@ NOTE: This feature is considered experimental. Please report problems and bugs
 
 NOTE: Only the last 100 states of each input line are being tracked.
 
-### 2. TEST CASE NOTATION
+2. TEST CASE NOTATION
+---------------------
 
 A test case is defined by two entities: column and expected state.
 

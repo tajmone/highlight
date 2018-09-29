@@ -1,6 +1,5 @@
--------------------------------------------------------------------------------
----  HIGHLIGHT IMPORTANT RELEASE AND PACKAGING INFORMATION ---- August 2017 ---
--------------------------------------------------------------------------------
+HIGHLIGHT IMPORTANT RELEASE AND PACKAGING INFORMATION               August 2017 
+===============================================================================
 
 
 GIT: FIRST COMMIT - THEN EXPORT
@@ -9,8 +8,8 @@ GIT: FIRST COMMIT - THEN EXPORT
 Triple check.
 
 
-TEST CASES
-----------
+TESTS
+-----
 
 highlight --print-config
 
@@ -19,12 +18,14 @@ This will print the config file search paths and compilation options.
 
 To test syntax definitions, run
 
-highlight --list-scripts=langs
+`highlight --list-scripts=langs`
 
 This command compiles all syntax scripts.
 
+```
 highlight --list-scripts=themes
 highlight --list-scripts=plugins
+```
 
 These commands show installed files.
 
@@ -37,10 +38,10 @@ Add --verbose to print additional syntax parsing information.
 
 
 Test filetype recognition:
--file suffix (default)
--no suffix (i.e. makefile)
--shebang (i.e. Bash script)
--force syntax using -S
+- file suffix (default)
+- no suffix (i.e. makefile)
+- shebang (i.e. Bash script)
+- force syntax using -S
 
 
 UNNEEDED FILES
@@ -54,6 +55,7 @@ THIRD PARTY COMPATIBILITY
 
 The following options are used in third party applications:
 
+```
   --input, -i
   --output, -o
   --encoding, -u
@@ -69,6 +71,7 @@ The following options are used in third party applications:
   --style
   --failsafe
   --validate-input
+```
 
 The following themes are used in third party applications:
   - bclear (Evolution)
@@ -85,4 +88,3 @@ Increase SO_VERSION in src/makefile.
 
 See the makefiles and INSTALL for more packaging information.
 
- 
