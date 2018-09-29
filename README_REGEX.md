@@ -9,14 +9,14 @@ Regular expressions can be applied in highlight's syntax definitions.
 Literals
 --------
 
-All characters are literals except: ".", "|", "*", "?", "+", "(", ")", "{", "}",
-"[", "]", "^", "$" and "\". These characters are literals when preceded by a
-"\". A literal is a character that matches itself, or matches the result of
+All characters are literals except: `.`, `|`, `*`, `?`, `+`, `(`, `)`, `{`, `}`,
+`[`, `]`, `^`, `$` and `\`. These characters are literals when preceded by a
+`\`. A literal is a character that matches itself, or matches the result of
 traits_type::translate(), where traits_type is the traits template parameter to
 class basic_regex.
 Wildcard
 
-The dot character "." matches any single character except : when
+The dot character `.` matches any single character except : when
 match_not_dot_null is passed to the matching algorithms, the dot does not match
 a null character; when match_not_dot_newline is passed to the matching
 algorithms, then the dot does not match a newline character.
@@ -26,43 +26,43 @@ Repeats
 -------
 
 A repeat is an expression that is repeated an arbitrary number of times. An
-expression followed by "*" can be repeated any number of times including zero.
-An expression followed by "+" can be repeated any number of times, but at least
+expression followed by `*` can be repeated any number of times including zero.
+An expression followed by `+` can be repeated any number of times, but at least
 once, if the expression is compiled with the flag regex_constants::bk_plus_qm
-then "+" is an ordinary character and "\+" represents a repeat of once or more.
-An expression followed by "?" may be repeated zero or one times only, if the
-expression is compiled with the flag regex_constants::bk_plus_qm then "?" is an
-ordinary character and "\?" represents the repeat zero or once operator. When it
+then `+` is an ordinary character and `\+` represents a repeat of once or more.
+An expression followed by `?` may be repeated zero or one times only, if the
+expression is compiled with the flag regex_constants::bk_plus_qm then `?` is an
+ordinary character and `\?` represents the repeat zero or once operator. When it
 is necessary to specify the minimum and maximum number of repeats explicitly,
-the bounds operator "{}" may be used, thus "a{2}" is the letter "a" repeated
-exactly twice, "a{2,4}" represents the letter "a" repeated between 2 and 4
-times, and "a{2,}" represents the letter "a" repeated at least twice with no
+the bounds operator `{}` may be used, thus `a{2}` is the letter `a` repeated
+exactly twice, `a{2,4}` represents the letter `a` repeated between 2 and 4
+times, and `a{2,}` represents the letter `a` repeated at least twice with no
 upper limit. Note that there must be no white-space inside the {}, and there is
 no upper limit on the values of the lower and upper bounds. When the expression
-is compiled with the flag regex_constants::bk_braces then "{" and "}" are
-ordinary characters and "\{" and "\}" are used to delimit bounds instead. All
+is compiled with the flag regex_constants::bk_braces then `{` and `}` are
+ordinary characters and `\{` and `\}` are used to delimit bounds instead. All
 repeat expressions refer to the shortest possible previous sub-expression: a
-single character; a character set, or a sub-expression grouped with "()" for
+single character; a character set, or a sub-expression grouped with `()` for
 example.
 
 ### Examples:
 
-"ba*" will match all of "b", "ba", "baaa" etc.
+`ba*` will match all of `b`, `ba`, `baaa` etc.
 
-"ba+" will match "ba" or "baaaa" for example but not "b".
+`ba+` will match `ba` or `baaaa` for example but not `b`.
 
-"ba?" will match "b" or "ba".
+`ba?` will match `b` or `ba`.
 
-"ba{2,4}" will match "baa", "baaa" and "baaaa".
+`ba{2,4}` will match `baa`, `baaa` and `baaaa`.
 Non-greedy repeats
 
-Whenever the "extended" regular expression syntax is in use (the default) then
+Whenever the `extended` regular expression syntax is in use (the default) then
 non-greedy repeats are possible by appending a '?' after the repeat; a
 non-greedy repeat is one which will match the shortest possible string.
 
 For example to match html tag pairs one could use something like:
 
-"<\s*tagname[^>]*>(.*?)<\s*/tagname\s*>"
+`<\s*tagname[^>]*>(.*?)<\s*/tagname\s*>`
 
 In this case $1 will contain the text between the tag pairs, and will be the
 shortest possible matching string. 
@@ -72,13 +72,13 @@ Parenthesis
 -----------
 
 Parentheses serve two purposes, to group items together into a sub-expression,
-and to mark what generated the match. For example the expression "(ab)*" would
-match all of the string "ababab". The matching algorithms regex_match and
+and to mark what generated the match. For example the expression `(ab)*` would
+match all of the string `ababab`. The matching algorithms regex_match and
 regex_search each take an instance of match_results that reports what caused the
 match, on exit from these functions the match_results contains information both
 on what the whole expression matched and on what each sub-expression matched. In
 the example above match_results[1] would contain a pair of iterators denoting
-the final "ab" of the matching string. It is permissible for sub-expressions to
+the final `ab` of the matching string. It is permissible for sub-expressions to
 match null strings. If a sub-expression takes no part in a match - for example
 if it is part of an alternative that is not taken - then both of the iterators
 that are returned for that sub-expression point to the end of the input string,
@@ -95,20 +95,20 @@ parenthesis to spit out another marked sub-expression, in this case a
 non-marking parenthesis (?:expression) can be used. For example the following
 expression creates no sub-expressions:
 
-"(?:abc)*"
-Forward Lookahead Asserts 
+`(?:abc)*` Forward Lookahead Asserts 
 
 There are two forms of these; one for positive forward lookahead asserts, and
 one for negative lookahead asserts:
 
-"(?=abc)" matches zero characters only if they are followed by the expression
-"abc".
+`(?=abc)` matches zero characters only if they are followed by the expression
+`abc`.
 
-"(?!abc)" matches zero characters only if they are not followed by the
-expression "abc".
+`(?!abc)` matches zero characters only if they are not followed by the
+expression `abc`.
+
 Independent sub-expressions
 
-"(?>expression)" matches "expression" as an independent atom (the algorithm will
+`(?>expression)` matches `expression` as an independent atom (the algorithm will
 not backtrack into it if a failure occurs later in the expression).
 
 
@@ -116,7 +116,7 @@ Alternatives
 ------------
 
 Alternatives occur when the expression can match either one sub-expression or
-another, each alternative is separated by a "|", or a "\|" if the flag
+another, each alternative is separated by a `|`, or a `\|` if the flag
 regex_constants::bk_vbar is set, or by a newline character if the flag
 regex_constants::newline_alt is set. Each alternative is the largest possible
 previous sub-expression; this is the opposite behavior from repetition
@@ -124,18 +124,18 @@ operators.
 
 ### Examples:
 
-"a(b|c)" could match "ab" or "ac".
+`a(b|c)` could match `ab` or `ac`.
 
-"abc|def" could match "abc" or "def".
+`abc|def` could match `abc` or `def`.
 
 
 Sets
 ----
 
 A set is a set of characters that can match any single character that is a
-member of the set. Sets are delimited by "[" and "]" and can contain literals,
+member of the set. Sets are delimited by `[` and `]` and can contain literals,
 character ranges, character classes, collating elements and equivalence classes.
-Set declarations that start with "^" contain the complement of the elements that
+Set declarations that start with `^` contain the complement of the elements that
 follow.
 
 ### Examples:
@@ -161,40 +161,43 @@ a-z, and also 'A', 'B' etc, but not 'Z' which collates just after 'z'. This
 locale specific behavior is disabled by default (in perl mode), and forces
 ranges to collate according to ASCII character code.
 
-Character classes are denoted using the syntax "[:classname:]" within a set
-declaration, for example "[[:space:]]" is the set of all whitespace characters.
+Character classes are denoted using the syntax `[:classname:]` within a set
+declaration, for example `[[:space:]]` is the set of all whitespace characters.
 Character classes are only available if the flag regex_constants::char_classes
 is set. The available character classes are:
  
-
-alnum 	Any alpha numeric character. 
-alpha 	Any alphabetical character a-z and A-Z. Other characters may
-	also be included depending upon the locale. 
-blank 	Any blank character, either a space or a tab. 
-cntrl 	Any control character. 
-digit 	Any digit 0-9. 
-graph 	Any graphical character. 
-lower 	Any lower case character a-z. Other characters may also be
-	included depending upon the locale. 
-print 	Any printable character. 
-punct 	Any punctuation character. 
-space 	Any whitespace character. 
-upper 	Any upper case character A-Z. Other characters may also be
-	included depending upon the locale. 
-xdigit 	Any hexadecimal digit character, 0-9, a-f and A-F. 
-word 	Any word character - all alphanumeric characters plus the
-	underscore. 
-Unicode Any character whose code is greater than 255, this
-	applies to the wide character traits classes only. 
+| class  | description
+|------- | :-------------------------------------------------------------- |
+|alnum 	 | Any alpha numeric character.                                    | 
+|alpha 	 | Any alphabetical character a-z and A-Z. Other characters may    | 
+|	     | also be included depending upon the locale.                     | 
+|blank 	 | Any blank character, either a space or a tab.                   | 
+|cntrl 	 | Any control character.                                          | 
+|digit 	 | Any digit 0-9.                                                  | 
+|graph 	 | Any graphical character.                                        |
+|lower 	 | Any lower case character a-z. Other characters may also be      | 
+|	     | included depending upon the locale.                             |
+|print   | Any printable character.                                        | 
+|punct   | Any punctuation character.                                      | 
+|space   | Any whitespace character.                                       | 
+|upper   | Any upper case character A-Z. Other characters may also be      | 
+|	     | included depending upon the locale.                             | 
+|xdigit  | Any hexadecimal digit character, 0-9, a-f and A-F.              | 
+|word    | Any word character - all alphanumeric characters plus the       | 
+|	     | underscore.                                                     | 
+|Unicode | Any character whose code is greater than 255, this              | 
+|	     | applies to the wide character traits classes only.              | 
 
 There are some shortcuts that can be used in place of the character classes,
 provided the flag regex_constants::escape_in_lists is set then you can use:
 
+```
 \w in place of [:word:]
 \s in place of [:space:]
 \d in place of [:digit:]
 \l in place of [:lower:]
 \u in place of [:upper:] 
+```
 
 Collating elements take the general form [.tagname.] inside a set declaration,
 where tagname is either a single character, or a name of a collating element,
@@ -222,10 +225,10 @@ character, except under Win32. For other operating systems the library will
 equivalence classes are probably best considered broken under any operating
 system other than Win32. 
 
-To include a literal "-" in a set declaration then: make it the first character
-after the opening "[" or "[^", the endpoint of a range, a collating element, or
+To include a literal `-` in a set declaration then: make it the first character
+after the opening `[` or `[^`, the endpoint of a range, a collating element, or
 if the flag regex_constants::escape_in_lists is set then precede with an escape
-character as in "[\-]". To include a literal "[" or "]" or "^" in a set then
+character as in `[\-]`. To include a literal `[` or `]` or `^` in a set then
 make them the endpoint of a range, a collating element, or precede with an
 escape character if the flag regex_constants::escape_in_lists is set.
 
@@ -243,10 +246,10 @@ Back references
 
 A back reference is a reference to a previous sub-expression that has already
 been matched, the reference is to what the sub-expression matched, not to the
-expression itself. A back reference consists of the escape character "\"
-followed by a digit "1" to "9", "\1" refers to the first sub-expression, "\2" to
-the second etc. For example the expression "(.*)\1" matches any string that is
-repeated about its mid-point for example "abcabc" or "xyzxyz". A back reference
+expression itself. A back reference consists of the escape character `\`
+followed by a digit `1` to `9`, `\1` refers to the first sub-expression, `\2` to
+the second etc. For example the expression `(.*)\1` matches any string that is
+repeated about its mid-point for example `abcabc` or `xyzxyz`. A back reference
 to a sub-expression that did not participate in any match, matches the null
 string: NB this is different to some other regular expression matchers. Back
 references are only available if the expression is compiled with the flag
@@ -259,19 +262,19 @@ Word operators
 The following operators are provided for compatibility with the GNU regular
 expression library.
 
-"\w" matches any single character that is a member of the "word" character
-class, this is identical to the expression "[[:word:]]".
+`\w` matches any single character that is a member of the `word` character
+class, this is identical to the expression `[[:word:]]`.
 
-"\W" matches any single character that is not a member of the "word" character
-class, this is identical to the expression "[^[:word:]]".
+`\W` matches any single character that is not a member of the `word` character
+class, this is identical to the expression `[^[:word:]]`.
 
-"\<" matches the null string at the start of a word.
+`\<` matches the null string at the start of a word.
 
-"\>" matches the null string at the end of the word.
+`\>` matches the null string at the end of the word.
 
-"\b" matches the null string at either the start or the end of a word.
+`\b` matches the null string at either the start or the end of a word.
 
-"\B" matches a null string within a word.
+`\B` matches a null string within a word.
 
 The start of the sequence passed to the matching algorithms is considered to be
 a potential start of a word unless the flag match_not_bow is set. The end of the
@@ -285,15 +288,15 @@ Buffer operators
 The following operators are provided for compatibility with the GNU regular
 expression library, and Perl regular expressions:
 
-"\`" matches the start of a buffer.
+`\`` matches the start of a buffer.
 
-"\A" matches the start of the buffer.
+`\A` matches the start of the buffer.
 
-"\'" matches the end of a buffer.
+`\'` matches the end of a buffer.
 
-"\z" matches the end of a buffer.
+`\z` matches the end of a buffer.
 
-"\Z" matches the end of a buffer, or possibly one or more new line characters
+`\Z` matches the end of a buffer, or possibly one or more new line characters
 followed by the end of the buffer.
 
 A buffer is considered to consist of the whole sequence passed to the matching
@@ -303,7 +306,7 @@ algorithms, unless the flags match_not_bob or match_not_eob are set.
 Escape operator
 ---------------
 
-The escape character "\" has several meanings.
+The escape character `\` has several meanings.
 
 Inside a set declaration the escape character is a normal character unless the
 flag regex_constants::escape_in_lists is set in which case whatever follows the
@@ -312,28 +315,29 @@ escape is a literal character regardless of its normal meaning.
 The escape operator may introduce an operator for example: back references, or a
 word operator.
 
-The escape operator may make the following character normal, for example "\*"
-represents a literal "*" rather than the repeat operator.
+The escape operator may make the following character normal, for example `\*`
+represents a literal `*` rather than the repeat operator.
 Single character escape sequences
 
 The following escape sequences are aliases for single characters:
  
-Escape sequence 	Character code 	Meaning 
-\a 	0x07 	Bell character. 
-\f 	0x0C 	Form feed. 
-\n 	0x0A 	Newline character. 
-\r 	0x0D 	Carriage return. 
-\t 	0x09 	Tab character. 
-\v 	0x0B 	Vertical tab. 
-\e 	0x1B 	ASCII Escape character. 
-\0dd 	0dd 	An octal character code, where dd is one or more octal
-		digits. 
-\xXX 	0xXX 	A hexadecimal character code, where XX is one or more
-		hexadecimal digits. 
-\x{XX} 	0xXX 	A hexadecimal character code, where XX is one or more
-		hexadecimal digits, optionally a Unicode character. 
-\cZ 	z-@ 	An ASCII escape sequence control-Z, where Z is any ASCII
-		character greater than or equal to the character code for '@'.
+  
+| Escape sequence  | Character code 	Meaning 
+|----------------- | :------------------------------------------------------- |
+|\a 	0x07 	   | Bell character.                                          | 
+|\f 	0x0C 	   | Form feed.                                               | 
+|\n 	0x0A 	   | Newline character.                                       | 
+|\r 	0x0D 	   | Carriage return.                                         | 
+|\t 	0x09 	   | Tab character.                                           | 
+|\v 	0x0B 	   | Vertical tab.                                            | 
+|\e 	0x1B 	   | ASCII Escape character.                                  | 
+|\0dd 	0dd 	   | Bell character.                                          | 
+|\xXX 	0xXX 	   | A hexadecimal character code, where XX is one or more    | 
+|                  | hexadecimal digits                                       |
+|\x{XX} 0xXX 	   | A hexadecimal character code, where XX is one or more    |
+|                  | hexadecimal digits, optionally a Unicode character.      |
+|\cZ 	z-@ 	   | An ASCII escape sequence control-Z, where Z is any ASCII | 
+|                  | character greater than or equal to the code for '@'.     |
 
 
 Miscellaneous escape sequences:
@@ -342,7 +346,7 @@ Miscellaneous escape sequences:
 The following are provided mostly for perl compatibility, but note that there
 are some differences in the meanings of \l \L \u and \U:
  
-
+```
 \w 	Equivalent to [[:word:]]. 
 \W 	Equivalent to [^[:word:]]. 
 \s 	Equivalent to [[:space:]]. 
@@ -359,31 +363,29 @@ are some differences in the meanings of \l \L \u and \U:
 \Q 	The begin quote operator, everything that follows is treated as
 	a literal character until a \E end quote operator is found. 
 \E 	The end quote operator, terminates a sequence begun with \Q. 
-
+```
 
 ### Examples:
 
-Regex=[[ [A-Z]\w+ ]]
+`Regex=[[ [A-Z]\w+ ]]`
 Highlight identifiers beginning with a capital letter.
 
-Regex=[[ [$@%]\w+ ]]
+`Regex=[[ [$@%]\w+ ]]`
 Highlight variables beginning with $, @ or %.
 
-Regex=[[ \$\{(\w+)\}) ]]
-or
-Regex=[[ \$\{(\w+)\} ]], Group=1
+`Regex=[[ \$\{(\w+)\}) ]]` or `Regex=[[ \$\{(\w+)\} ]], Group=1`
 Highlight variable names like ${name}. Only the name is highlighted as keyword.
 A sub-expression is used to achieve this effect. If no sub-expression number
 is defined (like in the first example above), the right-most sub match
 (highest sub id) is returned.
 
-Regex=[[ (\w+)\s*\( ]]
+`Regex=[[ (\w+)\s*\( ]]`
 Highlight method names. Note that a sub expression is used again.
 
-Regex=[[STO\xe2\x88\x91]]
+`Regex=[[STO\xe2\x88\x91]]`
 Unicode characters in a keyword.
 
-[[\A(?!x)x]]
+`[[\A(?!x)x]]`
 A never matching expression. Can be used to disable a default syntax element.
 
 ---
@@ -391,8 +393,5 @@ Andre Simon
 andre.simon1@gmx.de
 http://www.andre-simon.de/
 
-sf.net project with SVN repository, download mirror, bug tracker, help forum:
-http://sourceforge.net/projects/syntaxhighlight/
-
-Github project with Git repository, bug tracker:
-https://github.com/andre-simon/highlight
+Git project with Git repository, bug tracker:
+https://gitlab.com/saalen/highlight/
