@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
----  HIGHLIGHT LANGUAGE LIST --------------------------------- January 2018 ---
+---  HIGHLIGHT LANGUAGE LIST --------------------------------- October 2018 ---
 -------------------------------------------------------------------------------
 
 All supported languages and the syntax definition file names are listed below.
@@ -10,12 +10,14 @@ See README for other user defined locations.
 
 Packaged language definitions (highlight --list-langs):
 
+
 ABAP/4                        : abap4 ( abp )
 ABC                           : abc
 Advanced Backus-Naur Form     : abnf
 ActionScript                  : actionscript ( as )
 ADA95                         : ada ( a adb ads gnad )
 Agda                          : agda
+ALAN Interactive Fiction Language: alan ( alan i )
 ALGOL 68                      : algol ( alg )
 AMPL                          : ampl ( dat run )
 AMTrix                        : amtrix ( hnd s4 s4h s4t t4 )
@@ -74,6 +76,7 @@ Elixir                        : elixir ( ex exs )
 E-Mail treated as Markup      : email
 Erlang                        : erlang ( erl hrl )
 Euphoria                      : euphoria ( eu ew exw wxu )
+Excel Formulas                : excel
 Express                       : express ( exp )
 FAME                          : fame ( fame )
 fasm                          : fasm ( inc )
@@ -104,7 +107,7 @@ Inno Setup                    : innosetup ( iss )
 INTERLIS                      : interlis ( ili )
 IO                            : io
 Jasmin                        : jasmin ( j )
-Java                          : java ( groovy grv jenkinsfile )
+Java                          : java ( gradle groovy grv jenkinsfile )
 Javascript                    : js
 Javascript Regex              : js_regex
 JSON                          : json
@@ -167,11 +170,11 @@ PL/Perl                       : plperl
 PL/Python                     : plpython
 PL/Tcl                        : pltcl
 PO translation                : po
-PolyGen                       : polygen ( grm )
+Polygen                       : polygen ( grm )
 Pony                          : pony
 POV-Ray                       : pov
 Prolog                        : pro ( pro )
-Progress                      : progress ( i p w )
+Progress                      : progress ( p w )
 PostScript                    : ps
 Microsoft PowerShell          : ps1
 PATROL                        : psl
@@ -215,6 +218,7 @@ TCSH                          : tcsh
 TeX and LaTeX                 : tex ( cls sty )
 TypeScript                    : ts
 Transact-SQL                  : tsql
+TSX (TypeScript with React)   : tsx
 TTCN3                         : ttcn3
 Plain text                    : txt ( text )
 UPC (and C, technically)      : upc
@@ -223,6 +227,7 @@ Visual Basic                  : vb ( bas basic bi vbs )
 Verilog                       : verilog ( v )
 VHDL                          : vhd
 vimscript                     : vimscript ( vim vimrc )
+vue.js (beta)                 : vue
 Whiley                        : whiley
 XML                           : xml ( csproj dtd ecf ent glade hdr hub jnlp nrm resx sgm sgml tld vxml wml xsd xsl )
 SuperX++                      : xpp

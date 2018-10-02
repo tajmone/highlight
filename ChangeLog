@@ -3,15 +3,15 @@ CHANGELOG Highlight
 
 highlight 3.45
 
-xx.09.2018
+02.10.2018
 
 -added DocumentHeader and DocumentFooter plug-in hooks
 -added RemoveKeyword Lua function for syntax definitions
--added testcase indicators (see README_TESTCASES)
+-added syntax test indicators (see README_TESTCASES)
 -added support for ISO and R10 variants of Modula2 (thanks to Benjamin Kowarsch)
 -fixed R identifiers (https://gitlab.com/saalen/highlight/merge_requests/77)
 -fixed ALAN IF identifiers (see https://gitlab.com/saalen/highlight/merge_requests/79)
--fixed issue with Bash string interpolations
+-fixed issue with Bash string interpolation
 -fixed some bugs found by coverity tool (https://gitlab.com/saalen/highlight/issues/82)
 -added Swift keywords and types
 -added filetypes.conf.5 man page (https://gitlab.com/saalen/highlight/issues/83)

@@ -82,12 +82,15 @@ int main() {
 
 
 Running highlight with this file will not produce any additional output, as all 
-tests pass.
+tests pass. The exit status will be 0.
 
 If you change the kwa in 5) to kwb (or any other state), highlight will print an error
-like this:
+like this, and exit with status 1:
 
 ```
 highlight: Could not validate file:
 syntax_test_1.c line 17, column 4: got kwa instead of kwb
 ```
+
+The highlight GUI will show the error messages in an error summary prompt.
+
