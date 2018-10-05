@@ -1,0 +1,120 @@
+= HIGHLIGHT IMPORTANT RELEASE AND PACKAGING INFORMATION
+André Simon
+:revdate: August 2017
+:lang: en
+:toc: left
+:toc-title: Contents
+:toclevels: 4
+:sectnums:
+:sectnumlevels: 2
+:sectanchors:
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
+
+// =====================================
+// Custom Attributes for Reference Links
+// =====================================
+// Highlight Docs (uncovenrted):
+:INSTALL: pass:q[link:INSTALL[`INSTALL`]]
+// Source files:
+:bclear: pass:q[link:themes/bclear.theme[bclear^]]
+:src_makefile: pass:q[link:src/makefile[`src/makefile`^]]
+
+
+
+
+== GIT: FIRST COMMIT -- THEN EXPORT
+
+Triple check.
+
+
+== TESTS
+
+........................
+highlight --print-config
+........................
+
+This will print the config file search paths and compilation options.
+
+
+To test syntax definitions, run
+
+..............................
+highlight --list-scripts=langs
+..............................
+
+This command compiles all syntax scripts.
+
+................................
+highlight --list-scripts=themes
+highlight --list-scripts=plugins
+................................
+
+These commands show installed files.
+
+
+To quickly test highlighting on the command line, type:
+
+................................
+highlight -ISc
+................................
+
+Now type some C code and hit kbd:[CTRL+D] to quit.
+
+Add `--verbose` to print additional syntax parsing information.
+
+
+Test filetype recognition:
+
+* file suffix (default)
+* no suffix (i.e. makefile)
+* shebang (i.e. Bash script)
+* force syntax using `-S`
+
+
+
+== UNNEEDED FILES
+
+Remove `src/gui-qt/.qmake.stash`
+
+
+== THIRD PARTY COMPATIBILITY
+
+The following options are used in third party applications:
+
+* `--input, -i`
+* `--output, -o`
+* `--encoding, -u`
+* `--font`
+* `--font-size`
+* `--force`
+* `--line-numbers, -l`
+* `--replace-tabs, -t`
+* `--syntax`
+* `--out-format`
+* `--include-style`
+* `--inline-css`
+* `--style`
+* `--failsafe`
+* `--validate-input`
+
+The following themes are used in third party applications:
+
+* {bclear} (Evolution)
+
+The following platform dependent classes are used in SWIG scripts (ikiwiki):
+
+* `DataDir`
+
+
+== SO-LIB VERSION
+
+Increase `SO_VERSION` in {src_makefile}.
+
+
+See the makefiles and {INSTALL} for more packaging information.
+
+
+// EOF //
