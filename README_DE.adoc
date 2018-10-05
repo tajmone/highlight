@@ -20,9 +20,9 @@ v3.45, September 2018
 :README: pass:q[link:README.adoc[`README`]]
 :README_LANGLIST: pass:q[link:README_LANGLIST.adoc[`README_LANGLIST`]]
 :README_PLUGINS: pass:q[link:README_PLUGINS.adoc[`README_PLUGINS`]]
+:README_REGEX: pass:q[link:README_REGEX.adoc[`README_REGEX`]]
 :README_TESTCASES: pass:q[link:README_TESTCASES.adoc[`README_TESTCASES`]]
 // Highlight Docs ( uncovenrted):
-:README_REGEX: pass:q[link:README_REGEX[`README_REGEX`]]
 :INSTALL: pass:q[link:INSTALL[`INSTALL`]]
 // Source files:
 :cpp_qt_lua: pass:q[link:plugins/cpp_qt.lua[`cpp_qt.lua`^]]
