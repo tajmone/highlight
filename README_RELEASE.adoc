@@ -7,8 +7,11 @@ André Simon
 :toclevels: 4
 :sectnums:
 :sectnumlevels: 2
-// :sectlinks:
 :sectanchors:
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
 
 // =====================================
 // Custom Attributes for Reference Links

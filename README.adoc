@@ -7,18 +7,21 @@ v3.45, September 2018
 :toclevels: 4
 :sectnums:
 :sectnumlevels: 2
-// :sectlinks:
 :sectanchors:
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
 
 // =====================================
 // Custom Attributes for Reference Links
 // =====================================
 // Highlight Docs (asciidoc):
-:README_LANGLIST: pass:q[link:README_LANGLIST.adoc[`README_LANGLIST`]]
-:README_TESTCASES: pass:q[link:README_TESTCASES.adoc[`README_TESTCASES`]]
 :README_DE: pass:q[link:README_DE.adoc[`README_DE`]]
+:README_LANGLIST: pass:q[link:README_LANGLIST.adoc[`README_LANGLIST`]]
+:README_PLUGINS: pass:q[link:README_PLUGINS.adoc[`README_PLUGINS`]]
+:README_TESTCASES: pass:q[link:README_TESTCASES.adoc[`README_TESTCASES`]]
 // Highlight Docs (uncovenrted):
-:README_PLUGINS: pass:q[link:README_PLUGINS[`README_PLUGINS`]]
 :README_REGEX: pass:q[link:README_REGEX[`README_REGEX`]]
 :INSTALL: pass:q[link:INSTALL[`INSTALL`]]
 // Source files:
@@ -135,18 +138,18 @@ highlight -O latex -i main.cpp -o main.cpp.tex --reformat horstmann --style neon
 The following output formats may be defined with `--out-format`:
 +
 [horizontal]
-`html`:::      HTML5 (default)
-`xhtml`:::     XHTML 1.1
-`tex`:::       Plain TeX
-`latex`:::     LaTeX
-`rtf`:::       RTF
-`odt`:::       OpenDocument Text (Flat XML)
-`svg`:::       SVG
-`bbcode`:::    BBCode
-`pango`:::     Pango markup
-`ansi`:::      Terminal 16 color escape codes
-`xterm256`:::  Terminal 256 color escape codes
-`truecolor`::: Terminal 16m color escape codes
+`html`      ::: HTML5 (default)
+`xhtml`     ::: XHTML 1.1
+`tex`       ::: Plain TeX
+`latex`     ::: LaTeX
+`rtf`       ::: RTF
+`odt`       ::: OpenDocument Text (Flat XML)
+`svg`       ::: SVG
+`bbcode`    ::: BBCode
+`pango`     ::: Pango markup
+`ansi`      ::: Terminal 16 color escape codes
+`xterm256`  ::: Terminal 256 color escape codes
+`truecolor` ::: Terminal 16m color escape codes
 
 
 Customize font settings::
