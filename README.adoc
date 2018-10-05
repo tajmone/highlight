@@ -16,8 +16,8 @@ v3.45, September 2018
 // Highlight Docs (asciidoc):
 :README_LANGLIST: pass:q[link:README_LANGLIST.adoc[`README_LANGLIST`]]
 :README_TESTCASES: pass:q[link:README_TESTCASES.adoc[`README_TESTCASES`]]
+:README_DE: pass:q[link:README_DE.adoc[`README_DE`]]
 // Highlight Docs ( uncovenrted):
-:README_DE: pass:q[link:README_DE[`README_DE`]]
 :README_PLUGINS: pass:q[link:README_PLUGINS[`README_PLUGINS`]]
 :README_REGEX: pass:q[link:README_REGEX[`README_REGEX`]]
 :INSTALL: pass:q[link:INSTALL[`INSTALL`]]
@@ -709,7 +709,7 @@ Please see {README_REGEX} for the supported regex constructs.
 Colour themes contain the formatting information of the syntax elements which
 are described in language definitions.
 
-The files have to be stored as `*.theme` in {themes}.
+The files have to be stored as `.theme` in {themes}.
 Apply a theme with the `--style` option. Use `--base16` to use one of the included
 Base16 themes (located in {themes_base16}).
 
@@ -894,8 +894,6 @@ to copy preinstalled files somewhere else.
 
 === SAMPLE SCRIPTS
 
-// @ARRIVED HERE! //////////////////////////////////////////////////////////////
-
 See the {extras} subdirectory in the highlight package for some scripts in PHP,
 Perl and Python  which invoke highlight and retrieve its output as string.
 These scripts may be used as reference to develop plug-ins for other apps.
@@ -966,7 +964,7 @@ Git project with repository, bug tracker:
 
 sf.net project with SVN repository, download mirror, bug tracker, help forum:
 
-* *http://sourceforge.net/projects/syntaxhighlight/
+* http://sourceforge.net/projects/syntaxhighlight/
 
 
 // EOF //
