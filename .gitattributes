@@ -84,12 +84,13 @@ highlight3.kdev4            export-ignore
 *.xml          text
 *.xhtml        text
 
-# =================
+## =================
 ## WEB-RELATED FILES
 ## =================
 *.htm          text
 *.html         text
 *.css          text
+*.map.css      text
 *.js           text
 *.sass         text
 *.scss         text
@@ -97,6 +98,10 @@ highlight3.kdev4            export-ignore
 ## ===================
 ## DOCUMENTATION FILES
 ## ===================
+*.adoc         text
+*.asciidoc     text
+*.markdown     text
+*.md           text
 *.txt          text
 *COPYRIGHT*    text
 *README*       text
