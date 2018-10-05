@@ -1,0 +1,49 @@
+//  v1.0.0 (2018-10-05) by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                         Color Schemes & Palettes                          *
+// *                                                                           *
+// *****************************************************************************
+
+// =============================================================================
+//                                Base16 Eighties                                
+// =============================================================================
+// Adapted from Chris Kempson's Base16 project (MIT License):
+// https://github.com/chriskempson/base16-builder/blob/master/schemes/eighties.yml
+// -----------------------------------------------------------------------------
+$Eighties-00: #2D2D2D; // Mine Shaft ( black )
+$Eighties-01: #393939; // Tuatara ( almost black )
+$Eighties-02: #515151; // Fuscous Gray
+$Eighties-03: #747369; // Flint ( dark gray )
+$Eighties-04: #A09F93; // Lemon Grass ( mid grayish )
+$Eighties-05: #D3D0C8; // Timberwolf ( gray )
+$Eighties-06: #E8E6DF; // Cararra ( light gray )
+$Eighties-07: #F2F0EC; // Pampas ( light gray )
+$Eighties-08: #F2777A; // Froly ( red )
+$Eighties-09: #F99157; // Atomic Tangerine ( orange )
+$Eighties-0A: #FFCC66; // Golden Tainoi ( yellow )
+$Eighties-0B: #99CC99; // Moss Green
+$Eighties-0C: #66CCCC; // Downy ( cyan )
+$Eighties-0D: #6699CC; // Danube ( blue )
+$Eighties-0E: #CC99CC; // Lilac ( purple )
+$Eighties-0F: #D27B53; // Raw Sienna ( brownish )
+
+// Win/DOS CMD
+// ---------------
+// Legacy colors:
+$CMD-old-BG:    #000000; // BLACK
+$CMD-old-FG:    #C0C0C0; // DARK_WHITE
+$CMD-old-White: #FFFFFF; // WHITE
+// Modern colors:
+$CMD-new-BG:    #0C0C0C; // BLACK
+$CMD-new-FG:    #CCCCCC; // DARK_WHITE
+$CMD-new-White: #F2F2F2; // WHITE
+
+// =============
+// Color Schemes
+// =============
+
+// Default
+$default-background: #F0F0F0;
+$default-normal:     #000;
+

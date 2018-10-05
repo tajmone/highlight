@@ -1,0 +1,132 @@
+//  v1.0.0 (2018-10-05) by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                         Highlight Default Theme                           *
+// *                                                                           *
+// *****************************************************************************
+// This theme will be used for all languages that don't have a custom theme.
+
+// -----------------------------------------------------------------------------
+// Color Scheme: Base16 Eighties
+// -----------------------------------------------------------------------------
+$HL-CanvasBG:           $Eighties-00; // Mine Shaft ( black )
+$HL-Default:            $Eighties-05; // Timberwolf ( gray )
+
+$HL-Border:             $Eighties-04; // Lemon Grass ( mid grayish )
+
+$HL-LineNum:            $Eighties-03; // Flint ( dark gray )
+
+$HL-Number:             $Eighties-09; // Atomic Tangerine ( orange )
+$HL-Escape:             $Eighties-09; // Atomic Tangerine ( orange )
+$HL-Interpolation:      $Eighties-0F; // Raw Sienna ( brownish )
+$HL-String:             $Eighties-0B; // Moss Green
+$HL-PreProcessor:       $Eighties-0E; // Lilac ( purple )
+$HL-StringPreProc:      $Eighties-0C; // Downy ( cyan )
+$HL-BlockComment:       $Eighties-04; // Lemon Grass ( mid grayish )
+$HL-LineComment:    $HL-BlockComment; // Lemon Grass ( mid grayish )
+$HL-Operator:            $HL-Default; // Timberwolf ( gray )
+$HL-Keywords1:          $Eighties-08; // Froly ( red )
+$HL-Keywords2:          $Eighties-0A; // Golden Tainoi ( yellow )
+$HL-Keywords3:          $Eighties-0D; // Danube ( blue )
+$HL-Keywords4:          $Eighties-0E; // Lilac ( purple )
+$HL-Keywords5:          $Eighties-0C; // Downy ( cyan )
+$HL-Keywords6:          $Eighties-0F; // Raw Sienna ( brownish )
+
+// -----------------------------------------------------------------------------
+/* Highlight Default Theme */
+// -----------------------------------------------------------------------------
+.listingblock pre[class="highlight"] {
+    background-color: $HL-CanvasBG;
+    &>code {
+        color: $HL-Default;
+        // font-family: $FiraCode;
+        font-family: $Consolas;
+        // font-size: 16px;
+        // letter-spacing: 0.0625em; // 16 * 0.0625 = 1px
+    }
+    // Border and padding
+    border-radius: 4px;
+    border: 1px solid $HL-Border;
+    padding: 1em;
+    
+    // Some basic styling, just in case you need it...
+    overflow: auto;
+
+    .hl {
+        color: $HL-Default;
+
+        &.num {
+            // Numbers
+            color: $HL-Number;
+        }
+        &.esc {
+            // Escape sequences 
+            color: $HL-Escape;
+        }
+        &.ipl {
+            // Interpolation sequences 
+            color: $HL-Interpolation;
+        }
+        &.str {
+            // Strings
+            color: $HL-String;
+        }
+        &.ppc {
+            // Preprocessor directives
+            color: $HL-PreProcessor;
+        }
+        &.pps {
+            // Strings within preprocessor directives
+            color: $HL-StringPreProc;
+        }
+        &.com {
+            // Block comments
+            color: $HL-BlockComment;
+            font-style: italic;
+        }
+        &.slc {
+            // Single-line comments
+            color: $HL-LineComment;
+            font-style: italic;
+        }
+        &.lin {
+            // Line numbers 
+            color: $HL-LineNum;
+        }
+        &.opt {
+            // Operators
+            color: $HL-Operator;
+        }
+        // ---------------------
+        //    Keywords Groups
+        // ---------------------
+        &.kwa, &.kwb, &.kwc, &.kwd, &.kwe, &.kwf {
+            font-weight: bold;
+        }   
+        &.kwa {
+            // Keywords group 1
+            color: $HL-Keywords1;
+        }
+        &.kwb {
+            // Keywords group 2
+            color: $HL-Keywords2;
+        }
+        &.kwc {
+            // Keywords group 3
+            color: $HL-Keywords3;
+        }
+        &.kwd {
+            // Keywords group 4
+            color: $HL-Keywords4;
+        }
+        &.kwde{
+            // Keywords group 5
+            color: $HL-Keywords5;
+        }
+        &.kwf {
+            // Keywords group 6
+            color: $HL-Keywords6;
+        }
+    }
+
+}

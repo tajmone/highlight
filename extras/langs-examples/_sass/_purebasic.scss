@@ -1,0 +1,65 @@
+//  v1.0.0 (2018-10-05) by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                          PureBasic Syntax Theme                           *
+// *                                                                           *
+// *****************************************************************************
+
+// -----------------------------------------------------------------------------
+// PureBasic's native IDE Color scheme
+// -----------------------------------------------------------------------------
+$Blue-Stone:     #006666; // PureBASIC Keywords
+$Half-and-Half:  #FFFFDF; // (Pale yellow) IDE Background
+$Black:          #000000; // Normal Text + Numbers + Operators
+$Azure-Radiance: #0080FF; // Strings
+$Tradewind:      #00AAAA; // (Green) Comments
+$Gray:           #808080; // Line numbers
+$Cannon-Pink:    #924B72; // Constants + Inline ASM + ASM Keywords
+$Gray:           #808080; // Line numbers
+
+
+// -----------------------------------------------------------------------------
+/* Highlight Theme for PureBasic */
+// -----------------------------------------------------------------------------
+
+.listingblock pre[class=highlight][lang=purebasic] {
+    background: $Half-and-Half;
+    &>code {
+        color: $Black;
+        font-family: $Consolas; // PB IDE's ntavie font
+    }
+    border: 1px solid $Gray;
+
+    .hl {
+        color: $Black;
+        font-weight: normal;
+        font-style: normal;
+
+        &.num,      // Numbers
+        &.opt {     // Operators
+            color: $Black;
+        }
+        &.str,      // String +  + 
+        &.esc,      // Escape Sequences in Strings
+        &.kwd {     // Escaped-String Prefix ("~")
+             color: $Azure-Radiance;
+        }
+        &.slc {     // Comments (Single Line) 
+            color: $Tradewind;
+        }
+        &.lin {     // Line Numbers
+            color: $Gray;
+        }
+        &.kwa {     // PureBASIC Keywords
+            color:  $Blue-Stone;
+            font-weight: bold;
+        }
+        &.kwb {     // Constants + Inline ASM + ASM Keywords
+            
+            color: $Cannon-Pink;
+        }
+        &.kwc {     // Procedure calls
+            color:  $Blue-Stone;
+        }
+    }
+}
