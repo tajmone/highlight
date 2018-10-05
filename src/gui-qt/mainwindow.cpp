@@ -1292,7 +1292,7 @@ void MainWindow::showHelpFile(const QString& file){
 
 void MainWindow::on_action_Manual_triggered()
 {
-    showHelpFile("README");
+    showHelpFile("README.adoc");
 }
 
 void MainWindow::on_action_Changelog_triggered()
@@ -1302,7 +1302,7 @@ void MainWindow::on_action_Changelog_triggered()
 
 void MainWindow::on_action_Plug_Ins_triggered()
 {
-    showHelpFile("README_PLUGINS");
+    showHelpFile("README_PLUGINS.adoc");
 }
 
 void MainWindow::on_action_License_triggered()
