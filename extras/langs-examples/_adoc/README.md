@@ -10,6 +10,9 @@ This folder contains the sources for building the `Highlight_Examples.html` docu
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Folder Contents](#folder-contents)
+- [System Requirements](#system-requirements)
+    - [Installing Ruby on Windows](#installing-ruby-on-windows)
+    - [Installing Asciidoctor](#installing-asciidoctor)
 - [Credits](#credits)
     - [Highlight Extension](#highlight-extension)
     - [ERB Templates](#erb-templates)
@@ -26,6 +29,24 @@ This folder contains the sources for building the `Highlight_Examples.html` docu
 - [`Highlight_Examples.adoc`][adoc] — document source.
 - [`Highlight_Examples-docinfo.html`][docinfo] — document docinfo file.
 - [`highlight-treeprocessor_mod.rb`][rb] — extension for Highlight integration.
+
+# System Requirements
+
+To build the document from AsciiDoc to HTML you'll need to install the following tools:
+
+- [Highlight]
+- [Ruby] + [Asciidoctor]
+
+## Installing Ruby on Windows
+
+If you're using Windows, you should install Ruby via [RubyInstaller], which is also available as a [Chocolatey package][Choco Ruby] (see [Chocolatey] and [Chocolatey GUI]).
+
+## Installing Asciidoctor
+
+Once Ruby is installed on your system, open a shell and type:
+
+    gem install asciidoctor
+
 
 # Credits
 
@@ -97,6 +118,20 @@ The files inside the [`/erb/`][erb] folder were adapted by Tristano Ajmone from 
 [adoc]: ./Highlight_Examples.adoc
 [docinfo]: ./Highlight_Examples-docinfo.html
 [rb]: ./highlight-treeprocessor_mod.rb
+
+
+<!-- dependencies -->
+
+[Chocolatey GUI]: https://chocolatey.org/packages/ChocolateyGUI
+[Chocolatey]: https://chocolatey.org
+
+[Ruby]: https://www.ruby-lang.org
+[RubyInstaller]: https://rubyinstaller.org/downloads/
+[Choco Ruby]: https://chocolatey.org/packages/ruby
+
+[Asciidoctor]: https://github.com/asciidoctor/asciidoctor#installation
+[Highlight]: http://www.andre-simon.de/zip/download.php
+
 
 <!-- third party -->
 

@@ -1,0 +1,39 @@
+#===============================================================================
+# Highlight Code Examples
+# https://gitlab.com/saalen/highlight
+#===============================================================================
+
+# ==============================================================================
+#                                examples folder
+# ==============================================================================
+# Since the examples folder will contain source files from different languages,
+# and some of these files will be edited with their IDE/editor of choice, which
+# might create configuration or temporary files, we keep this local .gitignore
+# file to exclude any unwanted files from the project and allow freedom to edit
+# them however we like.
+# ------------------------------------------------------------------------------
+
+# Backup and work files:
+___*.*
+
+# Links and shortcuts:
+*.url
+*.lnk
+
+# Compilers output:
+/ex-src/*.exe
+
+# =============
+# PureBasic IDE
+# =============
+/ex-src/*.pb.cfg
+/ex-src/*.pbi.cfg
+/ex-src/project.cfg
+
+# =======
+# Alan IF
+# =======
+/ex-src/*.a3c
+/ex-src/*.ifid
+
+# EOF #
