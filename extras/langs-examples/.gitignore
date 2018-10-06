@@ -3,6 +3,21 @@
 # https://gitlab.com/saalen/highlight
 #===============================================================================
 
+# ===========
+# Miscellanea
+# ===========
+
+# Sass generated CSS map
+*.css.map
+
+# Backup and work files:
+___*.*
+
+# Links and shortcuts:
+*.url
+*.lnk
+
+
 # ==============================================================================
 #                                examples folder
 # ==============================================================================
@@ -13,12 +28,6 @@
 # them however we like.
 # ------------------------------------------------------------------------------
 
-# Backup and work files:
-___*.*
-
-# Links and shortcuts:
-*.url
-*.lnk
 
 # Compilers output:
 /ex-src/*.exe
