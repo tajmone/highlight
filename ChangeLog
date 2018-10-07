@@ -3,9 +3,10 @@ CHANGELOG Highlight
 
 highlight 3.46
 
-xx.xx.2018
+07.10.2018
 
--converted manuals to AciiDoc (thanks to Tristano Ajmone)
+-fixed xterm256 and truecolor whitespace outpur (https://gitlab.com/saalen/highlight/issues/90)
+-converted manuals to AsciiDoc (thanks to Tristano Ajmone)
 
 ---
 highlight 3.45

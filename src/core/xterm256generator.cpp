@@ -44,7 +44,8 @@ Xterm256Generator::Xterm256Generator() :
 {
     newLineTag = "\n";
     spacer = " ";
-    maskWs=true; // needed if canvasPadding > 0; requires tab replacement
+	//TODO fix tab output with --canvas
+    //maskWs=true; // needed if canvasPadding > 0; requires tab replacement
 }
 
 Xterm256Generator::~Xterm256Generator() {}
