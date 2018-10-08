@@ -1,0 +1,67 @@
+#===============================================================================
+# Highlight Code Examples
+# https://gitlab.com/saalen/highlight
+#===============================================================================
+
+# Set Git's default behaviour to text-files autodetection, in case users don't
+# have `core.autocrlf` set:
+* text=auto
+
+# ==============================================================================
+#                            languages examples files
+# ==============================================================================
+# Since the examples folder contains lots of files from different languages,
+# introducing new extensions not covered by the project's main .giattributes
+# file, we'll handle their Git attributes settings locally to this directory.
+#
+# Any source file that need EOL normalization other than native should be added
+# below.
+# ------------------------------------------------------------------------------
+
+# Alan
+*.alan    text
+
+# PureBasic
+*.pb      text
+
+# Win Resource Files
+# ------------------
+*.rc      text eol=crlf
+
+# Shell scripts
+# -------------
+*.bat     text eol=crlf
+*.com     text eol=crlf
+*.sh      text eol=lf
+*.ps1     text eol=crlf
+
+# ==============================================================================
+#                                GitHub Linguist
+# ==============================================================================
+#  -- https://github.com/github/linguist
+
+# ==========================
+# Vendored Files and Folders
+# ==========================
+# Set all examples files in this folder as vendored, so they are exlcuded from
+# the repository statistics and don't inflate them:
+/ex-src/  linguist-vendored
+
+# ================
+# Syntax Overrides
+# ================
+# Manually define/override some extension so that GitHub's Linguist library can
+# use proper syntax highlighting on the WebUI:
+
+
+# -----------------------------------------
+# Example Linguist Patterns:
+# *.ext    linguist-detectable=false
+# *.ext    linguist-detectable=true
+# *.ext    linguist-documentation=false
+# *.ext    linguist-documentation=true
+# *.ext    linguist-generated=true
+# *.ext    linguist-language=SOMELANG
+# -----------------------------------------
+
+# EOF #

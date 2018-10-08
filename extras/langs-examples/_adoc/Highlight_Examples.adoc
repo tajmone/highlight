@@ -1,0 +1,50 @@
+= Highlight Examples
+Tristano Ajmone <tajmone@gmail.com>
+v1.0.0, 2018-10-04
+:lang: en
+:toc: left
+:toclevels: 1
+:sectnums!:
+:experimental: true
+:icons: font
+:linkattrs: true
+// Highlight settings;
+:source-highlighter: highlight
+
+// Custom Attributes:
+:examples-dir: ../ex-src/
+:langDefs: https://gitlab.com/saalen/highlight/tree/master/langDefs/
+// Authors:
+:tajmone: pass:q[link:https://github.com/tajmone[Tristano Ajmone^]]
+
+// *****************************************************************************
+// *                                                                           *
+// *                            Document Preamble                              *
+// *                                                                           *
+// *****************************************************************************
+
+
+== Alan Interactive Fiction
+
+[source,alan]
+------------------
+include::{examples-dir}alan.alan[]
+------------------
+
+[horizontal]
+language:  :: link:https://www.alanif.se/[Alan IF 3^]
+langDef:   :: link:{langDefs}alan.lang[`alan.lang`^] by {tajmone}
+
+== PureBasic
+
+[source,purebasic,linenums]
+------------------
+include::{examples-dir}PureBasic.pb[]
+------------------
+
+[horizontal]
+language:  :: link:https://www.purebasic.com/[PureBasic^]
+langDef:   :: link:{langDefs}purebasic.lang[`purebasic.lang`^] by {tajmone}
+
+
+// EOF //

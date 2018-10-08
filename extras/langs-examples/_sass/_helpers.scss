@@ -1,0 +1,42 @@
+//  v1.0.0 (2018-10-05) maintained by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                  Sass/SCSS Mixins and Helpers Collection                  *
+// *                                                                           *
+// *****************************************************************************
+
+// =============================================================================
+//                          Fira Code Ligatures Mixin                           
+// =============================================================================
+// Written by Tristano Ajmone.
+// Enables Fira Code font (with ligatures) for a given language in Highlight
+// code blocks.
+// -----------------------------------------------------------------------------
+@mixin FiraCodeLigatures($language) {
+    .listingblock pre[class=highlight][lang=#{$language}] {
+        &>code {
+            font-family: $FiraCode; // defined in '_fonts.scss'
+        }
+    }
+ }
+// =============================================================================
+//                                Fontface Mixin                                
+// =============================================================================
+// Adapted from "fontface.scss", taken from the Sass Boilerplate project,
+// Copyright (c) 2013 Peter Mescalchin, MIT License:
+// 
+// https://github.com/magnetikonline/sass-boilerplate
+// -----------------------------------------------------------------------------
+@mixin fontFace($family,$src,$style: normal,$weight: normal) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$src}.eot'); // IE9 compat
+        src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+             url('#{$src}.woff') format('woff'), // standards
+             url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+             url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+        font-style: $style;
+        font-weight: $weight;
+    }
+}

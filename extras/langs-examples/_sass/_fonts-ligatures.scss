@@ -1,0 +1,12 @@
+//  v1.0.0 (2018-10-05) by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                   Enable Fonts Ligatures in Languages                     *
+// *                                                                           *
+// *****************************************************************************
+// Enable font ligatures via FiraCode font, for the syntaxes that support them
+// without conflicts:
+
+@include FiraCodeLigatures(alan);
+
+// EOF //

@@ -1,0 +1,36 @@
+--==============================================================================
+-- "Chez Alan" by Tristano Ajmone, 2018 || Public domain: http://unlicense.org
+--==============================================================================
+Import 'library.i'. --> ALAN Standard Library v2.1
+
+The my_game IsA definition_block
+  Has title    "Chez Alan".
+  Has subtitle "A small demo adventure".
+  Has author   "Tristano Ajmone".
+  Has year     2018.
+  Has version  "1".
+End The.
+
+The 'IF Plaza' IsA location
+  Exit north to ChezAlan.
+  Description "North lies ""Chez Alan"", the renown French brasserie."
+End The 'IF Plaza'.
+
+The ChezAlan IsA room.
+  Name 'Chez Alan Brasserie'.
+  Description
+    "Today Chez Alan seems busier then ever."
+  Entered
+    """Welcome back Sir!"" the maitre greets you.
+    $nHe has a strong French accent."
+End The ChezAlan.
+
+The Pierre IsA male At ChezAlan.
+  Name Pierre.
+  Name 'Alan''s' brother.
+  Is named.
+  Has ex "Pierre is Alan's brother.".
+End The Pierre.
+
+Start At 'IF Plaza'.
+Describe banner.
