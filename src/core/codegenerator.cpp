@@ -2213,7 +2213,7 @@ void CodeGenerator::processWsState()
         if ( excludeWs && styleID!=_UNKNOWN ) {
             *out << closeTags[styleID];
         }
-        *out << maskWsBegin;
+        *out << maskWsBegin ;
         for ( int i=0; i<cntWs && applySyntaxTestCase; i++ ) {
             *out <<  spacer;
             stateTraceCurrent.push_back(ps);
@@ -2239,6 +2239,11 @@ void CodeGenerator::flushWs(int arg)
         stateTraceCurrent.push_back(ps);
      }
      
+     //fix canvas whitespace
+     if (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR){
+        *out<< maskWsBegin;
+     }
+    
     *out<<wsBuffer;
     wsBuffer.clear();
 }

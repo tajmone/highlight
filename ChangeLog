@@ -1,11 +1,18 @@
 CHANGELOG Highlight
 
 
+highlight 3.47
+
+xx.10.2018
+
+-fixed xterm256 and truecolor whitespace output #2 (https://gitlab.com/saalen/highlight/issues/90)
+
+---
 highlight 3.46
 
 07.10.2018
 
--fixed xterm256 and truecolor whitespace outpur (https://gitlab.com/saalen/highlight/issues/90)
+-fixed xterm256 and truecolor whitespace output (https://gitlab.com/saalen/highlight/issues/90)
 -converted manuals to AsciiDoc (thanks to Tristano Ajmone)
 
 ---

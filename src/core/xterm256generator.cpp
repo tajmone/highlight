@@ -44,8 +44,6 @@ Xterm256Generator::Xterm256Generator() :
 {
     newLineTag = "\n";
     spacer = " ";
-	//TODO fix tab output with --canvas
-    //maskWs=true; // needed if canvasPadding > 0; requires tab replacement
 }
 
 Xterm256Generator::~Xterm256Generator() {}
@@ -90,6 +88,9 @@ void Xterm256Generator::initOutputTags ( )
             bgs << "\033[48;5;"<< bgApprox << "m";
         }
         canvasColSeq = bgs.str();
+        
+        //see CodeGenerator::flushWs
+        maskWsBegin = canvasColSeq;
     }    
     openTags.push_back ( getOpenTag ( docStyle.getDefaultStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getStringStyle() ) );
