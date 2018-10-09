@@ -99,7 +99,7 @@ install:
 
 	${INSTALL_DATA} ./AUTHORS ${DESTDIR}${doc_dir}
 	${INSTALL_DATA} ./README* ${DESTDIR}${doc_dir}
-	${INSTALL_DATA} ./ChangeLog ${DESTDIR}${doc_dir}
+	${INSTALL_DATA} ./ChangeLog.adoc ${DESTDIR}${doc_dir}
 	${INSTALL_DATA} ./COPYING ${DESTDIR}${doc_dir}
 	${INSTALL_DATA} ./INSTALL ${DESTDIR}${doc_dir}
 	${INSTALL_DATA} ./extras/web_plugins/dokuwiki/* ${DESTDIR}${examples_dir}web_plugins/dokuwiki/

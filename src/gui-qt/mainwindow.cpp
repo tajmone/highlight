@@ -1297,7 +1297,7 @@ void MainWindow::on_action_Manual_triggered()
 
 void MainWindow::on_action_Changelog_triggered()
 {
-    showHelpFile("ChangeLog");
+    showHelpFile("ChangeLog.adoc");
 }
 
 void MainWindow::on_action_Plug_Ins_triggered()
