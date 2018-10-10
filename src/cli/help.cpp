@@ -170,9 +170,9 @@ void printHelp()
     cout<<"\n";
     cout<<"If no in- or output files are specified, stdin and stdout will be used.\n";
     cout<<"Since version 3.44, reading from stdin can also be triggered by the '-' option.\n";
-    cout<<"HTML will be generated unless an other output format is given. Style definitions\n";
-    cout<<"are stored in highlight.css (HTML, XHTML, SVG) or highlight.sty (LaTeX, TeX)\n";
-    cout<<"if neither -c nor -I is given.\n";
+    cout<<"Default output format: xterm256 or truecolor if appropriate, HTML otherwise.\n";
+    cout<<"Style definitions are stored in highlight.css (HTML, XHTML, SVG) or\n";
+    cout<<"highlight.sty (LaTeX, TeX) if neither -c nor -I is given.\n";
     cout<<"Reformatting code (-F) will only work with C, C++, C# and Java input files.\n";
     cout<<"Wrapping lines with -V or -W will cause faulty highlighting of long single\n";
     cout<<"line comments and directives. Using line-range might interfere with multi\n";

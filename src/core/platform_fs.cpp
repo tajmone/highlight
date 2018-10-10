@@ -66,10 +66,17 @@ std::string getHomePath()
     return "";
 }
 
+int isColorEscCapable() {
+    return 0;
+}
+
+
 #else
 #include <unistd.h>
 #include <sys/types.h>
 #include <pwd.h>
+#include <string.h>
+
 const char pathSeparator = '/';
 
 std::string getAppPath()
@@ -83,6 +90,31 @@ std::string getHomePath()
     struct passwd *pw = getpwuid(getuid());
     return string(pw->pw_dir);
 }
+
+
+int isColorEscCapable() {
+    
+    if (!isatty(fileno(stdout)) || !isatty(fileno(stdin))){
+        return 0;
+    }
+            
+    char* colorOption=getenv("COLORTERM");
+     
+    if (colorOption!=NULL) {
+        if (!strncmp(colorOption, "truecolor", 9)){
+            return 2;
+        }
+    }
+    colorOption=getenv("TERM");
+    if (colorOption!=NULL) {
+        if (!strncmp(colorOption, "xterm-256color", 14)){
+            return 1;
+        }
+    }
+    
+    return 0;
+}
+
 #endif
 
 bool getDirectoryEntries ( vector<string> &fileList,

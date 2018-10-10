@@ -194,10 +194,12 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_keep_injections(false),
     opt_force_stdout(false),
     opt_no_version_info(false),
+    explicit_output_format(false),
     anchorPrefix ( "l" ),
     helpLang ( "en" ),
     encodingName ( "ISO-8859-1" )
 {
+    
     char* hlEnvOptions=getenv("HIGHLIGHT_OPTIONS");
     if (hlEnvOptions!=NULL) {
         std::ostringstream envos;
@@ -238,6 +240,14 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
                 file++;
         }
     }
+    
+    // no batch mode + no explicit format given
+    if (inputFileNames.size()==1 && !explicit_output_format){
+        int colorOptions = Platform::isColorEscCapable();
+        if (colorOptions) {
+            outputType = colorOptions==2 ? highlight::ESC_TRUECOLOR : highlight::ESC_XTERM256;
+        }
+    }
 }
 
 CmdLineOptions::~CmdLineOptions() {}
@@ -259,6 +269,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         if ( !code ) break; // no more options
         switch ( code ) {
         case 'O': {
+            explicit_output_format=true;
             const string tmp = StringTools::change_case ( arg );
             if ( tmp == "xhtml" )
                 outputType = highlight::XHTML;
@@ -354,6 +365,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             StringTools::str2num<int> ( lineNrStart, arg, std::dec );
             break;
         case 'M':
+            explicit_output_format=true;
             outputType=highlight::ESC_XTERM256;
             break;
         case 'n':
@@ -363,6 +375,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             opt_fnames_as_anchors=true;
             break;
         case 'o':
+            explicit_output_format=true;
             outFilename = arg;
             break;
         case 'd':

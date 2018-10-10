@@ -44,6 +44,8 @@ void getFileNames ( const std::string &directory,const std::string &wildcard,
 int wildcmp ( const char *wild, const char *data );
 
 bool fileExists(const std::string &fName);
+
+int isColorEscCapable();
 }
 #endif
 

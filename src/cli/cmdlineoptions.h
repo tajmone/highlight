@@ -468,6 +468,7 @@ private:
     bool opt_keep_injections;
     bool opt_force_stdout;
     bool opt_no_version_info;
+    bool explicit_output_format;
 
     string anchorPrefix;
     string helpLang, encodingName;

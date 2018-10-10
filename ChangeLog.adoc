@@ -8,7 +8,10 @@ xx.10.2018
  - fixed xterm256 and truecolor whitespace output #2 (https://gitlab.com/saalen/highlight/issues/90)
  - added darkplus theme (https://gitlab.com/saalen/highlight/merge_requests/84)
  - converted ChangeLog to AsciiDoc
+ - CLI: default output changed to xterm256 or truecolor if run in a terminal with color support and 
+        only a single file is outputted
 
+        
 === highlight 3.46
 
 07.10.2018
