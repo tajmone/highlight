@@ -304,6 +304,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             opt_babel=true;
             break;
         case 'B':
+            explicit_output_format=true;
             opt_batch_mode = true;
             readDirectory ( arg );
             break;
@@ -380,6 +381,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case 'd':
         case S_OPT_COMPAT_OUTDIR:
+            explicit_output_format=true;
             outDirectory = validateDirPath ( arg );
             break;
         case 'p':
