@@ -856,8 +856,9 @@ private:
     struct PositionState {
         State state;
         unsigned int kwClass;
-        PositionState(const State s, const unsigned int kwc)
-        : state(s), kwClass(kwc){
+        bool isWhiteSpace;
+        PositionState(const State s, const unsigned int kwc, bool ws)
+        : state(s), kwClass(kwc), isWhiteSpace(ws) {
             if (s!=KEYWORD) kwClass=0;
         }
     };

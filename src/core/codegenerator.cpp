@@ -624,8 +624,8 @@ SKIP_EMBEDDED:
                 
                 // for positional Tests; will not be used again for actual input parsing
                 // FIXME not needed?
-                if (currentKeywordClass)
-                    regexGroups[oldIndex]=ReGroup ( KEYWORD, reservedWord.size(), currentKeywordClass, "" );  
+                //if (currentKeywordClass)
+                //    regexGroups[oldIndex]=ReGroup ( KEYWORD, reservedWord.size(), currentKeywordClass, "" );  
                 
                 if ( !currentKeywordClass && regexGroups[oldIndex].state==KEYWORD )
                     currentKeywordClass = regexGroups[oldIndex].kwClass;
@@ -683,7 +683,7 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
         ss << maskCharacter ( s[i] );
 
         if (applySyntaxTestCase) {
-            PositionState ps(currentState, currentKeywordClass);
+            PositionState ps(currentState, currentKeywordClass, false);
             stateTraceCurrent.push_back(ps);
             
             if (stateTraceCurrent.size()>200) 
@@ -2202,7 +2202,7 @@ void CodeGenerator::processWsState()
 
     int cntWs=0;
     lineIndex--;
-    PositionState ps(_WS, 0);
+    PositionState ps(currentState, 0, true);
     while ( line[lineIndex]==' ' || line[lineIndex]=='\t' ) {
         ++cntWs;
         ++lineIndex;
@@ -2233,7 +2233,7 @@ void CodeGenerator::processWsState()
 
 void CodeGenerator::flushWs(int arg)
 {
-     PositionState ps(_WS, 0);
+     PositionState ps(currentState, 0, true);
      //workaround condition
      for ( size_t i=0; i<wsBuffer.size() && (arg !=2 || (arg==2 && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
         stateTraceCurrent.push_back(ps);
@@ -2274,6 +2274,10 @@ string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
         case _WS:
             return "ws";
         case KEYWORD: {
+            
+            if (!kwClass)
+                return "ws";
+            
             char kwName[5] = {0};
             snprintf(kwName, sizeof(kwName), "kw%c", ('a'+kwClass-1));
             return string(kwName);
@@ -2328,7 +2332,9 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
                 assertGroup=line[typeDescPos+2] - 'a' +1;
         }
     
-        if (stateTraceCurrent[column].state != assertState || assertGroup != stateTraceCurrent[column].kwClass) {
+        if (   (assertState!=_WS && stateTraceCurrent[column].state != assertState )
+            || (assertState==_WS && !stateTraceCurrent[column].isWhiteSpace)
+            || assertGroup != stateTraceCurrent[column].kwClass) {
             ostringstream err;
             err << inFile << " line " << lineNumber << ", column "<< column << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
                 << " instead of " << getTestcaseName(assertState, assertGroup) ;

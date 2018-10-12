@@ -1,6 +1,6 @@
 = HIGHLIGHT TESTCASES MANUAL
 André Simon
-v3.45, September 2018
+v3.47, October 2018
 :lang: en
 :icons: font
 :toc: left
@@ -54,8 +54,11 @@ The state is defined by one of the following identifiers:
 `ws`  :: whitespace
 `kw`  :: keyword group X (X: a..z)
 
-The state identifiers match the correspomnding HTML output CSS class names.
+The state identifiers match the corresponding HTML output CSS class names.
 
+Since release 3.47, the whitespace indicator `ws` is no longer exclusive.
+A test will succeed at a position with whitespace if the enclosing state is matched
+or if `ws` is tested specifically.
 
 
 === Example
@@ -78,7 +81,7 @@ int main() {
 /*      ^^^ std ^    ^ num */
 //          ^ opt             <4>
     std::cout << "whatever: " << var <<   "\n";
-//               ^          ^ str    ^^opt ^^ esc
+//               ^^^^^^^^^^^^ str    ^^opt ^^ esc
     return 0;
     //  <   kwa               <5>
 }
