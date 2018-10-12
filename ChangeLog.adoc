@@ -3,7 +3,7 @@
 
 === highlight 3.47
 
-xx.10.2018
+12.10.2018
 
  - fixed xterm256 and truecolor whitespace output #2 (https://gitlab.com/saalen/highlight/issues/90)
  - added darkplus theme (https://gitlab.com/saalen/highlight/merge_requests/84)
