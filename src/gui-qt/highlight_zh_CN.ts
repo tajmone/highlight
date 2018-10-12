@@ -137,7 +137,7 @@ Revise su instalación.</translation>
         <translation type="unfinished">找不到语法定义文件.请检查安装.</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+77"/>
         <source>Always at your service</source>
         <translation type="unfinished"></translation>
     </message>
@@ -160,7 +160,7 @@ Revise su instalación.</translation>
         <translation type="obsolete">无法读取 &quot;%1&quot; 的Tag信息</translation>
     </message>
     <message>
-        <location line="+632"/>
+        <location line="+635"/>
         <location line="+31"/>
         <source>Output error</source>
         <translation type="unfinished">输出错误</translation>
@@ -214,12 +214,12 @@ Lua Syntax error: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+73"/>
+        <location line="+78"/>
         <source>Converted %1 files in %2 ms</source>
         <translation type="unfinished">文件%1 转换完毕，用时 %2 ms</translation>
     </message>
     <message>
-        <location line="+98"/>
+        <location line="+123"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation type="unfinished">No es posible la conversión de &quot;%1&quot;.</translation>
     </message>
@@ -266,7 +266,7 @@ Lua Syntax error: %2</source>
         <translation type="unfinished">&quot;%1&quot;.的预览不可用.</translation>
     </message>
     <message>
-        <location line="+251"/>
+        <location line="+249"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -340,19 +340,19 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
     </message>
     <message>
         <location line="+3"/>
-        <location line="+314"/>
+        <location line="+343"/>
         <location line="+136"/>
         <source>Clear selection</source>
         <translation>移除选中项</translation>
     </message>
     <message>
-        <location line="-443"/>
+        <location line="-472"/>
         <source>Remove all input files.</source>
         <translation>清除所有输入文件.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+314"/>
+        <location line="+343"/>
         <location line="+136"/>
         <source>Clear all</source>
         <translation>移除所有</translation>
@@ -362,7 +362,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation type="obsolete">Destino de salida</translation>
     </message>
     <message>
-        <location line="-411"/>
+        <location line="-440"/>
         <source>Output directory</source>
         <translation>输出目录</translation>
     </message>
@@ -373,8 +373,8 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
     </message>
     <message>
         <location line="+3"/>
-        <location line="+330"/>
-        <location line="+646"/>
+        <location line="+359"/>
+        <location line="+649"/>
         <location line="+269"/>
         <location line="+108"/>
         <location line="+295"/>
@@ -382,7 +382,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation>...</translation>
     </message>
     <message>
-        <location line="-1613"/>
+        <location line="-1645"/>
         <source>Save output in the input file directories.</source>
         <translation>将输出保存在输入路径中.</translation>
     </message>
@@ -396,7 +396,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation type="obsolete">Opciones de salida</translation>
     </message>
     <message>
-        <location line="+408"/>
+        <location line="+440"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
@@ -508,7 +508,7 @@ Removes Unicode BOM mark.</source>
         <translation type="vanished">设置输出文件的编码格式.</translation>
     </message>
     <message>
-        <location line="+1472"/>
+        <location line="+1484"/>
         <source>&amp;Plug-Ins</source>
         <translation type="unfinished"></translation>
     </message>
@@ -517,7 +517,7 @@ Removes Unicode BOM mark.</source>
         <translation type="obsolete">Codificación:</translation>
     </message>
     <message>
-        <location line="-1443"/>
+        <location line="-1455"/>
         <source>Select or define the encoding.
 The result has to match the input file encoding.</source>
         <translation>选择或者定义编码格式.
@@ -821,12 +821,12 @@ See ctags.sf.net for details.</source>
         <translation>编码设置：</translation>
     </message>
     <message>
-        <location line="-708"/>
+        <location line="-740"/>
         <source>Output destination:</source>
         <translation>输出路径：</translation>
     </message>
     <message>
-        <location line="+934"/>
+        <location line="+966"/>
         <location line="+278"/>
         <location line="+108"/>
         <location line="+295"/>
@@ -846,7 +846,7 @@ See ctags.sf.net for details.</source>
         <translation type="obsolete">读取ctags文件：</translation>
     </message>
     <message>
-        <location line="-1901"/>
+        <location line="-1933"/>
         <source>Highlight</source>
         <translation>Highlight</translation>
     </message>
@@ -900,7 +900,7 @@ See ctags.sf.net for details.</source>
         <translation>给代码片段选择对应的语言格式.</translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+115"/>
         <source>Plug-ins</source>
         <translation>插件</translation>
     </message>
@@ -943,7 +943,7 @@ See ctags.sf.net for details.</source>
         <translation>选择传递给插件的文件.</translation>
     </message>
     <message>
-        <location line="+200"/>
+        <location line="+203"/>
         <source>BBCode</source>
         <translation>BBCode</translation>
     </message>
@@ -1126,12 +1126,12 @@ You can select the stylesheets in your word processor to reformat additional tex
         <translation>格式化</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+29"/>
         <source>Color theme:</source>
         <translation>高亮主题：</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+60"/>
         <source>Select a colour theme.</source>
         <translation>选择一个用于高亮的颜色主题.</translation>
     </message>
@@ -1253,7 +1253,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>停靠浮动面板(&amp;D)</translation>
     </message>
     <message>
-        <location line="-2396"/>
+        <location line="-2440"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
@@ -1283,7 +1283,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>将输出文件内容复制到剪贴板</translation>
     </message>
     <message>
-        <location line="+119"/>
+        <location line="+148"/>
         <source>Choose a plug-in script.</source>
         <translation>选择一个插件脚本.</translation>
     </message>
@@ -1304,7 +1304,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>移除所有插件.</translation>
     </message>
     <message>
-        <location line="-502"/>
+        <location line="-531"/>
         <source>Output progress:</source>
         <translation>输出进度：</translation>
     </message>
@@ -1331,6 +1331,16 @@ Set the width to 0 to keep tabs.</source>
     <message>
         <location line="+6"/>
         <source>Paste, Convert and Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>Only output the selected lines of the preview.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Output selected lines only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1375,7 +1385,7 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+249"/>
+        <location line="+252"/>
         <source>Generate output without version information comment.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1425,7 +1435,7 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+268"/>
+        <location line="+274"/>
         <source>Toggle classic theme or Base16 theme selection.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1435,7 +1445,7 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+42"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation type="unfinished"></translation>
@@ -1531,7 +1541,7 @@ This feature is enabled for C, C++, C# and Java code.</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+34"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
@@ -1563,6 +1573,11 @@ This feature is enabled for C, C++, C# and Java code.</source>
         <location line="+17"/>
         <source>Reformatting not possible:</source>
         <translation>不支持代码格式化的文件:</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Failed syntax tests:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

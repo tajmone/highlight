@@ -1086,6 +1086,14 @@ This feature is enabled for C, C++, C# and Java code.</source>
         <source>Base16</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Only output the selected lines of the preview.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output selected lines only</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShowTextFile</name>
@@ -1123,6 +1131,10 @@ This feature is enabled for C, C++, C# and Java code.</source>
     <message>
         <source>Reformatting not possible:</source>
         <translation>Přeformátování není možné:</translation>
+    </message>
+    <message>
+        <source>Failed syntax tests:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

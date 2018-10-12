@@ -10,6 +10,7 @@ xx.10.2018
  - converted ChangeLog to AsciiDoc
  - CLI: default output changed to xterm256 or truecolor if run in a terminal with color support and 
         only a single file is outputted
+ - GUI: added checkbox in the clipboard tab to output selected lines only
 
         
 === highlight 3.46

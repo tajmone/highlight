@@ -177,6 +177,8 @@ private slots:
 
     void on_comboTheme_activated(int index);
     void on_cbUseBase16_clicked();
+
+    void on_browserPreview_selectionChanged();
 };
 
 #endif // MAINWINDOW_H

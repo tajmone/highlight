@@ -78,7 +78,7 @@
      <x>0</x>
      <y>0</y>
      <width>957</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -148,7 +148,7 @@
         </size>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <property name="elideMode">
         <enum>Qt::ElideNone</enum>
@@ -485,6 +485,35 @@
            </property>
            <property name="text">
             <string>Paste, Convert and Copy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Minimum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>10</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="cbCopyRange">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="toolTip">
+            <string>Only output the selected lines of the preview.</string>
+           </property>
+           <property name="text">
+            <string>Output selected lines only</string>
            </property>
           </widget>
          </item>
@@ -2324,7 +2353,7 @@ Set the width to 0 to keep tabs.</string>
              </property>
              <property name="currentFont">
               <font>
-               <family>Lucida Grande</family>
+               <family>DejaVu Sans</family>
               </font>
              </property>
             </widget>

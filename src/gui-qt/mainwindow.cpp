@@ -1067,10 +1067,16 @@ void MainWindow::on_pbCopyFile2CP_clicked()
     highlight2Clipboard(false);
 }
 
+void MainWindow::on_browserPreview_selectionChanged(){
+    int blockStart=ui->browserPreview->textCursor().selectionStart();
+    int blockEnd=ui->browserPreview->textCursor().selectionEnd();
+    ui->cbCopyRange->setEnabled(blockStart!=blockEnd);
+}
+
 void MainWindow::highlight2Clipboard(bool getDataFromCP)
 {
 
-    if ((!getDataFromCP &&NULL==ui->lvInputFiles->currentItem())
+    if ((!getDataFromCP && NULL==ui->lvInputFiles->currentItem())
             || (getDataFromCP && savedClipboardContent.isEmpty())) return;
 
     this->setCursor(Qt::WaitCursor);
@@ -1085,6 +1091,23 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
 
     if (getDataFromCP) {
         suffix= getFileType((ui->comboSelectSyntax->itemData(ui->comboSelectSyntax->currentIndex())).toString().toStdString(),"");
+
+        if (ui->cbCopyRange->isEnabled() && ui->cbCopyRange->isChecked()) {
+            int blockStart=ui->browserPreview->textCursor().selectionStart();
+            int blockEnd=ui->browserPreview->textCursor().selectionEnd();
+            if (blockStart != blockEnd) {
+                QTextCursor selCursor=ui->browserPreview->textCursor();
+                selCursor.setPosition(blockStart);
+                int lineStart=selCursor.blockNumber();
+                selCursor.setPosition(blockEnd-1); // -1 to enable line selection by triple click
+                int lineEnd=selCursor.blockNumber() - lineStart + 1;
+
+                if (lineEnd>0) {
+                    generator->setStartingInputLine(lineStart+1);
+                    generator->setMaxInputLineCnt(lineEnd);
+                }
+            }
+        }
     } else {
         string currentFile = previewFilePath.toStdString();
         suffix = getFileType(getFileSuffix(currentFile), currentFile);
