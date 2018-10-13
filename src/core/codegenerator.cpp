@@ -2214,9 +2214,10 @@ void CodeGenerator::processWsState()
             *out << closeTags[styleID];
         }
         *out << maskWsBegin ;
-        for ( int i=0; i<cntWs && applySyntaxTestCase; i++ ) {
+        for ( int i=0; i<cntWs; i++ ) {
             *out <<  spacer;
-            stateTraceCurrent.push_back(ps);
+            if (applySyntaxTestCase)
+                stateTraceCurrent.push_back(ps);
         }
         *out << maskWsEnd;
         if ( excludeWs && styleID!=_UNKNOWN ) {
