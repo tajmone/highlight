@@ -1,0 +1,42 @@
+
+Description="Slim"
+
+Keywords={
+  { Id=1,
+    Regex=[[^\s*(([.#]?[\w]+[\:\-]*)+)]],
+    Group=1,
+  },
+  { Id=2,
+    Regex=[[([-\w\.\-\:]+)=]],
+  },
+  { Id=3,
+    Regex=[[^\s*([-\|']|==?)\s*?]],
+  },
+  { Id=3,
+    Regex=[[.(=).]],
+  },
+  { Id=4,
+    Regex = [[ [#]\{.*?\} ]],
+  },
+  { Id=4,
+    Regex = [[ [#]\{\{.*?\}\} ]],
+  },
+}
+
+Strings={
+  Delimiter=[["|'|`]],
+  Interpolation = [[ [#]\{[^}]*?\} ]],
+  DelimiterPairs= {{ Open=[[ \( ]], Close=[[ \) ]] }},
+}
+
+Comments={
+  { Block=false,
+    Delimiter= { [[^\s*(/)]] },
+  },
+  { Block=true,
+    Nested=false,
+    Delimiter= { [[<!\-\-]],[[\-\->]] }
+  }
+}
+
+IgnoreCase=true
