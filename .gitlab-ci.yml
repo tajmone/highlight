@@ -5,7 +5,7 @@ image: debian:stable-slim
 # Define commands that run before each job's script
 before_script:
   - apt-get update
-  - apt-get install -y make gcc g++ libboost-dev liblua5.3-dev 
+  - apt-get install -y make gcc g++ libboost-dev liblua-dev 
 
 compile:
   script:
