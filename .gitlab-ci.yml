@@ -1,0 +1,20 @@
+# Specify the docker image to use (only used if using docker runners)
+# See: http://doc.gitlab.com/ee/ci/docker/using_docker_images.html
+image: debian:stable-slim
+
+# Define commands that run before each job's script
+before_script:
+  - apt-get update
+  - apt-get install -y make gcc g++ libboost-dev liblua5.3-dev 
+
+compile:
+  script:
+  - make
+  - make install
+  # Verify that our compiled app works properly with a custom "test" script
+  - bash ./src/ci_test.sh
+
+  # Save the compiled output from the above for downloading via GitLab and in Gitlab 8.6 to use in future build steps
+  #artifacts:
+  #  paths:
+  #  - ansifilter
