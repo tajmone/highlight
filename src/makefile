@@ -26,7 +26,6 @@ CFLAGS_DILU=-fno-strict-aliasing
 
 SO_VERSION=3.47
 
-
 # Source paths
 CORE_DIR=./core/
 CLI_DIR=./cli/
@@ -35,14 +34,17 @@ GUI_QT_DIR=./gui-qt/
 # Include path
 INCLUDE_DIR=./include/
 
+# try to detect6 Lua versioning scheme
 
-# If Lua 5.2 is not default on your system yet you have to
-# use lua5.1 in the pkg-config calls
+LUA_PKG_NAME=lua5.3
+LUA_TEST=$(shell pkg-config --exists ${LUA_PKG_NAME}; echo $$?)
 
-LUA_CFLAGS=$(shell pkg-config --cflags lua)
+ifeq (${LUA_TEST},1)  
+LUA_PKG_NAME=lua
+endif
 
-# default lua lib
-LUA_LIBS=$(shell pkg-config --libs lua)
+LUA_CFLAGS=$(shell pkg-config --cflags ${LUA_PKG_NAME})
+LUA_LIBS=$(shell pkg-config --libs ${LUA_PKG_NAME})
 
 # luajit lib
 # LUA_LIBS=$(shell pkg-config --libs luajit)
