@@ -1,6 +1,6 @@
 Description = "vscode darkplus"
 
-Default = { Colour="#569cd6" }
+Default = { Colour="#9cdcfe" }
 Canvas = { Colour="#1e1e1e" }
 Number = { Colour="#b5cea8" }
 Escape = { Colour="#fd7ba7" }
