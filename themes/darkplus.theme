@@ -1,17 +1,17 @@
 Description = "vscode darkplus"
 
-Default = { Colour="#d4d4d4" }
+Default = { Colour="#9cdcfe" }
 Canvas = { Colour="#1e1e1e" }
 Number = { Colour="#b5cea8" }
 Escape = { Colour="#fd7ba7" }
-String = { Colour="#ce9718" }
-BlockComment = { Colour="#608b4e" }
+String = { Colour="#d7ba7d" }
+BlockComment = { Colour="#6a9955" }
 StringPreProc = String
 LineComment = BlockComment
-Operator = Default
+Operator = { Colour="#d4d4d4" }
 LineNum = { Colour="#808080" }
-PreProcessor = { Colour="#c586c0" }
-Interpolation = String
+PreProcessor = { Colour="#007acc" }
+Interpolation = { Colour="#569cd6" }
 
 Keywords = {
   { Colour="#c58ec0"},
