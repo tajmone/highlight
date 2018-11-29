@@ -1,15 +1,14 @@
 
-
 Description="Diff"
 
 Digits=[[ ^[\d,]*[ac]\d* ]]
 
 Keywords={
   { Id=1,
-    Regex=[[^[+<].*]],
+    Regex=[[^[-<].*]],
   },
   { Id=2,
-    Regex=[[^[->].*]],
+    Regex=[[^[+>].*]],
   },
   { Id=3,
     Regex=[[^\.$]],
