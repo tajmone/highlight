@@ -1,5 +1,11 @@
 = Highlight CHANGELOG
 
+=== highlight 3.48
+
+ - fixed --list-scripts abortion with Fedora default compilation options 
+     (https://gitlab.com/saalen/highlight/issues/84)
+ - improved Verilog syntax
+ - detection of the pkg-config Lua version in the Makefile
 
 === highlight 3.47
 

@@ -80,6 +80,8 @@ function OnStateChange(oldState, newState, token)
    --recognize hereDoc multine strings
    if oldState==HL_STANDARD and newState==HL_STRING and not string.find("\"'`", token) then
       hereDoc = string.match(token, "<<%-?'?%s*([%-%a%d_]+)" )
+      --print (hereDoc)
+      --hereDoc = hereDoc:gsub("'", '')
     end
     
    return newState

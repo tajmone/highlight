@@ -24,7 +24,7 @@ CFLAGS:=-Wall -O2 ${CFLAGS} -DNDEBUG -std=c++11
 
 CFLAGS_DILU=-fno-strict-aliasing
 
-SO_VERSION=3.47
+SO_VERSION=3.48
 
 # Source paths
 CORE_DIR=./core/
@@ -34,8 +34,7 @@ GUI_QT_DIR=./gui-qt/
 # Include path
 INCLUDE_DIR=./include/
 
-# try to detect6 Lua versioning scheme
-
+# try to detect Lua versioning scheme
 LUA_PKG_NAME=lua5.3
 LUA_TEST=$(shell pkg-config --exists ${LUA_PKG_NAME}; echo $$?)
 

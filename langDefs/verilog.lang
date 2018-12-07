@@ -2,7 +2,7 @@
 Description="Verilog"
 
 -- recognize stuff like 5'b0 as number
-Digits=[[ (?:0x|0X)[0-9a-fA-F]+|\d*[\.\_]?[\d+\'](?:[eE][\-\+]\d+)?[lLuUbfdm]* ]]
+Digits=[[ (?:0x|0X)[0-9a-fA-F]+|\d*[\.\_]?[\d+\'](?:[eE][\-\+]\d+)?h?[0-9a-fA-F]* ]]
 
 Keywords={
   { Id=1,
@@ -33,8 +33,12 @@ Keywords={
 }
 
 Strings={
-  Delimiter=[["|']],
+  Delimiter=[["]],
+  Interpolation = [[ %\w ]],
+
 }
+
+Escape=[[ \\[ntvbrfa\\\?'"]|\\\d{3} ]]
 
 IgnoreCase=false
 
@@ -53,12 +57,3 @@ PreProcessor={
 }
 
 Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\:|\&|<|>|\!|\=|\/|\*|\%|\+|\-|\~|\@]]
-
--- resolve issue with ]] close delimiter which ends comments and strings
-function OnStateChange(oldState, newState, token)
-
-   if token=="'" and oldState==HL_NUMBER and newState==HL_STRING then
-      return HL_NUMBER
-   end
-   return newState
-end

@@ -256,8 +256,10 @@ void getFileNames ( const string &directory,const string &wildcard, vector<strin
     if ( errno ) return;
 
     // sort the current entries for fileName
-    if ( firstEntry < fileName.size() )
-        sort ( &fileName[firstEntry], &fileName[fileName.size() ] );
+    // https://gitlab.com/saalen/highlight/issues/84
+    // coredump with GLIBCXX_ASSERTIONS compiler option, use iterators if sort is needed
+    //if ( firstEntry < fileName.size() )
+    //    sort ( &fileName[firstEntry], &fileName[fileName.size() ] );
 
     // recurse into sub directories
     // if not doing recursive, subDirectory is empty
