@@ -667,6 +667,8 @@ protected:
     
 private:
 
+    void printTrace(const string &s);
+    
     CodeGenerator ( const CodeGenerator& ) {}
 
     CodeGenerator& operator= ( CodeGenerator& )

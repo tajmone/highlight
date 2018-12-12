@@ -4,8 +4,10 @@
 
  - fixed --list-scripts abortion with Fedora default compilation options 
      (https://gitlab.com/saalen/highlight/issues/84)
+ - fixed a problem with syntax test indicators reporting wrong states after comments
  - improved Verilog syntax
- - detection of the pkg-config Lua version in the Makefile
+ - improved quoted string highlighting for Perl and Ruby
+ - detection of pkg-config's Lua version in src/makefile
 
 === highlight 3.47
 

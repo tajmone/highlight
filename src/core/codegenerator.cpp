@@ -700,13 +700,15 @@ Diluculum::LuaValueList CodeGenerator::callDecorateFct(const string&token)
     params.push_back(Diluculum::LuaValue(currentState));
     params.push_back(Diluculum::LuaValue(currentKeywordClass));
     string trace(";");
-    string trace2(";");
     if (stateTrace.size()>1){
         for (size_t i=0; i<stateTrace.size()-1;i++){
             trace += std::to_string (stateTrace[i]);
             trace += ";";
         }
     }
+    
+    //std::cerr <<"TRC1: "<<trace<<"\n";
+    
     params.push_back(Diluculum::LuaValue(trace));
 
     return currentSyntax->getLuaState()->call ( *currentSyntax->getDecorateFct(),
@@ -1844,7 +1846,7 @@ bool CodeGenerator::processMultiLineCommentState()
     int commentCount=1;
     int openDelimID=currentSyntax->getOpenDelimiterID ( token, ML_COMMENT);
     State newState=STANDARD;
-    bool eof=false, exitState=false;
+    bool eof=false, exitState=false, containedTestCase=false;
     unsigned int startColumn=lineIndex - token.size() ;
     openTag ( ML_COMMENT );
     do {
@@ -1867,7 +1869,7 @@ bool CodeGenerator::processMultiLineCommentState()
         case _TESTPOS:
             runSyntaxTestcases(token=="<" ? startColumn : lineIndex-1 );
             printMaskedToken();
-            
+            containedTestCase=true;
             break;
         case ML_COMMENT:
 
@@ -1895,9 +1897,10 @@ bool CodeGenerator::processMultiLineCommentState()
     } while ( !exitState  &&  !eof );
 
     closeTag ( ML_COMMENT );
-    
-    stateTraceCurrent.clear();
-    
+   
+    if (containedTestCase){
+        stateTraceCurrent.clear();
+    }
     return eof;
 }
 
@@ -1909,7 +1912,7 @@ bool CodeGenerator::processSingleLineCommentState()
     }
 
     State newState=STANDARD;
-    bool eof=false, exitState=false;
+    bool eof=false, exitState=false, containedTestCase=false;
     unsigned int startColumn = lineIndex - token.size() ;
 
     openTag ( SL_COMMENT );
@@ -1939,6 +1942,7 @@ bool CodeGenerator::processSingleLineCommentState()
         case _TESTPOS:
             runSyntaxTestcases(token=="<" ? startColumn : lineIndex-1 );
             printMaskedToken();
+            containedTestCase=true;
             break;
      
         default:
@@ -1948,7 +1952,9 @@ bool CodeGenerator::processSingleLineCommentState()
 
     closeTag ( SL_COMMENT );
     
-    stateTraceCurrent.clear();
+    if (containedTestCase) {
+        stateTraceCurrent.clear();
+    }
     
     return eof;
 }
@@ -2288,12 +2294,17 @@ string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
     }
 }
 
+void CodeGenerator::printTrace(const string &s){
+    std::cout<<"\n"<<lineNumber<<" "<<s<<": ";
+    for (unsigned int i=0; i< stateTraceCurrent.size(); i++) {
+        std::cout<<" "<<stateTraceCurrent[i].state;
+    }
+    std::cout<<"\n";
+}
+
 void CodeGenerator::runSyntaxTestcases(unsigned int column){
     
-    
-    if (!stateTraceCurrent.size() /*|| lineIndex>stateTraceCurrent.size()*/)
-        return;
-    
+
     unsigned int assertGroup=0;
     size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);
     State assertState=_UNKNOWN;
@@ -2301,6 +2312,11 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
     if (!lineContainedTestCase){
         stateTraceCurrent=stateTraceTest;
     } 
+
+    if (column>stateTraceCurrent.size())
+        return;
+    
+    //printTrace("runSyntaxTestcases");
     
     if (typeDescPos!=string::npos) {
     
@@ -2337,7 +2353,8 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
             || (assertState==_WS && !stateTraceCurrent[column].isWhiteSpace)
             || assertGroup != stateTraceCurrent[column].kwClass) {
             ostringstream err;
-            err << inFile << " line " << lineNumber << ", column "<< column << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
+            err << inFile << " line " << lineNumber << ", column "<< column 
+                << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
                 << " instead of " << getTestcaseName(assertState, assertGroup) ;
             failedPosTests.push_back(err.str());
         }
@@ -2377,7 +2394,6 @@ void CodeGenerator::insertLineNumber ( bool insertNewLine )
 
         wsBuffer += getNewLine();
     }
-
 
     if (currentSyntax->getDecorateLineBeginFct()) {
         Diluculum::LuaValueList res=callDecorateLineFct(true);

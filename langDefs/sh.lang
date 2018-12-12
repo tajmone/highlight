@@ -49,7 +49,7 @@ Keywords={
 
 -- hereDoc opening delimiter, see OnStateChange to handle end of string
 Strings={
-  Delimiter=[["|'|`|<<[\-]?["']?\s*[-\w_]+["']?]],
+  Delimiter=[[<<[\-]?\s*["']?\s*[A-Za-z_]+["']?|"|`|']],
 }
 
 IgnoreCase=false
@@ -78,10 +78,8 @@ function OnStateChange(oldState, newState, token)
    end
 
    --recognize hereDoc multine strings
-   if oldState==HL_STANDARD and newState==HL_STRING and not string.find("\"'`", token) then
-      hereDoc = string.match(token, "<<%-?'?%s*([%-%a%d_]+)" )
-      --print (hereDoc)
-      --hereDoc = hereDoc:gsub("'", '')
+   if oldState==HL_STANDARD and newState==HL_STRING  then
+      hereDoc = string.match(token, "<<%-?%s*%'?([%-%a%d_]+)" )
     end
     
    return newState

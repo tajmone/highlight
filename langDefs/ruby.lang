@@ -50,6 +50,12 @@ Strings={
   DelimiterPairs= {
     { Open=[[%q\(]], Close=[[\)]] },
     { Open=[[%Q\(]], Close=[[\)]] },
+    
+    { Open=[[%Q\!]], Close=[[\!]] },
+    { Open=[[%Q\+]], Close=[[\+]] },
+    { Open=[[%Q\[]], Close=[=[ \] ]=] },
+
+    
     { Open=[[%\(]], Close=[[\)]] },
     { Open=[[%x\(]], Close=[[\)]] },
     { Open=[[%q\{]], Close=[[\}]] },
@@ -77,11 +83,7 @@ Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\:|\.|\&|<|>|\!|\-|\+|\/|\*|\=|\?|\%|\|]]
 -- resolve issue with # which starts comments and extrapolation sequences in strings
 function OnStateChange(oldState, newState, token, groupID)
 
-  -- https://fossies.org/linux/misc/puppet-5.3.2.tar.gz/puppet-5.3.2/lib/puppet/indirector/hiera.rb?m=t  
   
-   if token==")" or token=="}" or token=="{"  and oldState~=HL_STRING then
-      return HL_OPERATOR
-   end
    
    if oldState~=HL_STRING and newState==HL_INTERPOLATION then
       return HL_REJECT
@@ -114,9 +116,9 @@ function OnStateChange(oldState, newState, token, groupID)
    end
    
    -- fix quoted string termination
-   if oldState~=HL_STRING  then
-      qString=0
-    end
+   --if oldState~=HL_STRING  then
+   --   qString=0
+   -- end
     
    if newState==HL_STRING and (token=="%q(" or token=="%Q(" or token=="%(" or token=="%x(" ) then
       qString=1
@@ -125,6 +127,20 @@ function OnStateChange(oldState, newState, token, groupID)
  
   if newState==HL_STRING and (token=="%q{" or token=="%Q{" or token=="%{" or token=="%x{" ) then
       qString=2
+      return HL_STRING
+   end
+   
+   if newState==HL_STRING and  token=="%Q!"  then
+      qString=3
+      return HL_STRING
+   end
+   
+   if newState==HL_STRING and  token=="%Q["  then
+      qString=4
+      return HL_STRING
+   end
+   if newState==HL_STRING and  token=="%Q+"  then
+      qString=5
       return HL_STRING
    end
    
@@ -137,6 +153,27 @@ function OnStateChange(oldState, newState, token, groupID)
       qString=0
       return HL_STRING_END
    end
-     
+
+   if oldState==HL_STRING and qString==3 and token=="!" then
+      qString=0
+      return HL_STRING_END
+   end
+
+   if oldState==HL_STRING and qString==4 and token=="]" then
+      qString=0
+      return HL_STRING_END
+   end
+
+   if oldState==HL_STRING and qString==5 and token=="+" then
+      qString=0
+      return HL_STRING_END
+   end
+
+  -- https://fossies.org/linux/misc/puppet-5.3.2.tar.gz/puppet-5.3.2/lib/puppet/indirector/hiera.rb?m=t  
+  
+   if token==")" or token=="}" or token=="{"  and oldState~=HL_STRING then
+      return HL_OPERATOR
+   end
+   
    return newState
 end

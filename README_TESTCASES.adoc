@@ -69,36 +69,36 @@ The following C file `syntax_test_1.c` contains various state indicators:
 --------------------------------------------------------------------------------
 #include <iostream>
 #include "myheader"
-// ^ ppc ^^^^^^^^^^ pps       <1>
+// ^ ppc ^^^^^^^^^^ pps       1)
 
 int main() {
-//  ^^^^ kwd                  <2>
+//  ^^^^ kwd                  2)
 /* comment comment comment
- * <  com ^ ws     ^ com      <3>
+ * <  com ^ ws     ^ com      3)
  */
 
     int var =   0x1234;
 /*      ^^^ std ^    ^ num */
-//          ^ opt             <4>
+//          ^ opt             4)
     std::cout << "whatever: " << var <<   "\n";
 //               ^^^^^^^^^^^^ str    ^^opt ^^ esc
     return 0;
-    //  <   kwa               <5>
+    //  <   kwa               5)
 }
 --------------------------------------------------------------------------------
 
-<1> This line contains a test for preprocessor and a preprocessor string.
-    The `^` indicators point at the tested string sections of the previous line.
+1) This line contains a test for preprocessor and a preprocessor string.
+   The `^` indicators point at the tested string sections of the previous line.
 
-<2> The keyword group `kwd` is checked (functions are highlighted as `kwd` in C syntax)
+2) The keyword group `kwd` is checked (functions are highlighted as `kwd` in C syntax)
 
-<3> The `<` points to column 0 as the comment starts there.
- 	`ws` tests for whitespace.
+3) The `<` points to column 0 as the comment starts there.
+   `ws` tests for whitespace.
 
-<4> A source code line can be tested with various test comments.
-    Here the `opt` test looks for the operator two lines before.
+4) A source code line can be tested with various test comments.
+   Here the `opt` test looks for the operator two lines before.
 
-<5> `<` points at column 4, the beginning of the comment.
+5) `<` points at column 4, the beginning of the comment.
 
 
 Running highlight with this file will not produce any additional output, as all

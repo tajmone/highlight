@@ -53,7 +53,7 @@ Keywords={
     "getprotobyname", "getprotobynumber", "getservbyname",
     "getservbyport", "getpwuid", "getpwnam", "getgrgid", "getgrnam", "getlogin", 
     "getpwent", "getgrent", "gmtime", "localtime", "time", "warn", "formline", 
-    "reset", "scalar", "prototype", "lock", "tied", "untie", "qq", "qx", "eval", "try", "constant" },
+    "reset", "scalar", "prototype", "lock", "tied", "untie", "eval", "try", "constant" },
   },
   { Id=4,
 	Regex=[[->([a-zA-Z0-9_]+)]],
@@ -68,7 +68,7 @@ Keywords={
   },
   
    { Id=4,
-    Regex=[[q[qxwr]?\{|qw\(]]
+    Regex=[=[ q[qxwr]?[\[\{\(] ]=]
   },
 }
 
@@ -120,26 +120,36 @@ function OnStateChange(oldState, newState, token, groupID)
    end
   
   -- fix issue in CGI.pm testcase (line 1060 ff)
-   if oldState~=HL_STRING  then
+   if oldState~=HL_STRING and oldState~=HL_INTERPOLATION and oldState~=HL_ESC_SEQ then
       qString=0
     end
     
-   if newState==HL_KEYWORD and token=="q{" then
+   if newState==HL_KEYWORD and (token=="q{" or token=="qq{" or token=="qw{" or token=="qx{")  then
       qString=1
       return HL_STRING
    end
- 
-   if newState==HL_KEYWORD and token=="qw(" then
+   
+   if newState==HL_KEYWORD and (token=="q(" or token=="qq(" or token=="qw(" or token=="qx(")  then
       qString=2
       return HL_STRING
    end
- 
-   if oldState==HL_STRING and qString==1 and token=="}" then
+  
+   if newState==HL_KEYWORD and (token=="q[" or token=="qq[" or token=="qw[" or token=="qx[")  then
+      qString=3
+      return HL_STRING
+   end
+  
+  if oldState==HL_STRING and qString==1 and token=="}" then
       qString=0
       return HL_STRING_END
    end
    
    if oldState==HL_STRING and qString==2 and token==")" then
+      qString=0
+      return HL_STRING_END
+   end
+
+   if oldState==HL_STRING and qString==3 and token=="]" then
       qString=0
       return HL_STRING_END
    end
