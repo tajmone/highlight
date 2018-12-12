@@ -2349,7 +2349,7 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
                 assertGroup=line[typeDescPos+2] - 'a' +1;
         }
     
-        if (   (assertState!=_WS && stateTraceCurrent[column].state != assertState )
+        if (   (assertState!=_WS && stateTraceCurrent[column].state != assertState && !stateTraceCurrent[column].isWhiteSpace )
             || (assertState==_WS && !stateTraceCurrent[column].isWhiteSpace)
             || assertGroup != stateTraceCurrent[column].kwClass) {
             ostringstream err;
