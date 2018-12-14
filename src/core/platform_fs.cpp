@@ -222,7 +222,7 @@ void getFileNames ( const string &directory,const string &wildcard, vector<strin
     if ( errno ) return;
 
     // save the first fileName entry for this recursion
-    const unsigned firstEntry = fileName.size();
+    //const unsigned firstEntry = fileName.size();
 
     // save files and sub directories
     while ( ( entry = readdir ( dp ) ) != NULL ) {

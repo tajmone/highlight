@@ -2,6 +2,8 @@
 
 === highlight 3.48
 
+14.12.2018
+
  - fixed --list-scripts abortion with Fedora default compilation options 
      (https://gitlab.com/saalen/highlight/issues/84)
  - fixed a problem with syntax test indicators reporting wrong states after comments
