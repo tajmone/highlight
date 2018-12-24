@@ -1,3 +1,4 @@
+<%# ____ v1.0.1 | 2018/12/24 ____ %>
 <%#encoding:UTF-8%><div<%= @id && %( id="#{@id}") %> class="<%= ['listingblock',role].compact * ' ' %>"><%
 if title? %>
 <div class="title"><%= captioned_title %></div><%
@@ -30,7 +31,7 @@ if @style == 'source'
     nowrap = false
   end
   pre_class << 'nowrap' if nowrap %>
-<pre<%= pre_class.empty? ? nil : %( class="#{pre_class * ' '}") %><%= pre_lang && %( lang="#{pre_lang}") %>><code<%= code_class.empty? ? nil : %( class="#{code_class * ' '}") %>><%= content %></code></pre><%
+<pre<%= pre_class.empty? ? nil : %( class="#{pre_class * ' '}") %><%= pre_lang && %( lang="#{pre_lang}") %>><code<%= code_class.empty? ? nil : %( class="#{code_class * ' '}") && %( data-lang="#{pre_lang}") %>><%= content %></code></pre><%
 else %>
 <pre<%= nowrap ? ' class="nowrap"' : nil %>><%= content %></pre><%
 end %>

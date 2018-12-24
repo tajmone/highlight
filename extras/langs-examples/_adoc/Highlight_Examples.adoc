@@ -1,13 +1,15 @@
 = Highlight Examples
 Tristano Ajmone <tajmone@gmail.com>
-v1.0.0, 2018-10-04
+v1.0.1, 2018-12-24
 :lang: en
 :toc: left
 :toclevels: 1
 :sectnums!:
-:experimental: true
+:sectanchors:
+:experimental:
 :icons: font
-:linkattrs: true
+:linkattrs:
+:reproducible:
 // Highlight settings;
 :source-highlighter: highlight
 

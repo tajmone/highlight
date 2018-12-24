@@ -1,8 +1,8 @@
 
-=begin    highlight-treeprocessor_mod.rb"                    v1.0.0 (2018-10-04)
+=begin    highlight-treeprocessor_mod.rb"                    v1.0.1 (2018-12-24)
 ================================================================================
 
-                        Highlight Treprocessor Extension
+                      Highlight Treeprocessor Extension
 
 ================================================================================
 A treeprocessor that highlights source cdoe blocks using Highlight.
@@ -16,6 +16,10 @@ Usage:
   puts 'Hello, World!'
   ----
 
+NOTES:
+  Currently, this extension does not support callouts nor syntax highlighting
+  code blocks inside tables. See:
+    https://github.com/asciidoctor/asciidoctor/issues/2990
 --------------------------------------------------------------------------------
 Adapted by Tristano Ajmone from the original "highlight-treeprocessor.rb" taken
 from the Asciidoctor Extensions Lab (commit 18bdf62), Copyright (C) 2014-2016
