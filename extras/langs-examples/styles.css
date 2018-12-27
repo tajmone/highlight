@@ -9,6 +9,9 @@
   font-family: "Fira Code", Monaco, "Courier New", Courier, monospace; }
 
 /* Highlight Default Theme */
+.listingblock code[data-lang]::before {
+  color: #A09F93; }
+
 .listingblock pre[class="highlight"] {
   background-color: #2D2D2D;
   border-radius: 4px;
