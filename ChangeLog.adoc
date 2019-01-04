@@ -1,5 +1,7 @@
 = Highlight CHANGELOG
 
+ - added support for TOML
+
 === highlight 3.48
 
 14.12.2018

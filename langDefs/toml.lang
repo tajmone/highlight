@@ -1,5 +1,5 @@
 
-Description="INI"
+Description="TOML"
 
 Keywords={
   { Id=1,
@@ -9,7 +9,7 @@ Keywords={
     Regex=[[^\s*([^=#]+)\s*=]],
   },
   { Id=3,
-    Regex=[[^\s*[\[^=#]+\s*=\s*(\S.*)]],
+    Regex=[[^\s*[\[^=#]+\s*=\s*(\S.*)#?]],
   },
 }
 
@@ -19,7 +19,7 @@ Strings={
 
 Comments={
   { Block=false,
-    Delimiter= { [[^\s*([;#].*)]] },
+    Delimiter= { [[#]] },
   },
 }
 
