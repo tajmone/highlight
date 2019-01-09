@@ -1,4 +1,4 @@
---[[ "nim.lang" v1.1.0 (2019/01/05) | Nim 0.19.2 | Highlight 3.48 
+--[[ "nim.lang" v1.1.1 (2019/01/09) | Nim 0.19.2 | Highlight 3.48 
 ********************************************************************************
 *                                                                              *
 *                           Nim Language Definition                            *
@@ -17,7 +17,7 @@ Description="Nim"
 
 -- Some reusable RegExs:
 RE_suffx_int = [[(?:'i(?:8|16|32|64)|'u(?:8|16|32|64)?)?]]
-RE_suffx_flt = [[(?:'f(?:32|64|128)?|'d)?]]
+RE_suffx_flt = [[(?:'f(?:32|64)?|'d)?]]
 RE_exponent  = [[(?:e[\+\-]?\d[\d_]*)]]
 
 Digits=[[(?xi)
@@ -94,6 +94,13 @@ Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\.|\:|\&|<|>|\!|=|\/|\*|\%|\+|\-|\~|\||\^]]
 --[[============================================================================
                                    CHANGELOG                                    
 ================================================================================
+v1.1.1 (2019/01/09)  | Nim 0.19.2 | Highlight 3.48
+  Updated by Tristano Ajmone:
+  - Remove the "'f128" type suffix for it turned out that although still in the
+    Nim documentation it was no longer supported. See discussion at #10213 that
+    led to removal of 'f128 from documentation:
+      https://github.com/nim-lang/Nim/issues/10213
+      https://github.com/nim-lang/Nim/commit/258952832f
 v1.1.0 (2019/01/05) | Nim 0.19.2 | Highlight 3.48
   Updated by Tristano Ajmone:
   - Remove depracated keywords: 'atomic', 'generic', 'with', 'without'.
