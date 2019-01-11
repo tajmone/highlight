@@ -9,6 +9,14 @@ v3.47, October 2018
 :sectnums:
 :sectnumlevels: 1
 :sectanchors:
+// GitHub Settings to enable Admonitions Icons in preview:
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :heavy_exclamation_mark:
+:note-caption: :information_source:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
 
 == ABOUT
 

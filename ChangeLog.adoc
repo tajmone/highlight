@@ -1,19 +1,25 @@
 = Highlight CHANGELOG
+:reproducible:
+:sectanchors:
+:sectnums!:
+:toc-title: Contents
+:toc: left
+:toclevels: 1
 
  - added support for TOML
 
-=== highlight 3.48
+== highlight 3.48
 
 14.12.2018
 
- - fixed --list-scripts abortion with Fedora default compilation options 
+ - fixed --list-scripts abortion with Fedora default compilation options
      (https://gitlab.com/saalen/highlight/issues/84)
  - fixed a problem with syntax test indicators reporting wrong states after comments
  - improved Verilog syntax
  - improved quoted string highlighting for Perl and Ruby
  - detection of pkg-config's Lua version in src/makefile
 
-=== highlight 3.47
+== highlight 3.47
 
 13.10.2018
 
@@ -22,12 +28,12 @@
  - added darkplus theme (https://gitlab.com/saalen/highlight/merge_requests/84)
  - converted ChangeLog to AsciiDoc
  - allowed state test indicators to match both whitespace (ws) and the enclosing state (others)
- - CLI: default output changed to xterm256 or truecolor if run in a terminal with color support and 
+ - CLI: default output changed to xterm256 or truecolor if run in a terminal with color support and
         only a single file is outputted
  - GUI: added checkbox in the clipboard tab to output selected lines only
 
-        
-=== highlight 3.46
+
+== highlight 3.46
 
 07.10.2018
 
@@ -35,7 +41,7 @@
  - converted manuals to AsciiDoc (thanks to Tristano Ajmone)
 
 
-=== highlight 3.45
+== highlight 3.45
 
 02.10.2018
 
@@ -52,15 +58,15 @@
  - added Gradle extension mapping (https://gitlab.com/saalen/highlight/merge_requests/80)
 
 
-=== highlight 3.44
+== highlight 3.44
 
 17.07.2018
 
  - fixed gcc 8 compilation warnings
- - fixed Ruby string interpolation 
+ - fixed Ruby string interpolation
   (https://github.com/andre-simon/highlight/issues/70)
  - added support for ALAN IF (thanks to Tristano Ajmone)
- - added 107 Base16 themes [https://github.com/chriskempson/base16] 
+ - added 107 Base16 themes [https://github.com/chriskempson/base16]
   (thanks to Tristano Ajmone)
  - updated Rust and Java reserved words lists
  - revised documentation
@@ -68,29 +74,29 @@
  - added extras/themes-resources/base16 (thanks to Tristano Ajmone)
  - GUI: added Base16 theme selection checkbox
  - CLI: added --base16 option to enable the new themes
- - CLI: accept - as argument to read from stdin 
+ - CLI: accept - as argument to read from stdin
   (https://github.com/andre-simon/highlight/issues/73)
 
 
-=== highlight 3.43
+== highlight 3.43
 
 30.04.2018
 
  - updated astyle code to release 3.1 (Rev. 655)
  - added webkit reformatting style
  - improved several language definitions
- - fixed Matlab string recognition 
+ - fixed Matlab string recognition
   (https://github.com/andre-simon/highlight/issues/61)
  - fixed Autohotkey escape sequence recognition (thanks to Klaus Daube)
  - added excel.lang (https://github.com/andre-simon/highlight/pull/60)
  - improved Qt pro file (https://github.com/andre-simon/highlight/pull/59)
- - CLI: added --reformat-option 
+ - CLI: added --reformat-option
   (https://github.com/andre-simon/highlight/issues/62)
  - CLI: added --line-range (https://github.com/andre-simon/highlight/issues/64)
  - GUI: added Bulgarian translation  (thanks to Georgi Sotirov)
 
 
-=== highlight 3.42
+== highlight 3.42
 
 20.01.2018
 
@@ -106,17 +112,17 @@
  - improved Haskell definition (https://github.com/andre-simon/highlight/pull/52)
  - CLI: added --canvas option to define background color padding in ANSI output
   (https://github.com/andre-simon/highlight/issues/40)
- - GUI: added French translation (thanks to Antoine Belvire) 
- - GUI: added Scripts tab (suggested by Tristano Ajmone) 
+ - GUI: added French translation (thanks to Antoine Belvire)
+ - GUI: added Scripts tab (suggested by Tristano Ajmone)
  - GUI: minor bugfixes
 
 
-=== highlight 3.41
+== highlight 3.41
 
 27.11.2017
 
  - renamed examples directory to extras
- - line anchors (-a) are attached as id attribute to the first span or li tag in 
+ - line anchors (-a) are attached as id attribute to the first span or li tag in
   HTML output (https://github.com/andre-simon/highlight/issues/36)
  - renamed ID prefix in outhtml_codefold plug-in to be compatible with -a IDs
  - added fstab.lang and added anacrontab in filetypes.conf
@@ -127,11 +133,11 @@
  - CLI: added --no-version-info option
  - GUI: fixed initial theme selection
  - GUI: added "Omit version info comment" option
- - GUI: added "Copy with MIME type" option for HTML output 
-  (https://github.com/andre-simon/highlight/issues/32) 
+ - GUI: added "Copy with MIME type" option for HTML output
+  (https://github.com/andre-simon/highlight/issues/32)
 
 
-=== highlight 3.40
+== highlight 3.40
 
 20.10.2017
 
@@ -140,24 +146,24 @@
  - fixed PureBasic definition (https://github.com/andre-simon/highlight/issues/25)
  - added CMake definition (https://github.com/andre-simon/highlight/issues/20)
  - added email definition (https://github.com/andre-simon/highlight/issues/21)
- - linked scm suffix to lisp definition 
+ - linked scm suffix to lisp definition
   (https://github.com/andre-simon/highlight/issues/22)
- - W32 CLI: support HIGHLIGHT_DATADIR and --data-dir options 
+ - W32 CLI: support HIGHLIGHT_DATADIR and --data-dir options
   (https://github.com/andre-simon/highlight/issues/24)
  - revised documentation
 
 
-=== highlight 3.39
+== highlight 3.39
 
 25.07.2017
 
  - added syntax for Docker and Elixir
  - improved HTML, Julia, Kotlin and Smalltalk syntax definitions
- - GUI: added "Paste, Convert and Copy" button 
+ - GUI: added "Paste, Convert and Copy" button
   (https://sourceforge.net/p/syntaxhighlight/support-requests/4/)
 
 
-=== highlight 3.38
+== highlight 3.38
 
 20.06.2017
 
@@ -166,7 +172,7 @@
  - added bash_ref_man7_org.lua plugin
 
 
-=== highlight 3.37
+== highlight 3.37
 
 30.05.2017
 
@@ -174,22 +180,22 @@
  - fixed highlighting if a line continues after the nested code delimiter
  - updated astyle code to release 3.0
  - added examples/pandoc (thanks to Tristano Ajmone)
- - added syntax mapping for markdown 
+ - added syntax mapping for markdown
   (https://github.com/andre-simon/highlight/issues/11)
- - added syntax mapping for clj 
+ - added syntax mapping for clj
   (https://github.com/andre-simon/highlight/issues/15)
  - improved Java definition (https://github.com/andre-simon/highlight/issues/13)
- - added theme to JSON converter in  examples/json 
+ - added theme to JSON converter in  examples/json
   (https://github.com/andre-simon/highlight/issues/8)
- - CLI: added support for environment variable HIGHLIGHT_OPTIONS 
+ - CLI: added support for environment variable HIGHLIGHT_OPTIONS
   (https://github.com/andre-simon/highlight/issues/17)
 
 
-=== highlight 3.36
+== highlight 3.36
 
 30.03.2017
 
- - fixed code folding plugin to support more Ruby conditional modifiers 
+ - fixed code folding plugin to support more Ruby conditional modifiers
   (thanks to Jens Schleusener)
  - fixed Perl quoted string highlighting (thanks to Jens Schleusener)
  - added new GeneratorOverride syntax definition parameter
@@ -197,20 +203,20 @@
   to syntax types (suggested by Andy)
  - added FASM definition and edit-fasm theme (thanks to Tristano Ajmone)
  - added outhtml_ie7_webctrl plug-in (suggested by Tristano Ajmone)
- - GUI: file extensions can be configured for multiple languages, 
+ - GUI: file extensions can be configured for multiple languages,
   triggers syntax selection prompt
  - GUI: added Italian translation (thanks to Tristano Ajmone)
 
 
-=== highlight 3.35
+== highlight 3.35
 
 28.02.2017
 
  - fixed code folding plugin to support Ruby conditional modifiers
  - fixed JSON definition (thanks to Timothee Cour)
- - fixed output of unknown syntax warning with applied force switch 
+ - fixed output of unknown syntax warning with applied force switch
   (thanks to Andy)
- - added state trace parameter to Decorate plug-in function 
+ - added state trace parameter to Decorate plug-in function
  - added GDScript definition and edit-godot theme (thanks to Tristano Ajmone)
  - updated SWIG code samples
  - updated Artistic Style lib (SVN Rev. 553)
@@ -220,17 +226,17 @@
  - CLI: added switch --stdout (https://sourceforge.net/p/syntaxhighlight/bugs/14)
 
 
-=== highlight 3.34
+== highlight 3.34
 
 27.12.2016
 
- - fixed segfault with --skip applied on a single file input list 
+ - fixed segfault with --skip applied on a single file input list
   (thanks to Jens Schleusener)
  - added support for Python 3.6 syntax
  - added Github and Sourceforge themes
 
 
-=== highlight 3.33
+== highlight 3.33
 
 02.11.2016
 
@@ -238,7 +244,7 @@
  - fixed PHP definition (thanks to Christoph Burschka)
  - fixed font family declaration in SVG
  - fixed user defined encoding in ODT
- - fixed unnecessary output of style file with --inline-css 
+ - fixed unnecessary output of style file with --inline-css
   (thanks to Jens Schleusener)
  - added vimscript language definition (thanks to Max Christian Pohle)
  - added Coffeescript language definition (thanks to Jess Austin)
@@ -251,7 +257,7 @@
  - improved various color themes and syntax definitions
 
 
-=== highlight 3.32
+== highlight 3.32
 
 24.09.2016
 
@@ -260,13 +266,13 @@
  - fixed operator regex in rnc.lang, crk.lang and yaml.lang (thanks to Joe Klauza)
  - added Pony and Whiley definitions
  - updated Ceylon, Julia and TypeScript definitions
- - added Go, AutoHotKey, TypeScript and R to the foldable list in the 
+ - added Go, AutoHotKey, TypeScript and R to the foldable list in the
   outhtml_codefold.lua plug-in
  - removed plugins/bash_ref_linuxmanpages_com.lua
  - GUI: fixed README, ChangeLog and License file paths on Linux
 
 
-=== highlight 3.31
+== highlight 3.31
 
 01.08.2016
 
@@ -274,22 +280,22 @@
  - GUI: fixed minor layout issues
 
 
-=== highlight 3.30
+== highlight 3.30
 
 30.06.2016
 
  - the data directory can be defined with the HIGHLIGHT_DATADIR environment variable
- - fixed RTF output of UTF-8 input; needs input encoding set to utf-8 
+ - fixed RTF output of UTF-8 input; needs input encoding set to utf-8
   (thanks to Kamigishi Rei)
  - fixed XML comment recognition (thanks to Mani)
  - data search directories were appended to the result of --list-scripts
  - revised older syntax definitions
  - updated base URLs of bash_ref_linuxmanpages and cpp_ref_qtproject plug-ins
- - GUI: added system copy and paste shortcuts for clipboard functions 
+ - GUI: added system copy and paste shortcuts for clipboard functions
   (suggested by Kamigishi Rei)
 
 
-=== highlight 3.29
+== highlight 3.29
 
 24.05.2016
 
@@ -302,7 +308,7 @@
   checked (thanks to Jim Pattee)
 
 
-=== highlight 3.28
+== highlight 3.28
 
 15.02.2016
 
@@ -316,12 +322,12 @@
  - added Nim and mIRC Scripting definitions
 
 
-=== highlight 3.27
+== highlight 3.27
 
 19.01.2016
 
  - improved outhtml_codefold.lua to ignore brackets on the same line
- - added RTF output to mark_lines.lua 
+ - added RTF output to mark_lines.lua
  - fixed Powershell and NSIS definitions
  - added JSON and Github Markdown definitions
  - CLI: added --keep-injections option to force plugin injection output with -f
@@ -329,7 +335,7 @@
  - GUI: fixed crash after removing selected plugins
 
 
-=== highlight 3.26
+== highlight 3.26
 
 13.01.2016
 
@@ -343,7 +349,7 @@
  - GUI: added RTF page color checkbox
 
 
-=== highlight 3.25
+== highlight 3.25
 
 18.12.2015
 
@@ -356,25 +362,25 @@
  - GUI: fixed minor issues
 
 
-=== highlight 3.24
+== highlight 3.24
 
 02.11.2015
 
  - fixed TeX output for cweb documents (patch by Ingo Krabbe)
  - fixed string interpolation in bat.lang
- - added reduce_filesize.lua, outhtml_add_shadow.lua, 
-  outhtml_add_background_svg.lua, outhtml_add_background_stripes.lua, 
-  outhtml_add_line.lua plug-ins 
+ - added reduce_filesize.lua, outhtml_add_shadow.lua,
+  outhtml_add_background_svg.lua, outhtml_add_background_stripes.lua,
+  outhtml_add_line.lua plug-ins
  - added TCL extension in examples/tcl
  - added kotlin.lang, nginx.lang and julia.lang
- - updated php.lang to include version 7 keywords 
- - updated ceylon.lang to include version 1.2 keywords 
+ - updated php.lang to include version 7 keywords
+ - updated ceylon.lang to include version 1.2 keywords
  - updated scripts in examples directory
  - CLI: style-infile option marked as deprecated
  - GUI: shortened paths in file input lists
 
 
-=== highlight 3.23
+== highlight 3.23
 
 16.07.2015
 
@@ -385,7 +391,7 @@
  - CLI: fixed --list-scripts with unknown argument (thanks to Jens Schleusener)
 
 
-=== highlight 3.22
+== highlight 3.22
 
 17.02.2015
 
@@ -394,7 +400,7 @@
  - GUI: added option to define line numbering start
 
 
-=== highlight 3.21
+== highlight 3.21
 
 02.02.2015
 
@@ -406,7 +412,7 @@
  - fixed regex pattern in js.lang
 
 
-=== highlight 3.20
+== highlight 3.20
 
 28.11.2014
 
@@ -414,7 +420,7 @@
  - added astyle reformatting style vtk
 
 
-=== highlight 3.19
+== highlight 3.19
 
 05.09.2014
 
@@ -428,7 +434,7 @@
  - CLI: added Pango markup output option (patch by Dominik Schmidt)
 
 
-=== highlight 3.18
+== highlight 3.18
 
 28.03.2014
 
@@ -439,7 +445,7 @@
  - added the.theme (thanks to Mark Hessling)
 
 
-=== highlight 3.17
+== highlight 3.17
 
 06.01.2014
 
@@ -450,14 +456,14 @@
  - added PDF language definition (thanks to Roland Hieber)
 
 
-=== highlight 3.16.1
+== highlight 3.16.1
 
 01.11.2013
 
  - fixed debug output in sh.lang (https://sourceforge.net/p/syntaxhighlight/bugs/9/)
 
 
-=== highlight 3.16
+== highlight 3.16
 
 30.09.2013
 
@@ -468,7 +474,7 @@
  - added SWIG PHP binding (patch by G. Wijaya)
 
 
-=== highlight 3.15
+== highlight 3.15
 
 27.06.2013
 
@@ -478,7 +484,7 @@
  - fixed Ruby definition
 
 
-=== highlight 3.14
+== highlight 3.14
 
 31.04.2013
 
@@ -492,7 +498,7 @@
  - CLI: removed --add-config-dir option
 
 
-=== highlight 3.13
+== highlight 3.13
 
 05.02.2013
 
@@ -506,7 +512,7 @@
  - GUI: fixed unselected theme after first program start
 
 
-=== highlight 3.12
+== highlight 3.12
 
 05.10.2012
 
@@ -517,7 +523,7 @@
  - GUI: added Simplified Chinese translation (thanks to Love NoAny)
 
 
-=== highlight 3.11 beta
+== highlight 3.11 beta
 
 21.08.2012
 
@@ -529,7 +535,7 @@
  - GUI: fixed shebang recognition
 
 
-=== highlight 3.10 beta
+== highlight 3.10 beta
 
 21.07.2012
 
@@ -544,7 +550,7 @@
  - GUI: replaced Qt file dialogs by native dialogs
 
 
-=== highlight 3.9
+== highlight 3.9
 
 01.05.2012
 
@@ -561,7 +567,7 @@
  - GUI: set initial font selection to Courier
 
 
-=== highlight 3.8
+== highlight 3.8
 
 24.02.2012
 
@@ -572,7 +578,7 @@
  - fixed memory leak in astyle's ASFormatter (patch by MENG Wei)
 
 
-=== highlight 3.7
+== highlight 3.7
 
 03.01.2012
 
@@ -587,7 +593,7 @@
  - GUI: fixed some language mappings
 
 
-=== highlight 3.6
+== highlight 3.6
 
 05.10.2011
 
@@ -601,7 +607,7 @@
  - GUI: added "Dock floating panels" checkbox in the main menu
 
 
-=== highlight 3.5
+== highlight 3.5
 
 02.06.2011
 
@@ -609,7 +615,7 @@
  - fixed --force option (thanks to Stefan Bühler)
 
 
-=== highlight 3.4
+== highlight 3.4
 
 31.03.2011
 
@@ -620,7 +626,7 @@
  - GUI: Updated Czech translation (thanks to Pavel Fric)
 
 
-=== highlight 3.3
+== highlight 3.3
 
 28.12.2010
 
@@ -634,7 +640,7 @@
  - updated documentation
 
 
-=== highlight 3.2
+== highlight 3.2
 
 08.11.2010
 
@@ -651,7 +657,7 @@
  - GUI: Added Czech translation (thanks to Pavel Fric)
 
 
-=== highlight 3.1
+== highlight 3.1
 
 24.08.2010
 
@@ -663,7 +669,7 @@
  - CLI: fixed minor bugs
 
 
-=== highlight 3.1 beta3
+== highlight 3.1 beta3
 
 12.08.2010
 
@@ -673,7 +679,7 @@
  - GUI: remember state of the dock panel
 
 
-=== highlight 3.1 beta2
+== highlight 3.1 beta2
 
 08.07.2010
 
@@ -688,7 +694,7 @@
  - GUI: moved setting controls into a dock panel
 
 
-=== highlight 3.1 beta1
+== highlight 3.1 beta1
 
 21.06.2010
 
@@ -698,7 +704,7 @@
  - converted 60 popular VIM colour themes
 
 
-=== highlight 3.0 beta
+== highlight 3.0 beta
 
 03.06.2010
 
@@ -720,7 +726,7 @@
  - New dependencies: Lua5.1-devel, Boost Headers (Bind)
 
 
-=== highlight 2.16
+== highlight 2.16
 
 29-03-2010
 
@@ -734,7 +740,7 @@
  - added StartupNotify switch in desktop file (patch by Jochen Schmitt)
 
 
-=== highlight 2.15
+== highlight 2.15
 
 25-02-2010
 
@@ -745,7 +751,7 @@
  - GUI: fixed preview of UTF-8 input
 
 
-=== highlight 2.14
+== highlight 2.14
 
 04-01-2010
 
@@ -758,7 +764,7 @@
   (suggested by Nathan Gray)
 
 
-=== highlight 2.13
+== highlight 2.13
 
 02-10-2009
 
@@ -766,7 +772,7 @@
  - GUI: added new icon
 
 
-=== highlight 2.12
+== highlight 2.12
 
 07-09-2009
 
@@ -782,7 +788,7 @@
  - CLI: added options --start-nested and --print-style
 
 
-=== highlight 2.11
+== highlight 2.11
 
 23-07-2009
 
@@ -795,7 +801,7 @@
  - improved many colour themes using Agave (agave.sf.net)
 
 
-=== highlight 2.10
+== highlight 2.10
 
 24-06-2009
 
@@ -820,7 +826,7 @@
  - API: dropped setSpecialOptions(), renamed initializing methods to init*
 
 
-=== highlight 2.9
+== highlight 2.9
 
 30-April-2009
 
@@ -833,7 +839,7 @@
  - GUI: added drag and drop for input files
 
 
-=== highlight 2.8
+== highlight 2.8
 
 30-March-2009
 
@@ -852,7 +858,7 @@
  - GUI: rewrote the user interface using Qt
 
 
-=== highlight 2.7
+== highlight 2.7
 
 12-January-2009
 
@@ -872,7 +878,7 @@
  - organized sources in subdirectories (core, cli, gui) and adjusted makefiles
 
 
-=== highlight 2.6-14
+== highlight 2.6-14
 
 21-October-2008
 
@@ -890,7 +896,7 @@
  - GUI: added ctags file selection options (only wx2.9 version)
 
 
-=== highlight 2.6-13
+== highlight 2.6-13
 
 29-September-2008
 
@@ -907,7 +913,7 @@
  - Updated SWIG makefile and documentation
 
 
-=== highlight 2.6-12
+== highlight 2.6-12
 
 04-August-2008
 
@@ -915,7 +921,7 @@
  - fixed filetypes.conf path in RPM specfile (thanks to Nikita Borodikhin)
 
 
-=== highlight 2.6-11
+== highlight 2.6-11
 
 09-July-2008
 
@@ -928,7 +934,7 @@
  - updated highlight.spec to compile wx2.9 GUI
 
 
-=== highlight 2.6-10
+== highlight 2.6-10
 
 07-May-2008
 
@@ -938,7 +944,7 @@
  - various code improvements (patch by Antonio Diaz Diaz)
 
 
-=== highlight 2.6-9
+== highlight 2.6-9
 
 26-March-2008
 
@@ -955,7 +961,7 @@
  - GUI: added all-gui-wx29 target in Makefile to compile with wxWidgets 2.9
 
 
-=== highlight 2.6-8
+== highlight 2.6-8
 
 01-February-2008
 
@@ -975,7 +981,7 @@
  - GUI: windows saves and restores previous position and size
 
 
-=== highlight 2.6-7
+== highlight 2.6-7
 
 04-January-2008
 
@@ -993,7 +999,7 @@
  - GUI: fixed preview update after tab width change (thanks to Stefan Boumans)
 
 
-=== highlight 2.6-6
+== highlight 2.6-6
 
 10-December-2007
 
@@ -1009,7 +1015,7 @@
  - dropped dull theme
 
 
-=== highlight 2.6-5
+== highlight 2.6-5
 
 02-October-2007
 
@@ -1023,7 +1029,7 @@
  - improved definitions of Bash, Ruby, Maya, Tcl, Agda and Haskell
 
 
-=== highlight 2.6-4
+== highlight 2.6-4
 
 13-September-2007
 
@@ -1034,7 +1040,7 @@
  - updated R language definition (thanks to Yihui Xie)
 
 
-=== highlight 2.6-3
+== highlight 2.6-3
 
 06-September-2007
 
@@ -1051,7 +1057,7 @@
  - updated plugin scripts to use the new --inline-css option
 
 
-=== highlight 2.6-2
+== highlight 2.6-2
 
 19-July-2007
 
@@ -1071,7 +1077,7 @@
  - updated documentation
 
 
-=== highlight 2.6-1
+== highlight 2.6-1
 
 21-May-2007
 
@@ -1091,7 +1097,7 @@
  - GUI: added Brazilian Portuguese translation (thanks to Yorick)
 
 
-=== highlight 2.6-0
+== highlight 2.6-0
 
 05-May-2007
 
@@ -1099,7 +1105,7 @@
  - modified makefile to support PREFIX and DESTDIR variables (patch by Jeremy Bopp)
 
 
-=== highlight 2.5-6 beta
+== highlight 2.5-6 beta
 
 20-April-2007
 
@@ -1108,7 +1114,7 @@
  - updated README files
 
 
-=== highlight 2.5-5 beta
+== highlight 2.5-5 beta
 
 05-April-2007
 
@@ -1121,7 +1127,7 @@
  - added *.p, *.i, *.w as Progress file suffixes (thanks to Mark Reeves)
 
 
-=== highlight 2.5-4 beta
+== highlight 2.5-4 beta
 
 07-March-2007
 
@@ -1129,7 +1135,7 @@
  - updated astyle to version 1.20.2
 
 
-=== highlight 2.5-3 beta
+== highlight 2.5-3 beta
 
 03-March-2007
 
@@ -1138,7 +1144,7 @@
  - added support for Linden script (Second Life)
 
 
-=== highlight 2.5-2 beta
+== highlight 2.5-2 beta
 
 28-February-2007
 
@@ -1148,7 +1154,7 @@
  - removed berries-dark, added seashell theme
 
 
-=== highlight 2.5-1 beta
+== highlight 2.5-1 beta
 
 29-January-2007
 
@@ -1157,7 +1163,7 @@
  - added gui subsection in the RPM specfile
 
 
-=== highlight 2.5-0 beta
+== highlight 2.5-0 beta
 
 17-January-2007
 
@@ -1168,7 +1174,7 @@
   (binary: highlight-gui; make all-gui; needs wxWidgets 2.6+)
 
 
-=== highlight 2.4-8
+== highlight 2.4-8
 
 19-October-2006
 
@@ -1178,7 +1184,7 @@
  - revised README files
 
 
-=== highlight 2.4-7
+== highlight 2.4-7
 
 10-June-2006
 
@@ -1188,13 +1194,13 @@
  - updated SWIG sample scripts
 
 
-=== highlight 2.4-6
+== highlight 2.4-6
 
 02-May-2006
 
  - fixed segfault when outputting ANSI (thanks to Philip Jenvey)
 
-=== highlight 2.4-5
+== highlight 2.4-5
 
 20-March-2006
 
@@ -1208,7 +1214,7 @@
  - updated regex classes to version 1.05.02
 
 
-=== highlight 2.4-4
+== highlight 2.4-4
 
 19-February-2006
 
@@ -1227,7 +1233,7 @@
  - updated documentation
 
 
-=== highlight 2.4-3
+== highlight 2.4-3
 
 30-October-2005
 
@@ -1237,7 +1243,7 @@
  - renamed colour theme parameter KW_CLASS to KW_GROUP
 
 
-=== highlight 2.4-2
+== highlight 2.4-2
 
 25-September-2005
 
@@ -1254,7 +1260,7 @@
   (suggested by Jochen Schmitt)
 
 
-=== highlight 2.4-1
+== highlight 2.4-1
 
 23-July-2005
 
@@ -1272,7 +1278,7 @@
    ide-synedit neon2 rand02 ron whitenblue website
 
 
-=== highlight 2.3-6 beta
+== highlight 2.3-6 beta
 
 02-July-2005
 
@@ -1283,7 +1289,7 @@
  - fixed output of UTF-8 characters (replaced isspace by iswspace)
 
 
-=== highlight 2.3-5 beta
+== highlight 2.3-5 beta
 
 26-June-2005
 
@@ -1293,7 +1299,7 @@
   latin1 is included instead
 
 
-=== highlight 2.3-4 beta
+== highlight 2.3-4 beta
 
 17-June-2005
 
@@ -1302,7 +1308,7 @@
  - code cleanup
 
 
-=== highlight 2.3-3 beta
+== highlight 2.3-3 beta
 
 16-May-2005
 
@@ -1310,7 +1316,7 @@
  - added regular expressions to some language definitions
 
 
-=== highlight 2.3-2 beta
+== highlight 2.3-2 beta
 
 04-May-2005
 
@@ -1322,14 +1328,14 @@
  - added Czech help text
 
 
-=== highlight 2.3-1 beta
+== highlight 2.3-1 beta
 
 23-April-2005
 
  - added support for regular expressions in language definitions
 
 
-=== highlight 2.2-10
+== highlight 2.2-10
 
 25-March-2005
 
@@ -1351,7 +1357,7 @@
  - added classes pre.hl and body.hl in CSS definitions
 
 
-=== highlight 2.2-9
+== highlight 2.2-9
 
 27-February-2005
 
@@ -1371,7 +1377,7 @@
  - deprecated options: css-outfile, css-infile, include-css
 
 
-=== highlight 2.2-8
+== highlight 2.2-8
 
 20-February-2005
 
@@ -1381,7 +1387,7 @@
  - added support for Hecl, Luban and Qu
 
 
-=== highlight 2.2-7
+== highlight 2.2-7
 
 12-January-2005
 
@@ -1392,7 +1398,7 @@
  - single spaces in (La)TeX are no longer preceeded by backslash
 
 
-=== highlight 2.2-6
+== highlight 2.2-6
 
 03-December-2004
 
@@ -1404,7 +1410,7 @@
  - W32 port: fixed installation path determination
 
 
-=== highlight 2.2-5
+== highlight 2.2-5
 
 31-October-2004
 
@@ -1420,7 +1426,7 @@
  - updated Spanish manual and help message (thanks to David Villa)
 
 
-=== highlight 2.2-4
+== highlight 2.2-4
 
 26-September-2004
 
@@ -1435,7 +1441,7 @@
  - improved error reports
 
 
-=== highlight 2.2-3
+== highlight 2.2-3
 
 10-September-2004
 
@@ -1454,7 +1460,7 @@
  - fixed some language definition with old $keyword entries
 
 
-=== highlight 2.2-2
+== highlight 2.2-2
 
 20-July-2004
 
@@ -1462,7 +1468,7 @@
  - internal changes
 
 
-=== highlight 2.2-1
+== highlight 2.2-1
 
 11-July-2004
 
@@ -1492,7 +1498,7 @@
  - added source directory names to generated index file (-C)
 
 
-=== highlight 2.0-25
+== highlight 2.0-25
 
 20-June-2004
 
@@ -1506,7 +1512,7 @@
  - added ide-eclipse style
 
 
-=== highlight 2.0-24
+== highlight 2.0-24
 
 10-June-2004
 
@@ -1517,7 +1523,7 @@
  - some code clean up
 
 
-=== highlight 2.0-23
+== highlight 2.0-23
 
 16-May-2004
 
@@ -1532,7 +1538,7 @@
   (thanks to Reini Urban)
 
 
-=== highlight 2.0-22
+== highlight 2.0-22
 
 19-April-2004
 
@@ -1545,7 +1551,7 @@
  - added -P option to display a progress bar in batch mode
 
 
-=== highlight 2.0-21
+== highlight 2.0-21
 
 23-March-2004
 
@@ -1564,7 +1570,7 @@
  - added $INCLUDE statement in language definitions to include content of other files
 
 
-=== highlight 2.0-20
+== highlight 2.0-20
 
 09-March-2004
 
@@ -1584,7 +1590,7 @@
  - moved documentation files to /usr/share/doc/highlight (suggested by Ayman Negm)
 
 
-=== highlight 2.0-19
+== highlight 2.0-19
 
 21-February-2004
 
@@ -1597,7 +1603,7 @@
    Prolog, PostScript and RPM Spec
 
 
-=== highlight 2.0-18
+== highlight 2.0-18
 
 08-February-2004
 
@@ -1610,7 +1616,7 @@
    modified output for both Apache FOP and xmlto/xsltproc
 
 
-=== highlight 2.0-17
+== highlight 2.0-17
 
 01-February-2004
 
@@ -1622,7 +1628,7 @@
  - general cleanup (code, makefiles, docs)
 
 
-=== highlight 2.0-16
+== highlight 2.0-16
 
 12-January-2004
 
@@ -1631,7 +1637,7 @@
  - improved Java, Nice and C parsing
 
 
-=== highlight 2.0-15
+== highlight 2.0-15
 
 04-January-2004
 
@@ -1639,7 +1645,7 @@
  - reduced LaTeX output file size
 
 
-=== highlight 2.0-14
+== highlight 2.0-14
 
 21-December-2003
 
@@ -1649,7 +1655,7 @@
  - ported code to Solaris (thanks to Ade Fewings)
 
 
-=== highlight 2.0-13
+== highlight 2.0-13
 
 25-November-2003
 
@@ -1663,7 +1669,7 @@
  - replaced AutoConf build process by customizable makefile (suggested by John Skaller)
 
 
-=== highlight 2.0-12
+== highlight 2.0-12
 
 09-November-2003
 
@@ -1672,7 +1678,7 @@
  - added Relax NG Compact language definition (thanks to Christian Siefkes)
 
 
-=== highlight 2.0-11
+== highlight 2.0-11
 
 26-October-2003
 
@@ -1686,7 +1692,7 @@
  - added Nice language definition
 
 
-=== highlight 2.0-10
+== highlight 2.0-10
 
 21-September-2003
 
@@ -1697,7 +1703,7 @@
  - added new Squirrel ans JSP language definitions
 
 
-=== highlight 2.0-9
+== highlight 2.0-9
 
 14-September-2003
 
@@ -1708,7 +1714,7 @@
  - added new THE style (thanks to Mark Hessling)
 
 
-=== highlight 2.0-8 Hot Summer Build
+== highlight 2.0-8 Hot Summer Build
 
 15-August-2003
 
@@ -1726,7 +1732,7 @@
  - improved Python and Tcl support
 
 
-=== highlight 2.0-7
+== highlight 2.0-7
 
 04-August-2003
 
@@ -1736,7 +1742,7 @@
  - improved plausibility of --outdir option (thanks to Otto Barnes II)
 
 
-=== highlight 2.0-6
+== highlight 2.0-6
 
 27-July-2003
 
@@ -1744,7 +1750,7 @@
    "</span>" tags (thanks to Mark Hessling)
 
 
-=== highlight 2.0-5
+== highlight 2.0-5
 
 20-July-2003
 
@@ -1755,7 +1761,7 @@
  - added french help (thanks to Gauthier)
 
 
-=== highlight 2.0-4
+== highlight 2.0-4
 
 01-July-2003
 
@@ -1765,7 +1771,7 @@
  - added some language definitions
 
 
-=== highlight 2.0-2
+== highlight 2.0-2
 
 28-May-2003
 
@@ -1776,7 +1782,7 @@
  - added plain text language definition
 
 
-=== highlight 2.0
+== highlight 2.0
 
 01-May-2003
 
@@ -1787,7 +1793,7 @@
  - changed CmdLineoptions.cpp to compile under Windows
 
 
-=== highlight 2.0b-9
+== highlight 2.0b-9
 
 27-April-2003
 
@@ -1796,7 +1802,7 @@
  - improved directive line parsing
 
 
-=== highlight 2.0b-8
+== highlight 2.0b-8
 
 20-April-2003
 
@@ -1806,14 +1812,14 @@
  - fixed segfault
 
 
-=== highlight 2.0b-7
+== highlight 2.0b-7
 
 07-April-2003
 
  - added Artistic Style indentation and reformatting
 
 
-=== highlight 2.0b-6
+== highlight 2.0b-6
 
 31-March-2003
 
@@ -1821,7 +1827,7 @@
  - improved performance
 
 
-=== highlight 2.0b-5
+== highlight 2.0b-5
 
  - fixed theme files which had DOS line terminators
  - presets reader method was fixed
@@ -1829,7 +1835,7 @@
  - help screen fixed
 
 
-=== highlight 2.0b-4
+== highlight 2.0b-4
 
 19-March-2003
 
@@ -1838,14 +1844,14 @@
  - fixed bug reading fontsize parameter of themes
 
 
-=== highlight 2.0b-3
+== highlight 2.0b-3
 
 16-March-2003
 
  - improved RTF output
 
 
-=== highlight 2.0b-2
+== highlight 2.0b-2
 
 09-March-2003
 
@@ -1855,7 +1861,7 @@
  - added a decription how to use the highlight parser in own applications
 
 
-=== highlight 2.0b
+== highlight 2.0b
 
 05-March-2003
 
@@ -1871,7 +1877,7 @@
  - added some more language definitions
 
 
-=== highlight 1.3.4-2
+== highlight 1.3.4-2
 
 30-January-2003
 
@@ -1881,7 +1887,7 @@
   (suggested by Jose Santiago)
 
 
-=== highlight 1.3.4
+== highlight 1.3.4
 
 28-January-2003
 
@@ -1895,7 +1901,7 @@
  - fixed php.lang and py.lang
 
 
-=== highlight 1.3.3
+== highlight 1.3.3
 
 08-January-2003
 
@@ -1907,14 +1913,14 @@
  - added simple cgi script (Perl)
 
 
-=== highlight 1.3.2-2
+== highlight 1.3.2-2
 
 29-November-2002
 
  -  fixed LaTeX output of | and ~ characters (thanks to Martin Idelberger)
 
 
-=== highlight 1.3.2
+== highlight 1.3.2
 
 26-November-2002
 
@@ -1925,14 +1931,14 @@
  - highlight compiles without warnings with gcc 3.2
 
 
-=== highlight 1.3.1-2
+== highlight 1.3.1-2
 
 20-November-2002
 
  - applied gcc 3.2 patch (thanks to Georg Young)
 
 
-=== highlight 1.3.1
+== highlight 1.3.1
 
 18-November-2002
 
@@ -1941,7 +1947,7 @@
  - added emacs and kwrite style
 
 
-=== highlight 1.3  (beta)
+== highlight 1.3  (beta)
 
 11-November-2002
 
@@ -1951,7 +1957,7 @@
  - added line anchors in HTML output
 
 
-=== highlight 1.2.1
+== highlight 1.2.1
 
 05-October-2002
 
@@ -1960,7 +1966,7 @@
  - fixed TeX output
 
 
-=== highlight 1.2
+== highlight 1.2
 
 26-August-2002
 
@@ -1971,7 +1977,7 @@
  - added new language definitions (Ruby, COBOL, Fortran)
 
 
-=== highlight 1.1
+== highlight 1.1
 
 20-August-2002
 
@@ -1981,7 +1987,7 @@
  - french letters like ? ?are masked
 
 
-=== highlight 1.0 <stable>
+== highlight 1.0 <stable>
 
 13-August-2002
 
@@ -1990,7 +1996,7 @@
  - fixed error in help msg (Thanks to Jan van Haarst)
 
 
-=== highlight 0.1
+== highlight 0.1
 
 25-July-2002
 
@@ -2000,7 +2006,7 @@
  - changed path of language definitions to /usr/share/highlight
 
 
-=== src2css 0.2
+== src2css 0.2
 
 06-May-2002:
 
@@ -2009,7 +2015,7 @@
  - Python definition file
 
 
-=== src2css 0.1
+== src2css 0.1
 
 04-Apr-2002:
 
