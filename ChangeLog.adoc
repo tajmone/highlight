@@ -2,6 +2,7 @@
 :reproducible:
 :sectanchors:
 :sectnums!:
+:toc-title: Contents
 :toc: left
 :toclevels: 1
 
