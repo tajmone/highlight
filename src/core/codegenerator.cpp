@@ -621,18 +621,17 @@ SKIP_EMBEDDED:
             if ( regexGroups[oldIndex].state==IDENTIFIER_BEGIN || regexGroups[oldIndex].state==KEYWORD ) {
                 string reservedWord= ( currentSyntax->isIgnoreCase() ) ? StringTools::change_case ( token ) :token;
                 currentKeywordClass=currentSyntax->isKeyword ( reservedWord ); //check in lists (no regex)
-                
                 // for positional Tests; will not be used again for actual input parsing
                 // FIXME not needed?
                 //if (currentKeywordClass)
                 //    regexGroups[oldIndex]=ReGroup ( KEYWORD, reservedWord.size(), currentKeywordClass, "" );  
                 
-                if ( !currentKeywordClass && regexGroups[oldIndex].state==KEYWORD )
+                if ( !currentKeywordClass && regexGroups[oldIndex].state==KEYWORD ){
                     currentKeywordClass = regexGroups[oldIndex].kwClass;
-                 
-                return validateState(( currentKeywordClass ) ? KEYWORD : STANDARD, oldState, currentKeywordClass);
+                }
+                return validateState(( currentKeywordClass ) ? KEYWORD : STANDARD, oldState );
             } else {
-                return validateState(regexGroups[oldIndex].state, oldState, 0);
+                return validateState(regexGroups[oldIndex].state, oldState);
             }
         }
     }
@@ -642,7 +641,7 @@ SKIP_EMBEDDED:
     return STANDARD;
 }
 
-State CodeGenerator::validateState(State newState, State oldState, unsigned int kwClass)
+State CodeGenerator::validateState(State newState, State oldState)
 {
 
     if (currentSyntax->getValidateStateChangeFct()) {
@@ -650,7 +649,7 @@ State CodeGenerator::validateState(State newState, State oldState, unsigned int 
         params.push_back(Diluculum::LuaValue(oldState));
         params.push_back(Diluculum::LuaValue(newState));
         params.push_back(Diluculum::LuaValue(token));
-        params.push_back(Diluculum::LuaValue(kwClass));
+        params.push_back(Diluculum::LuaValue(getCurrentKeywordClassId()) );
 
         Diluculum::LuaValueList res=
             currentSyntax->getLuaState()->call ( *currentSyntax->getValidateStateChangeFct(),
@@ -676,6 +675,20 @@ State CodeGenerator::validateState(State newState, State oldState, unsigned int 
     return newState;
 }
 
+
+unsigned int CodeGenerator::getCurrentKeywordClassId(){
+    unsigned int kwClassId=0;
+
+    // this vector contains the defined keyword classes, and currentKeywordClass is its index:
+    vector<string> kwClasses=currentSyntax->getKeywordClasses();
+    if (currentKeywordClass && currentKeywordClass<=kwClasses.size()) {
+        string kwClassName=kwClasses[currentKeywordClass-1];
+        if (kwClassName.size()==3)
+            kwClassId = kwClassName[2] - 'a' + 1;
+    }
+    return kwClassId;
+}
+
 //it is faster to pass ostream reference
 void CodeGenerator::maskString ( ostream& ss, const string & s )
 {
@@ -683,7 +696,7 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
         ss << maskCharacter ( s[i] );
 
         if (applySyntaxTestCase) {
-            PositionState ps(currentState, currentKeywordClass, false);
+            PositionState ps(currentState, getCurrentKeywordClassId(), false);
             stateTraceCurrent.push_back(ps);
             
             if (stateTraceCurrent.size()>200) 
@@ -1790,6 +1803,7 @@ bool CodeGenerator::processKeywordState ( State myState )
         case _EOL:
             insertLineNumber();
             exitState=true;
+            
             break;
         case _EOF:
             eof = true;
@@ -1867,7 +1881,7 @@ bool CodeGenerator::processMultiLineCommentState()
             eof = true;
             break;
         case _TESTPOS:
-            runSyntaxTestcases(token=="<" ? startColumn : lineIndex-1 );
+            runSyntaxTestcases(token=="<" ? startColumn : lineIndex - 1 );
             printMaskedToken();
             containedTestCase=true;
             break;
@@ -1940,7 +1954,7 @@ bool CodeGenerator::processSingleLineCommentState()
             eof = true;
             break;
         case _TESTPOS:
-            runSyntaxTestcases(token=="<" ? startColumn : lineIndex-1 );
+            runSyntaxTestcases(token=="<" ? startColumn : lineIndex - 1 );
             printMaskedToken();
             containedTestCase=true;
             break;
@@ -2209,6 +2223,7 @@ void CodeGenerator::processWsState()
     int cntWs=0;
     lineIndex--;
     PositionState ps(currentState, 0, true);
+            
     while ( line[lineIndex]==' ' || line[lineIndex]=='\t' ) {
         ++cntWs;
         ++lineIndex;
@@ -2222,8 +2237,9 @@ void CodeGenerator::processWsState()
         *out << maskWsBegin ;
         for ( int i=0; i<cntWs; i++ ) {
             *out <<  spacer;
-            if (applySyntaxTestCase)
+            if (applySyntaxTestCase){
                 stateTraceCurrent.push_back(ps);
+            }
         }
         *out << maskWsEnd;
         if ( excludeWs && styleID!=_UNKNOWN ) {
@@ -2232,8 +2248,9 @@ void CodeGenerator::processWsState()
     } else {
     
         *out << spacer; //Bugfix fehlender Space nach Strings
-        if (applySyntaxTestCase)
-            stateTraceCurrent.push_back(ps);
+        if (applySyntaxTestCase){
+            stateTraceCurrent.push_back(ps);            
+        }
     }
     token.clear();
 }
@@ -2241,8 +2258,9 @@ void CodeGenerator::processWsState()
 void CodeGenerator::flushWs(int arg)
 {
      PositionState ps(currentState, 0, true);
+            
      //workaround condition
-     for ( size_t i=0; i<wsBuffer.size() && (arg !=2 || (arg==2 && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
+     for ( size_t i=0; i<wsBuffer.size() && ((arg !=2 && arg !=3) || ( (arg==2 || arg==3) && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
         stateTraceCurrent.push_back(ps);
      }
      
@@ -2296,9 +2314,13 @@ string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
 
 void CodeGenerator::printTrace(const string &s){
     std::cout<<"\n"<<lineNumber<<" "<<s<<": ";
-    for (unsigned int i=0; i< stateTraceCurrent.size(); i++) {
-        std::cout<<" "<<stateTraceCurrent[i].state;
+   /* for (unsigned int i=0; i< stateTraceCurrent.size(); i++) {
+        std::cout<<" "<<stateTraceCurrent[i].state << "-"<<stateTraceCurrent[i].kwClass;
+    }*/
+    for (unsigned int i=0; i< stateTrace.size(); i++) {
+        std::cout<<" "<<stateTrace[i];
     }
+   
     std::cout<<"\n";
 }
 
@@ -2355,7 +2377,7 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
             ostringstream err;
             err << inFile << " line " << lineNumber << ", column "<< column 
                 << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
-                << " instead of " << getTestcaseName(assertState, assertGroup) ;
+                << " instead of " << getTestcaseName(assertState, assertGroup);
             failedPosTests.push_back(err.str());
         }
         

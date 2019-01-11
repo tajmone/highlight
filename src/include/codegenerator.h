@@ -887,9 +887,10 @@ private:
     /** call user script OnStateChange function if defined to confirm state change
      \param newState new state
      \param oldState old state
-     \param kwClass keyword class ID if newState is KEYWORD
      */
-    State validateState(State newState, State oldState, unsigned int kwClass);
+    State validateState(State newState, State oldState);
+    
+    unsigned int getCurrentKeywordClassId();
   
     string getParam(const string& arg, const char* op);
     string getParam(const string& arg, const char* op1, const char* op2);
