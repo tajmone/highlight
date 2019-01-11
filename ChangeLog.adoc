@@ -2,6 +2,7 @@
 :reproducible:
 :sectanchors:
 :sectnums!:
+:toc: left
 :toclevels: 1
 
  - added support for TOML
