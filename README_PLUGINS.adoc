@@ -15,6 +15,14 @@ v3.45, September 2018
 :experimental: true
 :icons: font
 :linkattrs: true
+// GitHub Settings to enable Admonitions Icons in preview:
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :heavy_exclamation_mark:
+:note-caption: :information_source:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
 
 // =====================================
 // Custom Attributes for Reference Links
