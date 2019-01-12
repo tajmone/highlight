@@ -633,6 +633,7 @@ This function is a hook which is called if an internal state changes (e.g. from
 `HL_STANDARD` to `HL_KEYWORD` if a keyword is found). It can be used to alter
 the new state or to manipulate syntax elements like keyword lists.
 
+[[OnStateChange]]
 ................................................................................
 OnStateChange(oldState, newState, token, kwGroupID)
 
