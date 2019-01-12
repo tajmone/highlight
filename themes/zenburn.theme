@@ -2,6 +2,8 @@
 
 Description = "vim zenburn"
 
+Categories = {"dark"}
+
 Default	= { Colour="#dcdccc" }
 Canvas	= { Colour="#1f1f1f" }
 Number	= { Colour="#dca3a3" , Bold=true}

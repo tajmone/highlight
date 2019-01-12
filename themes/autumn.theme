@@ -1,6 +1,8 @@
 
 Description = "vim autumn"
 
+Categories = {"light"}
+
 Default	= { Colour="#404040" }
 Canvas	= { Colour="#fff4e8" }
 Number	= { Colour="#00884c" }

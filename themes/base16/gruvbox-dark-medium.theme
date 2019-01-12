@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Gruvbox dark, medium"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#282828" --> Default Background
 base01 = "#3c3836" --> Lighter Background (Used for status bars)

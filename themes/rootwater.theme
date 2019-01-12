@@ -2,6 +2,8 @@
 
 Description = "vim vim unknown"
 
+Categories = {"dark"}
+
 Default	= { Colour="#babdb6" }
 Canvas	= { Colour="#151b1d" }
 Number	= { Colour="#77dd88" }

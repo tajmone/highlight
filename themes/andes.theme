@@ -2,6 +2,8 @@
 
 Description = "brighter than xoria256"
 
+Categories = {"dark"}
+
 Default	= { Colour="#f0f0f0" }
 Canvas	= { Colour="#0f0f0f" }
 Number	= { Colour="#dfaf87" }

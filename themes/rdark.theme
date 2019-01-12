@@ -2,6 +2,8 @@
 
 Description = "vim rdark"
 
+Categories = {"dark"}
+
 Default	= { Colour="#babdb6" }
 Canvas	= { Colour="#1e2426" }
 Number	= { Colour="#8ae234" }

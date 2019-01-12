@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Harmonic16 Light"
+Categories = {"light", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#f7f9fb" --> Default Background
 base01 = "#e5ebf1" --> Lighter Background (Used for status bars)

@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Twilight"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#1e1e1e" --> Default Background
 base01 = "#323537" --> Lighter Background (Used for status bars)

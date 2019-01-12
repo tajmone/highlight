@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Atelier Savanna"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#171c19" --> Default Background
 base01 = "#232a25" --> Lighter Background (Used for status bars)

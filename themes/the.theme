@@ -2,6 +2,8 @@
 
 Description="the"
 
+Categories = {"light"}
+
 Default        = { Colour="#000000" }
 Canvas         = { Colour="#ffffff" }
 Number         = { Colour="#ff0000", Bold=true }

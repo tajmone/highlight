@@ -1,5 +1,6 @@
-
 Description="Darkness"
+
+Categories = {"dark"}
 
 Default        = { Colour="#ffffff" }
 Canvas         = { Colour="#000000" }

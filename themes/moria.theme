@@ -2,6 +2,8 @@
 
 Description = "vim moria"
 
+Categories = {"dark"}
+
 Default	= { Colour="#d0d0d0" }
 Canvas	= { Colour="#202020" }
 Number	= { Colour="#87df71" }

@@ -2,6 +2,8 @@
 
 Description="Easter"
 
+Categories = {"light"}
+
 Default        = { Colour="#2C7B34" }
 Canvas         = { Colour="#fff9b9" }
 Number         = { Colour="#e11a70" }

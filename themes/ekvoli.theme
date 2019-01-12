@@ -1,6 +1,8 @@
 
 Description = "vim ekvoli"
 
+Categories = {"dark"}
+
 Default	= { Colour="#dedede" }
 Canvas	= { Colour="#001535" }
 Number	= { Colour="#87c6f0" , Italic=true}

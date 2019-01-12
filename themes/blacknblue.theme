@@ -1,6 +1,8 @@
 
 Description="Black And Blue"
 
+Categories = {"dark"}
+
 Default        = { Colour="#22a0d6" }
 Canvas         = { Colour="#000000" }
 Number         = { Colour="#cc3366" }

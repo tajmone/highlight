@@ -2,6 +2,8 @@
 
 Description = "vim TCSoft"
 
+Categories = {"light"}
+
 Default	= { Colour="#000000" }
 Canvas	= { Colour="#FFFFFF" }
 Number	= { Colour="#666666" }

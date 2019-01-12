@@ -1,6 +1,8 @@
 
 Description = "vim candy"
 
+Categories = {"dark"}
+
 Default	= { Colour="#f0f0f8" }
 Canvas	= { Colour="#000000" }
 Number	= { Colour="#90d0ff" }

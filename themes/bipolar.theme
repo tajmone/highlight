@@ -1,6 +1,8 @@
 
 Description="Bipolar"
 
+Categories = {"dark"}
+
 Default        = { Colour="#d62b9a" }
 Canvas         = { Colour="#0f020a" }
 Number         = { Colour="#0083c9" }

@@ -2,6 +2,8 @@
 
 Description = "vim navajo-night"
 
+Categories = {"dark"}
+
 Default	= { Colour="#fbfbfb" }
 Canvas	= { Colour="#243a4d" }
 Number	= { Colour="#3fffa7" }

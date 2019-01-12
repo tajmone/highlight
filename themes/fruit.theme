@@ -2,6 +2,8 @@
 
 Description = "vim fruit"
 
+Categories = {"light"}
+
 Default	= { Colour="#404040" }
 Canvas	= { Colour="#f8f8f8" }
 Number	= { Colour="#8016ff" }

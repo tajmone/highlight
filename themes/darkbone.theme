@@ -1,6 +1,8 @@
 
 Description = "vim dark bone"
 
+Categories = {"dark"}
+
 Default	= { Colour="#a0a0c0" }
 Canvas	= { Colour="#000000" }
 Number	= { Colour="#d0e080" }

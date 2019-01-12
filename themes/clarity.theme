@@ -1,6 +1,8 @@
 
 Description = "vim clarity"
 
+Categories = {"dark"}
+
 Default	= { Colour="#b2dfee" }
 Canvas	= { Colour="#1F3055" }
 Number	= { Colour="#b3ee3a" }

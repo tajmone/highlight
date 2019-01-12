@@ -21,6 +21,8 @@
 
 Description   = "Godot Engine"
 
+Categories = {"dark"}
+
 Canvas        = { Colour="#222026" }  -- ("Baltic Sea" Black)
 
 Default       = { Colour="#AAAAAA" }  -- ("Silver Chalice" Grey)

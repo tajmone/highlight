@@ -1,6 +1,8 @@
 
 Description = "vim baycomb"
 
+Categories = {"dark"}
+
 Default	= { Colour="#a0b4e0" }
 Canvas	= { Colour="#11121a" }
 Number	= { Colour="#4580b4" }

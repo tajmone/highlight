@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Isotope"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#000000" --> Default Background
 base01 = "#404040" --> Lighter Background (Used for status bars)

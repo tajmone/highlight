@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Atelier Seaside"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#131513" --> Default Background
 base01 = "#242924" --> Lighter Background (Used for status bars)

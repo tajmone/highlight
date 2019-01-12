@@ -1,5 +1,7 @@
 Description="Solarized Light"
 
+Categories = {"light"}
+
 Default        = { Colour="#657b83" }
 Canvas         = { Colour="#fdf6e3" }
 Number         = { Colour="#dc322f" }

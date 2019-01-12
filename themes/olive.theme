@@ -2,6 +2,8 @@
 
 Description = "vim olive"
 
+Categories = {"dark"}
+
 Default	= { Colour="#D9D9C3" }
 Canvas	= { Colour="#333300" }
 Number	= { Colour="#ffddad" }

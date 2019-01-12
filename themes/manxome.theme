@@ -2,6 +2,8 @@
 
 Description = "vim manxome"
 
+Categories = {"dark"}
+
 Default	= { Colour="#cccccc" }
 Canvas	= { Colour="#000000" }
 Number	= { Colour="#00ffff" }

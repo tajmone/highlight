@@ -1,5 +1,7 @@
 Description="Solarized Dark"
 
+Categories = {"dark"}
+
 Default        = { Colour="#839496" }
 Canvas         = { Colour="#002b36" }
 Number         = { Colour="#dc322f" }

@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Nord"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#2E3440" --> Default Background
 base01 = "#3B4252" --> Lighter Background (Used for status bars)

@@ -24,6 +24,8 @@ Project repository:
 
 Description   = "FASM Editor"
 
+Categories = {"light"}
+
 Canvas        = { Colour="#FFFFFF" }  -- "White"
 
 Default       = { Colour="#000000" }  -- "Black"

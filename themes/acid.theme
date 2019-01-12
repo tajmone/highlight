@@ -1,6 +1,8 @@
 
 Description="Acid"
 
+Categories = {"light", "pastel"}
+
 Default        = { Colour="#000000" }
 Canvas         = { Colour="#eeeeee" }
 Number         = { Colour="#800080", Bold=true }

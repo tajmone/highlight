@@ -1,6 +1,8 @@
 
 Description = "vim darkslategray"
 
+Categories = {"dark"}
+
 Default	= { Colour="#f5deb3" }
 Canvas	= { Colour="#2f4f4f" }
 Number	= { Colour="#ff6347" }

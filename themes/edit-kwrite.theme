@@ -1,6 +1,8 @@
 
 Description="Kwrite Editor"
 
+Categories = {"light"}
+
 Default        = { Colour="#000000" }
 Canvas         = { Colour="#E0EAEE" }
 Number         = { Colour="#B07E00" }

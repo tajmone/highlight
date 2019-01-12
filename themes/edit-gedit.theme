@@ -1,6 +1,8 @@
 
 Description="Gedit Editor"
 
+Categories = {"light"}
+
 Default        = { Colour="#3A3935" }
 Canvas         = { Colour="#ffffff" }
 Number         = { Colour="#FF00FF" }

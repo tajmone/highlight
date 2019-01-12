@@ -26,7 +26,8 @@ Strings={
   DelimiterPairs= {
     { Open=[[ \[=*\[ ]], Close=[[ \]=*\] ]], Raw=true }
   },
-  AssertEqualLength=true
+  AssertEqualLength=true,
+  Interpolation=[[ \$\{.+?\} ]]
 }
 
 IgnoreCase=false
@@ -50,6 +51,10 @@ function OnStateChange(oldState, newState, token)
 
    if token=="]]" and oldState==HL_STRING and newState==HL_BLOCK_COMMENT_END then
       return HL_STRING_END
+   end
+   
+   if  (string.sub(token,1,1) =="$" )  and oldState==HL_STRING and newState==HL_KEYWORD then
+      return HL_INTERPOLATION
    end
    
    return newState

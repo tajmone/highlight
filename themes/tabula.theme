@@ -2,6 +2,8 @@
 
 Description = "vim tabula"
 
+Categories = {"dark"}
+
 Default	= { Colour="#71D289" }
 Canvas	= { Colour="#004A41" }
 Number	= { Colour="#00A7F7" }

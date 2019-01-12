@@ -1,6 +1,8 @@
 
 Description = "vim dante"
 
+Categories = {"dark"}
+
 Default	= { Colour="#cdaf96" }
 Canvas	= { Colour="#000000" }
 Number	= { Colour="#ee0000" }

@@ -2,6 +2,8 @@
 
 Description = "vim Matrix"
 
+Categories = {"dark"}
+
 Default	= { Colour="#44cc44" }
 Canvas	= { Colour="#000000" }
 Number	= { Colour="#55ff55" }

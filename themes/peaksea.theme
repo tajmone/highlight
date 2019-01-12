@@ -2,6 +2,8 @@
 
 Description = "vim peaksea"
 
+Categories = {"light"}
+
 Default	= { Colour="#000000" }
 Canvas	= { Colour="#e0e0e0" }
 Number	= { Colour="#907000" }

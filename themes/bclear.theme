@@ -1,6 +1,8 @@
 
 Description = "vim bclear"
 
+Categories = {"light"}
+
 Default	= { Colour="#323232" }
 Canvas	= { Colour="#ffffff" }
 Number	= { Colour="#1094a0" }

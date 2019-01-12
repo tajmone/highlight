@@ -2,6 +2,8 @@
 
 Description = "vim fine_blue"
 
+Categories = {"light"}
+
 Default	= { Colour="#404048" }
 Canvas	= { Colour="#f8f8f8" }
 Number	= { Colour="#2020ff" }

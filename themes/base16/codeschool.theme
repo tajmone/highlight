@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Codeschool"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#232c31" --> Default Background
 base01 = "#1c3657" --> Lighter Background (Used for status bars)

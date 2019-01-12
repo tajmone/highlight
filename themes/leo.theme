@@ -2,6 +2,8 @@
 
 Description = "vim leo256"
 
+Categories = {"dark"}
+
 Default	= { Colour="#ffffff" }
 Canvas	= { Colour="#000000" }
 Number	= { Colour="#ff875f" }

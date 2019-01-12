@@ -2,6 +2,8 @@
 
 Description = "vim nuvola"
 
+Categories = {"light"}
+
 Default	= { Colour="#000000" }
 Canvas	= { Colour="#F9F5F9" }
 Number	= { Colour="#00C226" }

@@ -2,6 +2,8 @@
 
 Description = "vim maroloccio"
 
+Categories = {"dark"}
+
 Default	= { Colour="#8b9aaa" }
 Canvas	= { Colour="#1a202a" }
 Number	= { Colour="#8b8b00" }

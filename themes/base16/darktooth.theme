@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Darktooth"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#1D2021" --> Default Background
 base01 = "#32302F" --> Lighter Background (Used for status bars)

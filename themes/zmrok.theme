@@ -2,6 +2,8 @@
 
 Description = "vim zmrok"
 
+Categories = {"dark"}
+
 Default	= { Colour="#F8F8F8" }
 Canvas	= { Colour="#141414" }
 Number	= { Colour="#FACE43" }

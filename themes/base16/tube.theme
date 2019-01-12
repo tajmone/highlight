@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 London Tube"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#231f20" --> Default Background
 base01 = "#1c3f95" --> Lighter Background (Used for status bars)

@@ -2,6 +2,8 @@
 
 Description = "vim neon"
 
+Categories = {"dark"}
+
 Default	= { Colour="#f0f0f0" }
 Canvas	= { Colour="#303030" }
 Number	= { Colour="#92d4ff" }

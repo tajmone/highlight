@@ -2,6 +2,8 @@
 
 Description = "based on oXygen rnc coloring"
 
+Categories = {"dark"}
+
 Default	= { Colour="#FFFF66", Bold=true }
 Canvas	= { Colour="#0f0f0f" }
 Number	= { Colour="#0099CC" }

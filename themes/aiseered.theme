@@ -1,6 +1,8 @@
 
 Description = "vim aiseered"
 
+Categories = {"dark"}
+
 Default	= { Colour="#f08080" }
 Canvas	= { Colour="#400000" }
 Number	= { Colour="#88ddee" }

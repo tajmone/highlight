@@ -1,6 +1,8 @@
 
 Description = "vim camo"
 
+Categories = {"dark"}
+
 Default	= { Colour="#ffe4c4" }
 Canvas	= { Colour="#232323" }
 Number	= { Colour="#d2691e" }

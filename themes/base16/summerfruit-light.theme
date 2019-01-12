@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Summerfruit Light"
+Categories = {"light", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#FFFFFF" --> Default Background
 base01 = "#E0E0E0" --> Lighter Background (Used for status bars)

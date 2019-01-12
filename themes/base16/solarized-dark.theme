@@ -14,6 +14,8 @@ For more info on Chris Kempson's Base16, see:
     http://chriskempson.com/projects/base16
 ------------------------------------------------------------------------------]]
 Description = "Base16 Solarized Dark"
+Categories = {"dark", "base16"}
+
 --------------------------------------------------------------------------------
 base00 = "#002b36" --> Default Background
 base01 = "#073642" --> Lighter Background (Used for status bars)

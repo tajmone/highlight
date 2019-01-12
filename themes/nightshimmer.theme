@@ -2,6 +2,8 @@
 
 Description = "vim nightshimmer"
 
+Categories = {"dark"}
+
 Default	= { Colour="#e0eee0" }
 Canvas	= { Colour="#103040" }
 Number	= { Colour="#00ffff" }

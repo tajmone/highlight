@@ -1,5 +1,7 @@
 Description = "vscode darkplus"
 
+Categories = {"dark"}
+
 Default = { Colour="#9cdcfe" }
 Canvas = { Colour="#1e1e1e" }
 Number = { Colour="#b5cea8" }

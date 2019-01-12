@@ -1,6 +1,8 @@
 
 Description="Sourceforge Source View"
 
+Categories = {"light"}
+
 Default        = { Colour="#555555" }
 Canvas         = { Colour="#f8f8f8" }
 Number         = { Colour="#666666" }
