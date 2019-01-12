@@ -6,7 +6,10 @@
 :toc: left
 :toclevels: 1
 
+ - fixed more problems with syntax test indicators reporting wrong states
+   (https://gitlab.com/saalen/highlight/issues/102)
  - added support for TOML
+ - improved Perl highlighting
 
 == highlight 3.48
 

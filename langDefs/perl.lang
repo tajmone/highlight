@@ -4,6 +4,9 @@ Description="Perl"
 --[[==============================================================================
                                         CHANGELOG                                     
 ==================================================================================
+  (2019/01/11 | Highlight v3.49)
+    - fixed Highlighting of variables
+
   (2018/01/03 | Highlight v3.42)
     - improved Perl6 support
     - allow _ in hereDoc delimiter
@@ -22,7 +25,7 @@ Keywords={
     "lazy", "gather", "take", "role", "is", "does", "rw" },
   },
   { Id=2,
-    Regex=[[ [$@%]\#?[^(\s|\.|\-\>|\"|\'|\(|\[|\)|\]|\{|\}|\>|\<)]+ ]],
+    Regex=[[ [$@%]\#?[^(\s|\.|\=|\:|\-\>|\"|\'|\(|\[|\)|\]|\{|\}|>|<|\;)]+ ]],
   },
   { Id=3,
     List={"defined", "undef", "eq", "ne", "lt", "gt", "ge", "le", "cmp", "not", 

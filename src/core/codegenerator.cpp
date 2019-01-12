@@ -2258,11 +2258,11 @@ void CodeGenerator::processWsState()
 void CodeGenerator::flushWs(int arg)
 {
      PositionState ps(currentState, 0, true);
-            
      //workaround condition
-     for ( size_t i=0; i<wsBuffer.size() && ((arg !=2 && arg !=3) || ( (arg==2 || arg==3) && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
+     for ( size_t i=0; i<wsBuffer.size() && ((arg > 3) || ( (arg<4) && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
         stateTraceCurrent.push_back(ps);
-     }
+        //std::cerr <<"\nflush >"<<wsBuffer<<"< arg:"<<arg;           
+    }
      
      //fix canvas whitespace
      if (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR){
@@ -2313,32 +2313,29 @@ string CodeGenerator::getTestcaseName(State s, unsigned int kwClass) {
 }
 
 void CodeGenerator::printTrace(const string &s){
-    std::cout<<"\n"<<lineNumber<<" "<<s<<": ";
-   /* for (unsigned int i=0; i< stateTraceCurrent.size(); i++) {
-        std::cout<<" "<<stateTraceCurrent[i].state << "-"<<stateTraceCurrent[i].kwClass;
-    }*/
+    std::cout<<"\n curr "<<lineNumber<<" "<<s<<": ";
+    for (unsigned int i=0; i< stateTraceCurrent.size(); i++) {
+        std::cout<<" "<<stateTraceCurrent[i].state;
+    }
+    std::cout<<"\n test "<<lineNumber<<" "<<s<<": ";
+    for (unsigned int i=0; i< stateTraceTest.size(); i++) {
+        std::cout<<" "<<stateTraceTest[i].state;
+    }
+    /*
     for (unsigned int i=0; i< stateTrace.size(); i++) {
         std::cout<<" "<<stateTrace[i];
     }
-   
+   */
     std::cout<<"\n";
 }
 
 void CodeGenerator::runSyntaxTestcases(unsigned int column){
     
-
     unsigned int assertGroup=0;
     size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);
     State assertState=_UNKNOWN;
     
-    if (!lineContainedTestCase){
-        stateTraceCurrent=stateTraceTest;
-    } 
-
-    if (column>stateTraceCurrent.size())
-        return;
-    
-    //printTrace("runSyntaxTestcases");
+    //printTrace("trace 2");
     
     if (typeDescPos!=string::npos) {
     
@@ -2371,12 +2368,12 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
                 assertGroup=line[typeDescPos+2] - 'a' +1;
         }
     
-        if (   (assertState!=_WS && stateTraceCurrent[column].state != assertState && !stateTraceCurrent[column].isWhiteSpace )
-            || (assertState==_WS && !stateTraceCurrent[column].isWhiteSpace)
-            || assertGroup != stateTraceCurrent[column].kwClass) {
+        if (   (assertState!=_WS && stateTraceTest[column].state != assertState && !stateTraceTest[column].isWhiteSpace )
+            || (assertState==_WS && !stateTraceTest[column].isWhiteSpace)
+            || assertGroup != stateTraceTest[column].kwClass) {
             ostringstream err;
             err << inFile << " line " << lineNumber << ", column "<< column 
-                << ": got " << getTestcaseName(stateTraceCurrent[column].state, stateTraceCurrent[column].kwClass)  
+                << ": got " << getTestcaseName(stateTraceTest[column].state, stateTraceTest[column].kwClass)  
                 << " instead of " << getTestcaseName(assertState, assertGroup);
             failedPosTests.push_back(err.str());
         }
