@@ -636,6 +636,7 @@ Wechsel von `HL_STANDARD` zu `HL_KEYWORD` wenn ein Schluesselwort erkannt wurde)
 Mit dieser Funktion kann der neue Zustand angepasst werden, oder es koennen
 Syntax-Elemente wie Keyword-Listen erweitert werden.
 
+[[OnStateChange]]
 ................................................................................
 OnStateChange(oldState, newState, token, kwGroupID)
 

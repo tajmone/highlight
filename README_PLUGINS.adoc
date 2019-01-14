@@ -198,6 +198,7 @@ in language definitions without a plug-in use case.
 
 === FUNCTIONS ADDKEYWORD/REMOVEKEYWORD
 
+[[AddKeyword]]
 The `AddKeyword` function will add a keyword to one of the the internal keyword
 lists. It has no effect if the keyword was added before.
 Keywords added with `AddKeyword` will remain active for all files of the same
@@ -211,6 +212,7 @@ AddKeyword(keyword, kwGroupID)
   Returns:    true if successfull
 ................................................................................
 
+[[RemoveKeyword]]
 The `RemoveKeyword` function erases the given keyword from the internal list.
 
 ................................................................................
@@ -223,6 +225,7 @@ RemoveKeyword(keyword)
 
 === FUNCTION ONSTATECHANGE
 
+[[OnStateChange]]
 This function is a hook which is called if an internal state changes (e.g. from
 `HL_STANDARD` to `HL_KEYWORD` if a keyword is found). It can be used to alter
 the new state or to manipulate syntax elements like keyword lists.
@@ -262,6 +265,7 @@ does no longer match.
 
 === DECORATE FUNCTIONS
 
+[[Decorate]]
 The `Decorate` function is a hook which is called if a syntax token has been
 identified. It can be used to alter the token or to add additional text in the
 target output format (e.g. hyperlinks).
@@ -293,10 +297,10 @@ end
 
 This function converts all keywords to upper case.
 
-
 The functions `DecorateLineBegin` and `DecorateLineEnd` are called if a new line
 starts or ends. They can be used to add special formatting to lines of code.
 
+[[DecorateLineBegin]]
 ................................................................................
 DecorateLineBegin(lineNumber)
 
@@ -305,6 +309,7 @@ DecorateLineBegin(lineNumber)
   Returns:    A string to be prepended to a new line (or nothing)
 ................................................................................
 
+[[DecorateLineEnd]]
 ................................................................................
 DecorateLineEnd(lineNumber)
 
@@ -394,6 +399,7 @@ Functions:
 
 === DOCUMENTHEADER FUNCTION
 
+[[DocumentHeader]]
 ................................................................................
 DocumentHeader(numFiles, currFile, options)
 
@@ -416,6 +422,7 @@ DocumentHeader(numFiles, currFile, options)
 
 === DOCUMENTFOOTER FUNCTION
 
+[[DocumentFooter]]
 ................................................................................
 DocumentFooter(numFiles, currFile, options)
 

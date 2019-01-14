@@ -15,8 +15,8 @@
 
 14.12.2018
 
- - fixed --list-scripts abortion with Fedora default compilation options
-     (https://gitlab.com/saalen/highlight/issues/84)
+ - fixed `--list-scripts` abortion with Fedora default compilation options
+   (https://gitlab.com/saalen/highlight/issues/84)
  - fixed a problem with syntax test indicators reporting wrong states after comments
  - improved Verilog syntax
  - improved quoted string highlighting for Perl and Ruby
@@ -31,8 +31,8 @@
  - added darkplus theme (https://gitlab.com/saalen/highlight/merge_requests/84)
  - converted ChangeLog to AsciiDoc
  - allowed state test indicators to match both whitespace (ws) and the enclosing state (others)
- - CLI: default output changed to xterm256 or truecolor if run in a terminal with color support and
-        only a single file is outputted
+ - CLI: default output changed to xterm256 or truecolor if run in a terminal
+        with color support and only a single file is outputted
  - GUI: added checkbox in the clipboard tab to output selected lines only
 
 
@@ -48,8 +48,8 @@
 
 02.10.2018
 
- - added DocumentHeader and DocumentFooter plug-in hooks
- - added RemoveKeyword Lua function for syntax definitions
+ - added `DocumentHeader` and `DocumentFooter` plug-in hooks
+ - added `RemoveKeyword` Lua function for syntax definitions
  - added syntax test indicators (see README_TESTCASES)
  - added support for ISO and R10 variants of Modula2 (thanks to Benjamin Kowarsch)
  - fixed R identifiers (https://gitlab.com/saalen/highlight/merge_requests/77)
@@ -67,18 +67,18 @@
 
  - fixed gcc 8 compilation warnings
  - fixed Ruby string interpolation
-  (https://github.com/andre-simon/highlight/issues/70)
+   (https://github.com/andre-simon/highlight/issues/70)
  - added support for ALAN IF (thanks to Tristano Ajmone)
- - added 107 Base16 themes [https://github.com/chriskempson/base16]
-  (thanks to Tristano Ajmone)
+ - added 107 Base16 themes (thanks to Tristano Ajmone)
+   (https://github.com/chriskempson/base16)
  - updated Rust and Java reserved words lists
  - revised documentation
  - moved extras/css-themes into extras/themes-resources
  - added extras/themes-resources/base16 (thanks to Tristano Ajmone)
  - GUI: added Base16 theme selection checkbox
- - CLI: added --base16 option to enable the new themes
+ - CLI: added `--base16` option to enable the new themes
  - CLI: accept - as argument to read from stdin
-  (https://github.com/andre-simon/highlight/issues/73)
+   (https://github.com/andre-simon/highlight/issues/73)
 
 
 == highlight 3.43
@@ -89,13 +89,13 @@
  - added webkit reformatting style
  - improved several language definitions
  - fixed Matlab string recognition
-  (https://github.com/andre-simon/highlight/issues/61)
+   (https://github.com/andre-simon/highlight/issues/61)
  - fixed Autohotkey escape sequence recognition (thanks to Klaus Daube)
  - added excel.lang (https://github.com/andre-simon/highlight/pull/60)
  - improved Qt pro file (https://github.com/andre-simon/highlight/pull/59)
- - CLI: added --reformat-option
-  (https://github.com/andre-simon/highlight/issues/62)
- - CLI: added --line-range (https://github.com/andre-simon/highlight/issues/64)
+ - CLI: added `--reformat-option`
+   (https://github.com/andre-simon/highlight/issues/62)
+ - CLI: added `--line-range` (https://github.com/andre-simon/highlight/issues/64)
  - GUI: added Bulgarian translation  (thanks to Georgi Sotirov)
 
 
@@ -103,7 +103,7 @@
 
 20.01.2018
 
- - fixed HL_OUTPUT in Lua state for HL_FORMAT_XHTML and HL_FORMAT_TRUECOLOR values
+ - fixed `HL_OUTPUT` in Lua state for `HL_FORMAT_XHTML` and `HL_FORMAT_TRUECOLOR` values
  - fixed lib-shared make target
  - updated astyle code to release 3.1.0 beta
  - added Polygen and EBNF2 syntax definitions (thanks to Tristano Ajmone)
@@ -113,8 +113,8 @@
  - improved Perl6 compatibility
  - improved PHP string interpolation
  - improved Haskell definition (https://github.com/andre-simon/highlight/pull/52)
- - CLI: added --canvas option to define background color padding in ANSI output
-  (https://github.com/andre-simon/highlight/issues/40)
+ - CLI: added `--canvas` option to define background color padding in ANSI output
+   (https://github.com/andre-simon/highlight/issues/40)
  - GUI: added French translation (thanks to Antoine Belvire)
  - GUI: added Scripts tab (suggested by Tristano Ajmone)
  - GUI: minor bugfixes
@@ -125,19 +125,19 @@
 27.11.2017
 
  - renamed examples directory to extras
- - line anchors (-a) are attached as id attribute to the first span or li tag in
-  HTML output (https://github.com/andre-simon/highlight/issues/36)
- - renamed ID prefix in outhtml_codefold plug-in to be compatible with -a IDs
+ - line anchors (`-a`) are attached as id attribute to the first span or li tag in
+   HTML output (https://github.com/andre-simon/highlight/issues/36)
+ - renamed ID prefix in outhtml_codefold plug-in to be compatible with `-a` IDs
  - added fstab.lang and added anacrontab in filetypes.conf
  - removed references to OutputType::HTML32
  - added extras/css-themes and extras/langDefs-resources
-  (thanks to Tristano Ajmone)
- - CLI: removed deprecated indicator of --data-dir option
- - CLI: added --no-version-info option
+   (thanks to Tristano Ajmone)
+ - CLI: removed deprecated indicator of `--data-dir` option
+ - CLI: added `--no-version-info` option
  - GUI: fixed initial theme selection
  - GUI: added "Omit version info comment" option
  - GUI: added "Copy with MIME type" option for HTML output
-  (https://github.com/andre-simon/highlight/issues/32)
+   (https://github.com/andre-simon/highlight/issues/32)
 
 
 == highlight 3.40
@@ -150,9 +150,9 @@
  - added CMake definition (https://github.com/andre-simon/highlight/issues/20)
  - added email definition (https://github.com/andre-simon/highlight/issues/21)
  - linked scm suffix to lisp definition
-  (https://github.com/andre-simon/highlight/issues/22)
- - W32 CLI: support HIGHLIGHT_DATADIR and --data-dir options
-  (https://github.com/andre-simon/highlight/issues/24)
+   (https://github.com/andre-simon/highlight/issues/22)
+ - W32 CLI: support HIGHLIGHT_DATADIR and `--data-dir` options
+   (https://github.com/andre-simon/highlight/issues/24)
  - revised documentation
 
 
@@ -163,7 +163,7 @@
  - added syntax for Docker and Elixir
  - improved HTML, Julia, Kotlin and Smalltalk syntax definitions
  - GUI: added "Paste, Convert and Copy" button
-  (https://sourceforge.net/p/syntaxhighlight/support-requests/4/)
+   (https://sourceforge.net/p/syntaxhighlight/support-requests/4/)
 
 
 == highlight 3.38
@@ -184,14 +184,14 @@
  - updated astyle code to release 3.0
  - added examples/pandoc (thanks to Tristano Ajmone)
  - added syntax mapping for markdown
-  (https://github.com/andre-simon/highlight/issues/11)
+   (https://github.com/andre-simon/highlight/issues/11)
  - added syntax mapping for clj
-  (https://github.com/andre-simon/highlight/issues/15)
+   (https://github.com/andre-simon/highlight/issues/15)
  - improved Java definition (https://github.com/andre-simon/highlight/issues/13)
  - added theme to JSON converter in  examples/json
-  (https://github.com/andre-simon/highlight/issues/8)
+   (https://github.com/andre-simon/highlight/issues/8)
  - CLI: added support for environment variable HIGHLIGHT_OPTIONS
-  (https://github.com/andre-simon/highlight/issues/17)
+   (https://github.com/andre-simon/highlight/issues/17)
 
 
 == highlight 3.36
@@ -199,15 +199,15 @@
 30.03.2017
 
  - fixed code folding plugin to support more Ruby conditional modifiers
-  (thanks to Jens Schleusener)
+   (thanks to Jens Schleusener)
  - fixed Perl quoted string highlighting (thanks to Jens Schleusener)
  - added new GeneratorOverride syntax definition parameter
  - added Filenames parameter in filetypes.conf to assign input filenames
-  to syntax types (suggested by Andy)
+   to syntax types (suggested by Andy)
  - added FASM definition and edit-fasm theme (thanks to Tristano Ajmone)
  - added outhtml_ie7_webctrl plug-in (suggested by Tristano Ajmone)
  - GUI: file extensions can be configured for multiple languages,
-  triggers syntax selection prompt
+   triggers syntax selection prompt
  - GUI: added Italian translation (thanks to Tristano Ajmone)
 
 
@@ -218,23 +218,23 @@
  - fixed code folding plugin to support Ruby conditional modifiers
  - fixed JSON definition (thanks to Timothee Cour)
  - fixed output of unknown syntax warning with applied force switch
-  (thanks to Andy)
- - added state trace parameter to Decorate plug-in function
+   (thanks to Andy)
+ - added state trace parameter to `Decorate` plug-in function
  - added GDScript definition and edit-godot theme (thanks to Tristano Ajmone)
  - updated SWIG code samples
  - updated Artistic Style lib (SVN Rev. 553)
  - revised docs
  - CLI: fixed creation of hidden files if output filename is prepended by its
-  input path
- - CLI: added switch --stdout (https://sourceforge.net/p/syntaxhighlight/bugs/14)
+   input path
+ - CLI: added switch `--stdout` (https://sourceforge.net/p/syntaxhighlight/bugs/14)
 
 
 == highlight 3.34
 
 27.12.2016
 
- - fixed segfault with --skip applied on a single file input list
-  (thanks to Jens Schleusener)
+ - fixed segfault with `--skip` applied on a single file input list
+   (thanks to Jens Schleusener)
  - added support for Python 3.6 syntax
  - added Github and Sourceforge themes
 
@@ -247,8 +247,8 @@
  - fixed PHP definition (thanks to Christoph Burschka)
  - fixed font family declaration in SVG
  - fixed user defined encoding in ODT
- - fixed unnecessary output of style file with --inline-css
-  (thanks to Jens Schleusener)
+ - fixed unnecessary output of style file with `--inline-css`
+   (thanks to Jens Schleusener)
  - added vimscript language definition (thanks to Max Christian Pohle)
  - added Coffeescript language definition (thanks to Jess Austin)
  - added PureBasic definition and theme (thanks to Tristano Ajmone)
@@ -264,13 +264,13 @@
 
 24.09.2016
 
- - added support for true color escape codes (--out-format truecolor)
+ - added support for true color escape codes (`--out-format` truecolor)
  - fixed xterm256 output for paging with less (thanks to Fylwind)
  - fixed operator regex in rnc.lang, crk.lang and yaml.lang (thanks to Joe Klauza)
  - added Pony and Whiley definitions
  - updated Ceylon, Julia and TypeScript definitions
  - added Go, AutoHotKey, TypeScript and R to the foldable list in the
-  outhtml_codefold.lua plug-in
+   outhtml_codefold.lua plug-in
  - removed plugins/bash_ref_linuxmanpages_com.lua
  - GUI: fixed README, ChangeLog and License file paths on Linux
 
@@ -289,13 +289,13 @@
 
  - the data directory can be defined with the HIGHLIGHT_DATADIR environment variable
  - fixed RTF output of UTF-8 input; needs input encoding set to utf-8
-  (thanks to Kamigishi Rei)
+   (thanks to Kamigishi Rei)
  - fixed XML comment recognition (thanks to Mani)
- - data search directories were appended to the result of --list-scripts
+ - data search directories were appended to the result of `--list-scripts`
  - revised older syntax definitions
  - updated base URLs of bash_ref_linuxmanpages and cpp_ref_qtproject plug-ins
  - GUI: added system copy and paste shortcuts for clipboard functions
-  (suggested by Kamigishi Rei)
+   (suggested by Kamigishi Rei)
 
 
 == highlight 3.29
@@ -306,9 +306,9 @@
  - added Chapel definition (thanks to Lydia Duncan)
  - fixed gcc 6 warnings about deprecated auto_ptr usage
  - src/makefile: added -std=c++11 because of auto_ptr to unique_ptr transition
-  (thanks to Jens Schleusener)
+   (thanks to Jens Schleusener)
  - GUI: fixed style file output if "write to source directory" option is
-  checked (thanks to Jim Pattee)
+   checked (thanks to Jim Pattee)
 
 
 == highlight 3.28
@@ -333,7 +333,7 @@
  - added RTF output to mark_lines.lua
  - fixed Powershell and NSIS definitions
  - added JSON and Github Markdown definitions
- - CLI: added --keep-injections option to force plugin injection output with -f
+ - CLI: added `--keep-injections` option to force plugin injection output with `-f`
  - GUI: added keep injections checkbox
  - GUI: fixed crash after removing selected plugins
 
@@ -342,13 +342,13 @@
 
 13.01.2016
 
- - added HL_REJECT state to be used in a OnStateChange function
- - added DecorateLineBegin and DecorateLineEnd hooks
+ - added `HL_REJECT` state to be used in a `OnStateChange` function
+ - added `DecorateLineBegin` and `DecorateLineEnd` hooks
  - added mark_lines.lua, outhtml_codefold.lua, comment_links.lua plug-ins
  - fixed font face in ODT output
  - fixed Operators parameter in frink.lang and oorexx.lang
  - fixed regular expression parsing within strings for JS, Perl and Ruby
- - CLI: added --page-color option to include a page color in RTF output
+ - CLI: added `--page-color` option to include a page color in RTF output
  - GUI: added RTF page color checkbox
 
 
@@ -359,8 +359,8 @@
  - added new SVG definition to support embedded scripting
  - improved js.lang, css.lang, scss.lang, less.lang, tsql.lang
  - modified HTML ordered list output to work better with new plug-ins
- - renamed plug-in variable HL_INPUT_FILE to HL_PLUGIN_PARAM
- - CLI: renamed --plug-in-read option to --plug-in-param
+ - renamed plug-in variable `HL_INPUT_FILE` to `HL_PLUGIN_PARAM`
+ - CLI: renamed `--plug-in-read` option to `--plug-in-param`
  - GUI: updated plug-in parameter label and tool-tips
  - GUI: fixed minor issues
 
@@ -372,8 +372,8 @@
  - fixed TeX output for cweb documents (patch by Ingo Krabbe)
  - fixed string interpolation in bat.lang
  - added reduce_filesize.lua, outhtml_add_shadow.lua,
-  outhtml_add_background_svg.lua, outhtml_add_background_stripes.lua,
-  outhtml_add_line.lua plug-ins
+   outhtml_add_background_svg.lua, outhtml_add_background_stripes.lua,
+   outhtml_add_line.lua plug-ins
  - added TCL extension in examples/tcl
  - added kotlin.lang, nginx.lang and julia.lang
  - updated php.lang to include version 7 keywords
@@ -391,7 +391,7 @@
  - added conf.lang (thanks to Victor Ananjevsky)
  - added some extensions in filetypes.conf (patch by Victor Ananjevsky)
  - fixed Matlab definition and style (thanks to Justin Pearson)
- - CLI: fixed --list-scripts with unknown argument (thanks to Jens Schleusener)
+ - CLI: fixed `--list-scripts` with unknown argument (thanks to Jens Schleusener)
 
 
 == highlight 3.22
@@ -428,7 +428,7 @@
 05.09.2014
 
  - added bold, italic and underline attributes to xterm256 ANSI output
-  (patch by Andrew Fuller)
+   (patch by Andrew Fuller)
  - fixed assembler mapping in filetypes.conf (thanks to Jens Schleusener)
  - added Swift definition
  - improved ASP, F#, OCaml and Lisp syntax definitions
@@ -442,7 +442,7 @@
 28.03.2014
 
  - filenames without extension (ie. makefile) can be mapped in filetypes.conf
-  (suggested by Sam Craig)
+   (suggested by Sam Craig)
  - fixed Rexx highlighting
  - added GDB language definition (thanks to A. Aniruddha)
  - added the.theme (thanks to Mark Hessling)
@@ -494,11 +494,11 @@
  - added HeaderInjection and FooterInjection variables for syntax plug-ins
  - fixed handling of CRLF files on Linux (suggested by William Bell)
  - replaced single data directory by a dynamic config file search; see README
-  (suggested by Daniel)
+   (suggested by Daniel)
  - added plug-ins outhtml_parantheses_matcher.lua, outhtml_keyword_matcher.lua
- - CLI: added --list-scripts option
- - CLI: marked --data-dir, --list-langs, --list-themes options as deprecated
- - CLI: removed --add-config-dir option
+ - CLI: added `--list-scripts` option
+ - CLI: marked `--data-dir`, `--list-langs`, `--list-themes` options as deprecated
+ - CLI: removed `--add-config-dir` option
 
 
 == highlight 3.13
@@ -510,8 +510,8 @@
  - added hints to makefile to deal with Lua 5.1 and LuaJIT system libs
  - updated cpp_ref_gtk_gnome.lua plug-in
  - updated cpp_ref_cplusplus_com.lua plug-in
- - CLI: fixed segfault if --force was applied and unknown files were parsed
-  (thanks to Jussi Judin)
+ - CLI: fixed segfault if `--force` was applied and unknown files were parsed
+   (thanks to Jussi Judin)
  - GUI: fixed unselected theme after first program start
 
 
@@ -545,11 +545,11 @@
  - fixed HTML ordered lists to improve copy&paste in browsers (suggested by Nash)
  - changed default output from HTML 4.01 to HTML5
  - changed default HTML font family to include the generic monospace font
- - added ODT Flat XML output format (--out-format=odt)
+ - added ODT Flat XML output format (`--out-format=odt`)
  - added fontenc package in LaTeX output (patch by Yimin Li)
  - fixed RTF hyperlink output in several plug-ins
  - removed ctags option (functionality was replaced by plug-in)
- - CLI: added --wrap-no-numbers option (patch by Michael Enßlin)
+ - CLI: added `--wrap-no-numbers` option (patch by Michael Enßlin)
  - GUI: replaced Qt file dialogs by native dialogs
 
 
@@ -559,11 +559,11 @@
 
  - enhanced the plug-in interface (added Decorator function and Injections property)
  - added several example plug-ins which show how to add keyword links to online
-  references (e.g. cplusplus.com, perldoc.perl.org, qtproject_org)
+   references (e.g. cplusplus.com, perldoc.perl.org, qtproject_org)
  - added ctags plugin (ctags_html_tooltips.lua)
  - improved Perl and N3 definitions (thanks to Heiko Jansen)
- - CLI: marked --ctags-file option as deprecated
- - CLI: added --plug-in-read option to define an input file for plug-ins
+ - CLI: marked `--ctags-file` option as deprecated
+ - CLI: added `--plug-in-read` option to define an input file for plug-ins
  - CLI: fixed file suffix recognition
  - GUI: added input field for a plug-in input file
  - GUI: fixed initial input tab selection
@@ -591,7 +591,7 @@
  - fixed Ruby definition
  - HTML font string may contain a list of fonts, which is not enclosed in quotes
    (suggested by Sebastiano Poggi)
- - GUI: added --portable command line option to save config files in the current
+ - GUI: added `--portable` command line option to save config files in the current
    working directory instead of the user directory (suggested by Royi Avital)
  - GUI: fixed some language mappings
 
@@ -606,7 +606,7 @@
  - fixed OCaml definition (thanks to Kakadu Hafanana)
  - fixed camo colour theme
  - removed sienna and desertEx colour themes
- - CLI: fixed segfault with --print-style option
+ - CLI: fixed segfault with `--print-style` option
  - GUI: added "Dock floating panels" checkbox in the main menu
 
 
@@ -615,7 +615,7 @@
 02.06.2011
 
  - updated astyle code to release 2.02
- - fixed --force option (thanks to Stefan Bühler)
+ - fixed `--force` option (thanks to Stefan Bühler)
 
 
 == highlight 3.4
@@ -635,7 +635,7 @@
 
  - updated astyle code to release 2.01
  - fixed overwriting of files with the same name in recursive batch mode
-  (thanks to Ramanathan U.)
+   (thanks to Ramanathan U.)
  - added DataDir class to SWIG interface (patch by David Bremner)
  - added Andes theme (thanks to Roger Sperberg)
  - enabled deprecated @highlight pass-through (suggested by David Bremner)
@@ -647,15 +647,15 @@
 
 08.11.2010
 
- - added plug-in function AddKeyword (suggested by Michael Serrano)
+ - added plug-in function `AddKeyword` (suggested by Michael Serrano)
  - language definitions are cached instead of being reloaded if input syntax
-  changes
- - added keyword group ID parameter to the plug-in function OnStateChange
+   changes
+ - added keyword group ID parameter to the plug-in function `OnStateChange`
  - added plug-in script bash_functions.lua
  - added theme description in output style's comment
  - added enum and union keywords in c.lang (thanks to Thiago)
  - added dl linking flag in Makefile to fix Debian build error
-  (thanks to Michael Serrano)
+   (thanks to Michael Serrano)
  - added NDEBUG flag in makefile to disable asserts
  - GUI: Added Czech translation (thanks to Pavel Fric)
 
@@ -666,7 +666,7 @@
 
  - updated Diluculum to version 0.5.3
  - fixed README
- - fixed conversion without highlighting (--syntax txt)
+ - fixed conversion without highlighting (`--syntax txt`)
  - fixed msxml definition (thanks to Andrei Rosca)
  - added edit-flashdevelop theme (thanks to Andrei Rosca)
  - CLI: fixed minor bugs
@@ -676,7 +676,7 @@
 
 12.08.2010
 
- - added --config-file option
+ - added `--config-file` option
  - CLI: fixed minor bugs
  - GUI: renamed output specific options tab
  - GUI: remember state of the dock panel
@@ -712,19 +712,19 @@
 03.06.2010
 
  - language definitions, themes, filetypes.conf were converted to Lua scripts
-  (try examples/*2to3.py to convert old files)
- - added --plug-in option to enable user scripts
+   (try examples/*2to3.py to convert old files)
+ - added `--plug-in` option to enable user scripts
  - renamed *.style files to *.theme
  - moved include files from src/core to src/include
  - moved examples/plugins to examples/web_plugins
- - renamed --linenumbers to --line-numbers
+ - renamed `--linenumbers` to `--line-numbers`
  - renamed several language definitions and themes
  - fixed several string delimiter issues (Ruby, Lua)
  - changed default theme for xterm256 output to edit-vim-dark
- - changed short options: -O is --out-format, -d is --out-dir, -T is --doc-title
- - disabled --mark-line feature
- - disabled --add-data-dir feature
- - disabled separate output format options (use --out-format instead)
+ - changed short options: `-O` is `--out-format`, `-d` is `--out-dir`, `-T` is `--doc-title`
+ - disabled `--mark-line` feature
+ - disabled `--add-data-dir` feature
+ - disabled separate output format options (use `--out-format` instead)
  - disabled XML output (use SVG or XHTML)
  - New dependencies: Lua5.1-devel, Boost Headers (Bind)
 
@@ -735,7 +735,7 @@
 
  - updated astyle code to release 1.24
  - added indentation styles 1tbs and horstmann
- - added --no-trailing-nl switch (suggested by Adiel Mittmann)
+ - added `--no-trailing-nl` switch (suggested by Adiel Mittmann)
  - added Modula2 definition (thanks to Benjamin Kowarsch)
  - added EBNF definition (thanks to Mate Ory)
  - added ABNF, AutoHotKey, BBCode and Clean language definitions
@@ -763,8 +763,8 @@
  - added support for BNF (thanks to Julien Fontanet)
  - updated Logtalk definition (thanks to Paulo Moura)
  - updated THE theme  (thanks to Marc Hessling)
- - CLI: --quiet switch supresses "Unknown source file extension" error
-  (suggested by Nathan Gray)
+ - CLI: `--quiet` switch supresses "Unknown source file extension" error
+   (suggested by Nathan Gray)
 
 
 == highlight 2.13
@@ -788,19 +788,19 @@
  - improved various language definitions
  - revised documentation
  - LIB: added version to shared lib output name
- - CLI: added options --start-nested and --print-style
+ - CLI: added options `--start-nested` and `--print-style`
 
 
 == highlight 2.11
 
 23-07-2009
 
- - added BBCode output option (--bbcode, suggested by Qui Peccavit)
- - added new --delim-cr option to cope with MacOS 9 files
-  (suggested by Steven Haddock)
+ - added BBCode output option (`--bbcode`, suggested by Qui Peccavit)
+ - added new `--delim-cr` option to cope with MacOS 9 files
+   (suggested by Steven Haddock)
  - added shared lib target (make lib-shared, suggested by Dario Teixeira)
- - list of installed languages (--list-langs) was enhanced to include mapped file
-  extensions (suggested by Martin Kammerlander)
+ - list of installed languages (`--list-langs`) was enhanced to include mapped file
+   extensions (suggested by Martin Kammerlander)
  - improved many colour themes using Agave (agave.sf.net)
 
 
@@ -817,15 +817,15 @@
  - removed README_INDENT
  - replaced ide-devcpp theme by a new jedit theme
  - added support for Interactive Data Language (idlang, thanks to Roberto
-  Mendoza)
+   Mendoza)
  - added support for Rebol, Oz, Mercury, Zonnon, ATS (Applied Type System),
-  CHILL, NetRexx, Inno Setup and INTERLIS
+   CHILL, NetRexx, Inno Setup and INTERLIS
  - added pp, rjs, jnlp, groovy, gnad, es, sblc, ooc, gst, sq extensions
-  to filetypes.conf
+   to filetypes.conf
  - improved Prolog, Pike, Oberon, Nice, Java, Lisp, Lua, Haskell, C# and SML
-  definitions
+   definitions
  - improved spec.lang for RPM (thanks to Luoyi Ly)
- - CLI: option --help-lang is deprecated
+ - CLI: option `--help-lang` is deprecated
  - API: dropped setSpecialOptions(), renamed initializing methods to init*
 
 
@@ -833,10 +833,10 @@
 
 30-April-2009
 
- - added more customized boxes for the LaTeX --pretty-symbols switch
-  (thanks to Romain Francois)
+ - added more customized boxes for the LaTeX `--pretty-symbols` switch
+   (thanks to Romain Francois)
  - GUI: fixed makefile to pass costum paths to the Qt project makefile
-  (thanks to Joerg Germeroth)
+   (thanks to Joerg Germeroth)
  - GUI: reduced window height (thanks to Fidel Barrera)
  - GUI: added Spanish translation (thanks to Fidel Barrera)
  - GUI: added drag and drop for input files
@@ -846,12 +846,12 @@
 
 30-March-2009
 
- - added --pretty-symbols option to improve LaTeX output quality of tilde and
-  braces (thanks to Romain Francois)
- - omitted warning message if --syntax parameter is contained in the --skip list
-  (thanks to Bob Smith)
- - included language descriptions in --list-langs output
- - dropped dependency of --replace-quotes and --fragment options
+ - added `--pretty-symbols` option to improve LaTeX output quality of tilde and
+   braces (thanks to Romain Francois)
+ - omitted warning message if `--syntax` parameter is contained in the `--skip` list
+   (thanks to Bob Smith)
+ - included language descriptions in `--list-langs` output
+ - dropped dependency of `--replace-quotes` and `--fragment` options
  - enhanced Python SWIG example (testmod.py)
  - added qmake language definition
  - fixed SWIG scripts (thanks to David Bremner)
@@ -870,13 +870,13 @@
    (thanks to Christophe Bal)
  - fixed VHDL and Scilab definitions (thanks to Frederik Teichert)
  - fixed XML definition (thanks to Edin)
- - fixed -r switch (thanks to Frederik Teichert)
+ - fixed `-r` switch (thanks to Frederik Teichert)
  - fixed default number recognition regex
  - added Clojure language definition (thanks to Pierre Larochelle)
- - added wrapping arrow in LaTeX/HTML output if --wrap/--wrap-simple is set
-  (suggested by Frederik Teichert)
+ - added wrapping arrow in LaTeX/HTML output if `--wrap`/`--wrap-simple` is set
+   (suggested by Frederik Teichert)
  - updated ide-msvcpp.style to match current Visual Studio appearance
-  (suggested by Pieter Kruger)
+   (suggested by Pieter Kruger)
  - added make targets "lib" and "cli"
  - organized sources in subdirectories (core, cli, gui) and adjusted makefiles
 
@@ -885,17 +885,17 @@
 
 21-October-2008
 
- - added --ctags-file option to add tooltips with meta information in HTML output
- - added options to improve compatibility with GNU source-highlight:
-  --doc, --no-doc, --tab, --css, --output-dir, --failsafe, --out-format,
-  --src-lang, --line-number, --line-number-ref
+ - added `--ctags-file` option to add tooltips with meta information in HTML output
+ - added options to improve compatibility with GNU source-highlight: +
+   `--doc`, `--no-doc`, `--tab`, `--css`, `--output-dir`, `--failsafe`, `--out-format`,
+   `--src-lang`, `--line-number`, `--line-number-ref`
  - fixed ADA95, C#, Eiffel, Fortran, TCL, Bash definitions
  - added Vala language definition
  - added several file suffixes to filetypes.conf
  - fixed gcc 4.3 compilation issues (patch by Detlef Reichelt)
  - fixed race condition in makefile (patch by Jochen Schmitt)
  - added exit condition if input path matches output path
-  (suggested by James Haefner)
+   (suggested by James Haefner)
  - GUI: added ctags file selection options (only wx2.9 version)
 
 
@@ -903,14 +903,14 @@
 
 29-September-2008
 
- - added --skip option to ignore unknown file types (suggested by Bob Smith)
+ - added `--skip` option to ignore unknown file types (suggested by Bob Smith)
  - added Haskell LHS language definition (suggested by Sebastian Roeder)
  - added regex description for Perl and Ruby definitions
  - improved Bison, Paradox, SML, Snobol, Verilog definitions
  - renamed snobol.lang to sno.lang
  - updated Artistic Style lib to version 1.22
  - replaced dirstream lib by a faster file globbing method
-  (invoked with --batch-recursive)
+   (invoked with `--batch-recursive`)
  - support for USE_FN_MATCH compile flag was dropped
  - Makefile generates libhighlight.a (suggested by Adiel Mittmann)
  - Updated SWIG makefile and documentation
@@ -928,8 +928,8 @@
 
 09-July-2008
 
- - added SVG output option (--svg)
- - reassigned -G short option from --class-name to --svg
+ - added SVG output option (`--svg`)
+ - reassigned `-G` short option from `--class-name` to `--svg`
  - fixed various makefile issues (patches by Samuli Suominen)
  - added highlight.desktop file (suggested by Samuli Suominen)
  - GUI: added SVG and font selection options (only wx2.9 version)
@@ -951,7 +951,7 @@
 
 26-March-2008
 
- - fixed --validate-input option with input from stdin
+ - fixed `--validate-input` option with input from stdin
  - fixed missing DESTDIR prefix in makefile (thanks to Bob Smith)
  - fixed handling of several keyword regexes using the same group name
  - added support for Lilypond
@@ -975,8 +975,8 @@
  - outdated file README_ES was dropped
  - gcc4.3 compilation support was added (patch by Jochen Schmitt)
  - font-family parameter is enclosed in apostrophes in HTML output
- - added --kw-case=capitalize option
- - added --enclose-pre option
+ - added `--kw-case=capitalize` option
+ - added `--enclose-pre` option
  - added file README_LANGLIST
  - improved several language definitions
  - GUI: decreased window height
@@ -990,11 +990,11 @@
 
  - support for RTF background colour was added
  - regex() in language definitions  expression allows optional definition of
-  capturing group number
- - added --add-config-dir option to define config search path
-  (suggested by Nathaniel Gray)
+   capturing group number
+ - added `--add-config-dir` option to define config search path
+   (suggested by Nathaniel Gray)
  - allowed invocation of makefile with CFLAGS and LDFLAGS as parameters
-  (patch by Nathaniel Gray)
+   (patch by Nathaniel Gray)
  - fixed OCaml definition (thanks to Nathaniel Gray)
  - fixed AutoIt definition
  - added case insensitive file suffix matching (thanks to Stefan Boumans)
@@ -1037,7 +1037,7 @@
 13-September-2007
 
  - fixed TeX and LaTeX output (space after strings were omitted,
-  thanks to Andre Schade)
+   thanks to Andre Schade)
  - fixed Perl language definition (thanks to Jens Kadenbach)
  - fixed gui.cpp compilation with wxWigets unicode build (thanks to Dennis Veatch)
  - updated R language definition (thanks to Yihui Xie)
@@ -1047,33 +1047,33 @@
 
 06-September-2007
 
- - added --inline-css option to output CSS within each tag element
+ - added `--inline-css` option to output CSS within each tag element
  - renamed previewgenerator.* files to html32generator.*
  - GUI: changed GUI configuration format (using wx config classes)
  - GUI: added inline CSS option
  - binaries are no longer stripped by default (src/makefile)
  - added notes to makefiles and INSTALL concerning static linking
-  (thanks to Ken Poole)
+   (thanks to Ken Poole)
  - improved MacOS X compatibility (thanks to Benjamin Kowarsch)
  - added ide-xcode theme (thanks to Benjamin Kowarsch)
  - README files were updated
- - updated plugin scripts to use the new --inline-css option
+ - updated plugin scripts to use the new `--inline-css` option
 
 
 == highlight 2.6-2
 
 19-July-2007
 
- - dropped deprecated option --format-style
- - added --html option for plausibility (HTML output is still default)
- - reassigned -H option to --html
- - added option --kw-case to output keywords in upper case or lower case if
-  the language is not case sensitive
- - added option --mark-line to highlight several code lines in HTML output
+ - dropped deprecated option `--format-style`
+ - added `--html` option for plausibility (HTML output is still default)
+ - reassigned `-H` option to `--html`
+ - added option `--kw-case` to output keywords in upper case or lower case if
+   the language is not case sensitive
+ - added option `--mark-line` to highlight several code lines in HTML output
  - added mark-line parameter to colour themes, renamed kw_group parameter
-  to kw-group
- - added option --validate-input to test if input file is text (if the input
-  is considered binary, no parsing takes place)
+   to kw-group
+ - added option `--validate-input` to test if input file is text (if the input
+   is considered binary, no parsing takes place)
  - updated astyle code to release 1.21
  - improved PHP4 compatibility of the wordpress plugin (thanks to Thomas Keller)
  - added support for Open Object Rexx (oorexx.lang)
@@ -1086,8 +1086,8 @@
 
  - support of HTML colour notation in theme files (ie #12aa00)
  - fixed bad formatting of single line comment and directive substrings after
-  line wrapping took place (multiline comments may still be screwed up)
- - enabled "highlight -c stdout" to print style definition to stdout
+   line wrapping took place (multiline comments may still be screwed up)
+ - enabled `highlight -c stdout` to print style definition to stdout
  - moved highlight/highlight subdir to highlight/src
  - removed examples/cgi
  - added examples/plugins
@@ -1112,7 +1112,7 @@
 
 20-April-2007
 
- - added new option --class-name (suggested by John Pye)
+ - added new option `--class-name` (suggested by John Pye)
  - fixed XML output (thanks to Hilmar Bunjes)
  - updated README files
 
@@ -1121,8 +1121,8 @@
 
 05-April-2007
 
- - renamed --line-number-width to --line-number-length
- - added new option --line-length
+ - renamed `--line-number-width` to `--line-number-length`
+ - added new option `--line-length`
  - fixed compilation error with gcc 4.3 (thanks to Martin Michlmayr)
  - added script shebang recognition with stdin input (patch by Alan Briolat)
  - added support for Boo scripting language
@@ -1174,14 +1174,14 @@
  - added Powershell (Monad) language definition
  - fixed ignored conf_dir parameter in makefiles (thanks to Bob Smith)
  - included source files and additional make rules to compile a wxWidgets GUI
-  (binary: highlight-gui; make all-gui; needs wxWidgets 2.6+)
+   (binary: highlight-gui; make all-gui; needs wxWidgets 2.6+)
 
 
 == highlight 2.4-8
 
 19-October-2006
 
- - added xterm 256 color output (-M, --xterm256) (thanks to Wolfgang Frisch)
+ - added xterm 256 color output (`-M`, `--xterm256`) (thanks to Wolfgang Frisch)
  - prints warning if output format ignores the theme background colour
  - fixed Java and Python language definitions
  - revised README files
@@ -1209,7 +1209,7 @@
 
  - fixed bug which caused segfault on x86_64 (thanks to Eric Hopper)
  - fixed wrong enumeration start when outputting text w/o highlighting
-  (thanks to Russell Yanofsky)
+   (thanks to Russell Yanofsky)
  - added anchor-prefix option (suggested by Peter Biechele)
  - added anchor-filename option (suggested by Mazy)
  - added $description entry to language file format
@@ -1242,7 +1242,7 @@
 
  - added RTF page-size option (suggested by David Strip)
  - fixed bug in RTF output, which prevented italic and bold output
-  (patch by Jeremy Weinberger)
+   (patch by Jeremy Weinberger)
  - renamed colour theme parameter KW_CLASS to KW_GROUP
 
 
@@ -1252,7 +1252,7 @@
 
  - added line-number-start switch (suggested by Roie Black)
  - added babel switch to make output compatible with LaTeX Babel
-  package (disables Babel shorthands)
+   package (disables Babel shorthands)
  - fixed ampl.lang (thanks to David Strip)
  - fixed error message if language definition is unknown
  - added Nemerle definition (n.lang)
@@ -1260,7 +1260,7 @@
  - added TTCN3 definition (thanks to Peter Biechele)
  - added tcsh.lang (thanks to Igor Furlan)
  - Unix package: moved *.conf to /etc/highlight/
-  (suggested by Jochen Schmitt)
+   (suggested by Jochen Schmitt)
 
 
 == highlight 2.4-1
@@ -1268,7 +1268,7 @@
 23-July-2005
 
  - dropped include-pkg option
- - added CSS style for list items (--ordered-list)
+ - added CSS style for list items (`--ordered-list`)
  - fixed default number regex
  - fixed VHDL event recognition
  - added missing KWD keyword style to several colour themes
@@ -1288,7 +1288,7 @@
  - fixed crash in language definition loader
  - saved helpmsg/cs.help as iso-8859-2
  - added include-pkg option to define a list of LaTeX packages
-  which should be included
+   which should be included
  - fixed output of UTF-8 characters (replaced isspace by iswspace)
 
 
@@ -1299,7 +1299,7 @@
  - fixed LaTeX and TeX output
  - added support for UTF-8 LaTeX output (suggested by Sungmin Cho)
  - dropped automatic conversion of ASCII characters > 127, package
-  latin1 is included instead
+   latin1 is included instead
 
 
 == highlight 2.3-4 beta
@@ -1324,7 +1324,7 @@
 04-May-2005
 
  - improved number regex
- - added --ordered-list option (suggested by Dominic Lchinger)
+ - added `--ordered-list` option (suggested by Dominic Lchinger)
  - fixed tag parsing (broken in 2.3-1)
  - updated docs
  - added Brazilian help text (thanks to Adao Raul)
@@ -1347,15 +1347,15 @@
  - added encoding option to set proper output encoding type in XML and
    HTML output formats (default encoding: ISO-8895-1)
    Note: encoding name has to match input file encoding
- - style definitions are generated if only --fragment and --style-outpath
+ - style definitions are generated if only `--fragment` and `--style-outpath`
    options are set
  - added simple recognition of scripts without file extension
-  (Bash, Perl, AWK, Python)
+   (Bash, Perl, AWK, Python)
  - added config file scriptre.conf to configure script recognition
  - moved langDefs/extensions.conf to package base directory
- - added --force option to generate output if language type is unknown
+ - added `--force` option to generate output if language type is unknown
  - fixed parsing of escape sequences outside of strings in Perl
-  (last six points suggested by Andreas Amann)
+   (last six points suggested by Andreas Amann)
  - fixed output of CR line terminators
  - added classes pre.hl and body.hl in CSS definitions
 
@@ -1364,7 +1364,7 @@
 
 27-February-2005
 
- - fixed --output option
+ - fixed `--output` option
  - fixed line number indentation in TeX and LaTeX output
  - fixed compilation error for Darwin (OSX) (thanks to Plumber)
  - fixed LaTeX compilation warnings (thanks to Tyranix)
@@ -1406,7 +1406,7 @@
 03-December-2004
 
  - fixed compilation error with getopt and Solaris 5.8
-  (thanks to Philippe Cornu and Jean-Emmanuel Reynaud)
+   (thanks to Philippe Cornu and Jean-Emmanuel Reynaud)
  - enabled css-infile option when include-css is set
  - improved IO and Perl language definitions
  - updated dirstram classes to release 0.4
@@ -1419,12 +1419,12 @@
 
  - fixed some compiler warnings in various Debian builds (thanks to Ayman Negm)
  - fixed indentation error in LaTeX output and output of "--" in bold font
-  (thanks to Michael Suess)
+   (thanks to Michael Suess)
  - added background colour attribute of body element to the CSS output to
-  improve compatibility with old browsers (NS Communicator 4.8)
-  (thanks to Wojciech Stryjewski)
+   improve compatibility with old browsers (NS Communicator 4.8)
+   (thanks to Wojciech Stryjewski)
  - in CSS output, user defined CSS definitions are now included after highlight
-  style definitions to make modifications easier
+   style definitions to make modifications easier
  - highlight returns EXIT_FAILURE after every IO failure
  - updated Spanish manual and help message (thanks to David Villa)
 
@@ -1436,11 +1436,11 @@
 
  - changed ANSI output colours to vim style (suggested by David Villa)
  - added new acid indentation scheme and acid colour theme
-  (thanks to Alexandre "AciD" Bonneau)
+   (thanks to Alexandre "AciD" Bonneau)
  - highlight returns 1 (EXIT_FAILURE) if file operations failed
-  (suggested by David Villa)
- - fixed bug in LaTeX output: [ and * characters after a linebreak (\\) caused
-  latex compilation to stop (thanks to Christian Schilling)
+   (suggested by David Villa)
+ - fixed bug in LaTeX output: `[` and `*` characters after a linebreak (`\\`)
+   caused latex compilation to stop (thanks to Christian Schilling)
  - improved error reports
 
 
@@ -1449,11 +1449,11 @@
 10-September-2004
 
  - applied patch to suppress compiler warnings on several platforms
-  (thanks to weasel@debian.org)
+   (thanks to weasel@debian.org)
  - renamed the /utils directory to /examples, which moved to
-  /usr/share/doc/highlight/ (suggested by Ayman Negm)
- - if --output is defined and output format is (X)HTML, the CSS file is stored in
-  the directory given by --output (suggested by Vicky Brown)
+   /usr/share/doc/highlight/ (suggested by Ayman Negm)
+ - if `--output` is defined and output format is (X)HTML, the CSS file is stored in
+   the directory given by `--output` (suggested by Vicky Brown)
  - added spanish translations: README_ES and es.help (thanks to David Villa)
  - added support for SNMPv1 and SNMPv2 files: mib.lang (thanks to Roman Surma)
  - fixed highlighting of escape sequences in Pascal (thanks to Grzegorz Tworek)
@@ -1478,27 +1478,27 @@
  - added content-type (iso-8859-1) to HTML output
  - added possibility to define custom keyword groups (suggested by Daniel Bonniot)
  - reformatting and indentation schemes are customizable, config files are located
-  in /indentSchemes (suggested by Petri Heiramo)
- - added new output format: ANSI terminal sequences (--ansi)
-  (suggested by David Villa)
-  assigned -A to --ansi, -g to --fop-compatible
- - added $SL-COMMENT parameter to colour themes (enables seperate highlighting
- of single and multi line comments)
+   in /indentSchemes (suggested by Petri Heiramo)
+ - added new output format: ANSI terminal sequences (`--ansi`)
+   (suggested by David Villa)
+   assigned `-A` to `--ansi`, `-g` to `--fop-compatible`
+ - added `$SL-COMMENT` parameter to colour themes (enables seperate highlighting
+   of single and multi line comments)
  - added option to fill linenumbers with zeroes
  - improved quality of colour themes
  - changed names of following command line options:
-  deletetabs -> replace-tabs
-  listthemes -> list-themes
-  listlangs  -> list-langs
-  includecss -> include-css
-  printindex -> print-index
+   deletetabs -> replace-tabs
+   listthemes -> list-themes
+   listlangs  -> list-langs
+   includecss -> include-css
+   printindex -> print-index
  - dropped support for C# member attributes (was a nasty workaround)
  - dropped support for Forth
- - removed unnecessary --batch (-b) option
+ - removed unnecessary `--batch` (`-b`) option
  - removed utils/cgi/perl/README_CGI
  - fixed raw string highlighting bug: r"""\n""" in Python is parsed correctly
  - fixed some old parameters in language definitions
- - added source directory names to generated index file (-C)
+ - added source directory names to generated index file (`-C`)
 
 
 == highlight 2.0-25
@@ -1509,7 +1509,7 @@
  - fixed crash if $HOME is not defined (thanks to Kostas Maistelis)
  - added compile flag CONFIG_FILE_PATH to define a custom path to the config file
  - added local copy of getopt, which is compiled if the system does not provide it
-  (removed win32cmdline.*)
+   (removed win32cmdline.*)
  - fixed VHDL event parsing
  - removed some poor quality colour themes and improved some others
  - added ide-eclipse style
@@ -1538,7 +1538,7 @@
  - improved layout of LaTeX document
  - applied some patches to Artistic Style code (see astyle.sourceforge.net)
  - added updated phpwiki-plugin utils/cgi/php/SyntaxHighlighter.php
-  (thanks to Reini Urban)
+   (thanks to Reini Urban)
 
 
 == highlight 2.0-22
@@ -1546,20 +1546,20 @@
 19-April-2004
 
  - improved Fortran 77 parsing (thanks to Geraldo Veiga),
-  moved parsing information to f77.lang and f90.lang
+   moved parsing information to f77.lang and f90.lang
  - added highlighting of float literals like .5
  - added new language definitions: ABAP/4, ARM, Bison, Dylan, FAME,Informix, Lisp,
-  Octave, R, Scala, Snobol, Verilog
- - removed -d option
- - added -P option to display a progress bar in batch mode
+   Octave, R, Scala, Snobol, Verilog
+ - removed `-d` option
+ - added `-P` option to display a progress bar in batch mode
 
 
 == highlight 2.0-21
 
 23-March-2004
 
- - added option (-r) to replace " by \dq in LaTeX (thanks to Nikolai Mikuszeit)
- - added option (-E) to define another search path, where language definitions
+ - added option (`-r`) to replace " by \dq in LaTeX (thanks to Nikolai Mikuszeit)
+ - added option (`-E`) to define another search path, where language definitions
    and themes may be stored (suggested by a Debian package tester)
  - fixed bug which disabled HTML anchors (thanks to Richard Beauchamp)
  - fixed wrong current working directory detection in W32 code (thanks to Ian Oliver)
@@ -1741,8 +1741,8 @@
 
  - fixed parsing of C# simplified strings (thanks to Cerda)
  - added support for C# member attributes (thanks to Gauthier)
- - added --listlangs option (suggested by Mark Hessling)
- - improved plausibility of --outdir option (thanks to Otto Barnes II)
+ - added `--listlangs` option (suggested by Mark Hessling)
+ - improved plausibility of `--outdir` option (thanks to Otto Barnes II)
 
 
 == highlight 2.0-6
@@ -1886,8 +1886,8 @@
 
  - added option to disable directive line bug
  - added ability to search *.style and *.lang files in different directories,
-  which may be set as prefix option of ./configure
-  (suggested by Jose Santiago)
+   which may be set as prefix option of ./configure
+   (suggested by Jose Santiago)
 
 
 == highlight 1.3.4
@@ -1920,7 +1920,7 @@
 
 29-November-2002
 
- -  fixed LaTeX output of | and ~ characters (thanks to Martin Idelberger)
+ - fixed LaTeX output of | and ~ characters (thanks to Martin Idelberger)
 
 
 == highlight 1.3.2

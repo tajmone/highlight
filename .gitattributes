@@ -119,6 +119,11 @@ LICENSE        text
 NEWS           text
 readme         text
 TODO           text
+# ----------
+# Exceptions
+# ----------
+# auto-generated files:
+README_LANGLIST.adoc   text eol=lf
 
 ## ===================
 ## CONFIGURATION FILES

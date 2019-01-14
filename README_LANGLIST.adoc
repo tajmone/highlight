@@ -1,251 +1,277 @@
 = HIGHLIGHT LANGUAGES LIST
 André Simon
-v3.45, October 2018
+v3.48, January 2019
 :lang: en
+:experimental:
+:icons: font
+:linkattrs:
+:toc!:
+// GitHub Settings for Admonitions Icons:
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :heavy_exclamation_mark:
+:note-caption: :information_source:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+////
+***************************************** 
+* THIS IS AN AUTO-GENERATED DOCUMENT!!! *
+***************************************** 
+Any manual changes to this document will be
+overwritten by automated scripted updates!
+////
 
 // =====================================
 // Custom Attributes for Reference Links
 // =====================================
 :README: pass:q[link:README.adoc[`README`]]
 :filetypes_conf: pass:q[link:filetypes.conf[`filetypes.conf`^]]
+:script: pass:q[link:highlight-langs2md.sh[script^,title="View source of 'highlight-langs2md.sh' script"]]
 
+The table below lists all supported languages, their syntax definition filenames,
+and the associated file extensions (configured in {filetypes_conf}).
 
-
-All supported languages and the syntax definition file names are listed below.
-The parens contain filename extensions configured in {filetypes_conf}.
 By default, the `*.lang` files are located in `/usr/share/highlight/langDefs/`.
-See {README} for other user defined locations.
+See the {README} for other user defined locations.
+
+# Languages List
+
+Packaged language definitions, obtained via `highlight --list-langs`
+
+[cols="<4d,<1m,<5m"]
+|==========================================
+| Language | Filename | Extensions
+
+| (G)AWK                         | link:./langDefs/awk.lang[`awk.lang`,title="View source file"] | 
+| ABAP/4                         | link:./langDefs/abap4.lang[`abap4.lang`,title="View source file"] |  abp
+| ABC                            | link:./langDefs/abc.lang[`abc.lang`,title="View source file"] | 
+| Abstract                       | link:./langDefs/aspect.lang[`aspect.lang`,title="View source file"] |  was wud
+| ActionScript                   | link:./langDefs/actionscript.lang[`actionscript.lang`,title="View source file"] |  as
+| Active Server Pages            | link:./langDefs/asp.lang[`asp.lang`,title="View source file"] |  ascx ashx aspx
+| ADA95                          | link:./langDefs/ada.lang[`ada.lang`,title="View source file"] |  a adb ads gnad
+| Advanced Backus-Naur Form      | link:./langDefs/abnf.lang[`abnf.lang`,title="View source file"] | 
+| Agda                           | link:./langDefs/agda.lang[`agda.lang`,title="View source file"] | 
+| ALAN Interactive Fiction Language | link:./langDefs/alan.lang[`alan.lang`,title="View source file"] |  alan i
+| ALGOL 68                       | link:./langDefs/algol.lang[`algol.lang`,title="View source file"] |  alg
+| AMPL                           | link:./langDefs/ampl.lang[`ampl.lang`,title="View source file"] |  dat run
+| AMTrix                         | link:./langDefs/amtrix.lang[`amtrix.lang`,title="View source file"] |  hnd s4 s4h s4t t4
+| Ansible YAML                   | link:./langDefs/yaml.lang[`yaml.lang`,title="View source file"] |  yml
+| Apache Config                  | link:./langDefs/httpd.lang[`httpd.lang`,title="View source file"] | 
+| AppleScript                    | link:./langDefs/applescript.lang[`applescript.lang`,title="View source file"] | 
+| Applied Type System            | link:./langDefs/ats.lang[`ats.lang`,title="View source file"] |  dats
+| Arc                            | link:./langDefs/arc.lang[`arc.lang`,title="View source file"] | 
+| ARM                            | link:./langDefs/arm.lang[`arm.lang`,title="View source file"] | 
+| AS/400 CL                      | link:./langDefs/as400cl.lang[`as400cl.lang`,title="View source file"] | 
+| ASCEND                         | link:./langDefs/ascend.lang[`ascend.lang`,title="View source file"] |  a4c
+| AutoHotKey                     | link:./langDefs/autohotkey.lang[`autohotkey.lang`,title="View source file"] |  ahk
+| AutoIt                         | link:./langDefs/autoit.lang[`autoit.lang`,title="View source file"] |  au3
+| Avenue                         | link:./langDefs/avenue.lang[`avenue.lang`,title="View source file"] | 
+| Backus-Naur Form               | link:./langDefs/bnf.lang[`bnf.lang`,title="View source file"] | 
+| Bash                           | link:./langDefs/sh.lang[`sh.lang`,title="View source file"] |  bash ebuild eclass zsh
+| BBcode                         | link:./langDefs/bbcode.lang[`bbcode.lang`,title="View source file"] | 
+| BCPL                           | link:./langDefs/bcpl.lang[`bcpl.lang`,title="View source file"] | 
+| BibTeX                         | link:./langDefs/bibtex.lang[`bibtex.lang`,title="View source file"] |  bib
+| Biferno                        | link:./langDefs/biferno.lang[`biferno.lang`,title="View source file"] |  bfr
+| Bison                          | link:./langDefs/bison.lang[`bison.lang`,title="View source file"] |  y
+| Blitz Basic                    | link:./langDefs/blitzbasic.lang[`blitzbasic.lang`,title="View source file"] |  bb
+| BM Script                      | link:./langDefs/bms.lang[`bms.lang`,title="View source file"] | 
+| Boo                            | link:./langDefs/boo.lang[`boo.lang`,title="View source file"] | 
+| C and C++                      | link:./langDefs/c.lang[`c.lang`,title="View source file"] |  c++ cc cpp cu cxx h hh hpp hxx
+| C#                             | link:./langDefs/csharp.lang[`csharp.lang`,title="View source file"] |  cs
+| Ceylon                         | link:./langDefs/ceylon.lang[`ceylon.lang`,title="View source file"] | 
+| Chapel                         | link:./langDefs/chpl.lang[`chpl.lang`,title="View source file"] | 
+| Charmm                         | link:./langDefs/charmm.lang[`charmm.lang`,title="View source file"] |  inp
+| CHILL                          | link:./langDefs/chill.lang[`chill.lang`,title="View source file"] |  chl
+| Clean                          | link:./langDefs/clean.lang[`clean.lang`,title="View source file"] |  icl
+| ClearBasic                     | link:./langDefs/clearbasic.lang[`clearbasic.lang`,title="View source file"] |  cb
+| Clipper                        | link:./langDefs/clipper.lang[`clipper.lang`,title="View source file"] | 
+| Clips                          | link:./langDefs/clp.lang[`clp.lang`,title="View source file"] | 
+| Clojure                        | link:./langDefs/clojure.lang[`clojure.lang`,title="View source file"] |  clj
+| CMake                          | link:./langDefs/cmake.lang[`cmake.lang`,title="View source file"] | 
+| COBOL                          | link:./langDefs/cobol.lang[`cobol.lang`,title="View source file"] |  cbl cob
+| Coffeescript                   | link:./langDefs/coffee.lang[`coffee.lang`,title="View source file"] | 
+| Coffeescript Block Regex       | link:./langDefs/cs_block_regex.lang[`cs_block_regex.lang`,title="View source file"] | 
+| ColdFusion MX                  | link:./langDefs/coldfusion.lang[`coldfusion.lang`,title="View source file"] |  cfc cfm
+| Crack                          | link:./langDefs/crk.lang[`crk.lang`,title="View source file"] | 
+| CSS                            | link:./langDefs/css.lang[`css.lang`,title="View source file"] | 
+| D                              | link:./langDefs/d.lang[`d.lang`,title="View source file"] | 
+| Dart                           | link:./langDefs/dart.lang[`dart.lang`,title="View source file"] | 
+| Device Tree Source             | link:./langDefs/dts.lang[`dts.lang`,title="View source file"] |  dtsi
+| Diff                           | link:./langDefs/diff.lang[`diff.lang`,title="View source file"] |  patch
+| Dockerfile                     | link:./langDefs/docker.lang[`docker.lang`,title="View source file"] |  dockerfile
+| Dylan                          | link:./langDefs/dylan.lang[`dylan.lang`,title="View source file"] | 
+| EBNF2                          | link:./langDefs/ebnf2.lang[`ebnf2.lang`,title="View source file"] | 
+| Eiffel                         | link:./langDefs/eiffel.lang[`eiffel.lang`,title="View source file"] |  e se
+| Elixir                         | link:./langDefs/elixir.lang[`elixir.lang`,title="View source file"] |  ex exs
+| E-Mail treated as Markup       | link:./langDefs/email.lang[`email.lang`,title="View source file"] | 
+| Erlang                         | link:./langDefs/erlang.lang[`erlang.lang`,title="View source file"] |  erl hrl
+| Euphoria                       | link:./langDefs/euphoria.lang[`euphoria.lang`,title="View source file"] |  eu ew exw wxu
+| Excel Formulas                 | link:./langDefs/excel.lang[`excel.lang`,title="View source file"] | 
+| Express                        | link:./langDefs/express.lang[`express.lang`,title="View source file"] |  exp
+| Extended Backus-Naur Form      | link:./langDefs/ebnf.lang[`ebnf.lang`,title="View source file"] | 
+| F#                             | link:./langDefs/fsharp.lang[`fsharp.lang`,title="View source file"] |  fs fsx
+| FAME                           | link:./langDefs/fame.lang[`fame.lang`,title="View source file"] |  fame
+| fasm                           | link:./langDefs/fasm.lang[`fasm.lang`,title="View source file"] |  inc
+| Felix                          | link:./langDefs/felix.lang[`felix.lang`,title="View source file"] |  flx
+| Fortran 77                     | link:./langDefs/fortran77.lang[`fortran77.lang`,title="View source file"] |  f for ftn
+| Fortran 90                     | link:./langDefs/fortran90.lang[`fortran90.lang`,title="View source file"] |  f90 f95
+| Frink                          | link:./langDefs/frink.lang[`frink.lang`,title="View source file"] | 
+| fstab config file              | link:./langDefs/fstab.lang[`fstab.lang`,title="View source file"] | 
+| Gambas                         | link:./langDefs/gambas.lang[`gambas.lang`,title="View source file"] |  class
+| gdb                            | link:./langDefs/gdb.lang[`gdb.lang`,title="View source file"] | 
+| GDScript                       | link:./langDefs/gdscript.lang[`gdscript.lang`,title="View source file"] |  gd
+| Generic Assembler              | link:./langDefs/assembler.lang[`assembler.lang`,title="View source file"] |  29k 68s 68x a51 asm x86
+| Generic config files           | link:./langDefs/conf.lang[`conf.lang`,title="View source file"] |  anacrontab
+| GitHub Flavored Markdown       | link:./langDefs/md.lang[`md.lang`,title="View source file"] |  markdown
+| Go                             | link:./langDefs/go.lang[`go.lang`,title="View source file"] | 
+| Graphviz                       | link:./langDefs/graphviz.lang[`graphviz.lang`,title="View source file"] |  dot
+| Haskell                        | link:./langDefs/haskell.lang[`haskell.lang`,title="View source file"] |  hs
+| Haskell LHS                    | link:./langDefs/lhs.lang[`lhs.lang`,title="View source file"] | 
+| haXe                           | link:./langDefs/haxe.lang[`haxe.lang`,title="View source file"] |  hx
+| Hecl                           | link:./langDefs/hcl.lang[`hcl.lang`,title="View source file"] | 
+| HTML                           | link:./langDefs/html.lang[`html.lang`,title="View source file"] |  htm jinja twig xhtml
+| Icon                           | link:./langDefs/icon.lang[`icon.lang`,title="View source file"] |  icn
+| IDL                            | link:./langDefs/idl.lang[`idl.lang`,title="View source file"] | 
+| Informix                       | link:./langDefs/informix.lang[`informix.lang`,title="View source file"] |  4gl
+| INI                            | link:./langDefs/ini.lang[`ini.lang`,title="View source file"] |  desktop doxyfile
+| Inno Setup                     | link:./langDefs/innosetup.lang[`innosetup.lang`,title="View source file"] |  iss
+| Interactive Data Language      | link:./langDefs/idlang.lang[`idlang.lang`,title="View source file"] | 
+| INTERLIS                       | link:./langDefs/interlis.lang[`interlis.lang`,title="View source file"] |  ili
+| IO                             | link:./langDefs/io.lang[`io.lang`,title="View source file"] | 
+| Jasmin                         | link:./langDefs/jasmin.lang[`jasmin.lang`,title="View source file"] |  j
+| Java                           | link:./langDefs/java.lang[`java.lang`,title="View source file"] |  gradle groovy grv jenkinsfile
+| Java FX                        | link:./langDefs/fx.lang[`fx.lang`,title="View source file"] | 
+| Javascript                     | link:./langDefs/js.lang[`js.lang`,title="View source file"] | 
+| Javascript Regex               | link:./langDefs/js_regex.lang[`js_regex.lang`,title="View source file"] | 
+| JavaServer Pages               | link:./langDefs/jsp.lang[`jsp.lang`,title="View source file"] | 
+| JSON                           | link:./langDefs/json.lang[`json.lang`,title="View source file"] | 
+| JSX                            | link:./langDefs/jsx.lang[`jsx.lang`,title="View source file"] | 
+| Julia                          | link:./langDefs/julia.lang[`julia.lang`,title="View source file"] |  jl
+| Kotlin                         | link:./langDefs/kotlin.lang[`kotlin.lang`,title="View source file"] |  kt
+| LDAP                           | link:./langDefs/ldif.lang[`ldif.lang`,title="View source file"] | 
+| LESS                           | link:./langDefs/less.lang[`less.lang`,title="View source file"] | 
+| Lilypond                       | link:./langDefs/lilypond.lang[`lilypond.lang`,title="View source file"] |  ly
+| Limbo                          | link:./langDefs/limbo.lang[`limbo.lang`,title="View source file"] |  b
+| Linden Script                  | link:./langDefs/lindenscript.lang[`lindenscript.lang`,title="View source file"] |  lsl
+| Lisp                           | link:./langDefs/lisp.lang[`lisp.lang`,title="View source file"] |  cl clisp el fas lsp sbcl scm scom
+| Logtalk                        | link:./langDefs/logtalk.lang[`logtalk.lang`,title="View source file"] |  lgt
+| Lotos                          | link:./langDefs/lotos.lang[`lotos.lang`,title="View source file"] | 
+| Lotus                          | link:./langDefs/lotus.lang[`lotus.lang`,title="View source file"] |  ls
+| Lua                            | link:./langDefs/lua.lang[`lua.lang`,title="View source file"] | 
+| Lua (for LuaTeX)               | link:./langDefs/inc_luatex.lang[`inc_luatex.lang`,title="View source file"] | 
+| Luban                          | link:./langDefs/luban.lang[`luban.lang`,title="View source file"] |  lbn
+| Magic eXtensible Markup        | link:./langDefs/mxml.lang[`mxml.lang`,title="View source file"] | 
+| Make                           | link:./langDefs/make.lang[`make.lang`,title="View source file"] |  mak makefile mk
+| Maple                          | link:./langDefs/maple.lang[`maple.lang`,title="View source file"] |  mpl
+| Matlab                         | link:./langDefs/matlab.lang[`matlab.lang`,title="View source file"] |  m
+| MaxScript                      | link:./langDefs/ms.lang[`ms.lang`,title="View source file"] | 
+| Maya                           | link:./langDefs/maya.lang[`maya.lang`,title="View source file"] |  mel
+| Mercury                        | link:./langDefs/mercury.lang[`mercury.lang`,title="View source file"] | 
+| Microsoft PowerShell           | link:./langDefs/ps1.lang[`ps1.lang`,title="View source file"] | 
+| Miranda                        | link:./langDefs/miranda.lang[`miranda.lang`,title="View source file"] | 
+| mIRC Scripting                 | link:./langDefs/msl.lang[`msl.lang`,title="View source file"] |  nbs
+| Modelica                       | link:./langDefs/modelica.lang[`modelica.lang`,title="View source file"] |  mo
+| Modula2                        | link:./langDefs/mod2.lang[`mod2.lang`,title="View source file"] |  def mod
+| Modula3                        | link:./langDefs/mod3.lang[`mod3.lang`,title="View source file"] |  i3 m3
+| MoonScript                     | link:./langDefs/moon.lang[`moon.lang`,title="View source file"] | 
+| MS DOS Batch                   | link:./langDefs/bat.lang[`bat.lang`,title="View source file"] |  cmd
+| MSSQL                          | link:./langDefs/mssql.lang[`mssql.lang`,title="View source file"] | 
+| Nasal                          | link:./langDefs/nasal.lang[`nasal.lang`,title="View source file"] |  nas
+| Nemerle                        | link:./langDefs/nemerle.lang[`nemerle.lang`,title="View source file"] |  n
+| NetRexx                        | link:./langDefs/netrexx.lang[`netrexx.lang`,title="View source file"] |  nrx
+| NeXT Byte Codes                | link:./langDefs/nbc.lang[`nbc.lang`,title="View source file"] | 
+| Nginx configuration            | link:./langDefs/nginx.lang[`nginx.lang`,title="View source file"] | 
+| Nice                           | link:./langDefs/nice.lang[`nice.lang`,title="View source file"] | 
+| Nim                            | link:./langDefs/nim.lang[`nim.lang`,title="View source file"] | 
+| Not eXactly C                  | link:./langDefs/nxc.lang[`nxc.lang`,title="View source file"] | 
+| Notation3 (N3), N-Triples, Turtle, SPARQL | link:./langDefs/n3.lang[`n3.lang`,title="View source file"] |  nt ttl
+| NSIS                           | link:./langDefs/nsis.lang[`nsis.lang`,title="View source file"] |  nsh nsi
+| Oberon                         | link:./langDefs/oberon.lang[`oberon.lang`,title="View source file"] |  ooc
+| Object Script                  | link:./langDefs/os.lang[`os.lang`,title="View source file"] | 
+| Objective C                    | link:./langDefs/objc.lang[`objc.lang`,title="View source file"] | 
+| Objective Caml                 | link:./langDefs/ocaml.lang[`ocaml.lang`,title="View source file"] |  ml mli
+| Octave                         | link:./langDefs/octave.lang[`octave.lang`,title="View source file"] | 
+| OpenObjectRexx                 | link:./langDefs/oorexx.lang[`oorexx.lang`,title="View source file"] | 
+| Oz                             | link:./langDefs/oz.lang[`oz.lang`,title="View source file"] | 
+| Paradox                        | link:./langDefs/paradox.lang[`paradox.lang`,title="View source file"] |  sc
+| Pascal                         | link:./langDefs/pas.lang[`pas.lang`,title="View source file"] | 
+| PATROL                         | link:./langDefs/psl.lang[`psl.lang`,title="View source file"] | 
+| Perl                           | link:./langDefs/perl.lang[`perl.lang`,title="View source file"] |  cgi perl pl plex plx pm
+| PHP                            | link:./langDefs/php.lang[`php.lang`,title="View source file"] |  php3 php4 php5 php6
+| Pike                           | link:./langDefs/pike.lang[`pike.lang`,title="View source file"] |  pmod
+| PL/1                           | link:./langDefs/pl1.lang[`pl1.lang`,title="View source file"] |  bdy ff fp fpp rpp sf sp spb spe spp sps wf wp wpb wpp wps
+| PL/Perl                        | link:./langDefs/plperl.lang[`plperl.lang`,title="View source file"] | 
+| PL/Python                      | link:./langDefs/plpython.lang[`plpython.lang`,title="View source file"] | 
+| PL/SQL                         | link:./langDefs/sql.lang[`sql.lang`,title="View source file"] | 
+| PL/Tcl                         | link:./langDefs/pltcl.lang[`pltcl.lang`,title="View source file"] | 
+| Plain text                     | link:./langDefs/txt.lang[`txt.lang`,title="View source file"] |  text
+| PO translation                 | link:./langDefs/po.lang[`po.lang`,title="View source file"] | 
+| Polygen                        | link:./langDefs/polygen.lang[`polygen.lang`,title="View source file"] |  grm
+| Pony                           | link:./langDefs/pony.lang[`pony.lang`,title="View source file"] | 
+| Portable Document Format       | link:./langDefs/pdf.lang[`pdf.lang`,title="View source file"] | 
+| PostScript                     | link:./langDefs/ps.lang[`ps.lang`,title="View source file"] | 
+| POV-Ray                        | link:./langDefs/pov.lang[`pov.lang`,title="View source file"] | 
+| PowerPC Assembler              | link:./langDefs/s.lang[`s.lang`,title="View source file"] | 
+| Progress                       | link:./langDefs/progress.lang[`progress.lang`,title="View source file"] |  p w
+| Prolog                         | link:./langDefs/pro.lang[`pro.lang`,title="View source file"] |  pro
+| Pure                           | link:./langDefs/pure.lang[`pure.lang`,title="View source file"] | 
+| PureBASIC                      | link:./langDefs/purebasic.lang[`purebasic.lang`,title="View source file"] |  pb pbi
+| Pyrex                          | link:./langDefs/pyrex.lang[`pyrex.lang`,title="View source file"] |  pyx
+| Python                         | link:./langDefs/python.lang[`python.lang`,title="View source file"] |  py
+| QMake Project                  | link:./langDefs/qmake.lang[`qmake.lang`,title="View source file"] | 
+| QML                            | link:./langDefs/qml.lang[`qml.lang`,title="View source file"] | 
+| Qore                           | link:./langDefs/q.lang[`q.lang`,title="View source file"] | 
+| Qu                             | link:./langDefs/qu.lang[`qu.lang`,title="View source file"] | 
+| R                              | link:./langDefs/r.lang[`r.lang`,title="View source file"] | 
+| Rebol                          | link:./langDefs/rebol.lang[`rebol.lang`,title="View source file"] | 
+| Relax NG                       | link:./langDefs/rnc.lang[`rnc.lang`,title="View source file"] | 
+| Rexx                           | link:./langDefs/rexx.lang[`rexx.lang`,title="View source file"] |  rex rx the
+| RPG                            | link:./langDefs/rpg.lang[`rpg.lang`,title="View source file"] | 
+| RPL Programming Language       | link:./langDefs/rpl.lang[`rpl.lang`,title="View source file"] | 
+| RPM Spec                       | link:./langDefs/spec.lang[`spec.lang`,title="View source file"] | 
+| Ruby                           | link:./langDefs/ruby.lang[`ruby.lang`,title="View source file"] |  gemfile pp rakefile rb rjs ruby
+| Rust                           | link:./langDefs/rs.lang[`rs.lang`,title="View source file"] | 
+| SAS                            | link:./langDefs/sas.lang[`sas.lang`,title="View source file"] | 
+| SASS/SCSS                      | link:./langDefs/scss.lang[`scss.lang`,title="View source file"] | 
+| Scala                          | link:./langDefs/scala.lang[`scala.lang`,title="View source file"] | 
+| Scilab                         | link:./langDefs/scilab.lang[`scilab.lang`,title="View source file"] |  sce sci
+| SMALL                          | link:./langDefs/small.lang[`small.lang`,title="View source file"] |  sma
+| Smalltalk                      | link:./langDefs/smalltalk.lang[`smalltalk.lang`,title="View source file"] |  gst sq st
+| SNMP                           | link:./langDefs/snmp.lang[`snmp.lang`,title="View source file"] |  mib smi
+| SNOBOL                         | link:./langDefs/snobol.lang[`snobol.lang`,title="View source file"] |  sno
+| SPIN SQL                       | link:./langDefs/spn.lang[`spn.lang`,title="View source file"] | 
+| Squirrel                       | link:./langDefs/squirrel.lang[`squirrel.lang`,title="View source file"] |  nut
+| Standard ML                    | link:./langDefs/sml.lang[`sml.lang`,title="View source file"] | 
+| Stylus                         | link:./langDefs/styl.lang[`styl.lang`,title="View source file"] | 
+| SuperX++                       | link:./langDefs/xpp.lang[`xpp.lang`,title="View source file"] | 
+| SVG                            | link:./langDefs/svg.lang[`svg.lang`,title="View source file"] | 
+| Swift                          | link:./langDefs/swift.lang[`swift.lang`,title="View source file"] | 
+| Sybase SQL                     | link:./langDefs/sybase.lang[`sybase.lang`,title="View source file"] | 
+| Tcl/Tk                         | link:./langDefs/tcl.lang[`tcl.lang`,title="View source file"] |  itcl wish
+| TCSH                           | link:./langDefs/tcsh.lang[`tcsh.lang`,title="View source file"] | 
+| TeX and LaTeX                  | link:./langDefs/tex.lang[`tex.lang`,title="View source file"] |  cls sty
+| Transact-SQL                   | link:./langDefs/tsql.lang[`tsql.lang`,title="View source file"] | 
+| TSX (TypeScript with React)    | link:./langDefs/tsx.lang[`tsx.lang`,title="View source file"] | 
+| TTCN3                          | link:./langDefs/ttcn3.lang[`ttcn3.lang`,title="View source file"] | 
+| TypeScript                     | link:./langDefs/ts.lang[`ts.lang`,title="View source file"] | 
+| UPC (and C, technically)       | link:./langDefs/upc.lang[`upc.lang`,title="View source file"] | 
+| Vala                           | link:./langDefs/vala.lang[`vala.lang`,title="View source file"] | 
+| Verilog                        | link:./langDefs/verilog.lang[`verilog.lang`,title="View source file"] |  v
+| VHDL                           | link:./langDefs/vhd.lang[`vhd.lang`,title="View source file"] | 
+| vimscript                      | link:./langDefs/vimscript.lang[`vimscript.lang`,title="View source file"] |  vim vimrc
+| Visual Basic                   | link:./langDefs/vb.lang[`vb.lang`,title="View source file"] |  bas basic bi vbs
+| vue.js (beta)                  | link:./langDefs/vue.lang[`vue.lang`,title="View source file"] | 
+| Whiley                         | link:./langDefs/whiley.lang[`whiley.lang`,title="View source file"] | 
+| XML                            | link:./langDefs/xml.lang[`xml.lang`,title="View source file"] |  csproj dtd ecf ent glade hdr hub jnlp nrm resx sgm sgml tld vxml wml xsd xsl
+| Yaiff                          | link:./langDefs/yaiff.lang[`yaiff.lang`,title="View source file"] | 
+| Yang                           | link:./langDefs/yang.lang[`yang.lang`,title="View source file"] | 
+| Zonnon                         | link:./langDefs/znn.lang[`znn.lang`,title="View source file"] | 
+|==========================================
+
+[NOTE]
+This page is autogenerated via a {script}.
+Any manual edits to the page will be lost when the page is updated.
 
 
-== Language List
-
-Packaged language definitions (highlight `--list-langs`):
-
-|===
-| ABAP/4                                    | abap4 ( abp )
-| ABC                                       | abc
-| Advanced Backus-Naur Form                 | abnf
-| ActionScript                              | actionscript ( as )
-| ADA95                                     | ada ( a adb ads gnad )
-| Agda                                      | agda
-| ALAN Interactive Fiction Language         | alan ( alan i )
-| ALGOL 68                                  | algol ( alg )
-| AMPL                                      | ampl ( dat run )
-| AMTrix                                    | amtrix ( hnd s4 s4h s4t t4 )
-| AppleScript                               | applescript
-| Arc                                       | arc
-| ARM                                       | arm
-| AS/400 CL                                 | as400cl
-| ASCEND                                    | ascend ( a4c )
-| Active Server Pages                       | asp ( ascx ashx aspx )
-| Abstract                                  | aspect ( was wud )
-| Generic Assembler                         | assembler ( 29k 68s 68x a51 asm x86 )
-| Applied Type System                       | ats ( dats )
-| AutoHotKey                                | autohotkey ( ahk )
-| AutoIt                                    | autoit ( au3 )
-| Avenue                                    | avenue
-| (G)AWK                                    | awk
-| DOS Batch                                 | bat ( cmd )
-| BBcode                                    | bbcode
-| BCPL                                      | bcpl
-| BibTeX                                    | bibtex ( bib )
-| Biferno                                   | biferno ( bfr )
-| Bison                                     | bison ( y )
-| Blitz Basic                               | blitzbasic ( bb )
-| BM Script                                 | bms
-| Backus-Naur Form                          | bnf
-| Boo                                       | boo
-| C and C++                                 | c ( c++ cc cpp cu cxx h hh hpp hxx )
-| Ceylon                                    | ceylon
-| Charmm                                    | charmm ( inp )
-| CHILL                                     | chill ( chl )
-| Chapel                                    | chpl
-| Clean                                     | clean ( icl )
-| ClearBasic                                | clearbasic ( cb )
-| Clipper                                   | clipper
-| Clojure                                   | clojure ( clj )
-| Clips                                     | clp
-| CMake                                     | cmake
-| COBOL                                     | cobol ( cbl cob )
-| Coffeescript                              | coffee
-| ColdFusion MX                             | coldfusion ( cfc cfm )
-| Generic config files                      | conf ( anacrontab )
-| Crack                                     | crk
-| Coffeescript Block Regex                  | cs_block_regex
-| C#                                        | csharp ( cs )
-| CSS                                       | css
-| D                                         | d
-| Dart                                      | dart
-| Diff                                      | diff ( patch )
-| Dockerfile                                | docker ( dockerfile )
-| Device Tree Source                        | dts ( dtsi )
-| Dylan                                     | dylan
-| Extended Backus-Naur Form                 | ebnf
-| EBNF2                                     | ebnf2
-| Eiffel                                    | eiffel ( e se )
-| Elixir                                    | elixir ( ex exs )
-| E-Mail treated as Markup                  | email
-| Erlang                                    | erlang ( erl hrl )
-| Euphoria                                  | euphoria ( eu ew exw wxu )
-| Excel Formulas                            | excel
-| Express                                   | express ( exp )
-| FAME                                      | fame ( fame )
-| fasm                                      | fasm ( inc )
-| Felix                                     | felix ( flx )
-| Fortran 77                                | fortran77 ( f for ftn )
-| Fortran 90                                | fortran90 ( f90 f95 )
-| Frink                                     | frink
-| F#                                        | fsharp ( fs fsx )
-| fstab config file                         | fstab
-| Java FX                                   | fx
-| Gambas                                    | gambas ( class )
-| gdb                                       | gdb
-| GDScript                                  | gdscript ( gd )
-| Go                                        | go
-| Graphviz                                  | graphviz ( dot )
-| Haskell                                   | haskell ( hs )
-| haXe                                      | haxe ( hx )
-| Hecl                                      | hcl
-| HTML                                      | html ( htm jinja twig xhtml )
-| Apache Config                             | httpd
-| Icon                                      | icon ( icn )
-| IDL                                       | idl
-| Interactive Data Language                 | idlang
-| Lua (for LuaTeX)                          | inc_luatex
-| Informix                                  | informix ( 4gl )
-| INI                                       | ini ( desktop doxyfile )
-| Inno Setup                                | innosetup ( iss )
-| INTERLIS                                  | interlis ( ili )
-| IO                                        | io
-| Jasmin                                    | jasmin ( j )
-| Java                                      | java ( gradle groovy grv jenkinsfile )
-| Javascript                                | js
-| Javascript Regex                          | js_regex
-| JSON                                      | json
-| JavaServer Pages                          | jsp
-| JSX                                       | jsx
-| Julia                                     | julia ( jl )
-| Kotlin                                    | kotlin ( kt )
-| LDAP                                      | ldif
-| LESS                                      | less
-| Haskell LHS                               | lhs
-| Lilypond                                  | lilypond ( ly )
-| Limbo                                     | limbo ( b )
-| Linden Script                             | lindenscript ( lsl )
-| Lisp                                      | lisp ( cl clisp el fas lsp sbcl scm scom )
-| Logtalk                                   | logtalk ( lgt )
-| Lotos                                     | lotos
-| Lotus                                     | lotus ( ls )
-| Lua                                       | lua
-| Luban                                     | luban ( lbn )
-| Make                                      | make ( mak makefile mk )
-| Maple                                     | maple ( mpl )
-| Matlab                                    | matlab ( m )
-| Maya                                      | maya ( mel )
-| GitHub Flavored Markdown                  | md ( markdown )
-| Mercury                                   | mercury
-| Miranda                                   | miranda
-| Modula2                                   | mod2 ( def mod )
-| Modula3                                   | mod3 ( i3 m3 )
-| Modelica                                  | modelica ( mo )
-| MoonScript                                | moon
-| MaxScript                                 | ms
-| mIRC Scripting                            | msl ( nbs )
-| MSSQL                                     | mssql
-| Magic eXtensible Markup                   | mxml
-| Notation3 (N3), N-Triples, Turtle, SPARQL | n3 ( nt ttl )
-| Nasal                                     | nasal ( nas )
-| NeXT Byte Codes                           | nbc
-| Nemerle                                   | nemerle ( n )
-| NetRexx                                   | netrexx ( nrx )
-| Nginx configuration                       | nginx
-| Nice                                      | nice
-| Nim                                       | nim
-| NSIS                                      | nsis ( nsh nsi )
-| Not eXactly C                             | nxc
-| Oberon                                    | oberon ( ooc )
-| Objective C                               | objc
-| Objective Caml                            | ocaml ( ml mli )
-| Octave                                    | octave
-| OpenObjectRexx                            | oorexx
-| Object Script                             | os
-| Oz                                        | oz
-| Paradox                                   | paradox ( sc )
-| Pascal                                    | pas
-| Portable Document Format                  | pdf
-| Perl                                      | perl ( cgi perl pl plex plx pm )
-| PHP                                       | php ( php3 php4 php5 php6 )
-| Pike                                      | pike ( pmod )
-| PL/1                                      | pl1 ( bdy ff fp fpp rpp sf sp spb spe spp sps wf wp wpb wpp wps )
-| PL/Perl                                   | plperl
-| PL/Python                                 | plpython
-| PL/Tcl                                    | pltcl
-| PO translation                            | po
-| Polygen                                   | polygen ( grm )
-| Pony                                      | pony
-| POV-Ray                                   | pov
-| Prolog                                    | pro ( pro )
-| Progress                                  | progress ( p w )
-| PostScript                                | ps
-| Microsoft PowerShell                      | ps1
-| PATROL                                    | psl
-| Pure                                      | pure
-| PureBASIC                                 | purebasic ( pb pbi )
-| Pyrex                                     | pyrex ( pyx )
-| Python                                    | python ( py )
-| Qore                                      | q
-| QMake Project                             | qmake
-| QML                                       | qml
-| Qu                                        | qu
-| R                                         | r
-| Rebol                                     | rebol
-| Rexx                                      | rexx ( rex rx the )
-| Relax NG                                  | rnc
-| RPG                                       | rpg
-| RPL Programming Language                  | rpl
-| Rust                                      | rs
-| Ruby                                      | ruby ( gemfile pp rakefile rb rjs ruby )
-| PowerPC Assembler                         | s
-| SAS                                       | sas
-| Scala                                     | scala
-| Scilab                                    | scilab ( sce sci )
-| SASS/SCSS                                 | scss
-| Bash                                      | sh ( bash ebuild eclass zsh )
-| SMALL                                     | small ( sma )
-| Smalltalk                                 | smalltalk ( gst sq st )
-| Standard ML                               | sml
-| SNMP                                      | snmp ( mib smi )
-| SNOBOL                                    | snobol ( sno )
-| RPM Spec                                  | spec
-| SPIN SQL                                  | spn
-| PL/SQL                                    | sql
-| Squirrel                                  | squirrel ( nut )
-| Stylus                                    | styl
-| SVG                                       | svg
-| Swift                                     | swift
-| Sybase SQL                                | sybase
-| Tcl/Tk                                    | tcl ( itcl wish )
-| TCSH                                      | tcsh
-| TeX and LaTeX                             | tex ( cls sty )
-| TypeScript                                | ts
-| Transact-SQL                              | tsql
-| TSX (TypeScript with React)               | tsx
-| TTCN3                                     | ttcn3
-| Plain text                                | txt ( text )
-| UPC (and C, technically)                  | upc
-| Vala                                      | vala
-| Visual Basic                              | vb ( bas basic bi vbs )
-| Verilog                                   | verilog ( v )
-| VHDL                                      | vhd
-| vimscript                                 | vimscript ( vim vimrc )
-| vue.js (beta)                             | vue
-| Whiley                                    | whiley
-| XML                                       | xml ( csproj dtd ecf ent glade hdr hub jnlp nrm resx sgm sgml tld vxml wml xsd xsl )
-| SuperX++                                  | xpp
-| Yaiff                                     | yaiff
-| Ansible YAML                              | yaml ( yml )
-| Yang                                      | yang
-| Zonnon                                    | znn
-|===
-
-Use the name of the desired language with the `--syntax option`.
