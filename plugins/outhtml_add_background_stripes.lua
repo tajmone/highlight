@@ -6,6 +6,8 @@ Adds background stripes
 
 Description="Adds background stripes in HTML output "
 
+Categories = {"format", "html" }
+
 -- function to update theme definition
 -- optional parameter: theme description
 function themeUpdate()

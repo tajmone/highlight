@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Convert keywords to lower case, if the syntax is not case sensitive."
 
+Categories = {"format" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

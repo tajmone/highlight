@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add perldoc.perl.org reference links to HTML, LaTeX, RTF and ODT output of Perl code"
 
+Categories = {"perl", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

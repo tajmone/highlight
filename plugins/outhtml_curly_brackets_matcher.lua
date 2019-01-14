@@ -6,6 +6,8 @@ Assumes that CSS is enabled (ie Inline CSS is not set)
 
 Description="Shows matching curly brackets in HTML output."
 
+Categories = {"format", "html", "usability" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

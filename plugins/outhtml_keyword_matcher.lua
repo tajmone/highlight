@@ -2,6 +2,8 @@
 
 Description="Shows matching keywords in HTML output. Define the keyword group as plug-in parameter."
 
+Categories = {"format", "html", "usability" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
       

@@ -1,6 +1,8 @@
 
 Description="Add HTML tooltips within comments linked to circled numbers (format as @tip[tooltip text])"
 
+Categories = {"format", "html", "usability" }
+
 function syntaxUpdate(desc)
   
   ttCnt=0 -- tooltip counter

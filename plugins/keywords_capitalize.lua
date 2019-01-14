@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Capitalize keywords if the syntax is not case sensitive."
 
+Categories = {"format" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

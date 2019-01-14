@@ -6,6 +6,9 @@ Adds modern monospace fonts
 
 Description="Adds modern monospace fonts in HTML output"
 
+Categories = {"format", "html", "usability" }
+
+
 -- function to update theme definition
 -- optional parameter: theme description
 function themeUpdate()

@@ -3,7 +3,7 @@
                              -------------------
     begin                : Mon March 3 2003
     copyright            : (C) 2003-2018 by Andre Simon
-    email                : andre.simon1@gmx.de
+    email                : a.simon@mailbox.org
  ***************************************************************************/
 
 
@@ -31,6 +31,6 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define HIGHLIGHT_VERSION "3.48"
 
 #define HIGHLIGHT_URL "http://www.andre-simon.de/"
-#define HIGHLIGHT_EMAIL "andre.simon1@gmx.de"
+#define HIGHLIGHT_EMAIL "a.simon@mailbox.org"
 
 #endif

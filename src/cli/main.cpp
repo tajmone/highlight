@@ -3,7 +3,7 @@
                              -------------------
     begin                : Die Apr 23 22:16:35 CEST 2002
     copyright            : (C) 2002-2018 by Andre Simon
-    email                : andre.simon1@gmx.de
+    email                : a.simon@mailbox.org
 
    Highlight is a universal source code to HTML converter. Syntax highlighting
    is formatted by Cascading Style Sheets. It's possible to easily enhance
@@ -45,7 +45,7 @@ void HLCmdLineApp::printVersionInfo()
 {
     cout << "\n highlight version "
          << HIGHLIGHT_VERSION
-         << "\n Copyright (C) 2002-2018 Andre Simon <andre.simon1 at gmx.de>"
+         << "\n Copyright (C) 2002-2019 Andre Simon <a dot simon at mailbox.org>"
          << "\n\n Argparser class"
          << "\n Copyright (C) 2006-2008 Antonio Diaz Diaz <ant_diaz at teleline.es>"
          << "\n\n Artistic Style Classes (3.1)"

@@ -453,7 +453,7 @@ Can be used to disable a default syntax element.
 
 Andre Simon
 
-andre.simon1@gmx.de
+a.simon@mailbox.org
 
 http://www.andre-simon.de/
 

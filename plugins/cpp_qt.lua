@@ -7,6 +7,9 @@ formatting in colour theme
 
 Description="Add Qt keywords to C and C++"
 
+Categories = {"c++", "qt" }
+
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
   if desc=="C and C++" then

@@ -1,6 +1,8 @@
 
 Description="Modify URLs within comments to clickable hyperlinks in HTML, LaTeX, ODT and RTF output"
 
+Categories = {"html", "rtf", "latex", "odt", "hyperlinks" }
+
 function syntaxUpdate(desc)
 
   table.insert( Keywords,

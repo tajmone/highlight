@@ -9,6 +9,8 @@ USAGE: highlight -I main.cpp --plug-in=plugin.lua
 
 Description="Add wxWidgets class names to C and C++ keywords"
 
+Categories = {"c++", "wxwidgets" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
   if desc=="C and C++" then

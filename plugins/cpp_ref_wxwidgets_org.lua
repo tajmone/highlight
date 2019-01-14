@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add wxwidgets.org reference links to HTML, LaTeX, RTF or ODT output of C++ code"
 
+Categories = {"c++", "wxwidgets", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

@@ -1,6 +1,8 @@
 
 Description="Add doc.qt.io reference links to HTML, LaTeX, RTF and ODT output of C++ code"
 
+Categories = {"c++", "qt", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

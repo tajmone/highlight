@@ -4,6 +4,9 @@ Sample plugin file for highlight 3.9
 
 Description="Add reference links to local C or C++ headers in HTML, LaTeX, RTF and ODT output. Set base_url in the plug-in script if needed."
 
+Categories = {"c++", "html", "rtf", "latex", "odt" }
+
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

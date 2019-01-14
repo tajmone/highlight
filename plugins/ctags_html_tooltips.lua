@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add tooltips based on a ctags file (default input file: tags)"
 
+Categories = {"ctags", "html" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
   

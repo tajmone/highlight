@@ -2,6 +2,8 @@
 
 Description="Adapt HTML to ancient MS Web Controls"
 
+Categories = {"format", "html", "compatibility" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

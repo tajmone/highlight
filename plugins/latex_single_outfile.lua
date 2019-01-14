@@ -5,6 +5,8 @@ Sample plugin file for highlight 3.45
 
 Description="Inserts a section into each LaTeX output file to concatenate the results later"
 
+Categories = {"latex" }
+
 function formatUpdate(desc)
     
     function DocumentHeader(numFiles, currFile, options)

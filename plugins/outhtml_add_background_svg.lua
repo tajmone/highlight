@@ -6,6 +6,8 @@ Adds a background pattern using an inline SVG
 
 Description="Adds a background inline SVG pattern for HTML output (edit parameters in the file)"
 
+Categories = {"format", "html" }
+
 -- function to update theme definition
 -- optional parameter: theme description
 function themeUpdate()

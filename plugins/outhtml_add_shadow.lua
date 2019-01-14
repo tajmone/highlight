@@ -6,6 +6,9 @@ Adds a shadow and margin to the code box
 
 Description="Adds a shadow and margin to the code box in HTML output (intended for bright themes)"
 
+Categories = {"format", "html" }
+
+
 -- function to update theme definition
 -- optional parameter: theme description
 function themeUpdate()

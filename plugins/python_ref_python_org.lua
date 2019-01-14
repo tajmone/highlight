@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add python.org reference links to HTML, LaTeX, RTF and ODT output of Python code"
 
+Categories = {"python", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

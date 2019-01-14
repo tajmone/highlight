@@ -9,6 +9,9 @@ USAGE: highlight -I main.cpp --plug-in=plugin.lua
 
 Description="Invert colours of the original theme"
 
+Categories = {"format" }
+
+
 -- function to update theme definition
 -- optional parameter: theme description
 function themeUpdate()

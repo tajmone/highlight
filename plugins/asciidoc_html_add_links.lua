@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add hyperlinks in AsciiDoc files"
 
+Categories = {"html", "asciidoc", "hyperlinks"}
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

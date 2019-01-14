@@ -3,7 +3,7 @@
                              -------------------
     begin                : Sept 5 2014
     copyright            : (C) 2014 by Dominik Schmidt
-    email                : andre.simon1@gmx.de
+    email                : a.simon@mailbox.org
  ***************************************************************************/
 
 

@@ -1,6 +1,8 @@
 
 Description="Adds code folding for C style languages, Pascal, Lua and Ruby and more to HTML output (not compatible with inline CSS or ordered list output)."
 
+Categories = {"format", "html", "usability" }
+
 function syntaxUpdate(desc)
   
   if (HL_OUTPUT ~= HL_FORMAT_HTML and HL_OUTPUT ~= HL_FORMAT_XHTML) then

@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.13
 
 Description="Add developer.gnome.org reference links to HTML, LeTeX, RTF and ODT output of C++ GTK code"
 
+Categories = {"c++", "gtk", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

@@ -5,6 +5,8 @@ Sample plugin file for highlight 3.45
 
 Description="Adds file information to terminal output (ansi, xterm, truecolor)"
 
+Categories = {"format", "ansi", "xterm", "truecolor" }
+
 function formatUpdate(desc)
     
     function DocumentHeader(numFiles, currFile, options)

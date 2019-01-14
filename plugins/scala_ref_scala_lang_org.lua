@@ -6,6 +6,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add scala-lang.org reference links to HTML, LaTeX, RTF and ODT output of Scala code"
 
+Categories = {"scala", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

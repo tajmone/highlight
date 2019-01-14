@@ -3,7 +3,7 @@
                              -------------------
     begin                : Jul 5 2004
     copyright            : (C) 2004-2007 by Andre Simon
-    email                : andre.simon1@gmx.de
+    email                : a.simon@mailbox.org
  ***************************************************************************/
 
 

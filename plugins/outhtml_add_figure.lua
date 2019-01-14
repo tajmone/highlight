@@ -1,6 +1,8 @@
 
 Description="Adds figure and figcapture in HTML output. Define capture as plug-in parameter."
 
+Categories = {"format", "html" }
+
 function syntaxUpdate(desc)
   if (HL_OUTPUT ~= HL_FORMAT_HTML and HL_OUTPUT ~= HL_FORMAT_XHTML) then
     return

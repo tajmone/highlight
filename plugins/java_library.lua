@@ -7,6 +7,8 @@ USAGE: highlight -I main.java --plug-in=plugin.lua
 
 Description="Add standard library class names to Java definition"
 
+Categories = {"java" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
   if desc=="Java" then

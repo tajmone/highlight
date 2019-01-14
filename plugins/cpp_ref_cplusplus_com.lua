@@ -4,6 +4,8 @@ Sample plugin file for highlight 3.9
 
 Description="Add cplusplus.com reference links to HTML, LaTeX, RTF and ODT output of C and C++ code"
 
+Categories = {"c++", "html", "rtf", "latex", "odt" }
+
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
 

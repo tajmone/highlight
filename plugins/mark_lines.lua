@@ -1,6 +1,9 @@
 
 Description="Marks the lines defined as comma separated list in the plug-in parameter (HTML and RTF only)."
 
+Categories = {"format", "html", "rtf" }
+
+
 function syntaxUpdate(desc)
    
   if HL_OUTPUT ~= HL_FORMAT_HTML and HL_OUTPUT ~= HL_FORMAT_XHTML  

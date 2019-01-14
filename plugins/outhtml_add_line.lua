@@ -6,6 +6,8 @@ Adds a line to the left of the code box
 
 Description="Adds a line to the left of the code box in HTML output"
 
+Categories = {"format", "html" }
+
 -- function to update theme definition
 -- optional parameter: theme description
 function themeUpdate()

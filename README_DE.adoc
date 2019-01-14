@@ -966,7 +966,7 @@ Im {makefile} finden Sie weitere Informationen.
 
 Andre Simon
 
-andre.simon1@gmx.de
+a.simon@mailbox.org
 
 {andre-simon_de}
 

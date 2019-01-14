@@ -10,6 +10,8 @@ USAGE: highlight -I main.cpp --plug-in=plugin.lua
 
 Description="Add syslog and kernel log levels to C and C++ keywords"
 
+Categories = {"c++", "syslog" }
+
 -- function to update language definition with syslog levels
 -- optional parameter: syntax description
 function syntaxUpdate(desc)

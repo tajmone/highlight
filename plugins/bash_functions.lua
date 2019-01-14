@@ -6,6 +6,8 @@ without parantheses
 ]]
 
 Description="Add function names to keyword list"
+    
+Categories = {"bash"}
 
 -- optional parameter: syntax description
 function syntaxUpdate(desc)
