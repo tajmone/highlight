@@ -1,6 +1,8 @@
 
 Description="Kotlin"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"package", "as", "typealias", "class", "this", "super", "val", "var", 

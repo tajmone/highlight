@@ -1,6 +1,8 @@
 
 Description="Vala"
 
+Categories = {"source"}
+
 Keywords={
     { Id=1,
       List={"if", "else", "switch", "case", "default", "break", "continue", 

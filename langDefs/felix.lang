@@ -1,6 +1,8 @@
 
 Description="Felix"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"all", "and", "as", "body", "call", "case", "class", "code", "const", 

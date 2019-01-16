@@ -1,6 +1,8 @@
 
 Description="Clipper"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"announce", "begin", "break", "case", "declare", "do", "elseif", 

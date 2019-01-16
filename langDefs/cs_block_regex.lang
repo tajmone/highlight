@@ -1,6 +1,9 @@
 -- a highlight lang definition for coffeescript's block regexes, by Jess Austin
 Description = "Coffeescript Block Regex"
 
+Categories = {"source", "script"}
+
+
 Keywords = {
    { -- backslash literals
      Id = 1,

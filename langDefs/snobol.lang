@@ -1,6 +1,8 @@
 
 Description="SNOBOL"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={  "output", "terminal", "screen", "input", "arb", "arbno", "pos", 

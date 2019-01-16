@@ -2,6 +2,8 @@
 
 Description="FAME"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"abort", "accelerator", "access", "alias", "almon", "append", "area", 

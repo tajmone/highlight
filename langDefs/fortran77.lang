@@ -1,6 +1,8 @@
 
 Description="Fortran 77"
 
+Categories = {"source"}
+
 Identifiers=[[ [a-zA-Z_][\w\d\*]* ]]
 
 Keywords={

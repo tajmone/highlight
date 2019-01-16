@@ -1,6 +1,8 @@
 
 Description="ColdFusion MX"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"3Dcfabort", "cfapplet", "cfapplication", "cfargument", "cfassociate", 

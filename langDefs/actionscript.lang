@@ -1,5 +1,7 @@
 Description="ActionScript"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"class", "extends", "implements", "import", "interface", "new", 
@@ -30,7 +32,8 @@ Keywords={
     "ClipboardFormats", "ClipboardTransferMode", "Color", "ColorMatrixFilter", 
     "ColorPicker", "ColorPickerEvent", "ColorTransform", "ComboBox", 
     "ComboBoxAccImpl", "ComponentEvent", "CompressionAlgorithm", "ContextMenu", 
-    "ContextMenuBuiltInItems", "ContextMenuEvent", "ContextMenuItem", "ConvolutionFilter", "Cubic", "CuePointType", "CustomActions", 
+    "ContextMenuBuiltInItems", "ContextMenuEvent", "ContextMenuItem", 
+    "ConvolutionFilter", "Cubic", "CuePointType", "CustomActions", 
     "CustomEase", "DRMAuthenticateEvent", "DRMErrorEvent", "DRMStatusEvent", 
     "DataChangeEvent", "DataChangeType", "DataEvent", "DataGrid", "DataGridAccImpl", 
     "DataGridCellEditor", "DataGridColumn", "DataGridEvent", "DataGridEventReason", 
@@ -57,7 +60,8 @@ Keywords={
     "InvalidationType", "InvokeEvent", "Iris", "JointStyle", "KeyLocation", 
     "Keyboard", "KeyboardEvent", "Keyframe", "Label", "LabelButton", 
     "LabelButtonAccImpl", "LayoutEvent", "LineScaleMode", "Linear", "List", 
-    "ListAccImpl", "ListData", "ListEvent", "LivePreviewParent", "Loader", "LoaderContext", "LoaderInfo", "LocalConnection", 
+    "ListAccImpl", "ListData", "ListEvent", "LivePreviewParent", "Loader", 
+    "LoaderContext", "LoaderInfo", "LocalConnection", 
     "Locale", "Math", "Matrix", "MatrixTransformer", "MemoryError", "MetadataEvent", 
     "Microphone", "MorphShape", "Motion", "MotionEvent", "Mouse", "MouseEvent", 
     "MovieClip", "NCManager", "NCManagerNative", "Namespace", "NativeApplication", 
@@ -85,7 +89,8 @@ Keywords={
     "SecurityErrorEvent", "SecurityPanel", "SelectableList", 
     "SelectableListAccImpl", "ServiceMonitor", "Shape", "SharedObject", 
     "SharedObjectFlushStatus", "SignatureStatus", "SignerTrustSettings", 
-    "SimpleButton", "SimpleCollectionItem", "SimpleEase", "Sine", "SkinErrorEvent", "Slider", "SliderDirection", "SliderEvent", 
+    "SimpleButton", "SimpleCollectionItem", "SimpleEase", "Sine", "SkinErrorEvent", 
+    "Slider", "SliderDirection", "SliderEvent", 
     "SliderEventClickTarget", "Socket", "SocketMonitor", "Sound", "SoundChannel", 
     "SoundEvent", "SoundLoaderContext", "SoundMixer", "SoundTransform", "Source", 
     "SpreadMethod", "Sprite", "Squeeze", "StackFrame", "StackOverflowError", 
@@ -98,7 +103,8 @@ Keywords={
     "TileListAccImpl", "TileListCollectionItem", "TileListData", "Timer", 
     "TimerEvent", "Transform", "Transition", "TransitionManager", "Tween", 
     "TweenEvent", "Tweenables", "TypeError", "UIComponent", "UIComponentAccImpl", 
-    "UILoader", "UIScrollBar", "URIDereferencer", "URIError", "URLLoader", "URLLoaderDataFormat", "URLMonitor", "URLRequest", "URLRequestDefaults", 
+    "UILoader", "UIScrollBar", "URIDereferencer", "URIError", "URLLoader", 
+    "URLLoaderDataFormat", "URLMonitor", "URLRequest", "URLRequestDefaults", 
     "URLRequestHeader", "URLRequestMethod", "URLStream", "URLVariables", "Updater", 
     "VerifyError", "Video", "VideoAlign", "VideoError", "VideoEvent", "VideoPlayer", 
     "VideoProgressEvent", "VideoScaleMode", "VideoState", "Wipe", "XML", 
@@ -106,7 +112,6 @@ Keywords={
     "XMLSocket", "XMLUI", "Zoom", "int", "uint", "void"},
   }
 }
-
 
 Strings={
   Delimiter=[["|']],

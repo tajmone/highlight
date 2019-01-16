@@ -1,6 +1,8 @@
 
 Description="Backus-Naur Form"
 
+Categories = {"protocol"}
+
 Identifiers=[[ [-a-zA-Z_]+|<[-a-zA-Z_]+> ]]
 
 Keywords={

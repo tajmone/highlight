@@ -1,6 +1,8 @@
 
 Description="F#"
 
+Categories = {"source", "functional"}
+
 Digits=[[ (?:0x|0X|0b|0B|0o)[0-9a-fA-F]+?\w*|\d*[\.\_]?\d+(?:[eE][\-\+]\d+)?\w* ]]
 
 Keywords={

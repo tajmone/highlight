@@ -1,6 +1,8 @@
 
 Description="BM Script"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"advance", "aggregate_member", "action", "base_model", "commit", 

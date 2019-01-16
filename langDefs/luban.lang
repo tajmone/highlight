@@ -1,6 +1,8 @@
 
 Description="Luban"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"as",  "break",  "continue",  "else",  "finish",  "for",  "foreach",  

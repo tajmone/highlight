@@ -1,6 +1,8 @@
 
 Description="Clean"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"default", "definition", "derive", "case", "class", "code", "export", 

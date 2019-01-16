@@ -2,6 +2,9 @@
 
 Description="Logtalk"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1, --conditional compilation directives
     Regex=[[^\s*:-\s((el)?if)(?=[(])]],

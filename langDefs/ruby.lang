@@ -1,6 +1,8 @@
 
 Description="Ruby"
 
+Categories = {"script"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Digits=[[ (?:0x|0X|0b)[0-9a-fA-F]+|\d*[\.\_]?\d+(?:[eE][\-\+]\d+)?[lLuU]? ]]

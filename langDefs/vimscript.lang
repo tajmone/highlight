@@ -1,5 +1,7 @@
 Description="vimscript"
 
+Categories = {"script", "config"}
+
 Digits = [[ (?:[0-9])(?:0x|0X|0b)[0-9a-fA-F']+|#?\d*[\.]?\d+(?:[eE][\-\+]\d+)?[lLuU]* ]]
 
 Keywords={

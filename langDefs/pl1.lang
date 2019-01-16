@@ -2,6 +2,9 @@
 
 Description="PL/1"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"call", "chksucc", "close", "dcl", "do", "end", "if", "open", "put", "read"},

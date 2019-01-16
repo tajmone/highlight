@@ -19,6 +19,8 @@ File extensions: "*.alan", "*.i"
 ------------------------------------------------------------------------------]]
 Description = "ALAN Interactive Fiction Language"
 
+Categories = {"source"}
+
 IgnoreCase = true --> Alan is not case-sensitive
 
 EnableIndentation = false

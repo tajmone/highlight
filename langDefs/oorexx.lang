@@ -1,6 +1,8 @@
 
 Description="OpenObjectRexx"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"address", "additional", "any", "arg", "arguments", "array", "by", 

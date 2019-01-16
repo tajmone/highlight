@@ -1,6 +1,6 @@
 = HIGHLIGHT HANDBUCH
 André Simon
-v3.45, September 2018
+v3.49, January 2019
 :lang: de
 :toc: left
 :toc-title: Contents
@@ -577,6 +577,8 @@ NestedSections = {Lang, Delimiter= {} }
 
 Description:       String, Beschreibung der Syntax
 
+Categories:        Table, Liste von Kategorien (config, source, script, etc)
+
 Digits:            String, Regulaerer Ausdruck fuer Zahlenliterale (optional)
 
 Identifiers:       String, Regulaerer Ausdruck fuer Bezeichner (optional)
@@ -662,6 +664,8 @@ Weitere Funktionen sind in {README_PLUGINS} beschrieben.
 --------------------------------------------------------------------------------
 Description="C and C++"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"goto", "break", "return", "continue", "asm", "case", "default",
@@ -739,7 +743,9 @@ Underline:: Boolean, True wenn Font unterstrichen sein soll (optional)
 ==== Theme-Elemente
 
 ................................................................................
-Description:   String, Theme-Beschreibung
+Description    = String, Theme-Beschreibung
+
+Categories     = Table, Liste von Kategorien (dark, light, etc)
 
 Default        = Attributes (Farbe des nicht hervorgehobenen Texts)
 
@@ -782,24 +788,30 @@ AttributesN: Liste, Formatierung von Schluesselwoertgruppen. Es sollten
 .Example
 [source,lua]
 --------------------------------------------------------------------------------
-Default        = { Colour="#000000" }
-Canvas         = { Colour="#ffffff" }
-Number         = { Colour="#000000" }
-Escape         = { Colour="#bd8d8b" }
-String         = { Colour="#bd8d8b" }
-StringPreProc  = { Colour="#bd8d8b" }
-BlockComment   = { Colour="#ac2020", Italic=true }
-PreProcessor   = { Colour="#000000" }
-LineNum        = { Colour="#555555" }
-Operator       = { Colour="#000000" }
-LineComment = BlockComment
+Description = "vim autumn"
+
+Categories = {"light"}
+
+Default = { Colour="#404040" }
+Canvas  = { Colour="#fff4e8" }
+Number  = { Colour="#00884c" }
+Escape  = { Colour="#8040f0" }
+String  = { Colour="#00884c" }
+BlockComment  = { Colour="#ff5050" }
+StringPreProc = String
+LineComment   = BlockComment
+Operator      = { Colour="#513d2b" } 
+LineNum       = { Colour="#555555" } 
+PreProcessor  = {  Colour="#660000" }
+Interpolation = { Colour="#CA6DE1" }
 
 Keywords = {
-  { Colour= "#9c20ee", Bold=true },
-  { Colour= "#208920" },
-  { Colour= "#0000ff" },
-  { Colour= "#000000" },
+  { Colour="#80a030" },
+  { Colour="#b06c58" },
+  { Colour="#30a188" },
+  { Colour="#990000" },
 }
+
 --------------------------------------------------------------------------------
 
 

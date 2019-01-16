@@ -1,5 +1,7 @@
 Description="E-Mail treated as Markup"
 
+Categories = {"protocol"}
+
 Keywords={
   { Id=1,
    Regex=[[^>\s?>\s?>\s?>.+ ]]

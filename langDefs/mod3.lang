@@ -1,6 +1,9 @@
 
 Description="Modula3"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"and", "do", "from", "not",  "repeat", 

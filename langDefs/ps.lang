@@ -1,6 +1,9 @@
 
 Description="PostScript"
 
+Categories = {"script", "document"}
+
+
 Keywords={
   { Id=1,
     List={"pop", "exch", "dup", "copy", "roll", "clear", "count", "mark", "cleartomark", "counttomark", "exec", 

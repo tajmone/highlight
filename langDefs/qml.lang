@@ -1,6 +1,8 @@
 
 Description="QML"
 
+Categories = {"markup"}
+
 Keywords={
   {  Id=1,
    List={"import", "color","bool","coordinate","date","double","enumeration","font","geocircle",

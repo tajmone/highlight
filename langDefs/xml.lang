@@ -1,6 +1,9 @@
 
 Description="XML"
 
+Categories = {"config", "protocol"}
+
+
 Keywords={
   { Id=1,
     Regex=[[<[!?]?(?!\-\-)\/?[\w\:\-]+>?|[/?]?>]],

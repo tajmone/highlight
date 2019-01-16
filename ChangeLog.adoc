@@ -6,11 +6,17 @@
 :toc: left
 :toclevels: 1
 
+
+== highlight 3.49
+
+xx.xx.2019
+
  - fixed more problems with syntax test indicators reporting wrong states
    (https://gitlab.com/saalen/highlight/issues/102)
  - added support for TOML
  - improved Perl highlighting
-
+ - added Categories field to all config files
+ 
 == highlight 3.48
 
 14.12.2018

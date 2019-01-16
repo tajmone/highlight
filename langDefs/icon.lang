@@ -1,6 +1,8 @@
 
 Description="Icon"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"by", "case", "", "create", "default", "do", "else", "every", "if", "initial", "next", "of", "repeat", "then", "to", "until", "while", "break",

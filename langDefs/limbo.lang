@@ -1,6 +1,9 @@
 
 Description="Limbo"
 
+Categories = {"source"}
+
+
 Keywords={
   {  Id=1,
    List={ "if", "else", "while", "do", "return", "list", "of", 

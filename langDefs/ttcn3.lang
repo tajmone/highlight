@@ -1,6 +1,9 @@
 
 Description="TTCN3"
 
+Categories = {"protocol"}
+
+
 Keywords={
   { Id=1,
     List={"if", "else", "while", "for", "do", "return", "log", "testcase", 

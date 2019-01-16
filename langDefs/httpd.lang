@@ -1,6 +1,8 @@
 
 Description="Apache Config"
 
+Categories = {"protocol"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

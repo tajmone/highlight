@@ -1,6 +1,8 @@
 
 Description="PowerPC Assembler"
 
+Categories = {"assembler"}
+
 Identifiers=[[ [a-zA-Z_]\w*[\.\+\-]? ]]
 
 Keywords={

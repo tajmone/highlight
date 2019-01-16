@@ -1,6 +1,8 @@
 
 Description="Bash"
 
+Categories = {"script", "shell"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]*(?!\/) ]]
 
 Keywords={

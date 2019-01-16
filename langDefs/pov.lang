@@ -1,6 +1,9 @@
 
 Description="POV-Ray"
 
+Categories = {"source", "graphics"}
+
+
 Keywords={
   { Id=1,
     List={"bicubic_patch", "blob", "box", "camera", "cone", "cubic", "cylinder", 

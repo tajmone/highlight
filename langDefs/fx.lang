@@ -1,6 +1,9 @@
 
 Description="Java FX"
 
+Categories = {"source"}
+
+
 Keywords={
   {  Id=1,
    List={

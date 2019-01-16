@@ -1,6 +1,8 @@
 
 Description="Standard ML"
 
+Categories = {"source", "functional"}
+
 Keywords={
   { Id=1,
     List={"abstraction", "abstype", "and", "andalso", "as", "before", "case", 

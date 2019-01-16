@@ -1,6 +1,8 @@
 
 Description="PL/SQL"
 
+Categories = {"database"}
+
 Keywords={
   { Id=1,
     List={"abort", "abs", "absent", "absolute", "access", "according", "action", "ada",

@@ -1,6 +1,8 @@
 
 Description="Maple"
 
+Categories = {"scientific"}
+
 Keywords={
   { Id=1,
     List={"and", "or", "xor", "union", "intersect", "minus", "mod", "not", 

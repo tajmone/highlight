@@ -1,6 +1,8 @@
 -- a highlight lang definition for coffeescript, by Jess Austin
 Description = "Coffeescript"
 
+Categories = {"source", "script"}
+
 Keywords = {
   {
     Id = 1,

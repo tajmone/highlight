@@ -1,6 +1,8 @@
 
 Description="Tcl/Tk"
 
+Categories = {"script"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

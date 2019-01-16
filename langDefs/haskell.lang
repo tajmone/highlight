@@ -1,6 +1,8 @@
 
 Description="Haskell"
 
+Categories = {"source"}
+
 Keywords={
   -- Type-level keywords
   { Id=1,

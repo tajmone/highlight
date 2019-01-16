@@ -2,6 +2,9 @@
 
 Description="NeXT Byte Codes"
 
+Categories = {"source"}
+
+
 Digits=[[ (?:x|X)[-a-fA-F]+|\d*[\.]?\d+(?:[eE][\-\+]\\d+)?[lLuU]* ]]
 
 Keywords={

@@ -1,6 +1,8 @@
 
 Description="Scilab"
 
+Categories = {"scientific"}
+
 Keywords={
   { Id=1,
     List={"abort", "ans", "backslash", "bool2s", "boolean", "brackets", "break", 

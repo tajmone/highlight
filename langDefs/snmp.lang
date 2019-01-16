@@ -1,6 +1,8 @@
 
 Description="SNMP"
 
+Categories = {"protocol"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

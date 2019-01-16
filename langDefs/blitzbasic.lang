@@ -1,6 +1,8 @@
 
 Description="Blitz Basic"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"after", "and", "before", "case", "const", "data", "default", 

@@ -1,6 +1,8 @@
 
 Description="Generic config files"
 
+Categories = {"config"}
+
 Keywords={
   { Id=1,
     Regex=[[^\s*[\w@]+]]

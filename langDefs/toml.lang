@@ -1,6 +1,8 @@
 
 Description="TOML"
 
+Categories = {"markup"}
+
 Keywords={
   { Id=1,
     Regex=[[^\s*(\[.+\])]],

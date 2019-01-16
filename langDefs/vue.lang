@@ -1,6 +1,8 @@
 
 Description="vue.js (beta)"
 
+Categories = {"script", "javascript"}
+
 Keywords={
   { Id=1,
     Regex=[[<[!?]?(?!\-\-)\/?[\w\:\-]+>?|[/?]?>]],

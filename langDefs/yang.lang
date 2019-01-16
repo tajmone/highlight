@@ -1,5 +1,7 @@
 Description="Yang"
 
+Categories = {"protocol"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

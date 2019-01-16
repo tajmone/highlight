@@ -1,6 +1,8 @@
 
 Description="RPM Spec"
 
+Categories = {"config", "script"}
+
 Keywords={
   { Id=1,
     List={  "Summary", "Name", "Version", "Release", "Copyright", "Group", "URL", 

@@ -1,6 +1,9 @@
 
 Description="fstab config file"
 
+Categories = {"config"}
+
+
 Keywords={
   { Id=1,
    List= { "ext2", "ext3", "ext4", "ntfs-3g", "proc", "auto", "ntfs", "swap", "btrfs", "none"

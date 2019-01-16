@@ -1,5 +1,7 @@
 Description="GitHub Flavored Markdown"
 
+Categories = {"markup"}
+
 Keywords={
   { Id=1,
     Regex=[[^##?#?#?#?#?.+]],

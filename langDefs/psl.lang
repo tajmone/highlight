@@ -1,6 +1,8 @@
 
 Description="PATROL"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"else", "elsif", "exit", "export", "foreach", "function", "if",

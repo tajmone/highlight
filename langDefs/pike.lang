@@ -1,6 +1,8 @@
 
 Description="Pike"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"constant", "enum", "typedef", "if", "do", "for", "while", "else", "foreach", "case", "switch", "break", "continue", "return", "sscanf", 

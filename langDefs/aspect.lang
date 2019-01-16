@@ -1,6 +1,8 @@
 
 Description="Abstract"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"addfilename", "alarm", "ansitokey", "ansitooem", "atof", "atoi", 

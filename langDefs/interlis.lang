@@ -1,6 +1,8 @@
 
 Description="INTERLIS"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"ANY", "ARCS", "AREA", "BASE", "BLANK", "CODE", "CONTINUE", "CONTOUR", 

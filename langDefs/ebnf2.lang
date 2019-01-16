@@ -31,6 +31,8 @@
 --]]
 Description="EBNF2"
 
+Categories = {"protocol"}
+
 IgnoreCase=false
 EnableIndentation=false
 ---------------------------------------------------------------------------------

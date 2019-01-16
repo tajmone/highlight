@@ -1,6 +1,9 @@
 
 Description="Euphoria"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"and", "by", "constant", "do", "else", "elsif", "end", "exit", "for", 

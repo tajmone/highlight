@@ -1,6 +1,8 @@
 
 Description="NetRexx"
 
+Categories = {"source"}
+
 Keywords={
  { Id=1,
    List={"class", "private", "public", "abstract", "final",

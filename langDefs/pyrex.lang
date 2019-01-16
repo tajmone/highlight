@@ -1,6 +1,9 @@
 
 Description="Pyrex"
 
+Categories = {"source", "script"}
+
+
 Keywords={
   { Id=1,
     List={"global", "nextgroup", "pythonfunction", "skipwhite", "contained", 

@@ -1,6 +1,8 @@
 
 Description="BCPL"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"NUMBER", "NAME", "STRINGCONST", "TRUE", "FALSE", "VALOF", "LV", "RV",

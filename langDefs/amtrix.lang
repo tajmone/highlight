@@ -1,6 +1,9 @@
 
 Description="AMTrix"
 
+Categories = {"source"}
+
+
 Keywords={
     { Id=1,
       List={"argument", "amtrix_logid", "and", "append", "arg_list", "arg_opt", 

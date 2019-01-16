@@ -9,6 +9,8 @@
 
 Description="Chapel"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
    List={"as", "align", "atomic", "begin", "break", "by", "class", "cobegin",

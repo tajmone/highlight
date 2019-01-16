@@ -1,5 +1,8 @@
 Description="JSON"
 
+Categories = {"config", "protocol"}
+
+
 Keywords={
    { Id=1,
     Regex=[[ \{|\} ]],

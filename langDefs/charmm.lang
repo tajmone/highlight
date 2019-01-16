@@ -1,6 +1,8 @@
 
 Description="Charmm"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"if", "then", "set", "goto", "label", "stream", "increment", 

@@ -1,6 +1,8 @@
 
 Description="HTML"
 
+Categories = {"markup"}
+
 Keywords={
   { Id=1,
     Regex=[[<[!?]?(?!\-\-)\/?[\w\:\-]+>?|[/?]?>]],

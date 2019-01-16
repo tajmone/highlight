@@ -31,6 +31,8 @@
 
 Description="PureBASIC"
 
+Categories = {"source"}
+
 IgnoreCase=false
 
 Comments={  -- PB IDE color: #00AAAA (Persian Green/Tradewind)

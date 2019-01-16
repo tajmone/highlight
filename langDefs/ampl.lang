@@ -1,6 +1,8 @@
 
 Description="AMPL"
 
+Categories = {"source"}
+
 Keywords={
     { Id=1,
       List={"and", "arc", "by", "check", "cross", "close", "diff", "difference", 

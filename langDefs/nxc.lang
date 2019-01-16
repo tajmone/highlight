@@ -1,6 +1,8 @@
 
 Description="Not eXactly C"
 
+Categories = {"source"}
+
 Digits=[[ (?:x|X)[-a-fA-F]+|\d*[\.]?\d+(?:[eE][\-\+]\\d+)?[lLuU]* ]]
 
 Keywords={

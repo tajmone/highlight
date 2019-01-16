@@ -1,6 +1,8 @@
 
 Description="Objective Caml"
 
+Categories = {"source"}
+
 Digits=[[ (?:0x|0X|0b|0B)[0-9a-fA-F]+|\d*[\.\_]?\d+(?:[eE][\-\+]\d+)?[lLuUbfdm]* ]]
 
 Keywords={

@@ -1,5 +1,7 @@
 Description="Go"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={  "break", "default", "func", "interface", "select", "case", "defer", 

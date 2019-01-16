@@ -1,6 +1,8 @@
 
 Description="Prolog"
 
+Categories = {"source", "functional"}
+
 Keywords={
   { Id=1,
     List={"true", "fail", "at_end_of_stream", "nl", "repeat", "halt", "is", "rem", "mod"},

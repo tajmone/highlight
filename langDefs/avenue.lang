@@ -1,5 +1,7 @@
 Description="Avenue"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
 	List={"break", "continue", "CR", "each", "end", "exit", "false",

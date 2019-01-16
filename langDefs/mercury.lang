@@ -1,6 +1,8 @@
 
 Description="Mercury"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"is", "and", "or", "func", "impure", "", "", "pred", "", "semipure", 

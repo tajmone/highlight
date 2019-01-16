@@ -1,6 +1,8 @@
 
 Description="NSIS"
 
+Categories = {"config", "script"}
+
 Keywords={
   { Id=1,
     List={"OutFile", "Name", "Caption", "SubCaption", "BrandingText", "Icon", 

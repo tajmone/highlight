@@ -8,6 +8,8 @@ Original author unknown. Updated by Tristano Ajmone.
 ------------------------------------------------------------------------------]]
 Description="Nim"
 
+Categories = {"source"}
+
 
 --------------------------------------------------------------------------------
 --                                   Numerals                                   

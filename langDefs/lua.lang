@@ -1,6 +1,8 @@
 
 Description="Lua"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"and", "break", "do", "else", "elseif", "end", "false", "for",

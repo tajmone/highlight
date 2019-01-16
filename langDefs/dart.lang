@@ -1,6 +1,8 @@
 
 Description="Dart"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={ "assert", "break", "case", "catch", "class", "const", "continue",

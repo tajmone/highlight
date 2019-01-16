@@ -1,6 +1,9 @@
 
 Description="Clips"
 
+Categories = {"source"}
+
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

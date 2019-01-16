@@ -1,6 +1,8 @@
 
 Description="Lotus"
 
+Categories = {"source", "database"}
+
 Identifiers=[[ [a-zA-Z_][\w]*\$? ]]
 
 Keywords={

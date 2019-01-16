@@ -2,6 +2,8 @@
 
 Description="RPL Programming Language"
 
+Categories = {"source"}
+
 Keywords={
 	{
 		Id=1,

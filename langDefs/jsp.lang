@@ -1,4 +1,6 @@
 Description="JavaServer Pages"
+
+Categories = {"source", "script"}
  
 Keywords={
   { Id=1,

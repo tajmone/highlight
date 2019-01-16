@@ -1,6 +1,8 @@
 
 Description="Verilog"
 
+Categories = {"hardware"}
+
 -- recognize stuff like 5'b0 as number
 Digits=[[ (?:0x|0X)[0-9a-fA-F]+|\d*[\.\_]?[\d+\'](?:[eE][\-\+]\d+)?h?[0-9a-fA-F]* ]]
 

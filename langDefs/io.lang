@@ -1,5 +1,7 @@
 Description="IO"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"activate", "activeCoroCount", "and", "block", "break", "catch", 

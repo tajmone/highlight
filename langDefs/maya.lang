@@ -1,6 +1,8 @@
 
 Description="Maya"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"float", "int", "matrix", "string", "vector", "false", "no", "off", 

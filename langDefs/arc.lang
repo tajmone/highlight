@@ -1,6 +1,8 @@
 
 Description="Arc"
 
+Categories = {"source"}
+
 Identifiers=[[ [a-zA-Z_][\w\-\/]* ]]
 
 Keywords={

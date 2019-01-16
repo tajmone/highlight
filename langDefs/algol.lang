@@ -1,6 +1,8 @@
 
 Description="ALGOL 68"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"mode", "op", "prio", "proc", "flex", "heap", "loc", "long", "ref",

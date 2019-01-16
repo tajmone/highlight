@@ -2,6 +2,8 @@
 
 Description="Relax NG"
 
+Categories = {"markup"}
+
 Keywords={
   { Id=1,
     List={"datatypes", "div", "element", "empty", "external", "grammar", "include",

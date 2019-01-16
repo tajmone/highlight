@@ -1,6 +1,8 @@
 
 Description="CHILL"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"AND", "BEGIN", "CASE", "DIV", "DO", "ELSE", "ELSIF", "END", "ESAC", 

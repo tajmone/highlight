@@ -1,6 +1,8 @@
 
 Description="Graphviz"
 
+Categories = {"graphics"}
+
 Keywords={
   { Id=1,
     List={"digraph", "graph", "node", "edge", "subgraph", "strict"},

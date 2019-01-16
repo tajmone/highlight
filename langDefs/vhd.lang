@@ -1,6 +1,8 @@
 
 Description="VHDL"
 
+Categories = {"hardware"}
+
 Keywords={
   { Id=1,
     List={"abs", "access", "after", "all", "and", "architecture", "array", 

@@ -2,6 +2,8 @@
 Description="mIRC Scripting"
 --msl, nbs
 
+Categories = {"script"}
+
 Keywords={
 {  Id=1,
    List={"if", "while", "else", "for", "inc", "dec" }

@@ -1,6 +1,8 @@
 
 Description="SMALL"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"assert", "break", "case", "char", "const", "continue", "default", 

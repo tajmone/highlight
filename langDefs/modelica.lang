@@ -1,6 +1,8 @@
 
 Description="Modelica"
 
+Categories = {"scientific"}
+
 Keywords={
   { Id=1,
     List={"annotation", "assert", "block", "class", "connector", "constant", 

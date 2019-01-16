@@ -1,6 +1,8 @@
 
 Description="Qore"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"class", "private", "synchronized", "new", "inherits", "shift", 

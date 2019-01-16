@@ -27,6 +27,8 @@ Keywords lists are left as one-keyword-for-line to simplify reading and editing.
 ------------------------------------------------------------------------------]]
 Description="delphi"
 
+Categories = {"source"}
+
 Digits=[[ (?:0x|0X|\$)[0-9a-fA-F]+|\d*[\.\_]?\d+(?:[eE][\-\+]\d+)?[lLuUbfdm]* ]]
 
 Keywords={

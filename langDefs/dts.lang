@@ -1,6 +1,8 @@
 
 Description="Device Tree Source"
 
+Categories = {"config"}
+
 Keywords={
   {  Id=1,
    Regex=[[([\w-]+(@.+)?)\s*\{]],

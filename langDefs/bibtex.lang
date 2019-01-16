@@ -1,6 +1,8 @@
 
 Description="BibTeX"
 
+Categories = {"document"}
+
 Keywords={
   { Id=1,
     List={"address", "annote", "author", "title", "type", "abstract", "volume", 

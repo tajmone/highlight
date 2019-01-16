@@ -1,6 +1,8 @@
 
 Description="Rust"
 
+Categories = {"source"}
+
 Digits=[[ (?:0x|0o|0b)[0-9a-fA-F\_uif]+|\d+[\.]?[\d\_uif]+(?:[eE][\-\+][\d\_uif]+)?|\d+ ]]
 
 Keywords={

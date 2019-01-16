@@ -1,6 +1,8 @@
 
 Description="ARM"
 
+Categories = {"assembler"}
+
 Keywords={
     { Id=1,
       List={"AND", "and", "EOR", "eor", "SUB", "sub", "RSB", "rsb", "ADD", "add", 

@@ -1,6 +1,8 @@
 
 Description="Pure"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"case", "const", "def", "else", "end", "extern", "if", "infix", 

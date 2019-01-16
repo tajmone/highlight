@@ -1,6 +1,6 @@
 = HIGHLIGHT MANUAL
 André Simon
-v3.45, September 2018
+v3.49, January 2019
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -576,6 +576,8 @@ NestedSections = {Lang, Delimiter= {} }
 
 Description:       String, Defines syntax description
 
+Categories:        Table, List of categories (config, source, script, etc)
+
 Digits:            String, Regular expression which defines digits (optional)
 
 Identifiers:       String, Regular expression which defines identifiers
@@ -658,6 +660,8 @@ See {README_PLUGINS} for more available functions.
 --------------------------------------------------------------------------------
 Description="C and C++"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"goto", "break", "return", "continue", "asm", "case", "default",
@@ -735,7 +739,9 @@ Underline:: Boolean, true if font should be underlined (optional)
 ==== Theme elements
 
 ................................................................................
-Description:   String, Defines theme description
+Description:   = String, Defines theme description
+
+Categories     = Table, List of categories (dark, light, etc)
 
 Default        = Attributes (Colour of unspecified text)
 
@@ -776,27 +782,30 @@ AttributesN: Formatting of keyword group N. There should be at least four items
 .Example
 [source,lua]
 --------------------------------------------------------------------------------
-Default        = { Colour="#000000" }
-Canvas         = { Colour="#ffffff" }
-Number         = { Colour="#000000" }
-Escape         = { Colour="#bd8d8b" }
-String         = { Colour="#bd8d8b" }
-StringPreProc  = { Colour="#bd8d8b" }
-BlockComment   = { Colour="#ac2020", Italic=true }
-PreProcessor   = { Colour="#000000" }
-LineNum        = { Colour="#555555" }
-Operator       = { Colour="#000000" }
-LineComment = BlockComment
+Description = "vim autumn"
+
+Categories = {"light"}
+
+Default = { Colour="#404040" }
+Canvas  = { Colour="#fff4e8" }
+Number  = { Colour="#00884c" }
+Escape  = { Colour="#8040f0" }
+String  = { Colour="#00884c" }
+BlockComment  = { Colour="#ff5050" }
+StringPreProc = String
+LineComment   = BlockComment
+Operator      = { Colour="#513d2b" } 
+LineNum       = { Colour="#555555" } 
+PreProcessor  = {  Colour="#660000" }
+Interpolation = { Colour="#CA6DE1" }
 
 Keywords = {
-  { Colour= "#9c20ee", Bold=true },
-  { Colour= "#208920" },
-  { Colour= "#0000ff" },
-  { Colour= "#000000" },
+  { Colour="#80a030" },
+  { Colour="#b06c58" },
+  { Colour="#30a188" },
+  { Colour="#990000" },
 }
 --------------------------------------------------------------------------------
-
-
 
 === KEYWORD GROUPS
 

@@ -1,6 +1,8 @@
 
 Description="AutoIt"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"continueloop", "dim", "global", "local", "const", "do", "until", 

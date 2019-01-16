@@ -3,6 +3,8 @@
 
 Description = "Javascript Regex"
 
+Categories = {"source", "script"}
+
 Keywords = {
    { -- backslash literals
      Id = 1,

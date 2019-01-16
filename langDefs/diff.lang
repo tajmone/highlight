@@ -1,6 +1,8 @@
 
 Description="Diff"
 
+Categories = {"text"}
+
 Digits=[[ ^[\d,]*[ac]\d* ]]
 
 Keywords={

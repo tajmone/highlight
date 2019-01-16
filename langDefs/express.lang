@@ -1,6 +1,8 @@
 
 Description="Express"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"abs", "aggindex", "aggmap", "aggmapinfo", "aggregate", "aggregate", 

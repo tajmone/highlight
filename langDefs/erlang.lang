@@ -1,6 +1,9 @@
 
 Description="Erlang"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"after", "begin", "case", "catch", "cond", "end", "fun", "if", "let", "of", "query", "receive", "when"},

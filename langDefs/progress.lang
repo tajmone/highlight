@@ -1,6 +1,8 @@
 
 Description="Progress"
 
+Categories = {"source"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

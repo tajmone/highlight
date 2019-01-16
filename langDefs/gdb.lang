@@ -3,6 +3,8 @@
 
 Description="gdb"
 
+Categories = {"source", "script"}
+
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]
 
 Keywords={

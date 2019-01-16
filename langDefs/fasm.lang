@@ -74,6 +74,8 @@ HIGHLIGHT      -- (C) 2002, André Simon, licensed under GNU-GPL3:
 
 Description="fasm"
 
+Categories = {"assembler"}
+
 IgnoreCase=true
 
 Digits=[[ (?x)

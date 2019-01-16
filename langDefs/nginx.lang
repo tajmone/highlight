@@ -1,6 +1,8 @@
 
 Description="Nginx configuration"
 
+Categories = {"config"}
+
 Keywords={  
   { Id=1,
     Regex=[[(\w+).*\{]]

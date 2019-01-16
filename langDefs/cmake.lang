@@ -1,6 +1,8 @@
 
 Description="CMake"
 
+Categories = {"config", "script"}
+
 Keywords={
    { Id=1,
     List={

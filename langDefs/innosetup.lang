@@ -1,6 +1,9 @@
 
 Description="Inno Setup"
 
+Categories = {"config", "script"}
+
+
 Digits=[[ (?:0x|0X|\$)[0-9a-fA-F]+|\d*[\.\_]?\d+(?:[eE][\-\+]\d+)?[lLuUbfdm]* ]]
 
 Keywords={

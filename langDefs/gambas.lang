@@ -1,6 +1,8 @@
 
 Description="Gambas"
 
+Categories = {"source", "script"}
+
 Identifiers=[[ [a-zA-Z_]+\$? ]]
 
 Keywords={

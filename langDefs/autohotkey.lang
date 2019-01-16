@@ -1,6 +1,8 @@
 
 Description="AutoHotKey"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"autotrim", "blockinput", "break", "click", "clipwait", "continue", 

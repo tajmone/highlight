@@ -1,5 +1,7 @@
 Description="R"
 
+Categories = {"source", "scientific"}
+
 Identifiers=[[ [a-zA-Z_\.][\w]* ]]
 
 Keywords={

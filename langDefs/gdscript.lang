@@ -32,6 +32,8 @@
 
 Description="GDScript"
 
+Categories = {"source", "script"}
+
 IgnoreCase=false
 
 Keywords={

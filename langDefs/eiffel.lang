@@ -1,6 +1,8 @@
 
 Description="Eiffel"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"agent", "alias", "all", "and", "as", "assign", "check", "class", 

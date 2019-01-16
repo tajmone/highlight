@@ -1,6 +1,8 @@
 
 Description="Swift"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List= {"class", "deinit", "enum", "extension", "func", "import", "init",

@@ -1,6 +1,8 @@
 
 Description="AppleScript"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"and", "as", "at", "beginning", "considering", "contain", "contains", 

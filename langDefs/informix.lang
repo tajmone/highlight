@@ -1,6 +1,9 @@
 
 Description="Informix"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"add", "after", "all", "allowing", "and", "any", "arg_val", "array", 

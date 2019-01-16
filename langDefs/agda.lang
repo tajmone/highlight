@@ -1,6 +1,8 @@
 
 Description="Agda"
 
+Categories = {"source"}
+
 Keywords={
     { Id=1,
       List={"abstract", "case", "concrete", "data", "do", "in", "interface", 

@@ -1,6 +1,8 @@
 
 Description="C and C++"
 
+Categories = {"source"}
+
 Digits = [[ (?:0x|0X|0b)[0-9a-fA-F']+|\d*[\.]?\d+(?:[eE][\-\+]\d+)?[lLuU]* ]]
 
 Keywords={

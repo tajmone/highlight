@@ -1,6 +1,9 @@
 
 Description="Nasal"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"and",  "or",  "nil",  "if",  "elsif",  "else",  "for",  "foreach", 

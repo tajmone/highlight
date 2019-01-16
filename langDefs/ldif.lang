@@ -1,6 +1,9 @@
 
 Description="LDAP"
 
+Categories = {"protocol"}
+
+
 Keywords={
   { Id=1,
     List={"binary", "businesscategory", "carlicense", "changetype", "cn", 

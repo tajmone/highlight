@@ -1,6 +1,8 @@
 
 Description="Lotos"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"accept", "actualizedby", "any", "behavior", "behaviour", "choice", 

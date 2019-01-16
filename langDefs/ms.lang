@@ -1,6 +1,9 @@
 
 Description="MaxScript"
 
+Categories = {"source", "script"}
+
+
 Keywords={
   { Id=1,
     List={"about", "animate", "as", "at", "by", "case", "catch", "collect", 

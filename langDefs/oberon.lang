@@ -1,6 +1,8 @@
 
 Description="Oberon"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"ARRAY", "BEGIN", "CASE", "CONST", "DIV", "DO", "ELSE", "ELSIF", "END", 

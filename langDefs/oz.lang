@@ -1,6 +1,8 @@
 
 Description="Oz"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"andthen",  "at",  "attr",  "case",  "catch",  "choice", "class",  

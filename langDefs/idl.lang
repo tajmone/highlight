@@ -2,6 +2,8 @@
 
 Description="IDL"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"case", "coclass", "", "dispinterface", "enum", "interface", "library", "module", "pipe", "struct", "switch", "typedef", "union"},

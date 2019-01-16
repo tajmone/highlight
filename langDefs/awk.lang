@@ -1,6 +1,8 @@
 
 Description="(G)AWK"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"begin", "break", "close", "continue", "delete", "do", "else", "end", 

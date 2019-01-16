@@ -1,6 +1,8 @@
 
 Description="AS/400 CL"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={"addacc", "addaje", "addalracne", "addalrd", "addalrslte", "addaspcpyd",

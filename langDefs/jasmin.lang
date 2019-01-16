@@ -1,6 +1,8 @@
 
 Description="Jasmin"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"catch", "class", "end", "field", "implements", "interface", "limit", 

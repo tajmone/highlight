@@ -1,6 +1,8 @@
 
 Description="TeX and LaTeX"
 
+Categories = {"markup", "document"}
+
 Keywords={
   { Id=1,
     Regex=[[\\\w+]],

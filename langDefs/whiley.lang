@@ -1,6 +1,8 @@
 
 Description="Whiley"
 
+Categories = {"source"}
+
 Digits = [[ (?:0x)[0-9a-fA-F']+|\d*[\.]?\d+(?:[eE][\-\+]\d+)?[blLuU]* ]]
 
 Keywords={

@@ -1,6 +1,8 @@
 
 Description="QMake Project"
 
+Categories = {"config", "script"}
+
 Keywords={
   { Id=1,
     List={"basename", "contains", "count", "", "dirname", "error", "eval", 

@@ -1,5 +1,7 @@
 Description="Java"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const",

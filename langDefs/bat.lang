@@ -1,6 +1,8 @@
 
 Description="MS DOS Batch"
 
+Categories = {"source", "script"}
+
 Keywords={
   { Id=1,
     List={"do", "else", "end", "errorlevel", "exist", "exit", "for", "goto", "if", "not", 

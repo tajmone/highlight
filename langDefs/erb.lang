@@ -1,6 +1,8 @@
 
 Description="ERB Templates"
 
+Categories = {"template"}
+
 Keywords={
   { Id=1,
     Regex=[[ <\%[\=#]?(?!#) ]],

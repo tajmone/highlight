@@ -1,6 +1,8 @@
 
 Description="Squirrel"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"break", "catch", "clone", "continue", "case", "delegate", "delete", 

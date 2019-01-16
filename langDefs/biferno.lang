@@ -1,6 +1,8 @@
 
 Description="Biferno"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"exit", "stop", "for", "do", "while", "if", "else", "break", 

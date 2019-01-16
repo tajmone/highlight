@@ -1,4 +1,6 @@
 Description="Active Server Pages"
+
+Categories = {"source", "script"}
  
 Keywords={
   { Id=1,

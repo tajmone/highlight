@@ -1,6 +1,8 @@
 
 Description="Ceylon"
 
+Categories = {"source"}
+
 Keywords={
   {  Id=1,
    List={ "assembly", "module", "package", "import", "alias", "class", 

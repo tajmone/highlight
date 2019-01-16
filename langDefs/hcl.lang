@@ -2,6 +2,9 @@
 
 Description="Hecl"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"append", "break", "catch", "continue", "eq", "eval", "filter", "for", 

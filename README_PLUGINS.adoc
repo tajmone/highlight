@@ -445,6 +445,9 @@ This example will add reference hyperlinks to Qt keywords:
 -- first add a description of what the plug-in does
 Description="Add qtproject.org reference links to HTML, LaTeX or RTF output"
 
+-- define the plugin categories (ie. supported output formats; languages)
+Categories = {"c++", "qt" }
+
 -- the syntaxUpdate function contains code related to syntax recognition
 function syntaxUpdate(desc)
 

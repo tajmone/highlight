@@ -2,6 +2,8 @@
 
 Description="ClearBasic"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"and", "as", "byref", "byval", "case", "declare", "dim", "else", 

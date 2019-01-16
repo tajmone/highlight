@@ -1,6 +1,8 @@
 
 Description="INI"
 
+Categories = {"config"}
+
 Keywords={
   { Id=1,
     Regex=[[^\s*(\[.+\])]],

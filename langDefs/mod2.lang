@@ -1,6 +1,9 @@
 
 Description="Modula2"
 
+Categories = {"source"}
+
+
 Keywords={
   { Id=1,
     List={"GENERIC", "AND",  "ARRAY",  "BEGIN",  "BY",  "CASE",  "CONST",  

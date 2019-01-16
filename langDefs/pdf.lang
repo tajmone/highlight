@@ -9,6 +9,8 @@
 
 Description="Portable Document Format"
 
+Categories = {"document"}
+
 IgnoreCase=false
 
 -- File Structure

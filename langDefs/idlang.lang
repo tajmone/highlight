@@ -1,6 +1,8 @@
 
 Description="Interactive Data Language"
 
+Categories = {"database"}
+
 Identifiers=[[ [a-zA-Z_][\w\d\*]* ]]
 
 Keywords={

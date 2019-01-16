@@ -1,6 +1,8 @@
 
 Description="Smalltalk"
 
+Categories = {"source", "functional"}
+
 Digits=[[ (?:0x|0X)[0-9a-fA-F]+|\d*[\.]?\d+(?:[eE][\-\+]\\d+)?[lLuU]?|\$[\w\$\#\'\-\:\>\<] ]]
 
 Keywords={

@@ -1,6 +1,8 @@
 
 Description="Octave"
 
+Categories = {"source", "scientific"}
+
 Keywords={
   { Id=1,
     List={

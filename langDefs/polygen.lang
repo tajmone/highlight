@@ -41,6 +41,8 @@
 --]]
 Description="Polygen"
 
+Categories = {"source", "script"}
+
 IgnoreCase=false
 EnableIndentation=false
 ---------------------------------------------------------------------------------

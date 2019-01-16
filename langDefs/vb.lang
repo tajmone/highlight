@@ -1,6 +1,8 @@
 
 Description="Visual Basic"
 
+Categories = {"source"}
+
 Keywords={
   { Id=1,
     List={"and", "as", "begin", "case", "call", "continue", "do", "each", 

@@ -3,6 +3,8 @@ dofile(HL_LANG_DIR.."lua.lang")
 
 Description="MoonScript"
 
+Categories = {"source", "script"}
+
 -- append keywords to Lua list
 table.insert(Keywords,
   { Id=1,
