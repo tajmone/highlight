@@ -125,6 +125,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_COMPAT_SRCLANG   "src-lang"
 #define OPT_COMPAT_LINENUM   "line-number"
 #define OPT_COMPAT_LINEREF   "line-number-ref"
+#define OPT_CATEGORIES       "categories"  
 
 using namespace std;
 
@@ -363,6 +364,9 @@ public:
     /** \return parameter passed to plugin */
     const string& getPluginParameter() const ;
 
+    /** \return categories sepatated by X to filter scripts in --list-scripts */
+    const string& getCategories() const ;
+
     /** \return line number width */
     int getNumberWidth();
 
@@ -473,7 +477,7 @@ private:
     string anchorPrefix;
     string helpLang, encodingName;
 
-    string pluginPath, pluginParameter;
+    string pluginPath, pluginParameter, categories;
 
     /** list of all input file names */
     vector <string> inputFileNames;

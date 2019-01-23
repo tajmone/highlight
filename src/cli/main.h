@@ -79,12 +79,7 @@ private:
     /** list installed  files
         \return true if files were found
     */
-    int printInstalledFiles(const string& where, const string& wildcard, const string& what, const string&option);
-
-    /** list installed language definition files
-        \return true if lang files were found
-    */
-    int printInstalledLanguages();
+    int printInstalledFiles(const string& where, const string& wildcard, const string& what, const string&option, const string& category="");
 
     /** print debug information
         \param  lang language definition

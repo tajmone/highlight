@@ -48,7 +48,7 @@ enum Optcode {
         S_OPT_PRINT_STYLE, S_OPT_NO_TRAILING_NL, S_OPT_PLUGIN, S_OPT_ABS_CFG_PATH,
         S_OPT_PLUGIN_READFILE, S_OPT_PLUGIN_PARAMETER, S_OPT_LIST_SCRIPTS, S_OPT_CANVAS,
         S_OPT_KEEP_INJECTIONS, S_OPT_FORCE_STDOUT, S_OPT_LATEX_BEAMER, S_OPT_NO_VERSION_INFO,
-        S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16
+        S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16, S_OPT_CATEGORIES
     };
 
 const Arg_parser::Option options[] = {
@@ -134,8 +134,8 @@ const Arg_parser::Option options[] = {
         { S_OPT_LIST_SCRIPTS,     OPT_LIST_SCRIPTS,    Arg_parser::yes},
         { S_OPT_CANVAS,           OPT_CANVAS,          Arg_parser::maybe },
         { S_OPT_REFORMAT_OPT,     OPT_REFORMAT_OPT,    Arg_parser::yes },
-        { S_OPT_RANGE_OPT,        OPT_RANGE_OPT,    Arg_parser::yes },
-
+        { S_OPT_RANGE_OPT,        OPT_RANGE_OPT,       Arg_parser::yes },
+        { S_OPT_CATEGORIES,       OPT_CATEGORIES,      Arg_parser::yes },
 
         { 0, 0, Arg_parser::no }
     };
@@ -564,6 +564,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
                 StringTools::str2num<unsigned int> ( canvasPaddingWidth, arg, std::dec );
             break;
             
+        case S_OPT_CATEGORIES:
+            categories=arg;
+            break;
         default:
             cerr << "highlight: option parsing failed" << endl;
         }
@@ -982,4 +985,8 @@ int CmdLineOptions::getLineRangeStart()
 int CmdLineOptions::getLineRangeEnd()
 {
     return lineRangeEnd;
+}
+
+const string& CmdLineOptions::getCategories() const {
+    return categories;
 }

@@ -71,7 +71,7 @@ void HLCmdLineApp::printBadInstallationInfo()
          << OPT_DATADIR << ".\n";
 }
 
-int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcard, const string& what, const string&option)
+int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcard, const string& what, const string& option, const string& category)
 {
     vector <string> filePaths;
     string searchDir = where + wildcard;
@@ -84,73 +84,78 @@ int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcar
         return EXIT_FAILURE;
     }
 
-    cout << "\nInstalled "<< what << " (located in " << where << "):\n\n";
-
-    sort ( filePaths.begin(), filePaths.end() );
-    string temp;
-
-    for ( unsigned int i=0; i< filePaths.size(); i++ ) {
-        temp = ( filePaths[i] ).substr ( where.length() );
-        cout <<temp.substr ( 1, temp.length()- wildcard.length() ) << endl;
-    }
-    cout <<"\nUse the name of the desired "<<what
-         << " with the --" <<option<< " option." << endl;
-
-    if (what=="themes") {
-        cout <<"\nApply --base16 to select a Base16 theme." << endl;
-    }
-         
-    printConfigInfo();
-    
-    return EXIT_SUCCESS;
-}
-
-
-int HLCmdLineApp::printInstalledLanguages()
-{
-    vector <string> filePaths;
-    string wildcard="*.lang";
-    string directory=dataDir.getLangPath();
-    string searchDir = directory + wildcard;
-
-    bool directoryOK = Platform::getDirectoryEntries ( filePaths, searchDir, true );
-    if ( !directoryOK ) {
-        cerr << "highlight: Could not access directory "
-             <<  searchDir
-             << ", aborted.\n";
-        return EXIT_FAILURE;
-    }
-
     sort ( filePaths.begin(), filePaths.end() );
     string suffix, desc;
-    cout << "\nInstalled language definitions"
-         << " (located in " << directory << "):\n\n";
-
+    Diluculum::LuaValueMap categoryMap;
+    cout << "\nInstalled language definitions";
+    
+    if (category.size())
+        cout << " matching \""<<category<<"\"";
+    
+    cout << " (located in " << where << "):\n\n";
+    int filterOKCnt=0;
     for ( unsigned int i=0; i< filePaths.size(); i++ ) {
         try {
             Diluculum::LuaState ls;
             highlight::SyntaxReader::initLuaState(ls, filePaths[i],"");
             ls.doFile(filePaths[i]);
             desc = ls["Description"].value().asString();
-            suffix = ( filePaths[i] ).substr ( directory.length() ) ;
+            suffix = ( filePaths[i] ).substr ( where.length() ) ;
             suffix = suffix.substr ( 1, suffix.length()- wildcard.length() );
-            cout << setw ( 30 ) <<setiosflags ( ios::left ) <<desc<<": "<<suffix;
-            int extCnt=0;
-            for (StringMap::iterator it=assocByExtension.begin(); it!=assocByExtension.end(); it++) {
-                if (it->second==suffix ) {
-                    cout << ((++extCnt==1)?" ( ":" ")<<it->first;
-                }
+
+            bool filterOK=true;
+            if (ls["Categories"].value() !=Diluculum::Nil && category.size()){
+                filterOK=false;
+
+                categoryMap = ls["Categories"].value().asTable();
+                
+                //TODO: multiple filters; negation
+                for(Diluculum::LuaValueMap::const_iterator it = categoryMap.begin(); it != categoryMap.end(); ++it)
+                {
+                    //std::cout <<  category<<" =? " << it->first.asNumber() << " " << it->second.asString() << "\n";
+                    if (category == it->second.asString()) {
+                        filterOK = true;
+                        break;
+                    }
+                }     
             }
-            cout << ((extCnt)?" )":"")<<endl;
+           
+            if (!filterOK) continue;
+            
+            filterOKCnt++;
+            if (what=="langDefs") {
+                cout << setw ( 30 ) <<setiosflags ( ios::left ) <<desc<<": "<<suffix;
+            
+                int extCnt=0;
+                for (StringMap::iterator it=assocByExtension.begin(); it!=assocByExtension.end(); it++) {
+                    if (it->second==suffix ) {
+                        cout << ((++extCnt==1)?" ( ":" ")<<it->first;
+                    }
+                }
+                cout << ((extCnt)?" )":"");
+            } else {
+                cout << setw ( 30 ) <<setiosflags ( ios::left ) <<suffix<<": "<<desc;
+            
+            }
+            cout << endl;
         } catch (std::runtime_error &error) {
-            cout << "Faild to read '" << filePaths[i] << "': " << error.what() << endl;
+            cout << "Failed to read '" << filePaths[i] << "': " << error.what() << endl;
         }
     }
-    cout <<"\nUse name of the desired language"
-         << " with the --" OPT_SYNTAX " option." << endl;
-         
-    printConfigInfo();
-         
+    
+    if (!filterOKCnt) {
+        cout <<"No files found." << endl;
+    } else {
+        cout <<"\nUse name of the desired language"
+            << " with the --" << option << " option." << endl;
+            
+        if (what=="themes") {
+            cout <<"\nApply --base16 to select a Base16 theme." << endl;
+        }
+        
+        printConfigInfo();
+    }
+    
     return EXIT_SUCCESS;
 }
 
@@ -410,17 +415,17 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     }
 
     if ( options.showThemes() ) {
-        return printInstalledFiles(dataDir.getThemePath(), "*.theme", "themes", OPT_STYLE) ?EXIT_SUCCESS:EXIT_FAILURE;
+        return printInstalledFiles(dataDir.getThemePath(), "*.theme", "themes", OPT_STYLE, options.getCategories());
     }
     if ( options.showPlugins() ) {
-        return printInstalledFiles(dataDir.getPluginPath(), "*.lua", "plug-ins", OPT_PLUGIN) ?EXIT_SUCCESS:EXIT_FAILURE;
+        return printInstalledFiles(dataDir.getPluginPath(), "*.lua", "plug-ins", OPT_PLUGIN, options.getCategories());
     }
 
     //call before printInstalledLanguages!
     loadFileTypeConfig ( "filetypes" );
 
     if ( options.showLangdefs() ) {
-        return printInstalledLanguages();
+        return printInstalledFiles(dataDir.getLangPath(), "*.lang", "langDefs", OPT_SYNTAX, options.getCategories());
     }
 
     const vector <string> inFileList=options.getInputFileNames();

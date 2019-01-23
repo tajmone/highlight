@@ -13,9 +13,10 @@ xx.xx.2019
 
  - fixed more problems with syntax test indicators reporting wrong states
    (https://gitlab.com/saalen/highlight/issues/102)
- - added support for TOML
+ - added support for TOML and Terraform
  - improved Perl highlighting
  - added Categories field to all config files
+ - CLI: added categories option (https://gitlab.com/saalen/highlight/issues/99)
  
 == highlight 3.48
 
