@@ -1,13 +1,13 @@
 #!/bin/bash
 
+# cwd: unpacked tarball dir 
 echo "Starting CI verification script"
 
-cd ~
 git clone https://gitlab.com/tajmone/highlight-test-suite/
 
 #OUTPUT=`./src/highlight --list-scripts=langs`
 HL_BIN=./src/highlight
-TEST_DIR=~/highlight-test-suite
+TEST_DIR=./highlight-test-suite
 
 ${HL_BIN} --list-scripts=langs
 
