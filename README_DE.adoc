@@ -185,6 +185,8 @@ General options:
      --force                    generate output if input syntax is unknown
      --list-scripts=<type>      list installed scripts
                                   <type> = [langs, themes, plugins]
+     --list-cat=<categories>    filter the scripts by the given categories
+                                  (example: --list-cat='source;script')
      --plug-in=<script>         execute Lua plug-in script; repeat option to
                                   execute multiple plug-ins
      --plug-in-param=<value>    set plug-in input parameter

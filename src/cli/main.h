@@ -79,7 +79,7 @@ private:
     /** list installed  files
         \return true if files were found
     */
-    int printInstalledFiles(const string& where, const string& wildcard, const string& what, const string&option, const string& category="");
+    int printInstalledFiles(const string& where, const string& wildcard, const string& kind, const string&option, const string& categoryFilterList="");
 
     /** print debug information
         \param  lang language definition

@@ -2,8 +2,8 @@
                                mainwindow.cpp
                              -------------------
     begin                : Mo 16.03.2009
-    copyright            : (C) 2009-2018 by Andre Simon
-    email                : andre.simon1@gmx.de
+    copyright            : (C) 2009-2019 by Andre Simon
+    email                : a.simon@mailbox.org
  ***************************************************************************/
 
 /*
@@ -498,7 +498,6 @@ void MainWindow::readSettings()
     ui->comboKwCase->setCurrentIndex(settings.value(ui->comboKwCase->property(name).toString()).toInt());
     ui->comboReformat->setCurrentIndex(settings.value(ui->comboReformat->property(name).toString()).toInt());
     ui->comboRTFPageSize->setCurrentIndex(settings.value(ui->comboRTFPageSize->property(name).toString()).toInt());
-   // ui->comboTheme->setCurrentIndex(settings.value(ui->comboTheme->property(name).toString(),0).toInt());
     ui->comboSelectSyntax->setCurrentIndex(settings.value(ui->comboSelectSyntax->property(name).toString()).toInt());
 
     int oldThemeIdx = settings.value(ui->comboTheme->property(name).toString(),0).toInt();
@@ -665,7 +664,7 @@ void MainWindow::on_action_About_Highlight_triggered()
     QMessageBox::about( this, "About Highlight",
                         QString("Highlight is a code to formatted text converter.\n\n"
                                 "Highlight GUI %1\n"
-                                "(C) 2002-2018 Andre Simon <andre.simon1 at gmx.de>\n\n"
+                                "(C) 2002-2019 Andre Simon <a.simon at mailbox.org>\n\n"
                                 "Artistic Style Classes\n(C) 1998-2002 Tal Davidson\n"
                                 "(C) 2006-2018 Jim Pattee <jimp03 at email.com>\n\n"
                                 "Diluculum Lua wrapper\n"
@@ -1261,24 +1260,28 @@ void MainWindow::updatePreview()
     }
 
     QString langPath = getUserScriptPath("lang");
-    QString langOrigin=tr("(user script)");
+    QString langInfo=tr("(user script)");
     if (langPath.isEmpty()) {
-        langOrigin="";
+        langInfo="";
         langPath = getDistLangPath(suffix);
     }
+
     QString themePath = getUserScriptPath("theme");
-    QString themeOrigin=tr("(user script)");
+    QString themeInfo=tr("(user script)");
     if (themePath.isEmpty()) {
-        themeOrigin="";
+        themeInfo="";
     }
 
     if ( pwgenerator.loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
 
+        langInfo.append(QString(" [%1]").arg(QString::fromStdString(pwgenerator.getSyntaxCatDescription())));
+        themeInfo.append(QString(" [%1]").arg(QString::fromStdString(pwgenerator.getThemeCatDescription())));
+
         ui->lbPreview->setText(tr("Preview (%1):").arg(
                                    (getDataFromCP)?tr("clipboard data"):croppedName) );
 
-        QString syntaxDesc = tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(langOrigin);
-        QString themeDesc = tr("Current theme: %1 %2").arg(QString::fromStdString(pwgenerator.getThemeDescription())).arg(themeOrigin);
+        QString syntaxDesc = tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(langInfo);
+        QString themeDesc = tr("Current theme: %1 %2").arg(QString::fromStdString(pwgenerator.getThemeDescription())).arg(themeInfo);
 
         statusBar()->showMessage(QString("%1 | %2").arg(syntaxDesc, themeDesc));
 

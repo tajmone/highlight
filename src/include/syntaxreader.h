@@ -2,7 +2,7 @@
                           syntaxreader.h  -  description
                              -------------------
     begin                : Wed Nov 28 2001
-    copyright            : (C) 2001-2017 by Andre Simon
+    copyright            : (C) 2001-2019 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -180,6 +180,12 @@ public:
     {
         return langDesc;
     }
+    
+    const string & getCategoryDescription() const
+    {
+        return categories;
+    }
+
 
     /** \return header string defined by a plug-in */
     const string & getHeaderInjection () const
@@ -316,7 +322,7 @@ private:
     string currentPath;
 
     // Language description
-    string langDesc;
+    string langDesc, categories;
 
     string headerInjection, footerInjection;
 

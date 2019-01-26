@@ -3,7 +3,7 @@
                              -------------------
     begin                : Mo 17.03.2017
     copyright            : (C) 2017 by Andre Simon
-    email                : andre.simon1@gmx.de
+    email                : a.simon@mailbox.org
  ***************************************************************************/
 
 /*

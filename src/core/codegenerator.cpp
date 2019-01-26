@@ -454,8 +454,16 @@ string CodeGenerator::getSyntaxDescription()
 string CodeGenerator::getThemeDescription()
 {
     return docStyle.getDescription();
-
 }
+
+string CodeGenerator::getSyntaxCatDescription(){
+    return (currentSyntax)? currentSyntax->getCategoryDescription(): "";
+}
+
+string CodeGenerator::getThemeCatDescription(){
+    return docStyle.getCategoryDescription();
+}
+
 unsigned int CodeGenerator::getLineNumber()
 {
     return lineNumber;

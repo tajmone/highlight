@@ -51,6 +51,8 @@ void printHelp()
     cout<<"     --force                    generate output if input syntax is unknown\n";
     cout<<"     --list-scripts=<type>      list installed scripts\n";
     cout<<"                                  <type> = [langs, themes, plugins]\n";
+    cout<<"     --list-cat=<categories>    filter the scripts by the given categories\n"; 
+    cout<<"                                  (example: --list-cat='source;script')\n";
     cout<<"     --plug-in=<script>         execute Lua plug-in script; repeat option to\n";
     cout<<"                                  execute multiple plug-ins\n";
     cout<<"     --plug-in-param=<value>    set plug-in input parameter\n";

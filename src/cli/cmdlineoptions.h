@@ -125,7 +125,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_COMPAT_SRCLANG   "src-lang"
 #define OPT_COMPAT_LINENUM   "line-number"
 #define OPT_COMPAT_LINEREF   "line-number-ref"
-#define OPT_CATEGORIES       "categories"  
+#define OPT_CATEGORIES       "list-cat"  
 
 using namespace std;
 

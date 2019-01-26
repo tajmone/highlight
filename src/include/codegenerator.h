@@ -409,6 +409,12 @@ public:
     /** \return Theme description */
     string getThemeDescription();
 
+    /** \return Syntaxreader category description */
+    string getSyntaxCatDescription();
+
+    /** \return Theme category description */
+    string getThemeCatDescription();
+
     vector<string> getPosTestErrors() { return failedPosTests; }
     
     /** \return Pointer Syntaxreader, intended for debug output  */

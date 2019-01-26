@@ -1,7 +1,7 @@
 
 Description="Acid"
 
-Categories = {"light", "pastel"}
+Categories = {"light"}
 
 Default        = { Colour="#000000" }
 Canvas         = { Colour="#eeeeee" }

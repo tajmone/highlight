@@ -61,7 +61,7 @@ private:
     ElementStyle canvas;
 
     string errorMsg;
-    string desc;
+    string desc, categories;
     string themeInjections;
         
     vector<Diluculum::LuaFunction*> pluginChunks;
@@ -96,9 +96,14 @@ public:
     /** \return Font size */
     string getErrorMessage() const;
 
-    string getDescription() const
+    const string &getDescription() const
     {
         return desc;
+    }
+
+    const string &getCategoryDescription() const
+    {
+        return categories;
     }
 
     string getInjections() const;

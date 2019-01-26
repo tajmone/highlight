@@ -169,6 +169,20 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         ls.doFile (langDefPath);
 
         langDesc = ls["Description"].value().asString();
+        
+        if (ls["Categories"].value() !=Diluculum::Nil){
+
+            Diluculum::LuaValueMap categoryMap;
+            categoryMap = ls["Categories"].value().asTable();
+                
+            for(Diluculum::LuaValueMap::const_iterator it = categoryMap.begin(); it != categoryMap.end(); ++it)
+            {
+                categories.append(it->second.asString());
+                if (std::next(it) != categoryMap.end()) {
+                    categories.append(",");
+                }
+            }
+        }
 
         if (pluginChunks.size()) {
             Diluculum::LuaValueList params;

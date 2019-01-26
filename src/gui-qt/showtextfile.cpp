@@ -4,7 +4,7 @@
                              -------------------
     begin                : Mo 16.03.2009
     copyright            : (C) 2009-2017 by Andre Simon
-    email                : andre.simon1@gmx.de
+    email                : a.simon@mailbox.org
  ***************************************************************************/
 
 /*

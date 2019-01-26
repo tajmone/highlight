@@ -2,7 +2,7 @@
                           themereader.cpp  -  description
                              -------------------
     begin                : Son Nov 10 2002
-    copyright            : (C) 2002-2017 by Andre Simon
+    copyright            : (C) 2002-2019 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -67,61 +67,75 @@ bool ThemeReader::load ( const string &styleDefinitionPath , OutputType type)
     try {
         fileOK=true;
 
-        Diluculum::LuaState luaState;
+        Diluculum::LuaState ls;
 
-        luaState["HL_FORMAT_HTML"]=HTML;
-        luaState["HL_FORMAT_XHTML"]=XHTML;
-        luaState["HL_FORMAT_TEX"]=TEX;
-        luaState["HL_FORMAT_LATEX"]=LATEX;
-        luaState["HL_FORMAT_RTF"]=RTF;
-        luaState["HL_FORMAT_ANSI"]=ESC_ANSI;
-        luaState["HL_FORMAT_XTERM256"]=ESC_XTERM256;
-        luaState["HL_FORMAT_TRUECOLOR"]=ESC_TRUECOLOR;
-        luaState["HL_FORMAT_SVG"]=SVG;
-        luaState["HL_FORMAT_BBCODE"]=BBCODE;
-        luaState["HL_FORMAT_PANGO"]=PANGO;
-        luaState["HL_FORMAT_ODT"]=ODTFLAT;
-        luaState["HL_OUTPUT"] = type;
-        luaState.doString("Injections={}");
+        ls["HL_FORMAT_HTML"]=HTML;
+        ls["HL_FORMAT_XHTML"]=XHTML;
+        ls["HL_FORMAT_TEX"]=TEX;
+        ls["HL_FORMAT_LATEX"]=LATEX;
+        ls["HL_FORMAT_RTF"]=RTF;
+        ls["HL_FORMAT_ANSI"]=ESC_ANSI;
+        ls["HL_FORMAT_XTERM256"]=ESC_XTERM256;
+        ls["HL_FORMAT_TRUECOLOR"]=ESC_TRUECOLOR;
+        ls["HL_FORMAT_SVG"]=SVG;
+        ls["HL_FORMAT_BBCODE"]=BBCODE;
+        ls["HL_FORMAT_PANGO"]=PANGO;
+        ls["HL_FORMAT_ODT"]=ODTFLAT;
+        ls["HL_OUTPUT"] = type;
+        ls.doString("Injections={}");
 
-        luaState.doFile (styleDefinitionPath);
+        ls.doFile (styleDefinitionPath);
 
-        desc = luaState["Description"].value().asString();
+        desc = ls["Description"].value().asString();
 
+        if (ls["Categories"].value() !=Diluculum::Nil){
+
+            Diluculum::LuaValueMap categoryMap;
+            categoryMap = ls["Categories"].value().asTable();
+                
+            for(Diluculum::LuaValueMap::const_iterator it = categoryMap.begin(); it != categoryMap.end(); ++it)
+            {
+                categories.append(it->second.asString());
+                if (std::next(it) != categoryMap.end()) {
+                    categories.append(",");
+                }
+            }
+        }
+        
         if (pluginChunks.size()) {
             Diluculum::LuaValueList params;
             params.push_back(desc);
             for (unsigned int i=0; i<pluginChunks.size(); i++) {
-                luaState.call(*pluginChunks[i], params, "theme user function");
+                ls.call(*pluginChunks[i], params, "theme user function");
             }
         }
 
-        initStyle(canvas, luaState["Canvas"]);
-        initStyle(defaultElem, luaState["Default"]);
-        initStyle(comment, luaState["BlockComment"]);
-        initStyle(slcomment, luaState["LineComment"]);
-        initStyle(directive, luaState["PreProcessor"]);
-        initStyle(str, luaState["String"]);
-        initStyle(escapeChar, luaState["Escape"]);
-        initStyle(interpolation, luaState["Interpolation"]);
-        initStyle(number, luaState["Number"]);
-        initStyle(dstr, luaState["StringPreProc"]);
-        initStyle(line, luaState["LineNum"]);
-        initStyle(operators, luaState["Operator"]);
+        initStyle(canvas, ls["Canvas"]);
+        initStyle(defaultElem, ls["Default"]);
+        initStyle(comment, ls["BlockComment"]);
+        initStyle(slcomment, ls["LineComment"]);
+        initStyle(directive, ls["PreProcessor"]);
+        initStyle(str, ls["String"]);
+        initStyle(escapeChar, ls["Escape"]);
+        initStyle(interpolation, ls["Interpolation"]);
+        initStyle(number, ls["Number"]);
+        initStyle(dstr, ls["StringPreProc"]);
+        initStyle(line, ls["LineNum"]);
+        initStyle(operators, ls["Operator"]);
 
         int idx=1;
         ElementStyle kwStyle;
         char kwName[5];
-        while (luaState["Keywords"][idx].value() !=Diluculum::Nil) {
-            initStyle(kwStyle, luaState["Keywords"][idx]);
+        while (ls["Keywords"][idx].value() !=Diluculum::Nil) {
+            initStyle(kwStyle, ls["Keywords"][idx]);
             snprintf(kwName, sizeof(kwName), "kw%c", ('a'+idx-1));
             keywordStyles.insert ( make_pair ( string(kwName), kwStyle ));
             idx++;
         }
         
         idx=1;
-        while (luaState["Injections"][idx].value() !=Diluculum::Nil) {
-            themeInjections +=luaState["Injections"][idx].value().asString();
+        while (ls["Injections"][idx].value() !=Diluculum::Nil) {
+            themeInjections +=ls["Injections"][idx].value().asString();
             idx++;
         }
 
