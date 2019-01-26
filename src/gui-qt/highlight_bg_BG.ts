@@ -9,28 +9,54 @@ Check installation.</source>
         <translation type="obsolete">Не са намерени теми или схеми за подреждане.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="105"/>
+        <location filename="mainwindow.cpp" line="132"/>
+        <location filename="mainwindow.cpp" line="152"/>
         <source>Initialization error</source>
         <translation>Грешка при инициализация</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="106"/>
+        <location filename="mainwindow.cpp" line="133"/>
+        <source>Could not read a colour theme: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="137"/>
+        <source>light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="138"/>
+        <source>dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="139"/>
+        <source>B16 light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="140"/>
+        <source>B16 dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="153"/>
         <source>Could not find syntax definitions. Check installation.</source>
         <translation>Не могат да бъдат открити синтактични определения.
 Проверете инсталацията.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="183"/>
+        <location filename="mainwindow.cpp" line="232"/>
         <source>Always at your service</source>
         <translation>Винаги на вашите услуги</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="210"/>
+        <location filename="mainwindow.cpp" line="266"/>
         <source>Select one or more files to open</source>
         <translation>Изберете един или повече файлове за отваряне</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="247"/>
+        <location filename="mainwindow.cpp" line="303"/>
         <source>Select destination directory</source>
         <translation>Изберете целева папка</translation>
     </message>
@@ -43,98 +69,98 @@ Check installation.</source>
         <translation type="obsolete">Не може да бъде прочетена информация за маркери в &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="882"/>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="930"/>
+        <location filename="mainwindow.cpp" line="961"/>
         <source>Output error</source>
         <translation>Изходна грешка</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="882"/>
+        <location filename="mainwindow.cpp" line="930"/>
         <source>Output directory does not exist!</source>
         <translation>Изходната папка не съществува!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="961"/>
         <source>You must define a style output file!</source>
         <translation>Трябва да определите файл със стилови описания за изход!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="945"/>
+        <location filename="mainwindow.cpp" line="993"/>
         <source>Processing %1 (%2/%3)</source>
         <translation>Обработка на %1 (%2/%3)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="951"/>
+        <location filename="mainwindow.cpp" line="999"/>
         <source>Language definition error</source>
         <translation>Грешка в описанието на езика</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="952"/>
+        <location filename="mainwindow.cpp" line="1000"/>
         <source>Invalid regular expression in %1:
 %2</source>
         <translation>Недействителен регулярен израз в %1: %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="956"/>
+        <location filename="mainwindow.cpp" line="1004"/>
         <source>Unknown syntax</source>
         <translation>Непознат синтаксис</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="956"/>
+        <location filename="mainwindow.cpp" line="1004"/>
         <source>Could not convert %1</source>
         <translation>Невъзможност за превръщане на %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="959"/>
+        <location filename="mainwindow.cpp" line="1007"/>
         <source>Lua error</source>
         <translation>Lua грешка</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="959"/>
+        <location filename="mainwindow.cpp" line="1007"/>
         <source>Could not convert %1:
 Lua Syntax error: %2</source>
         <translation>Невъзможност за превръщане на %1:\nLua синтактична грешка: %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1037"/>
+        <location filename="mainwindow.cpp" line="1085"/>
         <source>Converted %1 files in %2 ms</source>
         <translation>%1 файла превърнати за %2 мс</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1160"/>
+        <location filename="mainwindow.cpp" line="1208"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation>Превръщането на &quot;%1&quot; не е възможно.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1160"/>
-        <location filename="mainwindow.cpp" line="1278"/>
-        <location filename="mainwindow.cpp" line="1303"/>
+        <location filename="mainwindow.cpp" line="1208"/>
+        <location filename="mainwindow.cpp" line="1330"/>
+        <location filename="mainwindow.cpp" line="1355"/>
         <source>clipboard data</source>
         <translation>данни от системен буфер</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1227"/>
+        <location filename="mainwindow.cpp" line="1275"/>
         <source>%1 options</source>
         <translation>%1 настройки</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1264"/>
-        <location filename="mainwindow.cpp" line="1270"/>
+        <location filename="mainwindow.cpp" line="1312"/>
+        <location filename="mainwindow.cpp" line="1319"/>
         <source>(user script)</source>
         <translation>(потребителски скрипт)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
+        <location filename="mainwindow.cpp" line="1329"/>
         <source>Preview (%1):</source>
         <translation>Преглед (%1):</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1280"/>
+        <location filename="mainwindow.cpp" line="1332"/>
         <source>Current syntax: %1 %2</source>
         <translation>Текущ синтаксис: %1 %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1281"/>
+        <location filename="mainwindow.cpp" line="1333"/>
         <source>Current theme: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -143,12 +169,12 @@ Lua Syntax error: %2</source>
         <translation type="vanished">Текущ синтаксис: %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1303"/>
+        <location filename="mainwindow.cpp" line="1355"/>
         <source>Preview of &quot;%1&quot; not possible.</source>
         <translation>Преглед на &quot;%1&quot; не е възможен.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1552"/>
+        <location filename="mainwindow.cpp" line="1595"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation>Някои ефекти от модули може да не са видими в прегледа.</translation>
     </message>
@@ -157,20 +183,20 @@ Lua Syntax error: %2</source>
         <translation type="obsolete">Избор на ctags файл</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1338"/>
-        <location filename="mainwindow.cpp" line="1342"/>
-        <location filename="mainwindow.cpp" line="1346"/>
-        <location filename="mainwindow.cpp" line="1351"/>
+        <location filename="mainwindow.cpp" line="1390"/>
+        <location filename="mainwindow.cpp" line="1394"/>
+        <location filename="mainwindow.cpp" line="1398"/>
+        <location filename="mainwindow.cpp" line="1403"/>
         <source>Choose a style include file</source>
         <translation>Изберете файл със стилови описания за включване</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1356"/>
+        <location filename="mainwindow.cpp" line="1408"/>
         <source>About providing translations</source>
         <translation>За предоставянето на преводи</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1357"/>
+        <location filename="mainwindow.cpp" line="1409"/>
         <source>The GUI was developed using the Qt toolkit, and translations may be provided using the tools Qt Linguist and lrelease.
 The highlight.ts file for Linguist resides in the src/gui-qt subdirectory.
 The qm file generated by lrelease has to be saved in gui-files/l10n.
@@ -183,17 +209,17 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
 Моля, пишете на as (at) andre-simon (dot) de ако имате проблeми при превода или ако сте завършили или обновили превод.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1415"/>
+        <location filename="mainwindow.cpp" line="1467"/>
         <source>Select one or more plug-ins</source>
         <translation>Изберете един или повече модули</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1426"/>
+        <location filename="mainwindow.cpp" line="1478"/>
         <source>Select one or more syntax or theme scripts</source>
         <translation>Изберете един или повече синтактични или тематични скриптове</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1486"/>
+        <location filename="mainwindow.cpp" line="1538"/>
         <source>Choose a plug-in input file</source>
         <translation>Изберете входен файл с модул</translation>
     </message>
@@ -405,14 +431,14 @@ Removes Unicode BOM mark.</source>
         <translation>Височина:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2147"/>
+        <location filename="mainwindow.ui" line="2134"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation>Преформатиране и подреждане на кода.
 Тази възможност е налична за C, C++, C# и Java код.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2475"/>
+        <location filename="mainwindow.ui" line="2462"/>
         <source>&amp;Plug-Ins</source>
         <translation>&amp;Модули</translation>
     </message>
@@ -1120,17 +1146,7 @@ You can select the stylesheets in your word processor to reformat additional tex
         <translation>Цветова тема:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2102"/>
-        <source>Toggle classic theme or Base16 theme selection.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="2105"/>
-        <source>Base16</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="2130"/>
+        <location filename="mainwindow.ui" line="2117"/>
         <source>Select a colour theme.</source>
         <translation>Избор на цветова тема.</translation>
     </message>
@@ -1141,84 +1157,84 @@ This feature is enabled tor C, C++, C# and Java code.</source>
 Тази възможност е налична за C, C++, C# и Java код.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2151"/>
+        <location filename="mainwindow.ui" line="2138"/>
         <source>Reformat:</source>
         <translation>Преформатиране:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2170"/>
+        <location filename="mainwindow.ui" line="2157"/>
         <source>Choose a formatting scheme.</source>
         <translation>Избор на схема за форматиране.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2184"/>
+        <location filename="mainwindow.ui" line="2171"/>
         <source>Change the keyword case.</source>
         <translation>Промяна на регистъра на ключовите думи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2187"/>
+        <location filename="mainwindow.ui" line="2174"/>
         <source>Keyword case:</source>
         <translation>Регистър за ключови думи:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2206"/>
+        <location filename="mainwindow.ui" line="2193"/>
         <source>Select a keyword case.</source>
         <translation>Избор на регистър за ключови думи.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2213"/>
+        <location filename="mainwindow.ui" line="2200"/>
         <source>UPPER</source>
         <translation>ГОРЕН</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2218"/>
+        <location filename="mainwindow.ui" line="2205"/>
         <source>lower</source>
         <translation>долен</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2223"/>
+        <location filename="mainwindow.ui" line="2210"/>
         <source>Capitalize</source>
         <translation>Изречение</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2241"/>
+        <location filename="mainwindow.ui" line="2228"/>
         <source>Tab width:</source>
         <translation>Дължина на табулатор:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2257"/>
+        <location filename="mainwindow.ui" line="2244"/>
         <source>Enter the number of spaces which replace a tab.
 Set the width to 0 to keep tabs.</source>
         <translation>Въвеждане на броя интервали заместващи табулатор.
 Въведете 0 за запазване на табулатори.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2272"/>
+        <location filename="mainwindow.ui" line="2259"/>
         <source>Enable line wrapping.</source>
         <translation>Разрешаване на пренасяне на редове.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2275"/>
+        <location filename="mainwindow.ui" line="2262"/>
         <source>Line wrapping</source>
         <translation>Пренасяне на редове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2288"/>
+        <location filename="mainwindow.ui" line="2275"/>
         <source>Enter the maximum line length.</source>
         <translation>Въвеждане на максимална дължина на ред.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2307"/>
+        <location filename="mainwindow.ui" line="2294"/>
         <source>Indent statements and function parameters after wrapping.</source>
         <translation>Подреждане на изрази и параметри на функции след пренасяне.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2310"/>
+        <location filename="mainwindow.ui" line="2297"/>
         <source>Intelligent wrapping</source>
         <translation>Интелигентно пренасяне</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2331"/>
+        <location filename="mainwindow.ui" line="2318"/>
         <source>Font na&amp;me:</source>
         <oldsource>Font name:</oldsource>
         <translation>Име на &amp;шрифт:</translation>
@@ -1232,18 +1248,18 @@ Set the width to 0 to keep tabs.</source>
         <translation type="vanished">Размер на шрифт:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2386"/>
+        <location filename="mainwindow.ui" line="2373"/>
         <source>Enter the font size.</source>
         <translation>Въвеждане на размер на шрифта.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2459"/>
+        <location filename="mainwindow.ui" line="2446"/>
         <source>&amp;Visit andre-simon.de</source>
         <oldsource>Visit andre-simon.de</oldsource>
         <translation>&amp;Посещаване на andre-simon.de</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2470"/>
+        <location filename="mainwindow.ui" line="2457"/>
         <source>&amp;Dock floating panels</source>
         <translation>&amp;Закачане на плаващи панели</translation>
     </message>
@@ -1380,78 +1396,78 @@ Set the width to 0 to keep tabs.</source>
         <translation type="obsolete">Използване на твърди интервали</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2317"/>
+        <location filename="mainwindow.ui" line="2304"/>
         <source>Do not add line numbering to lines which were automatically wrapped.</source>
         <translation>Без номериране на редове, които са били автоматично пренесени.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2320"/>
+        <location filename="mainwindow.ui" line="2307"/>
         <source>Omit line numbers of wrapped lines</source>
         <translation>Пропускане на номер за пренесени редове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2352"/>
+        <location filename="mainwindow.ui" line="2339"/>
         <source>Select or enter the font name. HTML supports a list of fonts, separated with comma.</source>
         <translation>Избор или въвеждане на име на шрифт. HTML поддържа списък с шрифтове, разделени със запетая.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2364"/>
+        <location filename="mainwindow.ui" line="2351"/>
         <source>Font si&amp;ze:</source>
         <translation>Размер на &amp;шрифта:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2401"/>
+        <location filename="mainwindow.ui" line="2388"/>
         <source>&amp;Open files</source>
         <translation>&amp;Отваряне на файлове</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2406"/>
+        <location filename="mainwindow.ui" line="2393"/>
         <source>&amp;Exit</source>
         <translation>&amp;Изход</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2411"/>
+        <location filename="mainwindow.ui" line="2398"/>
         <source>&amp;Load</source>
         <translation>&amp;Зареждане</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2416"/>
+        <location filename="mainwindow.ui" line="2403"/>
         <source>&amp;Save</source>
         <translation>&amp;Запазване</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2421"/>
+        <location filename="mainwindow.ui" line="2408"/>
         <source>Load &amp;default project</source>
         <translation>Зареждане на проект по &amp;подразбиране</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2426"/>
+        <location filename="mainwindow.ui" line="2413"/>
         <source>&amp;Readme</source>
         <oldsource>Readme</oldsource>
         <translation>Файл Про&amp;чети ме</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2431"/>
+        <location filename="mainwindow.ui" line="2418"/>
         <source>&amp;Tips</source>
         <translation>&amp;Съвети</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2439"/>
+        <location filename="mainwindow.ui" line="2426"/>
         <source>&amp;Changelog</source>
         <translation>&amp;Журнал на промените</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2444"/>
+        <location filename="mainwindow.ui" line="2431"/>
         <source>&amp;License</source>
         <translation>&amp;Лиценз</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2449"/>
+        <location filename="mainwindow.ui" line="2436"/>
         <source>&amp;About Highlight</source>
         <translation>Относно &amp;Highlight</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2454"/>
+        <location filename="mainwindow.ui" line="2441"/>
         <source>A&amp;bout translations</source>
         <oldsource>About &amp;translations</oldsource>
         <translation>Относно п&amp;реводите</translation>

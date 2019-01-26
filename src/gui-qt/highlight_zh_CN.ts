@@ -127,22 +127,48 @@ Check installation.</source>
 Revise su instalación.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="+105"/>
+        <location filename="mainwindow.cpp" line="+132"/>
+        <location line="+20"/>
         <source>Initialization error</source>
         <translation type="unfinished">初始化错误</translation>
     </message>
     <message>
+        <location line="-19"/>
+        <source>Could not read a colour theme: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+1"/>
+        <source>dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>B16 light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>B16 dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>Could not find syntax definitions. Check installation.</source>
         <translation type="unfinished">找不到语法定义文件.请检查安装.</translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+79"/>
         <source>Always at your service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+34"/>
         <source>Select one or more files to open</source>
         <translation type="unfinished">选择一个或多个文件打开</translation>
     </message>
@@ -160,7 +186,7 @@ Revise su instalación.</translation>
         <translation type="obsolete">无法读取 &quot;%1&quot; 的Tag信息</translation>
     </message>
     <message>
-        <location line="+635"/>
+        <location line="+627"/>
         <location line="+31"/>
         <source>Output error</source>
         <translation type="unfinished">输出错误</translation>
@@ -225,24 +251,24 @@ Lua Syntax error: %2</source>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+118"/>
+        <location line="+122"/>
         <location line="+25"/>
         <source>clipboard data</source>
         <translation type="unfinished">剪贴板数据</translation>
     </message>
     <message>
-        <location line="-76"/>
+        <location line="-80"/>
         <source>%1 options</source>
         <translation type="unfinished">%1 选项</translation>
     </message>
     <message>
         <location line="+37"/>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>(user script)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+10"/>
         <source>Preview (%1):</source>
         <translation type="unfinished">预览 (%1):</translation>
     </message>
@@ -266,7 +292,7 @@ Lua Syntax error: %2</source>
         <translation type="unfinished">&quot;%1&quot;.的预览不可用.</translation>
     </message>
     <message>
-        <location line="+249"/>
+        <location line="+240"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -275,7 +301,7 @@ Lua Syntax error: %2</source>
         <translation type="obsolete">选择一个ctags文件</translation>
     </message>
     <message>
-        <location line="-214"/>
+        <location line="-205"/>
         <location line="+4"/>
         <location line="+4"/>
         <location line="+5"/>
@@ -508,7 +534,7 @@ Removes Unicode BOM mark.</source>
         <translation type="vanished">设置输出文件的编码格式.</translation>
     </message>
     <message>
-        <location line="+1484"/>
+        <location line="+1471"/>
         <source>&amp;Plug-Ins</source>
         <translation type="unfinished"></translation>
     </message>
@@ -517,7 +543,7 @@ Removes Unicode BOM mark.</source>
         <translation type="obsolete">Codificación:</translation>
     </message>
     <message>
-        <location line="-1455"/>
+        <location line="-1442"/>
         <source>Select or define the encoding.
 The result has to match the input file encoding.</source>
         <translation>选择或者定义编码格式.
@@ -1131,7 +1157,7 @@ You can select the stylesheets in your word processor to reformat additional tex
         <translation>高亮主题：</translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+47"/>
         <source>Select a colour theme.</source>
         <translation>选择一个用于高亮的颜色主题.</translation>
     </message>
@@ -1253,7 +1279,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>停靠浮动面板(&amp;D)</translation>
     </message>
     <message>
-        <location line="-2440"/>
+        <location line="-2427"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
@@ -1435,17 +1461,7 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+274"/>
-        <source>Toggle classic theme or Base16 theme selection.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Base16</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+42"/>
+        <location line="+306"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation type="unfinished"></translation>

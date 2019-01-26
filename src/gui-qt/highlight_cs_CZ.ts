@@ -154,6 +154,26 @@ Lua Syntax error: %2</source>
         <source>Current theme: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Could not read a colour theme: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B16 light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B16 dark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindowClass</name>
@@ -1076,14 +1096,6 @@ This feature is enabled for C, C++, C# and Java code.</source>
     </message>
     <message>
         <source>You can check one file of each type (syntax and theme) to override the default behaviour. If checked, the scripts will be watched for changes.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle classic theme or Base16 theme selection.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Base16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

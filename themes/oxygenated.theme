@@ -1,6 +1,6 @@
 -- Theme based  mostly on oXygen rnc syntax coloring, by Roger Sperberg
 
-Description = "based on oXygen rnc coloring"
+Description = "oXygenated rnc"
 
 Categories = {"dark"}
 

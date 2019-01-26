@@ -36,8 +36,10 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include "io_report.h"
 #include "syntax_chooser.h"
 
+//#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindowClass), themesClassicIdx(0), themesBase16Idx(0), getDataFromCP(false)
+    : QMainWindow(parent), ui(new Ui::MainWindowClass), oldThemeIndex(0), getDataFromCP(false)
 {
     ui->setupUi(this);
     this->setWindowTitle(QString("Highlight %1").arg( HIGHLIGHT_VERSION));
@@ -81,17 +83,62 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
     QStringList filesClassic = themesDirClassic.entryList(QStringList("*.theme"), QDir::Files, QDir::Name);
-    for (QStringList::const_iterator constIterator = filesClassic.constBegin();
-            constIterator != filesClassic.constEnd(); ++constIterator) {
-        themesClassic.append(QString(*constIterator).section('.',0, 0));
-    }
-
     QStringList filesBase16 = themesDirBase16.entryList(QStringList("*.theme"), QDir::Files, QDir::Name);
-    for (QStringList::const_iterator constIteratorBase16 = filesBase16.constBegin();
-            constIteratorBase16 != filesBase16.constEnd(); ++constIteratorBase16) {
-        themesBase16.append(QString(*constIteratorBase16).section('.',0, 0));
+
+    Diluculum::LuaState ls;
+    Diluculum::LuaValueMap categoryMap;
+
+    try {
+        for (QStringList::const_iterator constIterator = filesClassic.constBegin();
+                constIterator != filesClassic.constEnd(); ++constIterator) {
+            QString tPath(*constIterator);
+            QString tCat;
+            ls.doFile (themesDirClassic.absoluteFilePath(tPath).toStdString());
+            QString tDesc (QString::fromStdString(ls["Description"].value().asString()));
+            if (ls["Categories"].value() !=Diluculum::Nil){
+
+                categoryMap = ls["Categories"].value().asTable();
+
+                for(Diluculum::LuaValueMap::const_iterator it = categoryMap.begin(); it != categoryMap.end(); ++it)
+                {
+                    tCat.append( QString::fromStdString( it->second.asString()));
+                    tCat.append(",");
+                }
+            }
+            QList<QString> themeEntry = {tPath.section('.',0, 0), tDesc, tCat, "0"};
+            themesList.append(themeEntry);
+        }
+
+        for (QStringList::const_iterator constIterator = filesBase16.constBegin();
+                constIterator != filesBase16.constEnd(); ++constIterator) {
+            QString tPath(*constIterator);
+            QString tCat;
+            ls.doFile (themesDirBase16.absoluteFilePath(tPath).toStdString());
+            QString tDesc (QString::fromStdString(ls["Description"].value().asString()));
+            if (ls["Categories"].value() !=Diluculum::Nil){
+
+                categoryMap = ls["Categories"].value().asTable();
+
+                for(Diluculum::LuaValueMap::const_iterator it = categoryMap.begin(); it != categoryMap.end(); ++it)
+                {
+                    tCat.append( QString::fromStdString( it->second.asString()));
+                    tCat.append(",");
+                }
+            }
+            QList<QString> themeEntry = { tPath.section('.',0, 0), tDesc, tCat, "1"};
+            themesList.append(themeEntry);
+        }
+    }  catch (Diluculum::LuaError &err) {
+        QMessageBox::warning(this, tr("Initialization error"),
+                             tr("Could not read a colour theme: ") + QString::fromStdString(err.what()));
     }
     ui->comboTheme->setCurrentIndex(0);
+
+    ui->comboThemeFilter->addItem(tr("light"), "light");
+    ui->comboThemeFilter->addItem(tr("dark"), "dark");
+    ui->comboThemeFilter->addItem(tr("B16 light"), "light");
+    ui->comboThemeFilter->addItem(tr("B16 dark"), "dark");
+    ui->comboThemeFilter->setCurrentIndex(0);
 
     //does not work in GUI editor when adding > 10 items ?!?
     QStringList fmts;
@@ -157,6 +204,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->comboReformat, SIGNAL(currentIndexChanged(int)), this, SLOT(updatePreview()));
     QObject::connect(ui->comboTheme, SIGNAL(currentIndexChanged(int)), this, SLOT(updatePreview()));
     QObject::connect(ui->comboSelectSyntax, SIGNAL(currentIndexChanged(int)), this, SLOT(updatePreview()));
+    QObject::connect(ui->comboThemeFilter, SIGNAL(currentIndexChanged(int)), this, SLOT(updatePreview()));
 
     QObject::connect(ui->sbLineNoWidth, SIGNAL(valueChanged(int)), this, SLOT(updatePreview()));
     QObject::connect(ui->sbLineNoStart, SIGNAL(valueChanged(int)), this, SLOT(updatePreview()));
@@ -178,21 +226,29 @@ MainWindow::MainWindow(QWidget *parent)
 
     readSettings();
 
-    fillThemeCombo();
+    fillThemeCombo(oldThemeIndex);
+
     plausibility();
     statusBar()->showMessage(tr("Always at your service"), 2500);
 }
 
-void MainWindow::fillThemeCombo()
+void MainWindow::fillThemeCombo(int restoreVal)
 {
+    QString catFilter = ui->comboThemeFilter->currentData().toString();
+    bool isBase16 = ui->comboThemeFilter->currentIndex() >1;
+    //catFilter = catFilter.remove(0,2);
+    //qDebug()<<"catFilter "<<catFilter <<isBase16;
+
     ui->comboTheme->clear();
-    if (ui->cbUseBase16->isChecked()){
-        ui->comboTheme->addItems(themesBase16);
-        ui->comboTheme->setCurrentIndex(themesBase16Idx);
-    } else {
-        ui->comboTheme->addItems(themesClassic);
-        ui->comboTheme->setCurrentIndex(themesClassicIdx);
+
+    for (int i = 0; i < themesList.size(); ++i) {
+        QList<QString> curTheme = themesList.at(i);
+        if ( (!isBase16 && curTheme.at(2).contains( catFilter) && !curTheme.at(2).contains( "base16")) ||
+             (isBase16 && curTheme.at(2).contains( catFilter) && curTheme.at(2).contains( "base16")))
+          ui->comboTheme->addItem(curTheme.at(1), curTheme.at(0));
     }
+    ui->comboTheme->setCurrentIndex(restoreVal);
+
 }
 
 MainWindow::~MainWindow()
@@ -315,8 +371,6 @@ void MainWindow::writeSettings()
                       ui->cbHTMLAnchors->isChecked());
     settings.setValue(ui->cbOmitVersionInfo->property(name).toString(),
                       ui->cbOmitVersionInfo->isChecked());
-    settings.setValue(ui->cbUseBase16->property(name).toString(),
-                      ui->cbUseBase16->isChecked());
 
     settings.setValue(ui->cbHTMLEmbedStyle->property(name).toString(),
                       ui->cbHTMLEmbedStyle->isChecked());
@@ -364,8 +418,10 @@ void MainWindow::writeSettings()
     settings.setValue(ui->comboRTFPageSize->property(name).toString(),
                       ui->comboRTFPageSize->currentIndex());
 
-    settings.setValue("themesClassicIdx", themesClassicIdx);
-    settings.setValue("themesBase16Idx", themesBase16Idx);
+    settings.setValue(ui->comboTheme->property(name).toString(),
+                      ui->comboTheme->currentIndex());
+    settings.setValue(ui->comboThemeFilter->property(name).toString(),
+                      ui->comboThemeFilter->currentIndex());
 
     settings.setValue(ui->comboEncoding->property(name).toString(),
                       ui->comboEncoding->currentText());
@@ -500,13 +556,8 @@ void MainWindow::readSettings()
     ui->comboRTFPageSize->setCurrentIndex(settings.value(ui->comboRTFPageSize->property(name).toString()).toInt());
     ui->comboSelectSyntax->setCurrentIndex(settings.value(ui->comboSelectSyntax->property(name).toString()).toInt());
 
-    int oldThemeIdx = settings.value(ui->comboTheme->property(name).toString(),0).toInt();
-    themesClassicIdx = settings.value("themesClassicIdx",0).toInt();
-    if (themesClassicIdx==0)
-        themesClassicIdx=oldThemeIdx;
-
-    themesBase16Idx = settings.value("themesBase16Idx",0).toInt();
-    ui->cbUseBase16->setChecked(settings.value(ui->cbUseBase16->property(name).toString()).toBool());
+    oldThemeIndex=settings.value(ui->comboTheme->property(name).toString()).toInt();
+    ui->comboThemeFilter->setCurrentIndex(settings.value(ui->comboThemeFilter->property(name).toString()).toInt());
 
     ui->leHTMLStyleFile->setText(settings.value(ui->leHTMLStyleFile->property(name).toString()).toString());
     ui->leHTMLStyleIncFile->setText(settings.value(ui->leHTMLStyleIncFile->property(name).toString()).toString());
@@ -856,8 +907,6 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
     if (ui->cbReformat->isChecked()) {
         generator->initIndentationScheme(ui->comboReformat->currentText().toLower().toStdString());
     }
-
-
 }
 
 highlight::WrapMode MainWindow::getWrappingStyle()
@@ -1175,7 +1224,7 @@ void MainWindow::plausibility()
     ui->comboReformat->setEnabled(ui->cbReformat->isChecked());
     ui->comboKwCase->setEnabled(ui->cbKwCase->isChecked());
     ui->comboTheme->setEnabled(getUserScriptPath("theme").isEmpty());
-    ui->cbUseBase16->setEnabled(getUserScriptPath("theme").isEmpty());
+   // ui->cbUseBase16->setEnabled(getUserScriptPath("theme").isEmpty());
     ui->comboSelectSyntax->setEnabled(getUserScriptPath("lang").isEmpty());
 
     ui->cbHTMLInlineCSS->setEnabled(ui->cbHTMLEmbedStyle->isChecked());
@@ -1500,15 +1549,6 @@ void MainWindow::on_pbBrowseOutDir_clicked()
     QDesktopServices::openUrl(QUrl::fromLocalFile(ui->leOutputDest->text()));
 }
 
-// use activated signal to prevent trigger of combo list changes
-void MainWindow::on_comboTheme_activated(int index){
-    if (ui->cbUseBase16->isChecked() ){
-            themesBase16Idx = index;
-    } else {
-            themesClassicIdx = index;
-    }
-}
-
 void MainWindow::on_lvUserScripts_itemClicked(QListWidgetItem *item)
 {
      QString scriptPath= item->data(Qt::UserRole).toString();
@@ -1558,22 +1598,20 @@ void MainWindow::on_lvPluginScripts_itemClicked(QListWidgetItem *item)
     }
 }
 
-void MainWindow::on_cbUseBase16_clicked(){
-    fillThemeCombo();
-}
 
 QString MainWindow::getDistThemePath(){
-    QString themeLocation =  ui->cbUseBase16->isChecked() ? "themes/base16" : "themes";
+    QString themeLocation =  ui->comboThemeFilter->currentIndex() >1 ? "themes/base16" : "themes";
+    QString selectedTheme = ui->comboTheme->currentData().toString();
 #ifdef Q_OS_OSX
      return QString("%1/../Resources/%3/%2.theme").arg(
-                            QCoreApplication::applicationDirPath()).arg(ui->comboTheme->currentText(), themeLocation);
+                            QCoreApplication::applicationDirPath()).arg(selectedTheme, themeLocation);
 #else
     #ifdef DATA_DIR
      return  QString("%1%3/%2.theme").arg(
-                            DATA_DIR).arg(ui->comboTheme->currentText(), themeLocation);
+                            DATA_DIR).arg(selectedTheme, themeLocation);
     #else
      return  QString("%1/%3/%2.theme").arg(
-                            QDir::currentPath()).arg(ui->comboTheme->currentText(), themeLocation);
+                            QDir::currentPath()).arg(selectedTheme, themeLocation);
     #endif
 #endif
 }
@@ -1627,4 +1665,10 @@ QString MainWindow::getDistFileFilterPath(){
     return QDir::currentPath()+"/gui_files/ext/fileopenfilter.conf";
     #endif
 #endif
+}
+
+void MainWindow::on_comboThemeFilter_currentIndexChanged(int index)
+{
+    if (ui->comboTheme->count())
+        fillThemeCombo(0);
 }

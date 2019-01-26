@@ -148,7 +148,7 @@
         </size>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="elideMode">
         <enum>Qt::ElideNone</enum>
@@ -2091,20 +2091,7 @@ You can select the stylesheets in your word processor to reformat additional tex
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="cbUseBase16">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="toolTip">
-              <string>Toggle classic theme or Base16 theme selection.</string>
-             </property>
-             <property name="text">
-              <string>Base16</string>
-             </property>
-            </widget>
+            <widget class="QComboBox" name="comboThemeFilter"/>
            </item>
            <item>
             <widget class="QComboBox" name="comboTheme">

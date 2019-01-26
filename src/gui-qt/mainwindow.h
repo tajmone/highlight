@@ -52,6 +52,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTime>
 #include <QShortcut>
 #include <QString>
+#include <QList>
 #include <QTextStream>
 #include <QFileSystemWatcher>
 #include <QDesktopServices>
@@ -91,7 +92,9 @@ private:
     QFileSystemWatcher scriptWatcher;
     QStringList themesClassic;
     QStringList themesBase16;
-    int themesClassicIdx, themesBase16Idx;
+    QList< QList<QString> > themesList;
+
+    int oldThemeIndex;
 
     bool getDataFromCP;
 
@@ -118,7 +121,7 @@ private:
     string getFileSuffix(const string& fileName);
     string getFileBaseName(const string& fileName);
     void readLuaList(const string& paramName, const string& langName, Diluculum::LuaValue &luaVal, MMap* extMap);
-    void fillThemeCombo();
+    void fillThemeCombo(int);
     void showHelpFile(const QString& file);
 
     void dragEnterEvent(QDragEnterEvent *event);
@@ -175,10 +178,8 @@ private slots:
     void on_lvUserScripts_itemClicked(QListWidgetItem *item);
     void on_lvPluginScripts_itemClicked(QListWidgetItem *item);
 
-    void on_comboTheme_activated(int index);
-    void on_cbUseBase16_clicked();
-
     void on_browserPreview_selectionChanged();
+    void on_comboThemeFilter_currentIndexChanged(int index);
 };
 
 #endif // MAINWINDOW_H

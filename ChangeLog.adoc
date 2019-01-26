@@ -17,6 +17,7 @@ xx.xx.2019
  - improved Perl highlighting
  - added Categories field to all config files
  - CLI: added --list-cat option (https://gitlab.com/saalen/highlight/issues/99)
+ - GUI: added theme category selection
  - GUI: display categories of selected syntax or theme
  
 == highlight 3.48

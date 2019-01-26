@@ -4,125 +4,151 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="105"/>
+        <location filename="mainwindow.cpp" line="132"/>
+        <location filename="mainwindow.cpp" line="152"/>
         <source>Initialization error</source>
         <translation>Erreur lors de l&apos;initialisation</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="106"/>
+        <location filename="mainwindow.cpp" line="133"/>
+        <source>Could not read a colour theme: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="137"/>
+        <source>light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="138"/>
+        <source>dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="139"/>
+        <source>B16 light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="140"/>
+        <source>B16 dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="153"/>
         <source>Could not find syntax definitions. Check installation.</source>
         <translation>Impossible de trouver les définitions des syntaxes. Vérifiez votre installation.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="183"/>
+        <location filename="mainwindow.cpp" line="232"/>
         <source>Always at your service</source>
         <translation>Toujours à votre service</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="210"/>
+        <location filename="mainwindow.cpp" line="266"/>
         <source>Select one or more files to open</source>
         <translation>Sélectionnez un ou plusieurs fichiers à ouvrir</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="247"/>
+        <location filename="mainwindow.cpp" line="303"/>
         <source>Select destination directory</source>
         <translation>Sélectionnez un répertoire de destination</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="882"/>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="930"/>
+        <location filename="mainwindow.cpp" line="961"/>
         <source>Output error</source>
         <translation>Erreur de sortie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="882"/>
+        <location filename="mainwindow.cpp" line="930"/>
         <source>Output directory does not exist!</source>
         <translation>Le répertoire de destination n&apos;existe pas !</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="913"/>
+        <location filename="mainwindow.cpp" line="961"/>
         <source>You must define a style output file!</source>
         <translation>Vous devez définir un fichier de style de sortie !</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="945"/>
+        <location filename="mainwindow.cpp" line="993"/>
         <source>Processing %1 (%2/%3)</source>
         <translation>Traitement de %1 (%2/%3)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="951"/>
+        <location filename="mainwindow.cpp" line="999"/>
         <source>Language definition error</source>
         <translation>Erreur de définition du langage</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="952"/>
+        <location filename="mainwindow.cpp" line="1000"/>
         <source>Invalid regular expression in %1:
 %2</source>
         <translation>Expression régulière non valide dans %1 :
 %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="956"/>
+        <location filename="mainwindow.cpp" line="1004"/>
         <source>Unknown syntax</source>
         <translation>Syntaxe inconnue</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="956"/>
+        <location filename="mainwindow.cpp" line="1004"/>
         <source>Could not convert %1</source>
         <translation>Impossible de convertir %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="959"/>
+        <location filename="mainwindow.cpp" line="1007"/>
         <source>Lua error</source>
         <translation>Erreur Lua</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="959"/>
+        <location filename="mainwindow.cpp" line="1007"/>
         <source>Could not convert %1:
 Lua Syntax error: %2</source>
         <translation>Impossible de convertir %1 :
 Erreur de syntaxe Lua : %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1037"/>
+        <location filename="mainwindow.cpp" line="1085"/>
         <source>Converted %1 files in %2 ms</source>
         <translation>%1 fichier(s) converti(s) en %2 ms</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1160"/>
+        <location filename="mainwindow.cpp" line="1208"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation>Conversion de &quot;%1&quot; impossible.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1160"/>
-        <location filename="mainwindow.cpp" line="1278"/>
-        <location filename="mainwindow.cpp" line="1303"/>
+        <location filename="mainwindow.cpp" line="1208"/>
+        <location filename="mainwindow.cpp" line="1330"/>
+        <location filename="mainwindow.cpp" line="1355"/>
         <source>clipboard data</source>
         <translation>données du presse-papiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1227"/>
+        <location filename="mainwindow.cpp" line="1275"/>
         <source>%1 options</source>
         <translation>Options de %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1264"/>
-        <location filename="mainwindow.cpp" line="1270"/>
+        <location filename="mainwindow.cpp" line="1312"/>
+        <location filename="mainwindow.cpp" line="1319"/>
         <source>(user script)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
+        <location filename="mainwindow.cpp" line="1329"/>
         <source>Preview (%1):</source>
         <translation>Aperçu (%1) :</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1280"/>
+        <location filename="mainwindow.cpp" line="1332"/>
         <source>Current syntax: %1 %2</source>
         <translation>Syntaxe actuelle : %1 %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1281"/>
+        <location filename="mainwindow.cpp" line="1333"/>
         <source>Current theme: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -131,25 +157,25 @@ Erreur de syntaxe Lua : %2</translation>
         <translation type="vanished">Syntaxe actuelle : %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1303"/>
+        <location filename="mainwindow.cpp" line="1355"/>
         <source>Preview of &quot;%1&quot; not possible.</source>
         <translation>Impossible de donner un aperçu de &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1338"/>
-        <location filename="mainwindow.cpp" line="1342"/>
-        <location filename="mainwindow.cpp" line="1346"/>
-        <location filename="mainwindow.cpp" line="1351"/>
+        <location filename="mainwindow.cpp" line="1390"/>
+        <location filename="mainwindow.cpp" line="1394"/>
+        <location filename="mainwindow.cpp" line="1398"/>
+        <location filename="mainwindow.cpp" line="1403"/>
         <source>Choose a style include file</source>
         <translation>Choisissez un fichier de style à inclure</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1356"/>
+        <location filename="mainwindow.cpp" line="1408"/>
         <source>About providing translations</source>
         <translation>À propos des traductions</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1357"/>
+        <location filename="mainwindow.cpp" line="1409"/>
         <source>The GUI was developed using the Qt toolkit, and translations may be provided using the tools Qt Linguist and lrelease.
 The highlight.ts file for Linguist resides in the src/gui-qt subdirectory.
 The qm file generated by lrelease has to be saved in gui-files/l10n.
@@ -162,22 +188,22 @@ Le fichier .qm généré par lrelease doit être sauvegardé dans gui-files/l10n
 Veuillez m&apos;envoyer une note à l&apos;adresse « as (at) andre-simon (dot) de » si vous rencontrez des problèmes durant la traduction ou si vous avez terminé ou mis à jour une traduction.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1415"/>
+        <location filename="mainwindow.cpp" line="1467"/>
         <source>Select one or more plug-ins</source>
         <translation>Sélectionner un ou plusieurs greffons</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1426"/>
+        <location filename="mainwindow.cpp" line="1478"/>
         <source>Select one or more syntax or theme scripts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1486"/>
+        <location filename="mainwindow.cpp" line="1538"/>
         <source>Choose a plug-in input file</source>
         <translation>Choisissez un fichier d&apos;entrée pour le greffon</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1552"/>
+        <location filename="mainwindow.cpp" line="1595"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation>Certains effets du greffon peuvent ne pas être visibles dans l&apos;aperçu.</translation>
     </message>
@@ -1041,201 +1067,191 @@ Vous pouvez sélectionner les feuilles de style dans votre logiciel de traitemen
         <translation>Thème de couleurs :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2102"/>
-        <source>Toggle classic theme or Base16 theme selection.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="2105"/>
-        <source>Base16</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="2130"/>
+        <location filename="mainwindow.ui" line="2117"/>
         <source>Select a colour theme.</source>
         <translation>Sélectionner un thème de couleurs.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2147"/>
+        <location filename="mainwindow.ui" line="2134"/>
         <source>Reformat and indent your code.
 This feature is enabled for C, C++, C# and Java code.</source>
         <translation>Reformater et indenter votre code.
 Cette fonctionnalité est activée pour le code C, C++, C# et Java.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2151"/>
+        <location filename="mainwindow.ui" line="2138"/>
         <source>Reformat:</source>
         <translation>Reformatage :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2170"/>
+        <location filename="mainwindow.ui" line="2157"/>
         <source>Choose a formatting scheme.</source>
         <translation>Choisir un schéma de formatage.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2184"/>
+        <location filename="mainwindow.ui" line="2171"/>
         <source>Change the keyword case.</source>
         <translation>Changer la casse.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2187"/>
+        <location filename="mainwindow.ui" line="2174"/>
         <source>Keyword case:</source>
         <translation>Casse des mots-clés :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2206"/>
+        <location filename="mainwindow.ui" line="2193"/>
         <source>Select a keyword case.</source>
         <translation>Sélectionner une casse pour les mots-clés.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2213"/>
+        <location filename="mainwindow.ui" line="2200"/>
         <source>UPPER</source>
         <translation>MAJUSCULE</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2218"/>
+        <location filename="mainwindow.ui" line="2205"/>
         <source>lower</source>
         <translation>minuscule</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2223"/>
+        <location filename="mainwindow.ui" line="2210"/>
         <source>Capitalize</source>
         <translation>Casse de phrase</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2241"/>
+        <location filename="mainwindow.ui" line="2228"/>
         <source>Tab width:</source>
         <translation>Largeur des tabulations :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2257"/>
+        <location filename="mainwindow.ui" line="2244"/>
         <source>Enter the number of spaces which replace a tab.
 Set the width to 0 to keep tabs.</source>
         <translation>Saisir le nombre d&apos;espaces qui remplacent une tabulation.
 Définir la largeur à 0 pour conserver les tabulations.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2272"/>
+        <location filename="mainwindow.ui" line="2259"/>
         <source>Enable line wrapping.</source>
         <translation>Activer le retour à la ligne automatique.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2275"/>
+        <location filename="mainwindow.ui" line="2262"/>
         <source>Line wrapping</source>
         <translation>Retour à la ligne</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2288"/>
+        <location filename="mainwindow.ui" line="2275"/>
         <source>Enter the maximum line length.</source>
         <translation>Saisir la taille maximale d&apos;une ligne.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2307"/>
+        <location filename="mainwindow.ui" line="2294"/>
         <source>Indent statements and function parameters after wrapping.</source>
         <translation>Indenter les déclarations et les paramètres de fonctions après le retour à ligne automatique.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2310"/>
+        <location filename="mainwindow.ui" line="2297"/>
         <source>Intelligent wrapping</source>
         <translation>Retour à la ligne intelligent</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2317"/>
+        <location filename="mainwindow.ui" line="2304"/>
         <source>Do not add line numbering to lines which were automatically wrapped.</source>
         <translation>Ne pas ajouter des numéros aux retours à la ligne automatiques.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2320"/>
+        <location filename="mainwindow.ui" line="2307"/>
         <source>Omit line numbers of wrapped lines</source>
         <translation>Omettre les numéros de ligne pour les retours à la ligne</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2331"/>
+        <location filename="mainwindow.ui" line="2318"/>
         <source>Font na&amp;me:</source>
         <translation>No&amp;m de la police :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2352"/>
+        <location filename="mainwindow.ui" line="2339"/>
         <source>Select or enter the font name. HTML supports a list of fonts, separated with comma.</source>
         <translation>Sélectionner ou saisir le nom d&apos;une police. L&apos;HTML supporte une liste de polices, séparées par des virgules.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2364"/>
+        <location filename="mainwindow.ui" line="2351"/>
         <source>Font si&amp;ze:</source>
         <translation>&amp;Taille de la police :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2386"/>
+        <location filename="mainwindow.ui" line="2373"/>
         <source>Enter the font size.</source>
         <translation>Saisissez la taille de police.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2401"/>
+        <location filename="mainwindow.ui" line="2388"/>
         <source>&amp;Open files</source>
         <translation>&amp;Ouvrir des fichiers</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2406"/>
+        <location filename="mainwindow.ui" line="2393"/>
         <source>&amp;Exit</source>
         <translation>Quitt&amp;er</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2411"/>
+        <location filename="mainwindow.ui" line="2398"/>
         <source>&amp;Load</source>
         <translation>&amp;Charger</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2416"/>
+        <location filename="mainwindow.ui" line="2403"/>
         <source>&amp;Save</source>
         <translation>&amp;Sauvegarder</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2421"/>
+        <location filename="mainwindow.ui" line="2408"/>
         <source>Load &amp;default project</source>
         <translation>Charger le projet par &amp;défaut</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2426"/>
+        <location filename="mainwindow.ui" line="2413"/>
         <source>&amp;Readme</source>
         <translation>Lise&amp;z-moi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2431"/>
+        <location filename="mainwindow.ui" line="2418"/>
         <source>&amp;Tips</source>
         <translation>As&amp;tuces</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2439"/>
+        <location filename="mainwindow.ui" line="2426"/>
         <source>&amp;Changelog</source>
         <translation>Journal des &amp;changements</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2444"/>
+        <location filename="mainwindow.ui" line="2431"/>
         <source>&amp;License</source>
         <translation>&amp;Licence</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2449"/>
+        <location filename="mainwindow.ui" line="2436"/>
         <source>&amp;About Highlight</source>
         <translation>&amp;À propos de Highlight</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2454"/>
+        <location filename="mainwindow.ui" line="2441"/>
         <source>A&amp;bout translations</source>
         <translation>À propos des tra&amp;ductions</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2459"/>
+        <location filename="mainwindow.ui" line="2446"/>
         <source>&amp;Visit andre-simon.de</source>
         <translation>&amp;Visiter andre-simon.de</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2470"/>
+        <location filename="mainwindow.ui" line="2457"/>
         <source>&amp;Dock floating panels</source>
         <translation>A&amp;ccrocher les panneaux flottants</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2475"/>
+        <location filename="mainwindow.ui" line="2462"/>
         <source>&amp;Plug-Ins</source>
         <translation>&amp;Greffons</translation>
     </message>
