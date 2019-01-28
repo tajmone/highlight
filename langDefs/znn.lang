@@ -1,6 +1,8 @@
 
 Description="Zonnon"
 
+Categories = {"source"}
+
 Keywords={
     { Id=1,
       list={"accept", "activity", "array", "as", "await", "begin", "by", "case", 
