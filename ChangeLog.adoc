@@ -9,13 +9,14 @@
 
 == highlight 3.49
 
-xx.xx.2019
+30.01.2019
 
  - fixed more problems with syntax test indicators reporting wrong states
    (https://gitlab.com/saalen/highlight/issues/102)
  - added support for TOML and Terraform
  - improved Perl highlighting
  - added Categories field to all config files
+ - CLI: added category info in --list-scripts output
  - CLI: added --list-cat option (https://gitlab.com/saalen/highlight/issues/99)
  - GUI: added theme category selection
  - GUI: display categories of selected syntax or theme
