@@ -6,7 +6,7 @@ Categories = {"source"}
 Digits = [[ (?:0x|0X|0b)[0-9a-fA-F']+|\d*[\.]?\d+(?:[eE][\-\+]\d+)?[lLuU]* ]]
 
 Keywords={
- {  Id=1,
+  { Id=1,
    List={"goto", "break", "return", "continue", "asm", "case", "default", "if", "else", "switch", "while", "for", "do", "sizeof",
          "typeof", "stdcall", "cdecl", "const_cast", "delete", "dynamic_cast", "goto", "namespace", "new", "pascal",
          "reinterpret_cast", "static_cast", "this", "throw", "try", "catch", "using", "true", "false", "bitand", "and", "bitor", "or", "xor",
