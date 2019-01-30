@@ -13,7 +13,7 @@
 
  - fixed more problems with syntax test indicators reporting wrong states
    (https://gitlab.com/saalen/highlight/issues/102)
- - added support for TOML and Terraform
+ - added support for Meson, Solidity, TOML and Terraform
  - improved Perl highlighting
  - added Categories field to all config files
  - CLI: added category info in --list-scripts output
