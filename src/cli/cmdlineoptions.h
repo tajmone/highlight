@@ -165,7 +165,7 @@ public:
 
     /** \return SVG height*/
     const string& getSVGHeight() const;
-
+    
     /** \return Number of spaces to replace a tab*/
     int getNumberSpaces() const;
 
@@ -366,6 +366,9 @@ public:
 
     /** \return categories sepatated by X to filter scripts in --list-scripts */
     const string& getCategories() const ;
+    
+    /** \return optional help topic */
+    const string& getHelpTopic() const;
 
     /** \return line number width */
     int getNumberWidth();
@@ -423,9 +426,11 @@ private:
            styleInFilename,
            // used to define data directories at runtime
            dataDir;
+           
     // name of indenation scheme
     string indentScheme,
-           pageSize, startNestedLang;
+           pageSize, 
+           startNestedLang;
 
     string baseFont, baseFontSize;
     string docTitle, className;
@@ -477,7 +482,8 @@ private:
     string anchorPrefix;
     string helpLang, encodingName;
 
-    string pluginPath, pluginParameter, categories;
+    string pluginPath, pluginParameter, 
+           categories, helpTopic;
 
     /** list of all input file names */
     vector <string> inputFileNames;

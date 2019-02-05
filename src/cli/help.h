@@ -36,7 +36,7 @@ namespace Help
 {
 /** print help message to stdout
  */
-void printHelp();
+void printHelp(const std::string &topic);
 }
 
 #endif

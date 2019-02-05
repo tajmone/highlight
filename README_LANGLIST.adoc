@@ -1,6 +1,6 @@
 = HIGHLIGHT LANGUAGES LIST
 André Simon
-v3.49, January 2019
+v3.49, February 2019
 :lang: en
 :experimental:
 :icons: font

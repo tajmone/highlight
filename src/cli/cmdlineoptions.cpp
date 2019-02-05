@@ -63,7 +63,7 @@ const Arg_parser::Option options[] = {
         { 'f', OPT_FRAGMENT,       Arg_parser::no  },
         { 'F', OPT_FORMAT,         Arg_parser::yes },
 
-        { 'h', OPT_HELP,           Arg_parser::no  },
+        { 'h', OPT_HELP,           Arg_parser::maybe  },
         { 'i', OPT_IN,             Arg_parser::yes },
         { 'I', OPT_INC_STYLE,      Arg_parser::no  },
         { 'j', OPT_LNR_LEN,        Arg_parser::yes },
@@ -337,6 +337,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case 'h':
             opt_help = true;
+            helpTopic = arg;
             break;
         case 'i':
             inputFileNames.push_back ( arg );
@@ -989,4 +990,8 @@ int CmdLineOptions::getLineRangeEnd()
 
 const string& CmdLineOptions::getCategories() const {
     return categories;
+}
+
+const string& CmdLineOptions::getHelpTopic() const {
+    return helpTopic;
 }

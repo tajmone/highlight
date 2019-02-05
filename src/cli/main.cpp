@@ -423,7 +423,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     dataDir.initSearchDirectories ( dataDirPath );
 
     if ( options.printHelp() ) {
-        Help::printHelp();
+        Help::printHelp(options.getHelpTopic());
         return EXIT_SUCCESS;
     }
 

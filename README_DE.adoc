@@ -175,7 +175,8 @@ General options:
  -D, --data-dir=<directory>     set path to data directory
      --config-file=<file>       set path to a lang or theme file
  -d, --outdir=<directory>       name of output directory
- -h, --help                     print this help
+ -h, --help[=topic]             print this help or a topic description
+                                  <topic> = [syntax, theme, plugin, config]
  -i, --input=<file>             name of single input file
  -o, --output=<file>            name of single output file
  -P, --progress                 print progress bar in batch mode
