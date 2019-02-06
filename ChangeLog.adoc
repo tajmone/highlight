@@ -9,15 +9,16 @@
 
 == highlight 3.49
 
-30.01.2019
+06.02.2019
 
  - fixed more problems with syntax test indicators reporting wrong states
    (https://gitlab.com/saalen/highlight/issues/102)
  - added support for Meson, Solidity, TOML and Terraform
- - improved Perl highlighting
+ - improved Perl and Yaml highlighting
  - added Categories field to all config files
  - CLI: added category info in --list-scripts output
  - CLI: added --list-cat option (https://gitlab.com/saalen/highlight/issues/99)
+ - CLI: added optional topic parameter to --help
  - GUI: added theme category selection
  - GUI: display categories of selected syntax or theme
  
