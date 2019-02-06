@@ -1,8 +1,7 @@
 
 Description = "vim breeze"
 
-Categories = {"dark"}
-
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#ffffff" }
 Canvas	= { Colour="#005c70" }

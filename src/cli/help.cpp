@@ -106,7 +106,16 @@ void printHelp(const std::string &topic)
         cout <<"\n";
         cout <<"See README_PLUGINS.adoc for a detailed description and examples of packaged plugins.\n";
 
-    } else {
+    } else if (topic=="test") {
+        cout <<"SYNTAX TEST HELP:\n\n";
+        cout <<"The syntax parsing can be validated with test state indicators embedded in comments.\n";
+        cout <<"These are recognized in files saved as syntax_test_*.\n\n";
+        cout <<"A test case is defined by two entities: column and expected state.\n";
+        cout <<"The column is defined by ^ (here) or < (comment start / first column).\n";
+        cout <<"This indicator points at the tested syntax element of the previous line.\n";
+        cout <<"The state identifiers match the corresponding HTML output CSS class names.\n\n";
+        cout <<"See README_TESTCASES.adoc for a detailed description and examples.\n";
+    }else {
         cout<<"USAGE: highlight [OPTIONS]... [FILES]...\n";
         cout<<"\n";
         cout<<"General options:\n";
@@ -117,7 +126,7 @@ void printHelp(const std::string &topic)
         cout<<"     --config-file=<file>       set path to a lang or theme file\n";
         cout<<" -d, --outdir=<directory>       name of output directory\n";
         cout<<" -h, --help[=topic]             print this help or a topic description\n";
-        cout<<"                                  <topic> = [syntax, theme, plugin, config]\n";
+        cout<<"                                  <topic> = [syntax, theme, plugin, config, test]\n";
         cout<<" -i, --input=<file>             name of single input file\n";
         cout<<" -o, --output=<file>            name of single output file\n";
         cout<<" -P, --progress                 print progress bar in batch mode\n";

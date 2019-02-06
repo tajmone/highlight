@@ -1,7 +1,7 @@
 
 Description = "vim biogoo"
 
-Categories = {"light"}
+Categories = {"light", "vim"}
 
 Default	= { Colour="#000000" }
 Canvas	= { Colour="#d6d6d6" }

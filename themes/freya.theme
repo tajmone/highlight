@@ -2,7 +2,7 @@
 
 Description = "vim freya"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#dcdccc" }
 Canvas	= { Colour="#2a2a2a" }

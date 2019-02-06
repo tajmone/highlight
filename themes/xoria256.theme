@@ -2,7 +2,7 @@
 
 Description = "vim xoria256"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#d0d0d0" }
 Canvas	= { Colour="#1c1c1c" }

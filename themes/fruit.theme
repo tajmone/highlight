@@ -2,7 +2,7 @@
 
 Description = "vim fruit"
 
-Categories = {"light"}
+Categories = {"light", "vim"}
 
 Default	= { Colour="#404040" }
 Canvas	= { Colour="#f8f8f8" }

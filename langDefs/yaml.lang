@@ -2,7 +2,9 @@ Description="Ansible YAML"
 
 Categories = {"markup"}
 
-Identifiers=[[ [a-zA-Z_][a-zA-Z_\:]* ]]
+Identifiers=[[ ([\w][\S]+?\:) ]]
+
+Digits = [[ [\W](\d*[\.]?\d+(?:[eE][\-\+]\d+)?)(?![\w]) ]]
 
 Keywords={
   {
@@ -86,7 +88,8 @@ Comments={
   },
 }
 
-Operators=[[\(|\)|\[|\]|<|>|\=|\,|\&|\!|\*|\%|\+|\%|\||or|and|not|true|false|yes|no]]
+-- |or|and|not|true|false|yes|no -> keyword group
+Operators=[[\(|\)|\[|\]|<|>|\=|\-|\,|\&|\!|\*|\%|\+|\%|\||{|}]]
 
 IgnoreCase=true
 
@@ -98,5 +101,6 @@ function OnStateChange(oldState, newState, token, kwgroup)
      and not Keywords[1].List[token] and not Keywords[2].List[token] then
     return HL_KEYWORD
   end
+  
   return newState
 end

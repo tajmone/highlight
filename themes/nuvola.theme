@@ -2,7 +2,7 @@
 
 Description = "vim nuvola"
 
-Categories = {"light"}
+Categories = {"light", "vim"}
 
 Default	= { Colour="#000000" }
 Canvas	= { Colour="#F9F5F9" }

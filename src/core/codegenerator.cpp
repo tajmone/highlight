@@ -2,7 +2,7 @@
                           codegenerator.cpp  -  description
                              -------------------
     begin                : Die Jul 9 2002
-    copyright            : (C) 2002-2018 by Andre Simon
+    copyright            : (C) 2002-2019 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 

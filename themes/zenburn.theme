@@ -2,7 +2,7 @@
 
 Description = "vim zenburn"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#dcdccc" }
 Canvas	= { Colour="#1f1f1f" }

@@ -1,7 +1,7 @@
 
 Description="Vim Dark Editor"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default        = { Colour="#0f930f" }
 Canvas         = { Colour="#000000" }

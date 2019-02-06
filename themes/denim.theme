@@ -1,6 +1,6 @@
 Description = "vim denim"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#FFFFFF" }
 Canvas	= { Colour="#000038" }

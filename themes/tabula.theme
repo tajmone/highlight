@@ -2,7 +2,7 @@
 
 Description = "vim tabula"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#71D289" }
 Canvas	= { Colour="#004A41" }

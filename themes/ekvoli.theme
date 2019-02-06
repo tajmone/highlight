@@ -1,7 +1,7 @@
 
 Description = "vim ekvoli"
 
-Categories = {"dark"}
+Categories = {"dark", "vim"}
 
 Default	= { Colour="#dedede" }
 Canvas	= { Colour="#001535" }
