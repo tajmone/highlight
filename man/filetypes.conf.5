@@ -1,0 +1,37 @@
+.TH filetypes.conf 5 "2018-09-21" "Andre Simon" "user documentation"
+
+.SH NAME
+filetypes.conf - the file type configuration of highlight
+
+.SH DESCRIPTION
+This config file contains filename extensions and shebang patterns which are mapped to highlight's syntax definitions.
+
+If there is only one extension, just name the lang file accordingly and it will work (no entry needed in this file).
+
+The filetype entries in gui_files/ext/fileopenfilter.conf should also be updated.
+.PP
+Extensions can be configured for multiple languages (see "asm", which is assigned to assembler and fasm).
+
+The command line (CKI) and Qt GUI builds handle ambiguous assigments as follows:
+.PP
+- CLI: the first association listed here will be used
+.PP
+- GUI: a syntax selection prompt will be shown
+.PP
+If a filename has no extension by convention (ie. makefile), it may be added here nevertheless or be configured as "Shebang".
+.PP
+Location: The first filetypes.conf found in a highlight search directory wins.
+.PP
+It's easily possible to enhance highlight's database of programming languages and colour themes.
+See the README file for details.
+.SH EXTENSION MAPPING EXAMPLE
+.IP "{ Lang=\(aqpurebasic\(aq,  Extensions={\(aqpb\(aq, \(aqpbi\(aq} }"
+
+.SH SHEBANG MAPPING EXAMPLE
+.IP "{ Lang=\(aqxml\(aq, Shebang=[[^\es*<\e?xml\es+version=\(aq1\.0\(aq\s+[^(\e?>)]*?>\es*$]] }"
+
+.SH AUTHORS
+Andre Simon <as@andre-simon.de>
+
+.SH SEE ALSO
+highlight man page
