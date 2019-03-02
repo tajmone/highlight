@@ -1,0 +1,51 @@
+--[[****************************************************************************
+*                                                                              *
+*                    Highlight Theme Definition Boilerplate                    *
+*                                                                              *
+*                v1.0.0 (2019/03/02) | Highlight v3.49 | Lua 5.3               *
+*                                                                              *
+*                              by Tristano Ajmone                              *
+*                                                                              *
+********************************************************************************
+Written by Tristano Ajmone:
+    <tajmone@gmail.com>
+    https://github.com/tajmone
+    https://gitlab.com/tajmone
+Released into the public domain according to the Unlicense terms:
+    http://unlicense.org/
+------------------------------------------------------------------------------]]
+
+Description   = "Theme Boilerplate"
+
+Categories    = { "dark", "whatever" } -- "dark" or "light", "vim", "base16".
+
+Canvas        = { Colour = "#000000" }
+Default       = { Colour = "#FFFFFF" }
+
+Number        = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+Escape        = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+String        = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+BlockComment  = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+StringPreProc = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+LineComment   = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+Operator      = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+LineNum       = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+PreProcessor  = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+Interpolation = { Colour = "#FFFFFF", Italic = false, Bold = false  }
+
+Keywords = {
+  { Colour = "#FFFFFF", Italic = false, Bold = false  }, -- Id 1 / .hl .kwa
+  { Colour = "#FFFFFF", Italic = false, Bold = false  }, -- Id 2 / .hl .kwb
+  { Colour = "#FFFFFF", Italic = false, Bold = false  }, -- Id 3 / .hl .kwc
+  { Colour = "#FFFFFF", Italic = false, Bold = false  }, -- Id 4 / .hl .kwd
+  ------------------------------------------------------------------------------
+  -- If you need to define more Keywords Groups (5, 6, 7, etc.), just add more
+  -- copies of the above lines.
+  ------------------------------------------------------------------------------
+}
+
+--[[============================================================================
+                                   CHANGELOG
+================================================================================
+v1.0.0 (2019/03/02) | Highlight v3.49
+  - First release.                                                          --]]
