@@ -2,7 +2,7 @@
 *                                                                              *
 *           Highlight Language Definition "Clean Slate" Boilerplate            *
 *                                                                              *
-*                v1.0.2 (2018/07/02) | Highlight v3.43 | Lua 5.3               *
+*                v1.1.0 (2019/03/02) | Highlight v3.49 | Lua 5.3               *
 *                                                                              *
 *                              by Tristano Ajmone                              *
 *                                                                              *
@@ -42,10 +42,32 @@ Written by Tristano Ajmone:
     https://github.com/tajmone
     https://gitlab.com/tajmone
 Released into the public domain according to the Unlicense terms:
-     http://unlicense.org/
+    http://unlicense.org/
 ------------------------------------------------------------------------------]]
 
 Description = "Clean Slate" -- Syntax description
+
+--[[============================================================================
+                                   CATEGORIES                                   
+================================================================================
+Categories:        Table, List of categories (config, source, script, etc)
+------------------------------------------------------------------------------]]
+Categories = {"source", "script"}
+
+-- The (optional) 'Categories' element is used to filter languages by categories
+-- when querying Highlight for the list of available syntaxes, e.g.:
+
+--     highlight --list-scripts=langs --list-cat=markup
+
+-- ... will list all the available syntax definitions for markup languages.
+
+-- You should provide as many categories as required for you own syntax.Common
+-- categories are: "config", "markup", "script" and "source". For a full list
+-- of categories in use by the syntaxes that ship with Highlight, see the Wiki:
+
+--     https://gitlab.com/saalen/highlight/wikis/LangDefs-Elements#categories
+
+--------------------------------------------------------------------------------
 
 IgnoreCase = false -- Are keywords case-sensitive? (true/false)
 
@@ -244,9 +266,12 @@ For more info, see:
 --[[============================================================================
                                    CHANGELOG                                   
 ================================================================================
-v1.0.2 (2018/07/02) | Highlight v3.43)
+v1.1.0 (2019/03/02) | Highlight v3.49 
+  - Added new 'Categories' element.
+
+v1.0.2 (2018/07/02) | Highlight v3.43
   - Cleaned up code and comments.
   - Some notes added.
 
-v1.0.1 (2018/01/04) | Highlight v3.41)
+v1.0.1 (2018/01/04) | Highlight v3.41
   - First release.                                                          --]]
