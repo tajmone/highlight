@@ -1,4 +1,4 @@
-:: "BUILD.bat" v1.0.0 (2018/10/05) by Tristano Ajmone
+:: "BUILD.bat" v1.0.1 (2019/03/02) by Tristano Ajmone
 @ECHO OFF
 ECHO.
 
@@ -9,7 +9,7 @@ CALL asciidoctor^
 	--verbose^
 	--safe-mode unsafe^
 	--destination-dir ../^
-	--template-dir erb^
+	--template-dir haml^
 	--require ./highlight-treeprocessor_mod.rb^
 	 -a docinfo=private^
 	   Highlight_Examples.adoc
