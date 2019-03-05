@@ -87,7 +87,7 @@ int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcar
     sort ( filePaths.begin(), filePaths.end() );
     string suffix, desc;
     Diluculum::LuaValueMap categoryMap;
-    cout << "\nInstalled language definitions";
+    cout << "\nInstalled " << kind << "s";
     
     if (categoryFilterList.size())
         cout << " matching \""<<categoryFilterList<<"\"";
@@ -445,7 +445,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     if ( options.showLangdefs() ) {
         return printInstalledFiles(dataDir.getLangPath(), "*.lang", "langDef", OPT_SYNTAX, options.getCategories());
     }
-
+    
     const vector <string> inFileList=options.getInputFileNames();
 
     if ( options.enableBatchMode() && inFileList[0].empty() ) {
