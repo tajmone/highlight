@@ -1,0 +1,264 @@
+.TH highlight 1 "2019-02-05" "Andre Simon" "user documentation"
+
+.SH NAME
+Highlight - a universal sourcecode to formatted text converter
+
+.SH SYNOPSIS
+.B highlight
+[OPTIONS]... [FILES]...
+
+.SH DESCRIPTION
+.B Highlight
+converts sourcecode to HTML, XHTML, RTF, ODT, LaTeX, TeX, BBCode, Pango markup, SVG, XTERM or ANSI escape sequences.
+There are several colour themes available.
+.B Highlight
+recognizes keywords, numbers, strings, comments, symbols and preprocessor directives.
+It supports about 180 programming languages, which are defined in Lua scripts.
+
+.PP
+It's easily possible to enhance highlight's database of programming languages and colour themes.
+See the README file for details.
+.SH GENERAL OPTIONS
+.IP "-B, --batch-recursive=<wildcard>"
+convert all files matching the wildcard (uses recursive search)
+.IP "-D, --data-dir=<path>"
+set path to highlight data directory
+.IP "--config-file=<file>"
+set path to a lang or theme file
+.IP "-h, --help[=topic]"
+ print this help or a topic description 
+ <topic> = [syntax, theme, plugin, config]
+.IP "-i, --input=<file>"
+name of input file
+.IP "-o, --output=<file>"
+name of output file
+.IP "-d, --outdir=<output directory>"
+name of output directory
+.IP "-P, --progress"
+print progress bar in batch mode
+.IP "-S, --syntax=<type>"
+set type of source code, necessary if input file suffix is missing
+.IP "-v, --verbose"
+print debug info to stderr
+.IP "-q, --quiet"
+supress progress info in batch mode
+.IP "--force"
+generate output if input syntax is unknown
+.IP "--list-scripts=<type>"
+list installed scripts 
+<type> = [langs, themes, plugins]
+.IP "--list-cat=<categories>"
+filter the scripts by the given categories (example: --list-cat='source;script' ) 
+.IP "--plug-in=<script>"
+execute Lua plug-in script; repeat option to apply multiple plug-ins
+.IP "--plug-in-param"
+set plug-in input parameter. This might be an input file name (ie. 'tags').
+.IP "--print-config"
+print path configuration
+.IP "--print-style"
+print stylesheet only (see --style-outfile)
+.IP "--skip=<list>"
+ignore listed unknown file types (example: --skip='bak;c~;h~')
+.IP "--start-nested=<lang>"
+define nested language which starts input without opening delimiter
+.IP "--stdout"
+output to stdout (batch mode, --print-style)
+.IP "--validate-input"
+test if input is a valid text file
+.IP "--version"
+print version and copyright info
+
+.SH OUTPUT FORMATTING OPTIONS
+.IP "-O, --out-format=<format>"
+output file in given format
+<format>=[html, xhtml, latex, tex, rtf, odt, ansi, xterm256, truecolor, bbcode, pango, svg]
+.IP "-c, --style-outfile=<file>"
+name of style definition file
+.IP "-T, --doc-title"
+document title
+.IP "-e, --style-infile=<file>"
+name of file to be included in style-outfile
+.IP "-f, --fragment"
+omit header and footer of the output document (see --keep-injections)
+.IP "-F, --reformat=<style>"
+reformat output in given style.
+<style>=[allman, gnu, google, horstmann, java, kr, linux, lisp, mozilla, otbs, pico, vtk, ratliff, stroustrup, webkit, whitesmith, user]
+
+The user style does not apply a predefined scheme. Use --reformat-option to define reformatting behaviour.
+.IP "--reformat-option=<opt>"
+apply an astyle cmd line option (assumes -F). Can be repeated to override settings of the chosen indentation scheme.
+.IP "-I, --include-style"
+include style definition in output
+.IP "-J, --line-length=<num>"
+line length before wrapping (see -V, -W)
+.IP "-j, --line-number-length=<num>"
+line number length incl. left padding. Default length: 5
+.IP "-k, --font=<font>"
+set font (specific to output format)
+.IP "-K, --font-size=<num?>"
+set font size (specific to output format)
+.IP "-l, --line-numbers"
+print line numbers in output file
+.IP "-m, --line-number-start=<cnt>"
+start line numbering with cnt (assumes -l)
+.IP "--line-range=<start-end>"
+output only lines from number <start> to <end>
+.IP "-s, --style=<style name>"
+set highlighting style (theme). See --base16.
+.IP "-t  --replace-tabs=<num>"
+replace tabs by num spaces
+.IP "-u, --encoding=<enc>"
+set output encoding which matches input file encoding; omit encoding information if set to "NONE"
+.IP "-V, --wrap-simple"
+wrap lines after 80 (default) characters without indenting function parameters and statements.
+.IP "-W, --wrap"
+wrap lines after 80 (default) characters (use with caution).
+.IP "-z, --zeroes"
+fill leading space of line numbers with zeroes
+.IP "--base16"
+use a theme of the Base16 collection. Use a classic theme otherwise.
+.IP "--delim-cr"
+set CR as end-of-line delimiter (MacOS 9)
+.IP "--keep-injections"
+output plug-in header and footer injections in spite of -f
+.IP "--kw-case=<upper|lower|capitalize>"
+output all keywords in given case if language is not case sensitive
+.IP "--no-trailing-nl"
+omit trailing newline
+.IP "--no-version-info"
+omit version info comment
+.IP "--wrap-no-numbers"
+omit line numbers of wrapped lines (assumes -l)
+
+.SH "(X)HTML OPTIONS"
+.IP "-a, --anchors"
+attach anchors to line numbers (HTML only)
+.IP "-y, --anchor-prefix=<str>"
+set anchor name prefix
+.IP "-N, --anchor-filename"
+use input file name as anchor name
+.IP "-C, --print-index"
+print index file with links to all output files
+.IP "-n, --ordered-list"
+print lines as ordered list items
+.IP "--class-name=<str>"
+set CSS class name prefix; omit class name if set to "NONE"
+.IP "--inline-css"
+output CSS within each tag (verbose output)
+.IP "--enclose-pre"
+enclose fragmented output with pre tag (assumes -f)
+
+.SH "LATEX OPTIONS"
+.IP "-b, --babel"
+disable Babel package shorthands
+.IP "-r, --replace-quotes"
+replace double quotes by \\dq
+.IP "--beamer"
+adapt output for the Beamer package
+.IP "--pretty-symbols"
+improve appearance of brackets and other symbols
+
+.SH "RTF OPTIONS"
+.IP "--page-color"
+include page color attributes
+.IP "-x, --page-size=<size>"
+set page size, <size>=[a3, a4, a5, b4, b5, b6, letter]
+.IP "--char-styles"
+include character stylesheets
+
+.SH "SVG OPTIONS"
+.IP "--height=<h>"
+set image height (units allowed)
+.IP "--width=<w>"
+set image size (see --height)
+
+.SH "TERMINAL ESCAPE OUTPUT OPTIONS (XTERM256 OR TRUECOLOR)"
+.IP "--canvas[=width]"
+set background colour padding (default: 80)
+
+.SH "GNU SOURCE-HIGHLIGHT COMPATIBILITY OPTIONS"
+.IP "--doc"
+create stand alone document
+.IP "--no-doc"
+cancel the --doc option
+.IP "--css=filename"
+the external style sheet filename
+.IP "--src-lang=STRING"
+source language
+.IP " -t, --tab=INT"
+specify tab length
+.IP " -n, --line-number[=0]"
+number all output lines, optional padding
+.IP "--line-number-ref[=p]"
+number all output lines and generate an anchor, made of the specified prefix
+ p + the line number  (default='line')
+.IP "--output-dir=path"
+ output directory
+.IP "--failsafe"
+if no language definition is found for the
+input, it is simply copied to the output
+
+.SH ENV VARIABLES
+Highlight recognizes these variables:
+.IP "HIGHLIGHT_DATADIR"
+sets the path to highlight's configuration scripts
+.IP "HIGHLIGHT_OPTIONS"
+may contain command line options, but no input file paths.
+
+.SH HINTS
+If no in- or output files are specified, stdin and stdout will be used for  in- or output.
+Since version 3.44, reading from stdin can also be triggered by the '-' option.
+
+Default output format: xterm256 or truecolor if appropriate, HTML otherwise.
+
+Style definitions are stored in highlight.css (HTML, XHTML, SVG) or
+highlight.sty (LaTeX, TeX) if neither -c nor -I is given.
+Reformatting code (-F)  will only work with C, C++, C# and Java input files.
+.SH BUGS
+Wrapping lines with -V or -W will cause faulty highlighting of long single line comments and directives. 
+Using line-range might interfere with multi line syntax elements. Use with caution.    
+.SH FILES
+The configuration files are stored in
+.I /usr/share/highlight/.
+Language definitions, themes and plugins are located in subdirectories.
+.PP
+Documentation files are stored in
+.I /usr/share/doc/highlight/
+, configuration files in
+.I /etc/highlight/.
+.PP
+See README how to install own scripts in the home directory.
+.SH EXAMPLES
+Single file conversion:
+.PP
+highlight -o hello.html -i hello.c
+.PP
+highlight -o hello.html hello.c
+.PP
+highlight -o hello.html -S c < hello.c
+.PP
+highlight -S c < hello.c > hello.html
+.PP
+Note that a file highlight.css is created in the current directory.
+.PP
+Batch file processing:
+
+highlight --out-format=xhtml  -B '*.cpp' -d /home/you/html_code/
+.PP
+converts all *.cpp files in the current directory and its subdirectories to
+xhtml files, and stores the output in /home/you/html_code.
+.PP
+highlight --out-format=latex  * -d /home/you/latex_code/
+.PP
+converts all files to LaTeX, stored in /home/you/latex_code/.
+.PP
+Use --quiet to improve performance of batch file processing (recommended for usage in shell scripts).
+.PP
+Use highlight --out-format=xterm256 <yourfile> | less -R to display a source file in a terminal.
+.PP
+Run highlight --list-scripts=langs to see all supported syntax types.
+
+.SH AUTHORS
+Andre Simon <as@andre-simon.de>
+.SH SEE ALSO
+README file and highlight webpage at http://www.andre-simon.de/.

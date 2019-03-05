@@ -454,46 +454,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_alan_interactive_fiction"><a class="anchor" href="#_alan_interactive_fiction"></a>Alan Interactive Fiction</h2>
 <div class="sectionbody">
-
-<div class="listingblock">
-<div class="content">
-<pre class="highlight" lang="alan"><code data-lang="alan"><span class="hl slc">--==============================================================================</span>
-<span class="hl slc">-- &quot;Chez Alan&quot; by Tristano Ajmone, 2018 || Public domain: http://unlicense.org</span>
-<span class="hl slc">--==============================================================================</span>
-<span class="hl kwa">Import</span> &apos;library.i&apos;<span class="hl kwa">.</span> <span class="hl slc">--&gt; ALAN Standard Library v2.1</span>
-
-<span class="hl kwa">The</span> my_game <span class="hl kwa">IsA</span> definition_block
-  <span class="hl kwa">Has</span> title    <span class="hl str">&quot;Chez Alan&quot;</span><span class="hl kwa">.</span>
-  <span class="hl kwa">Has</span> subtitle <span class="hl str">&quot;A small demo adventure&quot;</span><span class="hl kwa">.</span>
-  <span class="hl kwa">Has</span> author   <span class="hl str">&quot;Tristano Ajmone&quot;</span><span class="hl kwa">.</span>
-  <span class="hl kwa">Has</span> year     <span class="hl num">2018</span><span class="hl kwa">.</span>
-  <span class="hl kwa">Has</span> version  <span class="hl str">&quot;1&quot;</span><span class="hl kwa">.</span>
-<span class="hl kwa">End The.</span>
-
-<span class="hl kwa">The</span> &apos;IF Plaza&apos; <span class="hl kwa">IsA</span> <span class="hl kwb">location</span>
-  <span class="hl kwa">Exit</span> north <span class="hl kwa">to</span> ChezAlan<span class="hl kwa">.</span>
-  <span class="hl kwa">Description</span> <span class="hl str">&quot;North lies &quot;</span><span class="hl str">&quot;Chez Alan&quot;</span><span class="hl str">&quot;, the renown French brasserie.&quot;</span>
-<span class="hl kwa">End The</span> &apos;IF Plaza&apos;<span class="hl kwa">.</span>
-
-<span class="hl kwa">The</span> ChezAlan <span class="hl kwa">IsA</span> room<span class="hl kwa">.</span>
-  <span class="hl kwa">Name</span> &apos;Chez Alan Brasserie&apos;<span class="hl kwa">.</span>
-  <span class="hl kwa">Description</span>
-    <span class="hl str">&quot;Today Chez Alan seems busier then ever.&quot;</span>
-  <span class="hl kwa">Entered</span>
-    <span class="hl str">&quot;&quot;</span><span class="hl str">&quot;Welcome back Sir!&quot;</span><span class="hl str">&quot; the maitre greets you.</span>
-<span class="hl str"></span>    <span class="hl esc">$n</span><span class="hl str">He has a strong French accent.&quot;</span>
-<span class="hl kwa">End The</span> ChezAlan<span class="hl kwa">.</span>
-
-<span class="hl kwa">The</span> Pierre <span class="hl kwa">IsA</span> male <span class="hl kwa">At</span> ChezAlan<span class="hl kwa">.</span>
-  <span class="hl kwa">Name</span> Pierre<span class="hl kwa">.</span>
-  <span class="hl kwa">Name</span> &apos;Alan&apos;&apos;s&apos; brother<span class="hl kwa">.</span>
-  <span class="hl kwa">Is</span> named<span class="hl kwa">.</span>
-  <span class="hl kwa">Has</span> ex <span class="hl str">&quot;Pierre is Alan&apos;s brother.&quot;</span><span class="hl kwa">.</span>
-<span class="hl kwa">End The</span> Pierre<span class="hl kwa">.</span>
-
-<span class="hl kwa">Start At</span> &apos;IF Plaza&apos;<span class="hl kwa">.</span>
-<span class="hl kwa">Describe</span> banner<span class="hl kwa">.</span></code></pre>
-</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="alan"><code class="language-alan" data-lang="alan"><span class="hl slc">--==============================================================================</span>&#x000A;<span class="hl slc">-- &quot;Chez Alan&quot; by Tristano Ajmone, 2018 || Public domain: http://unlicense.org</span>&#x000A;<span class="hl slc">--==============================================================================</span>&#x000A;<span class="hl kwa">Import</span> &apos;library.i&apos;<span class="hl kwa">.</span> <span class="hl slc">--&gt; ALAN Standard Library v2.1</span>&#x000A;&#x000A;<span class="hl kwa">The</span> my_game <span class="hl kwa">IsA</span> definition_block&#x000A;  <span class="hl kwa">Has</span> title    <span class="hl str">&quot;Chez Alan&quot;</span><span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Has</span> subtitle <span class="hl str">&quot;A small demo adventure&quot;</span><span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Has</span> author   <span class="hl str">&quot;Tristano Ajmone&quot;</span><span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Has</span> year     <span class="hl num">2018</span><span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Has</span> version  <span class="hl str">&quot;1&quot;</span><span class="hl kwa">.</span>&#x000A;<span class="hl kwa">End The.</span>&#x000A;&#x000A;<span class="hl kwa">The</span> &apos;IF Plaza&apos; <span class="hl kwa">IsA</span> <span class="hl kwb">location</span>&#x000A;  <span class="hl kwa">Exit</span> north <span class="hl kwa">to</span> ChezAlan<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Description</span> <span class="hl str">&quot;North lies &quot;</span><span class="hl str">&quot;Chez Alan&quot;</span><span class="hl str">&quot;, the renown French brasserie.&quot;</span>&#x000A;<span class="hl kwa">End The</span> &apos;IF Plaza&apos;<span class="hl kwa">.</span>&#x000A;&#x000A;<span class="hl kwa">The</span> ChezAlan <span class="hl kwa">IsA</span> room<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Name</span> &apos;Chez Alan Brasserie&apos;<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Description</span>&#x000A;    <span class="hl str">&quot;Today Chez Alan seems busier then ever.&quot;</span>&#x000A;  <span class="hl kwa">Entered</span>&#x000A;    <span class="hl str">&quot;&quot;</span><span class="hl str">&quot;Welcome back Sir!&quot;</span><span class="hl str">&quot; the maitre greets you.</span>&#x000A;<span class="hl str"></span>    <span class="hl esc">$n</span><span class="hl str">He has a strong French accent.&quot;</span>&#x000A;<span class="hl kwa">End The</span> ChezAlan<span class="hl kwa">.</span>&#x000A;&#x000A;<span class="hl kwa">The</span> Pierre <span class="hl kwa">IsA</span> male <span class="hl kwa">At</span> ChezAlan<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Name</span> Pierre<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Name</span> &apos;Alan&apos;&apos;s&apos; brother<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Is</span> named<span class="hl kwa">.</span>&#x000A;  <span class="hl kwa">Has</span> ex <span class="hl str">&quot;Pierre is Alan&apos;s brother.&quot;</span><span class="hl kwa">.</span>&#x000A;<span class="hl kwa">End The</span> Pierre<span class="hl kwa">.</span>&#x000A;&#x000A;<span class="hl kwa">Start At</span> &apos;IF Plaza&apos;<span class="hl kwa">.</span>&#x000A;<span class="hl kwa">Describe</span> banner<span class="hl kwa">.</span></code></pre>
+</div>
 </div>
 <div class="hdlist">
 <table>
@@ -520,47 +484,10 @@ langDef:
 <div class="sect1">
 <h2 id="_purebasic"><a class="anchor" href="#_purebasic"></a>PureBasic</h2>
 <div class="sectionbody">
-
-<div class="listingblock">
-<div class="content">
-<pre class="highlight" lang="purebasic"><code data-lang="purebasic"><span class="hl lin"> 1 </span><span class="hl slc">; ==============================================================================</span>
-<span class="hl lin"> 2 </span><span class="hl slc">;                   PureBasic 5.62 - Syntax Highlighting Test</span>
-<span class="hl lin"> 3 </span><span class="hl slc">; ==============================================================================</span>
-<span class="hl lin"> 4 </span><span class="hl slc">; by Tristano Ajmone (2018/10/04), public domain: http://unlicense.org</span>
-<span class="hl lin"> 5 </span>
-<span class="hl lin"> 6 </span><span class="hl kwa">Declare</span>.i <span class="hl kwc">CountdownDialog</span>(text.s)
-<span class="hl lin"> 7 </span>
-<span class="hl lin"> 8 </span><span class="hl kwa">Macro</span> <span class="hl kwc">IsEven</span>(num)
-<span class="hl lin"> 9 </span>  (num <span class="hl opt">&amp;</span> <span class="hl num">1</span> <span class="hl opt">=</span> <span class="hl num">0</span>)
-<span class="hl lin">10 </span><span class="hl kwa">EndMacro</span>
-<span class="hl lin">11 </span>
-<span class="hl lin">12 </span><span class="hl kwa">For</span> i<span class="hl opt">=</span><span class="hl num">5</span> <span class="hl kwa">To</span> <span class="hl num">1</span> <span class="hl kwa">Step</span> <span class="hl opt">-</span><span class="hl num">1</span>
-<span class="hl lin">13 </span>  <span class="hl kwa">If</span> <span class="hl kwc">isEven</span>(i) : <span class="hl kwa">Debug</span> <span class="hl kwc">Str</span>(i) <span class="hl opt">+</span><span class="hl str">&quot; is even.&quot;</span> : <span class="hl kwa">EndIf</span>
-<span class="hl lin">14 </span>  TEXT$ <span class="hl opt">=</span> <span class="hl str">&quot;Iteration number: &quot;</span> <span class="hl opt">+</span> <span class="hl kwc">Str</span>(i) <span class="hl opt">+</span> <span class="hl str">~&quot;</span><span class="hl esc">\n\n</span><span class="hl str">Do you wish to continue?&quot;</span>
-<span class="hl lin">15 </span>  <span class="hl kwa">If</span> <span class="hl kwc">CountdownDialog</span>(TEXT$) : <span class="hl kwa">Break</span> : <span class="hl kwa">EndIf</span>
-<span class="hl lin">16 </span><span class="hl kwa">Next</span>
-<span class="hl lin">17 </span>
-<span class="hl lin">18 </span>MyVar <span class="hl opt">=</span> <span class="hl num">%1011</span> <span class="hl opt">&lt;&lt;</span> <span class="hl num">1</span>
-<span class="hl lin">19 </span><span class="hl kwa">EnableASM</span>
-<span class="hl lin">20 </span><span class="hl kwb">INC</span> MyVar <span class="hl slc">; Mix ASM keywords with PureBasic variable</span>
-<span class="hl lin">21 </span><span class="hl kwa">DisableASM</span>
-<span class="hl lin">22 </span><span class="hl kwa">Debug</span> <span class="hl str">&quot;MyVar: &quot;</span><span class="hl opt">+</span><span class="hl kwc">Str</span>(MyVar)
-<span class="hl lin">23 </span>
-<span class="hl lin">24 </span><span class="hl kwa">Procedure</span>.i <span class="hl kwc">CountdownDialog</span>(text.s)
-<span class="hl lin">25 </span>  UserChoice <span class="hl opt">=</span> <span class="hl kwc">MessageRequester</span>(<span class="hl str">&quot;Countdown Dialog&quot;</span>, text, <span class="hl kwb">#PB_MessageRequester_YesNo</span> <span class="hl opt">|</span>
-<span class="hl lin">26 </span>                                                          <span class="hl kwb">#PB_MessageRequester_Info</span>)
-<span class="hl lin">27 </span>  <span class="hl kwa">If</span> UserChoice <span class="hl opt">=</span> <span class="hl kwb">#PB_MessageRequester_No</span>
-<span class="hl lin">28 </span>    <span class="hl kwa">CompilerIf</span> <span class="hl kwb">#PB_Compiler_Processor</span> <span class="hl opt">=</span> <span class="hl kwb">#PB_Processor_x64</span>
-<span class="hl lin">29 </span>      <span class="hl kwb">!mov rax,1</span>
-<span class="hl lin">30 </span>    <span class="hl kwa">CompilerElse</span>
-<span class="hl lin">31 </span>      <span class="hl kwb">!mov eax,1</span>
-<span class="hl lin">32 </span>    <span class="hl kwa">CompilerEndIf</span>
-<span class="hl lin">33 </span>  <span class="hl kwa">Else</span>
-<span class="hl lin">34 </span>    <span class="hl kwa">ProcedureReturn</span> <span class="hl num">0</span>
-<span class="hl lin">35 </span>  <span class="hl kwa">EndIf</span>
-<span class="hl lin">36 </span>  <span class="hl kwa">ProcedureReturn</span> <span class="hl slc">; RAX/EAX will be the implicit return value</span>
-<span class="hl lin">37 </span><span class="hl kwa">EndProcedure</span></code></pre>
-</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="purebasic"><code class="language-purebasic" data-lang="purebasic"><span class="hl lin"> 1 </span><span class="hl slc">; ==============================================================================</span>&#x000A;<span class="hl lin"> 2 </span><span class="hl slc">;                   PureBasic 5.62 - Syntax Highlighting Test</span>&#x000A;<span class="hl lin"> 3 </span><span class="hl slc">; ==============================================================================</span>&#x000A;<span class="hl lin"> 4 </span><span class="hl slc">; by Tristano Ajmone (2018/10/04), public domain: http://unlicense.org</span>&#x000A;<span class="hl lin"> 5 </span>&#x000A;<span class="hl lin"> 6 </span><span class="hl kwa">Declare</span>.i <span class="hl kwc">CountdownDialog</span>(text.s)&#x000A;<span class="hl lin"> 7 </span>&#x000A;<span class="hl lin"> 8 </span><span class="hl kwa">Macro</span> <span class="hl kwc">IsEven</span>(num)&#x000A;<span class="hl lin"> 9 </span>  (num <span class="hl opt">&amp;</span> <span class="hl num">1</span> <span class="hl opt">=</span> <span class="hl num">0</span>)&#x000A;<span class="hl lin">10 </span><span class="hl kwa">EndMacro</span>&#x000A;<span class="hl lin">11 </span>&#x000A;<span class="hl lin">12 </span><span class="hl kwa">For</span> i<span class="hl opt">=</span><span class="hl num">5</span> <span class="hl kwa">To</span> <span class="hl num">1</span> <span class="hl kwa">Step</span> <span class="hl opt">-</span><span class="hl num">1</span>&#x000A;<span class="hl lin">13 </span>  <span class="hl kwa">If</span> <span class="hl kwc">isEven</span>(i) : <span class="hl kwa">Debug</span> <span class="hl kwc">Str</span>(i) <span class="hl opt">+</span><span class="hl str">&quot; is even.&quot;</span> : <span class="hl kwa">EndIf</span>&#x000A;<span class="hl lin">14 </span>  TEXT$ <span class="hl opt">=</span> <span class="hl str">&quot;Iteration number: &quot;</span> <span class="hl opt">+</span> <span class="hl kwc">Str</span>(i) <span class="hl opt">+</span> <span class="hl str">~&quot;</span><span class="hl esc">\n\n</span><span class="hl str">Do you wish to continue?&quot;</span>&#x000A;<span class="hl lin">15 </span>  <span class="hl kwa">If</span> <span class="hl kwc">CountdownDialog</span>(TEXT$) : <span class="hl kwa">Break</span> : <span class="hl kwa">EndIf</span>&#x000A;<span class="hl lin">16 </span><span class="hl kwa">Next</span>&#x000A;<span class="hl lin">17 </span>&#x000A;<span class="hl lin">18 </span>MyVar <span class="hl opt">=</span> <span class="hl num">%1011</span> <span class="hl opt">&lt;&lt;</span> <span class="hl num">1</span>&#x000A;<span class="hl lin">19 </span><span class="hl kwa">EnableASM</span>&#x000A;<span class="hl lin">20 </span><span class="hl kwb">INC</span> MyVar <span class="hl slc">; Mix ASM keywords with PureBasic variable</span>&#x000A;<span class="hl lin">21 </span><span class="hl kwa">DisableASM</span>&#x000A;<span class="hl lin">22 </span><span class="hl kwa">Debug</span> <span class="hl str">&quot;MyVar: &quot;</span><span class="hl opt">+</span><span class="hl kwc">Str</span>(MyVar)&#x000A;<span class="hl lin">23 </span>&#x000A;<span class="hl lin">24 </span><span class="hl kwa">Procedure</span>.i <span class="hl kwc">CountdownDialog</span>(text.s)&#x000A;<span class="hl lin">25 </span>  UserChoice <span class="hl opt">=</span> <span class="hl kwc">MessageRequester</span>(<span class="hl str">&quot;Countdown Dialog&quot;</span>, text, <span class="hl kwb">#PB_MessageRequester_YesNo</span> <span class="hl opt">|</span>&#x000A;<span class="hl lin">26 </span>                                                          <span class="hl kwb">#PB_MessageRequester_Info</span>)&#x000A;<span class="hl lin">27 </span>  <span class="hl kwa">If</span> UserChoice <span class="hl opt">=</span> <span class="hl kwb">#PB_MessageRequester_No</span>&#x000A;<span class="hl lin">28 </span>    <span class="hl kwa">CompilerIf</span> <span class="hl kwb">#PB_Compiler_Processor</span> <span class="hl opt">=</span> <span class="hl kwb">#PB_Processor_x64</span>&#x000A;<span class="hl lin">29 </span>      <span class="hl kwb">!mov rax,1</span>&#x000A;<span class="hl lin">30 </span>    <span class="hl kwa">CompilerElse</span>&#x000A;<span class="hl lin">31 </span>      <span class="hl kwb">!mov eax,1</span>&#x000A;<span class="hl lin">32 </span>    <span class="hl kwa">CompilerEndIf</span>&#x000A;<span class="hl lin">33 </span>  <span class="hl kwa">Else</span>&#x000A;<span class="hl lin">34 </span>    <span class="hl kwa">ProcedureReturn</span> <span class="hl num">0</span>&#x000A;<span class="hl lin">35 </span>  <span class="hl kwa">EndIf</span>&#x000A;<span class="hl lin">36 </span>  <span class="hl kwa">ProcedureReturn</span> <span class="hl slc">; RAX/EAX will be the implicit return value</span>&#x000A;<span class="hl lin">37 </span><span class="hl kwa">EndProcedure</span></code></pre>
+</div>
 </div>
 <div class="hdlist">
 <table>

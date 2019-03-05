@@ -2,7 +2,7 @@
 *                                                                              *
 *                    Highlight Language Definition Template                    *
 *                                                                              *
-*                v1.0.4 (2018/07/02) | Highlight v3.43 | Lua 5.3               *
+*                v1.1.0 (2019/03/02) | Highlight v3.49 | Lua 5.3               *
 *                                                                              *
 *                              by Tristano Ajmone                              *
 *                                                                              *
@@ -63,12 +63,21 @@ Released into the public domain according to the Unlicense terms:
 
 Description = "Lang Name" -- Syntax description
 
---[[ ** DON'T FORGET TO: **
-     -- Add your new lang's file extensions in "$HL_DIR/filetypes.conf"
-     -- Add comments that might help others take on your work in the future.
-     -- Test the landDef against language edge cases.
-     -- Credit your reference sources.
---]]
+Categories = {"source", "script"} -- The categories the syntax belongs to.
+
+-- Common categories are: "source", "markup", "script" and "config".
+-- For more info see the Wiki:
+-- 
+--    https://gitlab.com/saalen/highlight/wikis/LangDefs-Elements#categories
+
+-- *** DON'T FORGET TO: *** ----------------------------------------------------
+
+  -- Add your new lang's file extensions in "$HL_DIR/filetypes.conf"
+  -- Add comments that might help others take on your work in the future.
+  -- Test the landDef against language edge cases.
+  -- Credit your reference sources.
+
+--------------------------------------------------------------------------------
 
 IgnoreCase = false -- Are keywords case-sensitive? (true/false)
 
@@ -403,16 +412,19 @@ end
 --[[============================================================================
                                    CHANGELOG                                   
 ================================================================================
-v1.0.4 (2018/07/02) | Highlight v3.43)
+v1.1.0 (2019/03/02) | Highlight v3.49 
+  - Added new 'Categories' element.
+
+v1.0.4 (2018/07/02) | Highlight v3.43
   - Cleaned up code and comments.
   - Some notes added.
 
-v1.0.3 (2018/01/04) | Highlight v3.41)
+v1.0.3 (2018/01/04) | Highlight v3.41
   - Minor tweaks.
 
-v1.0.1 (2017/11/19) | Highlight v3.40)
+v1.0.1 (2017/11/19) | Highlight v3.40
   - HIGHLIGHT DEFAULTS FIX: Add `Escape` to list of default definitions, as well
     as its RegEx string as proposed preset.
 
-v1.0.0 (2017/11/18) | Highlight v3.40)
+v1.0.0 (2017/11/18) | Highlight v3.40
   - First release.                                                          --]]
