@@ -1,0 +1,52 @@
+
+Description="Crystal"
+
+Categories = {"source"}
+
+Digits = [[ (?:0x|0X|0b)[0-9a-fA-F']+|\d*[\.]?\d+(?:[eE][\-\+]\d+)?[lLuU]* ]]
+
+Keywords={
+  { Id=1,
+    List={"abstract", "alias", "as", "as?", "asm", "begin", "break", "case", "class", 
+          "def", "do", "else", "elsif", "end", "ensure", "enum", "extend", "false",
+          "for", "fun", "if", "in", "include", "instance_sizeof", "is_a?", "lib",
+          "macro", "module", "next", "nil", "nil?", "of", "out", "pointerof", "private",
+          "protected", "require", "rescue", "responds_to?", "return", "select", "self", 
+          "sizeof", "struct", "super", "then", "true", "type", "typeof", 
+          "unintialized", "union", "unless", "until", "verbatim", "when", "while",
+          "with", "yield"},
+  },
+  { Id=2,
+    List={"Nil", "Bool", "Char",
+          "Float32", "Float64",
+          "Int8", "Int16", "Int32", "Int64",
+          "UInt8", "UInt16","UInt32","UInt64",
+          "Number", "String", "Symbol",
+          "Array", "Channel", "Hash", "NamedTuple", "Proc", "Tuple", "Set"},
+  },
+  { Id=3,
+    Regex=[[ [\:@][a-z]\w+ ]]
+  },
+  { Id=4,
+    Regex=[[(\w+)\s*\(]]
+  }
+}
+
+Strings={
+  Delimiter=[["""|'''|"|']],
+  RawPrefix="r",
+  Escape=[=[\\[ntvbrfa\\\?'"]|\\\d{3}|\\x[[:xdigit:]]{2}]=],
+  Interpolation=[[ #\{\w+\} ]]
+}
+
+Comments = {
+   {
+     Block=false,
+     Delimiter = { [[ # ]] }
+   }
+}
+
+IgnoreCase=false
+
+Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\.|\:|\&|<|>|\!|=|\/|\*|\%|\+|\-|\~|\||\^|\?]]
+
