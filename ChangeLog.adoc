@@ -7,6 +7,14 @@
 :toclevels: 1
 
 
+== highlight 3.50
+
+xx.03.2019
+
+  - added support for Crystal (thanks to C R Jaensch)
+  - compress man docs during installation (thanks to Chris Mayo)
+  - CLI: added --syntax-by-name option (suggested by Chris Mayo)
+
 == highlight 3.49
 
 06.02.2019

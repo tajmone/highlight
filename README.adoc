@@ -1,6 +1,6 @@
 = HIGHLIGHT MANUAL
 André Simon
-v3.49, January 2019
+v3.50, March 2019
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -108,11 +108,12 @@ Generate HTML::
 .................................................
 highlight -i main.cpp -o main.cpp.html
 highlight < main.cpp > main.cpp.html --syntax cpp
+highlight < source.tmp > main.cpp.html --syntax-by-name main.cpp
 .................................................
 +
 You will find the HTML file and `highlight.css` in the working directory.
 If you use IO redirection (2nd example), you must define the programming
-language with `--syntax`.
+language with `--syntax` or `--syntax-by-name`.
 
 
 Generate HTML with embedded CSS definitions and line numbers::
@@ -192,6 +193,8 @@ General options:
  -P, --progress                 print progress bar in batch mode
  -q, --quiet                    supress progress info in batch mode
  -S, --syntax=<type>            specify type of source code
+     --syntax-by-name=<name>    specify type of source code by given name
+                                  will not read a file of this name, useful for stdin
  -v, --verbose                  print debug info
      --force                    generate output if input syntax is unknown
      --list-scripts=<type>      list installed scripts
@@ -323,8 +326,9 @@ Since version 3.44, reading from stdin can also be triggered by the `-` option.
 If no input filename is defined by `--input` or given at the prompt, highlight is
 not able to determine the language type by means of the file extension (except
 some scripting languages which are figured out by the shebang in the first input
-line). In this case you have to pass highlight the language with `--syntax`
-(this usually should be the file suffix of the source file).
+line). In this case you have to pass highlight the language with `--syntax` or
+`--syntax-by-name` (this usually should be the file suffix of the source file or
+its name, respectively).
 Example: If you want to convert a Python file, highlight needs to load the
 `py.lang` definition. The correct argument of `--syntax` would be `py`.
 

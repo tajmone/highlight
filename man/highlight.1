@@ -1,4 +1,4 @@
-.TH highlight 1 "2019-02-05" "Andre Simon" "user documentation"
+.TH highlight 1 "2019-03-08" "Andre Simon" "user documentation"
 
 .SH NAME
 Highlight - a universal sourcecode to formatted text converter
@@ -38,6 +38,8 @@ name of output directory
 print progress bar in batch mode
 .IP "-S, --syntax=<type>"
 set type of source code, necessary if input file suffix is missing
+.IP "--syntax-by-name=<name>"
+specify type of source code by given name.  Will not read a file of this name, useful for stdin and to determine the syntax of the file before piping its content to highlight. This option overrides --syntax.
 .IP "-v, --verbose"
 print debug info to stderr
 .IP "-q, --quiet"

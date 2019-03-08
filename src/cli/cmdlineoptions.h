@@ -114,6 +114,8 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_REFORMAT_OPT     "reformat-option"
 #define OPT_RANGE_OPT        "line-range"
 #define OPT_BASE16           "base16"
+#define OPT_CATEGORIES       "list-cat"  
+#define OPT_PIPED_FNAME      "syntax-by-name"
 
 // Improve CLI option compatibility with GNU source-highlight
 #define OPT_COMPAT_DOC       "doc"
@@ -125,7 +127,6 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_COMPAT_SRCLANG   "src-lang"
 #define OPT_COMPAT_LINENUM   "line-number"
 #define OPT_COMPAT_LINEREF   "line-number-ref"
-#define OPT_CATEGORIES       "list-cat"  
 
 using namespace std;
 
@@ -370,6 +371,9 @@ public:
     /** \return optional help topic */
     const string& getHelpTopic() const;
 
+    /** \return name of the file which will later be redirected to highlight's stdin */
+    const string& getSyntaxByFilename() const;
+    
     /** \return line number width */
     int getNumberWidth();
 
@@ -483,7 +487,7 @@ private:
     string helpLang, encodingName;
 
     string pluginPath, pluginParameter, 
-           categories, helpTopic;
+           categories, helpTopic, redirectedFilename;
 
     /** list of all input file names */
     vector <string> inputFileNames;

@@ -71,7 +71,7 @@ Test filetype recognition:
 * file suffix (default)
 * no suffix (i.e. makefile)
 * shebang (i.e. Bash script)
-* force syntax using `-S`
+* force syntax using `-S` and `--syntax-by-name` 
 
 
 
@@ -93,6 +93,7 @@ The following options are used in third party applications:
 * `--line-numbers, -l`
 * `--replace-tabs, -t`
 * `--syntax`
+* `--syntax-by-name`
 * `--out-format`
 * `--include-style`
 * `--inline-css`

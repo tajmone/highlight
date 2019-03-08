@@ -1,6 +1,6 @@
 = HIGHLIGHT HANDBUCH
 André Simon
-v3.49, January 2019
+v3.50, March 2019
 :lang: de
 :toc: left
 :toc-title: Contents
@@ -107,11 +107,12 @@ HTML ausgeben::
 .................................................
 highlight -i main.cpp -o main.cpp.html
 highlight < main.cpp > main.cpp.html --syntax cpp
+highlight < source.tmp > main.cpp.html --syntax-by-name main.cpp
 .................................................
 +
 Sie werden die HTML-Datei und die CSS-Datei `highlight.css` im aktuellen
-Verzeichnis finden. Falls Sie Eingabe-Umleitung verwenden (siehe 2. Beispiel),
-geben Sie den Typ der Programmiersprache mit `--syntax` an.
+Verzeichnis finden. Falls Sie Eingabe-Umleitung verwenden, geben Sie den 
+Typ der Programmiersprache mit `--syntax` oder `--syntax-by-name` an.
 
 HTML mit eingebetteter CSS Definition und Zeilennummerierung ausgeben::
 +
@@ -182,6 +183,8 @@ General options:
  -P, --progress                 print progress bar in batch mode
  -q, --quiet                    supress progress info in batch mode
  -S, --syntax=<type>            specify type of source code
+     --syntax-by-name=<name>    specify type of source code by given name
+                                  will not read a file of this name, useful for stdin
  -v, --verbose                  print debug info
      --force                    generate output if input syntax is unknown
      --list-scripts=<type>      list installed scripts
@@ -316,9 +319,9 @@ Wird die Eingabedatei nicht direkt auf der Kommandozeile als Argument bzw. mit
 `--input` angegeben, kann Highlight die passende Sprachinformation nicht
 automatisch anhand der Dateiendung bestimmen. Lediglich einige Skriptsprachen
 werden anhand des Shebangs in der ersten Zeile erkannt.
-Mit der Option `--syntax` muss dann der Typ der Datei vom Benutzer angegeben
-werden (das Argument ist normalerweise die fuer die Programmiersprache uebliche
-Dateierweiterung).
+Mit der Option `--syntax` oder `--syntax-by-name` muss dann der Typ der Datei 
+vom Benutzer angegeben werden (das Argument ist normalerweise die fuer die 
+Programmiersprache uebliche Dateierweiterung bzw. der Dateiname).
 Beispiel: Wenn Sie eine Python-Datei konvertieren wollen, muss highlight die
 Sprachdefinition py.lang einlesen. Das korrekte Argument fuer `--syntax` ist
 also `py`.

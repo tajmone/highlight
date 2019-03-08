@@ -132,6 +132,8 @@ void printHelp(const std::string &topic)
         cout<<" -P, --progress                 print progress bar in batch mode\n";
         cout<<" -q, --quiet                    supress progress info in batch mode\n";
         cout<<" -S, --syntax=<type>            specify type of source code\n";
+        cout<<"     --syntax-by-name=<name>    specify type of source code by given name\n";
+        cout<<"                                  will not read a file of this name, useful for stdin\n";
         cout<<" -v, --verbose                  print debug info\n";
         cout<<"     --force                    generate output if input syntax is unknown\n";
         cout<<"     --list-scripts=<type>      list installed scripts\n";

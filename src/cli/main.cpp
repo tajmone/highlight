@@ -582,7 +582,11 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     string suffix, lastSuffix;
 
     if ( options.syntaxGiven() ) { // user defined language definition, valid for all files
-        suffix = guessFileType ( options.getSyntax(), "", true );
+        //TODO check for filename given prior to IO redirection
+        //--syntax-by-name overrides --syntax
+        string syntaxByFile=options.getSyntaxByFilename();
+        string testSuffix = syntaxByFile.empty() ? options.getSyntax() : getFileSuffix(syntaxByFile); 
+        suffix = guessFileType (testSuffix, syntaxByFile, true );
     }
 
     generator->setFilesCnt(fileCount);
