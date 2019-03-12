@@ -1,4 +1,4 @@
-.TH highlight 1 "2019-03-08" "Andre Simon" "user documentation"
+.TH highlight 1 "2019-03-11" "Andre Simon" "user documentation"
 
 .SH NAME
 Highlight - a universal sourcecode to formatted text converter
@@ -43,7 +43,7 @@ specify type of source code by given name.  Will not read a file of this name, u
 .IP "-v, --verbose"
 print debug info to stderr
 .IP "-q, --quiet"
-supress progress info in batch mode
+suppress progress info in batch mode
 .IP "--force"
 generate output if input syntax is unknown
 .IP "--list-scripts=<type>"
@@ -214,8 +214,11 @@ Since version 3.44, reading from stdin can also be triggered by the '-' option.
 Default output format: xterm256 or truecolor if appropriate, HTML otherwise.
 
 Style definitions are stored in highlight.css (HTML, XHTML, SVG) or
-highlight.sty (LaTeX, TeX) if neither -c nor -I is given.
-Reformatting code (-F)  will only work with C, C++, C# and Java input files.
+highlight.sty (LaTeX, TeX) if neither -c nor -I is given. For CSS, definitions
+are stored in the output document header with -I, if -f is also given there
+will be no style definitions.
+
+Reformatting code (-F) will only work with C, C++, C# and Java input files.
 .SH BUGS
 Wrapping lines with -V or -W will cause faulty highlighting of long single line comments and directives. 
 Using line-range might interfere with multi line syntax elements. Use with caution.    
