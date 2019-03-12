@@ -76,7 +76,6 @@ const Arg_parser::Option options[] = {
         { 'N', OPT_ANCHOR_FN,      Arg_parser::no  },
         { 'o', OPT_OUT,            Arg_parser::yes },
         { 'O', OPT_OUTFORMAT, 	   Arg_parser::yes },
-        { 'p', OPT_LISTLANGS,      Arg_parser::no  },
         { 'P', OPT_PROGRESSBAR,    Arg_parser::no  },
         { 'q', OPT_QUIET,          Arg_parser::no  },
         { 'Q', OPT_VERSION,        Arg_parser::no  },
@@ -88,7 +87,6 @@ const Arg_parser::Option options[] = {
         { 'u', OPT_ENCODING,       Arg_parser::yes },
         { 'v', OPT_VERBOSE,        Arg_parser::no  },
         { 'V', OPT_WRAPSIMPLE,     Arg_parser::no  },
-        { 'w', OPT_LISTTHEMES,     Arg_parser::no  },
         { 'W', OPT_WRAP,           Arg_parser::no  },
         { 'x', OPT_RTF_PAGE_SIZE,  Arg_parser::yes },
         { 'y', OPT_ANCHOR_PFX,     Arg_parser::yes },
@@ -168,9 +166,6 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_batch_mode ( false ),
     opt_fragment ( false ) ,
     opt_attach_line_anchors ( false ),
-    opt_show_themes ( false ),
-    opt_show_langdefs ( false ),
-    opt_show_plugins (false),
     opt_printindex ( false ),
     opt_quiet ( false ),
     opt_replacequotes ( false ),
@@ -387,9 +382,6 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             explicit_output_format=true;
             outDirectory = validateDirPath ( arg );
             break;
-        case 'p':
-            opt_show_langdefs = true;
-            break;
         case 'P':
             opt_print_progress=true;
             break;
@@ -423,9 +415,6 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case 'V':
             wrappingStyle = highlight::WRAP_SIMPLE;
-            break;
-        case 'w':
-            opt_show_themes = true;
             break;
         case 'W':
             wrappingStyle = highlight::WRAP_DEFAULT;
@@ -465,7 +454,6 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
                 keywordCase = StringTools::CASE_CAPITALIZE;
         }
         break;
-
         case S_OPT_PRINT_CONFIG:
             opt_print_config = true;
             break;
@@ -481,7 +469,6 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         case S_OPT_RTF_PAGE_COLOR:
              opt_page_color=true;
             break;
-          
         case S_OPT_SKIP_UNKNOWN:
             skipArg=arg;
             break;
@@ -556,9 +543,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         }
         case S_OPT_LIST_SCRIPTS:
-            opt_show_themes=(arg=="themes");
-            opt_show_plugins=(arg=="plugins");
-            opt_show_langdefs=!(opt_show_themes&&opt_show_plugins);
+            listScriptCat=arg;
             break;
         case S_OPT_CANVAS:
             canvasPaddingWidth=80;
@@ -740,18 +725,6 @@ string CmdLineOptions::getDirName ( const string & path )
 bool CmdLineOptions::attachLineAnchors() const
 {
     return opt_attach_line_anchors;
-}
-bool CmdLineOptions::showThemes() const
-{
-    return opt_show_themes;
-}
-bool CmdLineOptions::showLangdefs() const
-{
-    return opt_show_langdefs;
-}
-bool CmdLineOptions::showPlugins() const
-{
-    return opt_show_plugins;
 }
 bool CmdLineOptions::outDirGiven() const
 {
@@ -1004,4 +977,8 @@ const string& CmdLineOptions::getHelpTopic() const {
 
 const string& CmdLineOptions::getSyntaxByFilename() const {
     return redirectedFilename;
+}
+
+const string& CmdLineOptions::getListScriptKind() const{
+    return listScriptCat;
 }

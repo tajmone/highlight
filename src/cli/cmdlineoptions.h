@@ -70,8 +70,6 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_KW_CASE        "kw-case"
 #define OPT_LINENO         "line-numbers"
 #define OPT_LINE_LEN       "line-length"
-#define OPT_LISTLANGS      "list-langs"
-#define OPT_LISTTHEMES     "list-themes"
 #define OPT_LIST_SCRIPTS   "list-scripts"
 #define OPT_LNR_LEN        "line-number-length"
 #define OPT_LNR_START      "line-number-start"
@@ -208,15 +206,6 @@ public:
 
     /** \return True if anchors should be attached to line numbers*/
     bool attachLineAnchors() const;
-
-    /** \return True if list of installed themes should be printed*/
-    bool showThemes() const;
-
-    /** \return True if list of installed language definitions should be printed*/
-    bool showLangdefs() const;
-
-    /** \return True if list of installed language definitions should be printed*/
-    bool showPlugins() const;
 
     /** \return True if loutput directory is given*/
     bool outDirGiven() const;
@@ -367,13 +356,16 @@ public:
 
     /** \return categories sepatated by X to filter scripts in --list-scripts */
     const string& getCategories() const ;
-    
+
     /** \return optional help topic */
     const string& getHelpTopic() const;
 
     /** \return name of the file which will later be redirected to highlight's stdin */
     const string& getSyntaxByFilename() const;
-    
+
+    /** \return category of scripts which should be listed */
+    const string& getListScriptKind() const;
+
     /** \return line number width */
     int getNumberWidth();
 
@@ -453,9 +445,6 @@ private:
     bool opt_batch_mode;
     bool opt_fragment;
     bool opt_attach_line_anchors;
-    bool opt_show_themes;
-    bool opt_show_langdefs;
-    bool opt_show_plugins;
     bool opt_printindex;
     bool opt_quiet;
     bool opt_replacequotes;
@@ -487,7 +476,7 @@ private:
     string helpLang, encodingName;
 
     string pluginPath, pluginParameter, 
-           categories, helpTopic, redirectedFilename;
+           categories, helpTopic, redirectedFilename, listScriptCat;
 
     /** list of all input file names */
     vector <string> inputFileNames;

@@ -378,7 +378,7 @@ string HLCmdLineApp::analyzeFile ( const string& file )
     return "";
 }
 
-string HLCmdLineApp::guessFileType ( const string& suffix, const string &inputFile, bool useUserSuffix )
+string HLCmdLineApp::guessFileType ( const string& suffix, const string &inputFile, bool useUserSuffix, bool forceShebangStdin )
 {
     string baseName = getFileBaseName(inputFile);
     if (assocByFilename.count(baseName)) return assocByFilename.find(baseName)->second;
@@ -389,7 +389,7 @@ string HLCmdLineApp::guessFileType ( const string& suffix, const string &inputFi
     }
 
     if (!useUserSuffix) {
-        string shebang =  analyzeFile(inputFile);
+        string shebang =  analyzeFile(forceShebangStdin ? "" : inputFile);
         if (!shebang.empty()) return shebang;
     }
     return lcSuffix;
@@ -432,20 +432,25 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         return EXIT_SUCCESS;
     }
 
-    if ( options.showThemes() ) {
-        return printInstalledFiles(dataDir.getThemePath(), "*.theme", "theme", OPT_STYLE, options.getCategories());
-    }
-    if ( options.showPlugins() ) {
-        return printInstalledFiles(dataDir.getPluginPath(), "*.lua", "plug-in", OPT_PLUGIN, options.getCategories());
-    }
-
     //call before printInstalledLanguages!
     loadFileTypeConfig ( "filetypes" );
 
-    if ( options.showLangdefs() ) {
-        return printInstalledFiles(dataDir.getLangPath(), "*.lang", "langDef", OPT_SYNTAX, options.getCategories());
+    string scriptKind=options.getListScriptKind();
+    if (scriptKind.length()) {
+        if ( scriptKind.find("theme")==0 ) {
+            return printInstalledFiles(dataDir.getThemePath(), "*.theme", "theme", OPT_STYLE, options.getCategories());
+        }
+        else if ( scriptKind.find("plug")==0 ) {
+            return printInstalledFiles(dataDir.getPluginPath(), "*.lua", "plug-in", OPT_PLUGIN, options.getCategories());
+        }
+        else if (  scriptKind.find("lang")==0 ) {
+            return printInstalledFiles(dataDir.getLangPath(), "*.lang", "langDef", OPT_SYNTAX, options.getCategories());
+        } else {
+            cerr << "highlight: Unknown script type '"<< scriptKind << "'. Apply one of 'themes', 'langs' or 'plug-ins'.\n";
+            return EXIT_FAILURE;
+        }
     }
-    
+
     const vector <string> inFileList=options.getInputFileNames();
 
     if ( options.enableBatchMode() && inFileList[0].empty() ) {
@@ -586,7 +591,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         //--syntax-by-name overrides --syntax
         string syntaxByFile=options.getSyntaxByFilename();
         string testSuffix = syntaxByFile.empty() ? options.getSyntax() : getFileSuffix(syntaxByFile); 
-        suffix = guessFileType (testSuffix, syntaxByFile, true );
+        suffix = guessFileType (testSuffix, syntaxByFile, false, true );
     }
 
     generator->setFilesCnt(fileCount);

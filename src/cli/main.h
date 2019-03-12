@@ -98,7 +98,7 @@ private:
 
     /** \return file type deferred from extension or file shebang comment
     */
-    string guessFileType ( const string &suffix, const string &inputFile, bool useUserSuffix=false );
+    string guessFileType ( const string &suffix, const string &inputFile, bool useUserSuffix=false, bool forceShebangStdin=false );
 
     int getNumDigits ( int i );
 
