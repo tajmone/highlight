@@ -381,7 +381,7 @@ only one hard coded colour theme with `--out-format=ansi`. You should therefore
 use `--out-format=xterm256` to enable output in 256 colours. The 256 colour mode
 is supported by recent releases of xterm, rxvt and Putty (among others).
 The latest terminal emulators also support 16m colors, this mode is enabled
-with `--out-format=truecolors`.
+with `--out-format=truecolor`.
 
 .....................................................
 highlight --out-format=ansi <inputfile> | less -R
