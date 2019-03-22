@@ -658,6 +658,8 @@ State CodeGenerator::validateState(State newState, State oldState)
         params.push_back(Diluculum::LuaValue(newState));
         params.push_back(Diluculum::LuaValue(token));
         params.push_back(Diluculum::LuaValue(getCurrentKeywordClassId()) );
+      //  params.push_back(Diluculum::LuaValue(lineNumber) );
+      //  params.push_back(Diluculum::LuaValue(lineIndex-token.length()) );
 
         Diluculum::LuaValueList res=
             currentSyntax->getLuaState()->call ( *currentSyntax->getValidateStateChangeFct(),

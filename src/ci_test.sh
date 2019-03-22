@@ -62,6 +62,22 @@ else
   exit 1
 fi
 
+echo '#!/usr/bin/perl' | ${HL_BIN} --verbose 2>&1 >/dev/null |  grep 'Description: Perl'
+if [ $? -eq 0 ]; then
+  echo "stdin shebang test #1 OK"
+else
+  echo "stdin shebang #1 FAILED"
+  exit 1
+fi
+
+echo '#!/usr/bin/perl' | ${HL_BIN} --syntax-by-name xxx.py --verbose 2>&1 >/dev/null |  grep 'Description: Python'
+if [ $? -eq 0 ]; then
+  echo "stdin shebang test #2 OK"
+else
+  echo "stdin shebang #2 FAILED"
+  exit 1
+fi
+
 #if [ "$OUTPUT" == "BEGIN ... END" ]; then
 #  echo "Output is correct, OK"
 #else

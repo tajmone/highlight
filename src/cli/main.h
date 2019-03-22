@@ -74,12 +74,14 @@ private:
     void printBadInstallationInfo();
 
     /** print input and output errors */
-    void printIOErrorReport ( unsigned int numberErrorFiles, vector<string> & fileList, const string &action );
+    void printIOErrorReport ( unsigned int numberErrorFiles, vector<string> & fileList, 
+                              const string &action );
 
     /** list installed  files
         \return true if files were found
     */
-    int printInstalledFiles(const string& where, const string& wildcard, const string& kind, const string&option, const string& categoryFilterList="");
+    int printInstalledFiles(const string& where, const string& wildcard, const string& kind, 
+                            const string&option, const string& categoryFilterList="");
 
     /** print debug information
         \param  lang language definition
@@ -96,9 +98,15 @@ private:
     */
     string getFileBaseName(const string& fileName);
 
-    /** \return file type deferred from extension or file shebang comment
+    /**
+     * \param suffix file name suffix
+     * \param inputFile name of the input file
+     * \param useUserSuffix true if user has defined a syntax suffix
+     * \param forceShebangCheckStdin true if stdin should be peeked to look for shebang patterns 
+     * \return file type deferred from extension or file shebang comment
     */
-    string guessFileType ( const string &suffix, const string &inputFile, bool useUserSuffix=false, bool forceShebangStdin=false );
+    string guessFileType ( const string &suffix, const string &inputFile, 
+                           bool useUserSuffix=false, bool forceShebangCheckStdin=false );
 
     int getNumDigits ( int i );
 
@@ -116,7 +124,6 @@ private:
     vector <string> collectPluginPaths(const vector<string>& plugins);
 
     void readLuaList(const string& paramName, const string& langName,Diluculum::LuaValue &luaVal, StringMap* extMap);
-
 };
 
 #endif

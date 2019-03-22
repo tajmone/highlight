@@ -378,7 +378,7 @@ hartkodiertes Farbschema fuer `--out-format=ansi`. Daher sollte nach Moeglichkei
 `--out-format=xterm256` verwendet werden, um eine Ausgabe in 256 Farben zu erhalten.
 Der 256 Farb-Modus wird z.B. von xterm, rxvt und Putty unterstuetzt.
 Neuere Terminal-Emulatoren unterstuetzen auch 16 Millionen Farben, dies wird mit
-`--out-format=truecolors` aktiviert.
+`--out-format=truecolor` aktiviert.
 
 .....................................................
 highlight --out-format=ansi <inputfile> | less -R

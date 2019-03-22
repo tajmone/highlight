@@ -378,20 +378,21 @@ string HLCmdLineApp::analyzeFile ( const string& file )
     return "";
 }
 
-string HLCmdLineApp::guessFileType ( const string& suffix, const string &inputFile, bool useUserSuffix, bool forceShebangStdin )
-{
+string HLCmdLineApp::guessFileType ( const string& suffix, const string &inputFile, bool useUserSuffix, bool forceShebangCheckStdin )
+{   
     string baseName = getFileBaseName(inputFile);
     if (assocByFilename.count(baseName)) return assocByFilename.find(baseName)->second;
-
+   
     string lcSuffix = StringTools::change_case(suffix);
     if (assocByExtension.count(lcSuffix)) {
         return assocByExtension[lcSuffix];
     }
 
     if (!useUserSuffix) {
-        string shebang =  analyzeFile(forceShebangStdin ? "" : inputFile);
+        string shebang =  analyzeFile(forceShebangCheckStdin ? "" : inputFile);
         if (!shebang.empty()) return shebang;
     }
+
     return lcSuffix;
 }
 
@@ -591,12 +592,13 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         //--syntax-by-name overrides --syntax
         string syntaxByFile=options.getSyntaxByFilename();
         string testSuffix = syntaxByFile.empty() ? options.getSyntax() : getFileSuffix(syntaxByFile); 
-        suffix = guessFileType (testSuffix, syntaxByFile, false, true );
+        suffix = guessFileType (testSuffix, syntaxByFile, syntaxByFile.empty(), true );         
     }
-
+         
     generator->setFilesCnt(fileCount);
         
     while ( i < fileCount && !initError ) {
+           
         if ( !options.syntaxGiven() ) { // determine file type for each file
             suffix = guessFileType ( getFileSuffix ( inFileList[i] ), inFileList[i] );
         }
@@ -612,6 +614,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         }
 
         if ( suffix != lastSuffix ) {
+        
             string langDefPath=options.getAbsLangPath().empty() ? dataDir.getLangPath ( suffix+".lang" ) : options.getAbsLangPath();
 
             highlight::LoadResult loadRes= generator-> loadLanguage( langDefPath );

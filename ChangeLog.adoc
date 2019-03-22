@@ -9,10 +9,11 @@
 
 == highlight 3.50
 
-xx.03.2019
+22.03.2019
 
   - added support for Crystal (thanks to C R Jaensch)
   - compress man docs during installation (thanks to Chris Mayo)
+  - fixed several typos in documentaion and manpages
   - CLI: added `--syntax-by-name` option (suggested by Chris Mayo)
   - CLI: removed deprecated `--list-langs` and`--list-themes` options
 
