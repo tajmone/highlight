@@ -907,7 +907,7 @@ Konfigurationsskripte werden in folgenden Verzeichnissen gesucht:
 2. Wert der Umgebungsvariablen `HIGHLIGHT_DATADIR`
 3. benutzerdefiniertes Verz., definiert mit `--data-dir` (deprecated)
 4. `/usr/share/highlight/`
-5. `/etc/highlight/` (wegen `filetypes.conf`)
+5. `/etc/highlight/` (Pfad von `filetypes.conf`)
 6. aktuelles Arbeitsverzeichnis (Fallback)
 
 Es wird erwartet, dass folgende Unterverzeichnisse die entsprechenden Skripte
@@ -921,10 +921,13 @@ Eine eigene `filetypes.conf` kann direkt in in `~/.highlight/` gespeichert werde
 Diese Suchreihenfolge vereinfacht die Erweiterung und Anpassung bestehender
 Skripte, ohne vorinstallierte Dateien umkopieren zu muessen.
 
+Stelle die Suchpfade mit `--print-config` fest::
++
+........................
+highlight --print-config
+........................
 
 == HIGHLIGHT EINBETTEN
-
-// @ARRIVED HERE
 
 === BEISPIELSKRIPTE
 

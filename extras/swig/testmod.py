@@ -11,7 +11,7 @@ import sys
 from optparse import OptionParser
 
 formatList = { "html":  highlight.HTML,
-            "xhtml": highlight.XHTML,
+	   "xhtml": highlight.XHTML,
 	   "latex": highlight.LATEX,
 	   "rtf":   highlight.RTF,
 	   "tex":   highlight.TEX,
@@ -30,8 +30,8 @@ def highlightFile():
 
 	parser = OptionParser("usage: %prog [options] input-file output-file")
 	parser.add_option("-O", "--format", default="html",
-	                choices=("html","xhtml","latex","tex","rtf","ansi","xterm256", "svg", "odt", "bbcode", "pango"),
-			help="Output format (html, xhtml, latex, tex, rtf, ansi, xterm256, odt, bbcode, svg, pango)")
+	                choices=("html","xhtml","latex","tex","rtf","ansi","xterm256", "svg", "odt", "bbcode", "pango", "truecolor"),
+			help="Output format (html, xhtml, latex, tex, rtf, ansi, xterm256, truecolor, odt, bbcode, svg, pango)")
 	parser.add_option("-d", "--doc-title", default="Source file",
 			help="document title")
 	parser.add_option("-f", "--fragment", action="store_true", default = False, 

@@ -20,5 +20,3 @@ See the makefile how to compile Python, Perl or PHP modules:
    python testmod.py (use 2.x interpreter)
    perl testmod.pl
    php testmod.php
-
-See http://wiki.andre-simon.de/ for more information.

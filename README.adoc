@@ -88,7 +88,7 @@ may be altered and enhanced with plug-ins.
 
 
 Please see {README_LANGLIST} for the current set of supported languages.
-To get a list and associated file extensionsYou may also run:
+To get a list and associated file extensions you may also run:
 
 ..............................
 highlight --list-scripts=langs
@@ -896,7 +896,7 @@ Configuration scripts are searched in the following directories:
 2. value of the environment variable `HIGHLIGHT_DATADIR`
 3. user defined directory set with `--data-dir` (deprecated option)
 4. `/usr/share/highlight/`
-5. `/etc/highlight/` (location of `filetypes.conf`)
+5. `/etc/highlight/` (default location of `filetypes.conf`)
 6. current working directory (fallback)
 
 These subdirectories are expected to contain the corresponding scripts:
@@ -908,6 +908,12 @@ These subdirectories are expected to contain the corresponding scripts:
 A custom `filetypes.conf` may be placed directly in `~/.highlight/`.
 This search order enables you to enhance the installed scripts without the need
 to copy preinstalled files somewhere else.
+
+Use `--print-config` to determine your settings::
++
+........................
+highlight --print-config
+........................
 
 
 == EMBEDDING HIGHLIGHT

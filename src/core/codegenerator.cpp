@@ -672,6 +672,9 @@ State CodeGenerator::validateState(State newState, State oldState)
                 // proceed using only the first character of the token
                 lineIndex -= (token.length() -1);
                 token=token.substr(0, 1);
+               // if (res.size()>=2) {
+               //     return (State)res[1].asInteger();
+               // }
                 return oldState;
             }
             stateTrace.push_back(validatedState);
@@ -2116,6 +2119,14 @@ bool CodeGenerator::processStringState ( State oldState )
             openTag ( myState );
             returnedFromOtherState=true;
             break;
+        /*
+        case _REJECT:
+            exitState = true;
+            closeTag ( myState );
+            openTag ( KEYWORD );
+            printMaskedToken();
+            break;*/
+        
         case _EOF:
             eof = true;
             break;
