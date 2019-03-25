@@ -1,11 +1,14 @@
+=begin
 
-=begin    highlight-treeprocessor_mod.rb"                    v1.0.1 (2018-12-24)
+highlight-treeprocessor_mod.rb"         v1.2.0 | 2019/03/24 | by Tristano Ajmone
 ================================================================================
 
-                      Highlight Treeprocessor Extension
+                        Highlight Treeprocessor Extension
 
 ================================================================================
-A treeprocessor that highlights source cdoe blocks using Highlight.
+A treeprocessor that highlights source code using André Simon's Highlight:
+
+  http://www.andre-simon.de
 
 Usage:
 
@@ -16,10 +19,6 @@ Usage:
   puts 'Hello, World!'
   ----
 
-NOTES:
-  Currently, this extension does not support callouts nor syntax highlighting
-  code blocks inside tables. See:
-    https://github.com/asciidoctor/asciidoctor/issues/2990
 --------------------------------------------------------------------------------
 Adapted by Tristano Ajmone from the original "highlight-treeprocessor.rb" taken
 from the Asciidoctor Extensions Lab (commit 18bdf62), Copyright (C) 2014-2016
@@ -28,8 +27,10 @@ The Asciidoctor Project, released under MIT License:
     https://github.com/asciidoctor/asciidoctor-extensions-lab/
 --------------------------------------------------------------------------------
 The extension was modified (trimmed down) in order to:
-- enforce ':highlight-css: class' without requiring attribute settingss.
-- disable the ':highlight-style:' option (we use custom CSS in this context).
+- enforce `:highlight-css: class` without requiring attribute settings.
+- disable the `:highlight-style:` option (we use custom CSS in this context).
+- enable substitutions
+- correctly handle the `linenums` option.
 --------------------------------------------------------------------------------
 =end
 
@@ -41,7 +42,7 @@ include Asciidoctor
 
 Extensions.register do
   # =============
-  # TreeProcessor 
+  # TreeProcessor
   # =============
   # Processes the Asciidoctor::Document (AST) once parsing is complete.
   # ----------------------------------------------------------------------------
@@ -49,10 +50,22 @@ Extensions.register do
     process do |document|
       document.find_by context: :listing, style: 'source' do |src|
         # TODO handle callout numbers
-        src.subs.clear
+        
+        #-----------------------------------------------------------------------
+        # ** SUBSTITUTIONS ** were enabled by commenting out the following line:
+        # ~~~~~~~~~~~~~~
+        # src.subs.clear
+        # ~~~~~~~~~~~~~~
+        # If no `subs` are specified in the listing block, the default setting
+        # will be to substitute special characters, which breaks up the code.
+        # Therefore, we check if the `subs` array contains `:specialcharacters`
+        # and eliminate it if it does:
+        spchindx = src.subs.index(:specialcharacters)
+        src.subs.delete_at(spchindx) if spchindx
+        #-----------------------------------------------------------------------
+        
         lang = src.attr 'language', 'text', false
         highlight = document.attr 'highlight', 'highlight'
-        # highlight = document.attr 'highlight', 'highlight'
         cmd = %(#{highlight} -f -O html --src-lang #{lang})
         cmd = %(#{cmd} -l -j 2) if src.attr? 'linenums', nil, false
         Open3.popen3 cmd do |stdin, stdout, stderr, wait_thr|
@@ -67,6 +80,28 @@ Extensions.register do
         end
       end if document.attr? 'source-highlighter', 'highlight'
       nil
-    end 
+    end
   end
 end
+
+=begin
+--------------------------------------------------------------------------------
+                                   ChangeLog
+--------------------------------------------------------------------------------
+v1.2.0 (2019/03/24)
+ Fixes the problems introduced in v1.1.0:
+  - Added code to handle defaults in listing with unspecified `subs`.
+  - No longer mandatory to specify `subs` in listing block.
+  - Option `linenums` works correctly again.
+
+v1.1.0 (2019/03/13)
+  - Enabled substitutions, but the `linenums` option doesn't work anymore.
+  - Requires mandatory declaration of `subs` in code listings (even if only
+    `subs=none`) otherwise the sourcedcode breaks up in the listing block.
+
+v1.0.0 (2018/10/04)
+  First mod, based commit 18bdf62:
+  - Enforce `:highlight-css: class` without requiring attribute settings.
+  - Disable the `:highlight-style:` option (we use custom CSS in this context).
+
+=end
