@@ -746,6 +746,14 @@ highlight::OutputType MainWindow::getOutputType()
         return highlight::SVG;
     case 7:
         return highlight::BBCODE;
+
+    case 8:
+        return highlight::ESC_ANSI;
+    case 9:
+        return highlight::ESC_XTERM256;
+    case 10:
+        return highlight::ESC_TRUECOLOR;
+
     }
     return highlight::HTML;
 }
@@ -768,6 +776,10 @@ QString MainWindow::getOutFileSuffix()
         return ".svg";
     case 7:
         return ".bbcode";
+    case 8:
+    case 9:
+    case 10:
+        return ".esc";
     }
     return ".html";
 }

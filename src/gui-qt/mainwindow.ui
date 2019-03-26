@@ -778,7 +778,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <property name="movable">
         <bool>false</bool>
@@ -867,6 +867,21 @@
              <item>
               <property name="text">
                <string>BBCode</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ANSI ESC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>XTerm256 ESC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Truecolor ESC</string>
               </property>
              </item>
             </widget>

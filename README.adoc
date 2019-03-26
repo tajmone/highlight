@@ -644,7 +644,7 @@ the new state or to manipulate syntax elements like keyword lists.
 
 [[OnStateChange]]
 ................................................................................
-OnStateChange(oldState, newState, token, kwGroupID)
+OnStateChange(oldState, newState, token, kwGroupID, lineno, column)
 
   Hook Event: Highlighting parser state change
   Parameters: oldState:  old state
@@ -652,6 +652,8 @@ OnStateChange(oldState, newState, token, kwGroupID)
               token:     the current token which triggered the new state
               kwGroupID: if newState is HL_KEYWORD, the parameter
                          contains the keyword group ID
+              lineno:    line number (since 3.50)
+              column:    line column (since 3.50)
   Returns:    Correct state to continue OR HL_REJECT
 ................................................................................
 

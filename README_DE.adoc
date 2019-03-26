@@ -646,7 +646,7 @@ Syntax-Elemente wie Keyword-Listen erweitert werden.
 
 [[OnStateChange]]
 ................................................................................
-OnStateChange(oldState, newState, token, kwGroupID)
+OnStateChange(oldState, newState, token, kwGroupID, lineno, column)
 
   Hook Event: Zustandswechsel des Parsers
   Parameters: oldState:  bisheriger Zustand
@@ -654,6 +654,8 @@ OnStateChange(oldState, newState, token, kwGroupID)
               token:     das Token welches den Wechsel ausgeloest hat
               kwGroupID: Wenn newState = HL_KEYWORD, enthaelt dieser Parameter
                          die Gruppen-ID
+              lineno:    Zeilennummer (seit 3.50)
+              column:    Zeilenspalte (seit 3.50)
   Returns:    den korrekten Zustand zum fortfahren ODER HL_REJECT
 ................................................................................
 

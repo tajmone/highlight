@@ -98,7 +98,6 @@ CodeGenerator * CodeGenerator::getInstance ( OutputType type )
     case ODTFLAT:
         generator = new ODTGenerator();
         break;
-#if !defined (QT)
     case ESC_ANSI:
         generator = new AnsiGenerator();
         break;
@@ -107,7 +106,6 @@ CodeGenerator * CodeGenerator::getInstance ( OutputType type )
         generator = new Xterm256Generator();
         generator->setESCTrueColor(type==ESC_TRUECOLOR);
         break;
-#endif
     default:
         break;
     }
@@ -629,10 +627,6 @@ SKIP_EMBEDDED:
             if ( regexGroups[oldIndex].state==IDENTIFIER_BEGIN || regexGroups[oldIndex].state==KEYWORD ) {
                 string reservedWord= ( currentSyntax->isIgnoreCase() ) ? StringTools::change_case ( token ) :token;
                 currentKeywordClass=currentSyntax->isKeyword ( reservedWord ); //check in lists (no regex)
-                // for positional Tests; will not be used again for actual input parsing
-                // FIXME not needed?
-                //if (currentKeywordClass)
-                //    regexGroups[oldIndex]=ReGroup ( KEYWORD, reservedWord.size(), currentKeywordClass, "" );  
                 
                 if ( !currentKeywordClass && regexGroups[oldIndex].state==KEYWORD ){
                     currentKeywordClass = regexGroups[oldIndex].kwClass;
@@ -658,8 +652,8 @@ State CodeGenerator::validateState(State newState, State oldState)
         params.push_back(Diluculum::LuaValue(newState));
         params.push_back(Diluculum::LuaValue(token));
         params.push_back(Diluculum::LuaValue(getCurrentKeywordClassId()) );
-      //  params.push_back(Diluculum::LuaValue(lineNumber) );
-      //  params.push_back(Diluculum::LuaValue(lineIndex-token.length()) );
+        params.push_back(Diluculum::LuaValue(lineNumber) );
+        params.push_back(Diluculum::LuaValue(lineIndex-token.length()) );
 
         Diluculum::LuaValueList res=
             currentSyntax->getLuaState()->call ( *currentSyntax->getValidateStateChangeFct(),
@@ -670,11 +664,18 @@ State CodeGenerator::validateState(State newState, State oldState)
             State validatedState = (State)res[0].asInteger();
             if ( validatedState== _REJECT) {
                 // proceed using only the first character of the token
-                lineIndex -= (token.length() -1);
-                token=token.substr(0, 1);
-               // if (res.size()>=2) {
-               //     return (State)res[1].asInteger();
-               // }
+                // TODO evaluate if token clear would be better
+                if (res.size()==1) { 
+                    lineIndex -= (token.length() -1);
+                    token=token.substr(0, 1);
+                }
+                
+                //experimental for slim.lang: evaluate second return arg after _REJECT
+                if (res.size()>=2) {
+                    lineIndex -= (token.length() );
+                    token.clear();
+                    return (State)res[1].asInteger();
+                }
                 return oldState;
             }
             stateTrace.push_back(validatedState);
@@ -2119,14 +2120,14 @@ bool CodeGenerator::processStringState ( State oldState )
             openTag ( myState );
             returnedFromOtherState=true;
             break;
-        /*
-        case _REJECT:
+        
+        /*case _REJECT:
             exitState = true;
             closeTag ( myState );
             openTag ( KEYWORD );
             printMaskedToken();
-            break;*/
-        
+            break;
+        */
         case _EOF:
             eof = true;
             break;

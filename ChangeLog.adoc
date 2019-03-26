@@ -11,11 +11,14 @@
 
 22.03.2019
 
+  - added lineno, column parameters to OnStateChange hook
   - added support for Crystal (thanks to C R Jaensch)
+  - added support for Slim (https://gitlab.com/saalen/highlight/merge_requests/85)
   - compress man docs during installation (thanks to Chris Mayo)
   - fixed several typos in documentaion and manpages
   - CLI: added `--syntax-by-name` option (suggested by Chris Mayo)
   - CLI: removed deprecated `--list-langs` and`--list-themes` options
+  - GUI: added terminal sequence output options (https://gitlab.com/saalen/highlight/issues/110)
 
 == highlight 3.49
 
