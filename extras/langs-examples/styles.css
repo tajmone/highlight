@@ -1,90 +1,123 @@
 /* FiraCode font (with ligatures) */
 @font-face {
-  font-family: 'Fira Code';
+  font-family: "Fira Code";
   src: url("https://unpkg.com/firacode/distr/eot/FiraCode-Regular.eot");
   src: url("https://unpkg.com/firacode/distr/eot/FiraCode-Regular.eot") format("embedded-opentype"), url("https://unpkg.com/firacode/distr/woff2/FiraCode-Regular.woff2") format("woff2"), url("https://unpkg.com/firacode/distr/woff/FiraCode-Regular.woff") format("woff"), url("https://unpkg.com/firacode/distr/ttf/FiraCode-Regular.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal; }
+  font-style: normal;
+}
 .listingblock pre[class=highlight][lang=alan] > code {
-  font-family: "Fira Code", Monaco, "Courier New", Courier, monospace; }
+  font-family: "Fira Code", Monaco, "Courier New", Courier, monospace;
+}
 
 /* Highlight Default Theme */
 .listingblock code[data-lang]::before {
-  color: #A09F93; }
+  color: #A09F93;
+}
 
-.listingblock pre[class="highlight"] {
+.listingblock pre[class=highlight] {
   background-color: #2D2D2D;
   border-radius: 4px;
   border: 1px solid #A09F93;
   padding: 1em;
-  overflow: auto; }
-  .listingblock pre[class="highlight"] > code {
-    color: #D3D0C8;
-    font-family: Consolas, Monaco, "Courier New", Courier, monospace; }
-  .listingblock pre[class="highlight"] .hl {
-    color: #D3D0C8; }
-    .listingblock pre[class="highlight"] .hl.num {
-      color: #F99157; }
-    .listingblock pre[class="highlight"] .hl.esc {
-      color: #F99157; }
-    .listingblock pre[class="highlight"] .hl.ipl {
-      color: #D27B53; }
-    .listingblock pre[class="highlight"] .hl.str {
-      color: #99CC99; }
-    .listingblock pre[class="highlight"] .hl.ppc {
-      color: #CC99CC; }
-    .listingblock pre[class="highlight"] .hl.pps {
-      color: #66CCCC; }
-    .listingblock pre[class="highlight"] .hl.com {
-      color: #A09F93;
-      font-style: italic; }
-    .listingblock pre[class="highlight"] .hl.slc {
-      color: #A09F93;
-      font-style: italic; }
-    .listingblock pre[class="highlight"] .hl.lin {
-      color: #747369; }
-    .listingblock pre[class="highlight"] .hl.opt {
-      color: #D3D0C8; }
-    .listingblock pre[class="highlight"] .hl.kwa, .listingblock pre[class="highlight"] .hl.kwb, .listingblock pre[class="highlight"] .hl.kwc, .listingblock pre[class="highlight"] .hl.kwd, .listingblock pre[class="highlight"] .hl.kwe, .listingblock pre[class="highlight"] .hl.kwf {
-      font-weight: bold; }
-    .listingblock pre[class="highlight"] .hl.kwa {
-      color: #F2777A; }
-    .listingblock pre[class="highlight"] .hl.kwb {
-      color: #FFCC66; }
-    .listingblock pre[class="highlight"] .hl.kwc {
-      color: #6699CC; }
-    .listingblock pre[class="highlight"] .hl.kwd {
-      color: #CC99CC; }
-    .listingblock pre[class="highlight"] .hl.kwde {
-      color: #66CCCC; }
-    .listingblock pre[class="highlight"] .hl.kwf {
-      color: #D27B53; }
+  overflow: auto;
+}
+.listingblock pre[class=highlight] > code {
+  color: #D3D0C8;
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+}
+.listingblock pre[class=highlight] .hl {
+  color: #D3D0C8;
+}
+.listingblock pre[class=highlight] .hl.num {
+  color: #F99157;
+}
+.listingblock pre[class=highlight] .hl.esc {
+  color: #F99157;
+}
+.listingblock pre[class=highlight] .hl.ipl {
+  color: #D27B53;
+}
+.listingblock pre[class=highlight] .hl.str {
+  color: #99CC99;
+}
+.listingblock pre[class=highlight] .hl.ppc {
+  color: #CC99CC;
+}
+.listingblock pre[class=highlight] .hl.pps {
+  color: #66CCCC;
+}
+.listingblock pre[class=highlight] .hl.com {
+  color: #A09F93;
+  font-style: italic;
+}
+.listingblock pre[class=highlight] .hl.slc {
+  color: #A09F93;
+  font-style: italic;
+}
+.listingblock pre[class=highlight] .hl.lin {
+  color: #747369;
+}
+.listingblock pre[class=highlight] .hl.opt {
+  color: #D3D0C8;
+}
+.listingblock pre[class=highlight] .hl.kwa, .listingblock pre[class=highlight] .hl.kwb, .listingblock pre[class=highlight] .hl.kwc, .listingblock pre[class=highlight] .hl.kwd, .listingblock pre[class=highlight] .hl.kwe, .listingblock pre[class=highlight] .hl.kwf {
+  font-weight: bold;
+}
+.listingblock pre[class=highlight] .hl.kwa {
+  color: #F2777A;
+}
+.listingblock pre[class=highlight] .hl.kwb {
+  color: #FFCC66;
+}
+.listingblock pre[class=highlight] .hl.kwc {
+  color: #6699CC;
+}
+.listingblock pre[class=highlight] .hl.kwd {
+  color: #CC99CC;
+}
+.listingblock pre[class=highlight] .hl.kwde {
+  color: #66CCCC;
+}
+.listingblock pre[class=highlight] .hl.kwf {
+  color: #D27B53;
+}
 
 /* Highlight Theme for PureBasic */
 .listingblock pre[class=highlight][lang=purebasic] {
   background: #FFFFDF;
-  border: 1px solid #808080; }
-  .listingblock pre[class=highlight][lang=purebasic] > code {
-    color: #000000;
-    font-family: Consolas, Monaco, "Courier New", Courier, monospace; }
-  .listingblock pre[class=highlight][lang=purebasic] .hl {
-    color: #000000;
-    font-weight: normal;
-    font-style: normal; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.num, .listingblock pre[class=highlight][lang=purebasic] .hl.opt {
-      color: #000000; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.str, .listingblock pre[class=highlight][lang=purebasic] .hl.esc, .listingblock pre[class=highlight][lang=purebasic] .hl.kwd {
-      color: #0080FF; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.slc {
-      color: #00AAAA; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.lin {
-      color: #808080; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.kwa {
-      color: #006666;
-      font-weight: bold; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.kwb {
-      color: #924B72; }
-    .listingblock pre[class=highlight][lang=purebasic] .hl.kwc {
-      color: #006666; }
+  border: 1px solid #808080;
+}
+.listingblock pre[class=highlight][lang=purebasic] > code {
+  color: #000000;
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl {
+  color: #000000;
+  font-weight: normal;
+  font-style: normal;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.num, .listingblock pre[class=highlight][lang=purebasic] .hl.opt {
+  color: #000000;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.str, .listingblock pre[class=highlight][lang=purebasic] .hl.esc, .listingblock pre[class=highlight][lang=purebasic] .hl.kwd {
+  color: #0080FF;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.slc {
+  color: #00AAAA;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.lin {
+  color: #808080;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.kwa {
+  color: #006666;
+  font-weight: bold;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.kwb {
+  color: #924B72;
+}
+.listingblock pre[class=highlight][lang=purebasic] .hl.kwc {
+  color: #006666;
+}
 
 /*# sourceMappingURL=styles.css.map */

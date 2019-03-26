@@ -96,6 +96,9 @@ highlight3.kdev4            export-ignore
 *.js           text
 *.sass         text
 *.scss         text
+# Exceptions for Dart Sass generated files:
+extras/AsciiDoc/*.css         text eol=lf
+extras/langs-examples/*.css   text eol=lf
 
 ## ===================
 ## DOCUMENTATION FILES

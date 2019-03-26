@@ -1,0 +1,163 @@
+// "_hl-adoc-template.scss"             v1.0.0 | 2019/03/25 | by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                 Highlight Theme Template for Asciidoctor                  *
+// *                                                                           *
+// *****************************************************************************
+// A reusable variables-based '@import' template to quickly define Highlight
+// themes for Asciidoctor. It can create both generic themes as well as themes
+// targetting a specific language, via the $HL-Lang variable.
+
+// =============================================================================
+// Default Values
+// =============================================================================
+// Let's define some defaults for the template variables, so users don't have to
+// define every single variable.
+
+$HL-Border-radius:  4px !default;
+$HL-Border-width:   1px !default;
+$HL-Font-family: Consolas, Monaco, "Courier New", Courier, monospace  !default;
+$HL-Font-size:      1em !default;
+
+// -----------------------------------------------------------------------------
+// Default Scheme: Base16 Eighties, by Chris Kempson (http://chriskempson.com)
+// -----------------------------------------------------------------------------
+$HL-LangNameHover:  #a09f93 !default; // base04 : Lang name color (when hovering)
+
+$HL-Canvas:         #2d2d2d !default; // base00
+$HL-Default:        #d3d0c8 !default; // base05
+$HL-LineNum:        #747369 !default; // base03
+
+$HL-Border-color:   #a09f93 !default; // base04
+$HL-Border-radius:  4px     !default;
+$HL-Border-width:   1px     !default;
+
+$HL-Number:         #f99157 !default; // base09
+$HL-Escape:         #f99157 !default; // base09
+$HL-Interpolation:  #d27b53 !default; // base0F
+$HL-String:         #99cc99 !default; // base0B
+$HL-PreProcessor:   #cc99cc !default; // base0E
+$HL-StringPreProc:  #66cccc !default; // base0C
+$HL-BlockComment:   #a09f93 !default; // base04
+$HL-LineComment:    $HL-BlockComment !default;
+$HL-Operator:       $HL-Default !default;
+$HL-Keywords1:      #f2777a !default; // base08
+$HL-Keywords2:      #ffcc66 !default; // base0A
+$HL-Keywords3:      #6699cc !default; // base0D
+$HL-Keywords4:      #cc99cc !default; // base0E
+$HL-Keywords5:      #66cccc !default; // base0C
+$HL-Keywords6:      #d27b53 !default; // base0F
+
+// -----------------------------------------------------------------------------
+// Optional Language Settings
+// -----------------------------------------------------------------------------
+// If $HL-Lang is set, the output theme will target that language, otherwise it
+// will be a generic theme for Highlight.
+
+$HL-Lang:        null         !default;
+$ref_datalang:   "data-lang"  !default;
+$ref_lang:       "lang"       !default;
+
+@if $HL-Lang == null {
+  $ref_datalang: "data-lang"  !global;
+  $ref_lang:     "lang"       !global;
+} @else {
+  $ref_datalang: "data-lang=#{$HL-Lang}" !global;
+  $ref_lang:     "lang=#{$HL-Lang}"      !global;
+}
+
+// =============================================================================
+// Theme Definition
+// =============================================================================
+
+.listingblock code[#{$ref_datalang}]::before{
+   // Color of language name (shown when hovering)
+    color: $HL-LangNameHover;
+}
+.listingblock pre[class="highlight"][#{$ref_lang}] {
+    background-color: $HL-Canvas;
+    &>code {
+        color: $HL-Default;
+        font-family: $HL-Font-family;
+        font-size: $HL-Font-size;
+    }
+    border-radius: $HL-Border-radius;
+    border: $HL-Border-width solid $HL-Border-color;
+    .hl {
+        color: $HL-Default;
+
+        &.num {
+            // Numbers
+            color: $HL-Number;
+        }
+        &.esc {
+            // Escape sequences 
+            color: $HL-Escape;
+        }
+        &.ipl {
+            // Interpolation sequences 
+            color: $HL-Interpolation;
+        }
+        &.str {
+            // Strings
+            color: $HL-String;
+        }
+        &.ppc {
+            // Preprocessor directives
+            color: $HL-PreProcessor;
+        }
+        &.pps {
+            // Strings within preprocessor directives
+            color: $HL-StringPreProc;
+        }
+        &.com {
+            // Block comments
+            color: $HL-BlockComment;
+            font-style: italic;
+        }
+        &.slc {
+            // Single-line comments
+            color: $HL-LineComment;
+            font-style: italic;
+        }
+        &.lin {
+            // Line numbers 
+            color: $HL-LineNum;
+        }
+        &.opt {
+            // Operators
+            color: $HL-Operator;
+        }
+        // ---------------------
+        //    Keywords Groups
+        // ---------------------
+        &.kwa, &.kwb, &.kwc, &.kwd, &.kwe, &.kwf {
+            // font-weight: bold;
+        }   
+        &.kwa {
+            // Keywords group 1
+            color: $HL-Keywords1;
+        }
+        &.kwb {
+            // Keywords group 2
+            color: $HL-Keywords2;
+        }
+        &.kwc {
+            // Keywords group 3
+            color: $HL-Keywords3;
+        }
+        &.kwd {
+            // Keywords group 4
+            color: $HL-Keywords4;
+        }
+        &.kwde{
+            // Keywords group 5
+            color: $HL-Keywords5;
+        }
+        &.kwf {
+            // Keywords group 6
+            color: $HL-Keywords6;
+        }
+    }
+}
+// EOF //

@@ -1,0 +1,32 @@
+// "_hl-theme_purebasic.scss"           v1.0.0 | 2019/03/25 | by Tristano Ajmone
+// -----------------------------------------------------------------------------
+// Syntax highlighting theme for PureBASIC code.
+
+$HL-Lang: "purebasic";
+
+// -----------------------------------------------------------------------------
+// Color Scheme: PureBasic native IDE.
+// -----------------------------------------------------------------------------
+// by Fantaisie Software (https://www.purebasic.com/)
+
+$HL-LangNameHover:  $base0F;
+
+$HL-Canvas:         #ffffdf;
+$HL-Default:        Black;
+
+$HL-Border-color:   GainSboro;
+$HL-LineNum:        GainSboro;
+
+$HL-Number:         $HL-Default;
+$HL-Escape:         #0080ff;
+$HL-String:         $HL-Escape;
+$HL-LineComment:    #00aaaa;
+$HL-Operator:       $HL-Default;
+$HL-Keywords1:      #006666;
+$HL-Keywords2:      #924b72;
+$HL-Keywords3:      $HL-Keywords1;
+$HL-Keywords4:      $HL-Escape;
+
+@import 'hl-adoc-template';
+
+// EOF //

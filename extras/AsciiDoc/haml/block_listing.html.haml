@@ -1,0 +1,45 @@
+-# "block_listing.html.haml"            v1.0.0 | 2019/03/01 | by Tristano Ajmone
+-# =============================================================================
+-#            Custom Haml template for Highlight syntax highlighter             
+-# =============================================================================
+-# Adds 'lang=<language>' to <pre> tag to allow using different CSS themes with
+-# each language. Example:
+-#
+-#    <pre class="highlight" lang="ruby">
+-#
+-# Without this tweak, you can't customize background color and borders on a
+-# per-language basis.
+-# -----------------------------------------------------------------------------
+%div{:id=>@id, :class=>['listingblock', role]}
+  - if title?
+    .title=captioned_title
+  .content
+    - nowrap = !(@document.attr? :prewrap) || (option? :nowrap)
+    - if @style == 'source'
+      - code_lang = attr :language, nil, false
+      - code_class = ["language-#{code_lang}"] if code_lang
+      - pre_class = ['highlight']
+      - pre_lang = nil
+      - case document.attr 'source-highlighter'
+      - when 'highlight'
+        - pre_lang = attr :language, nil, false
+      - when 'coderay'
+        - pre_class.unshift 'CodeRay'
+        - code_class = nil
+      - when 'pygments'
+        - pre_class.unshift 'pygments'
+        - code_class = nil
+      - when 'highlightjs', 'highlight.js'
+        - pre_class.unshift 'highlightjs'
+      - when 'prettify'
+        - pre_class.unshift 'prettyprint'
+        - pre_class << 'linenums' if attr? :linenums
+      - when 'html-pipeline'
+        - pre_lang = code_lang
+        - code_class = code_lang = pre_class = nil
+        - nowrap = false
+      - pre_class << 'nowrap' if nowrap
+      %pre{:class=>pre_class, :lang=>pre_lang}
+        %code{:class=>code_class, 'data-lang'=>code_lang}=content
+    - else
+      %pre{:class=>('nowrap' if nowrap)}=content

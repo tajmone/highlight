@@ -1,0 +1,190 @@
+= Modded HighlightTreeprocessor Example
+Tristano Ajmone <tajmone@gmail.com>
+v1, 2019-03-25
+:toclevels: 5
+:toc: left
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors:
+// ===================
+// Highlight Settings:
+// ===================
+:source-highlighter: highlight
+:docinfo: shared
+
+A demonstration of the modded *HighlightTreeprocessor* extension with some usage instructions.
+
+Associated files:
+
+* link:./docinfo.html[`docinfo.html`]
+* link:./haml/block_listing.html.haml[`/haml/block_listing.html.haml`]
+* link:./highlight-treeprocessor.rb[`highlight-treeprocessor_mod.rb`]
+* link:./highlight_mod.css[`highlight_mod.css`]
+
+
+== Highlighting Previews
+
+A couple of examples of how the rendered code looks like.
+link:./highlight_mod.css[The custom CSS stylesheet] defines a default theme plus some dedicated themes targetting specific syntaxes.
+
+=== Example 1
+
+For PureBasic code I've defined a dedicated theme mimicking the native IDE of the language.
+
+[source,purebasic]
+------------------
+include::../langs-examples/ex-src/PureBasic.pb[]
+------------------
+
+=== Example 2: Line Numbers
+
+In this example we add the `linenum` option to enable line-numbering.
+Again, for the Alan syntax there is a dedicated CSS theme.
+
+[source,alan,linenum]
+------------------
+include::../langs-examples/ex-src/alan.alan[]
+------------------
+
+When `linenums` is used, Highlight is invoked with the `-l -j 2` options.
+
+
+=== Example 3: Substitutions
+
+In this example we'll enable substitutions inside the listing code via the `subs=quotes` option.
+
+
+// tag::example_alan_substitutions[]
+
+.Asciidoc source
+.........................................
+[source,alan,subs=quotes]
+------------------------
+The 'dance hall' #IsA location#
+  Description
+    "The hall is #_bigger_ than you expected#, and
+     far too crowded. You feel the urge to leave."
+End the.
+------------------------
+.........................................
+
+.HTML result
+[source,alan,subs=quotes]
+------------------------
+The 'dance hall' #IsA location#
+  Description
+    "The hall is #_bigger_ than you expected#, and
+     far too crowded. You feel the urge to leave."
+End the.
+------------------------
+// end::example_alan_substitutions[]
+
+Text enclosed withing single or double `&num;` symbols will be wrapped in the `<mark>` tag (See
+link:https://asciidoctor.org/docs/user-manual/#custom-styling-with-attributes[Asciidoctor Manual §19.5^]), which I've customized to mimick a smeared flourescent marker.
+Also notice how the word '`bigger`' is rendered as emphasized text.
+
+
+== Usage Instructions
+
+
+To enable the modded *HighlightTreeprocessor* extension you must invoke Asciidoctor with the `-r` (`--require`) option:
+
+[source,bash,subs=quotes]
+-----------------------------------
+asciidoctor \
+  ##-r ./highlight-treeprocessor_mod.rb## \
+  -a source-highlighter=highlight \
+  -a docinfo=shared \
+  -T haml \
+  example_mod.asciidoc
+-----------------------------------
+
+To enable using Highlight, you need to set the `source-highlighter` attribute to `highlight`.
+You may do so via the command line, using the `-a` (`--attribute`) option:
+
+[source,bash,subs=quotes]
+-----------------------------------
+asciidoctor \
+  -r ./highlight-treeprocessor_mod.rb \
+  ##-a source-highlighter=highlight## \
+  -a docinfo=shared \
+  -T haml \
+  example_mod.asciidoc
+-----------------------------------
+
+
+or you can set the `source-highlighter` attribute inside the document header:
+
+..............................
+:source-highlighter: highlight
+..............................
+
+
+=== Custom CSS Stylesheets
+
+Because the modded extension doesn't rely on Highlight to convert themes to CSS, you'll need to add to the output document your custom CSS.
+
+The easiest way to do so without interfering with the native stylesheet of the Asciidoctor HTML backend is to incorporate the CSS file via a
+link:https://asciidoctor.org/docs/user-manual/#docinfo-file[head docinfo file^,title="See Asciidoctor documentation on docinfo files"], and then enable it via the `docinfo` attribute, either in the document header:
+
+................
+:docinfo: shared
+................
+
+or via CLI options:
+
+[source,bash,subs=quotes]
+-----------------------------------
+asciidoctor \
+  -r ./highlight-treeprocessor_mod.rb \
+  -a source-highlighter=highlight \
+  ##-a docinfo=shared## \
+  -T haml \
+  example_mod.asciidoc
+-----------------------------------
+
+
+The link:./docinfo.html[`docinfo.html`] file used for this document contains a single header line to load the external CSS stylesheet:
+
+
+[source,html]
+<link rel="stylesheet" href="highlight_mod.css">
+
+
+Further more, if you want to be able to customize themes on a per language base, and use different background colors for each theme, you'll need to use the customized Haml template provided with this example:
+
+* link:./haml/block_listing.html.haml[`/haml/block_listing.html.haml`]
+
+and tell Asciidoctor where to look for the custom templates folder via the `-T` (`--template-dir`) option:
+
+[source,bash,subs=quotes]
+-----------------------------------
+asciidoctor \
+  -r ./highlight-treeprocessor_mod.rb \
+  -a source-highlighter=highlight \
+  -a docinfo=shared \
+  ##-T haml## \
+  example_mod.asciidoc
+-----------------------------------
+
+The customized template ensures that the `lang` attribute is added also to the `<pre>` tag, so it might be targeted via custom CSS:
+
+[source,html,subs=quotes]
+-----------------------------------
+<pre class="highlight" lang="alan">
+  <code class="language-alan" data-lang="alan">
+-----------------------------------
+
+whereas by default Asciidoctor will only emit the `lang` attribute on the `<code>` tag:
+
+[source,html,subs=quotes]
+-----------------------------------
+<pre class="highlight">
+  <code class="language-alan" data-lang="alan">
+-----------------------------------
+
+In the link:./sass[`/sass/`] folder you'll find the commented SCSS sources used by this document, and a useful Sass template for quickly generating Highlight themes targetting specific syntaxes.
+
+// EOF //

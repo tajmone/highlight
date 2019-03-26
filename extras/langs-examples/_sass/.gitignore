@@ -6,5 +6,5 @@
 # ==========
 # Sass Cache
 # ==========
+# Just in case someone is still using Ruby Sass...
 .sass-cache/
-
