@@ -1,0 +1,428 @@
+= Highlight Support for Asciidoctor
+Tristano Ajmone <tajmone@gmail.com>
+v1, 2019-03-25
+:lang: en
+// TOC Settings:
+:toclevels: 5
+// GitLab setting to show TOC after Preamble
+:toc: macro
+// TOC ... HTML Backend Hack to show TOC on the Left
+ifdef::backend-html5[]
+:toc: left
+endif::[]
+// TOC ... GitHub Hack to show TOC after Preamble (required)
+ifdef::env-github[]
+:toc: macro
+endif::[]
+// Sections Numbering:
+:sectnums!:
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors:
+// GitHub Settings for Admonitions Icons:
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :heavy_exclamation_mark:
+:note-caption: :information_source:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+// ===================
+// Highlight Settings:
+// ===================
+:source-highlighter: highlight
+:docinfo: shared
+
+// ============================
+// ATTRIBUTES FOR SUBSTITUTIONS
+// ============================
+:ADocDocs: title="Read more about this topic in the Asciidoctor official Documentation"
+:LF: pass:[</br>]
+
+// Project files inline links:
+:block_listing_haml: pass:q[link:./haml/block_listing.html.haml[`/haml/block_listing.html.haml`,title="Custom haml template for using the modded HighlightTreeprocessor extension"]]
+:build_sh: pass:q[link:./build.sh[`build.sh`,title="Script to convert the examples from AsciiDoc to HTML"]]
+:docinfo: pass:q[link:./docinfo.html[`docinfo.html`,title="Script to convert the examples from AsciiDoc to HTML"]]
+:example_adoc: pass:q[link:./example.asciidoc[`example.asciidoc`,title="Example of using the original HighlightTreeprocessor extension"]]
+:example_html: pass:q[link:./example.html[`example.html`,title="Example of using the original HighlightTreeprocessor extension"]]
+:example_mod_adoc: pass:q[link:./example_mod.asciidoc[`example_mod.asciidoc`,title="Example of using the modded HighlightTreeprocessor extension"]]
+:example_mod_css: pass:q[link:./example_mod.css[`example_mod.css`,title="Highlight styles for modded extension example"]]
+:example_mod_html: pass:q[link:./example_mod.html[`example_mod.html`,title="Example of using the modded HighlightTreeprocessor extension"]]
+:hl_mod_rb: pass:q[link:./highlight-treeprocessor_mod.rb[`highlight-treeprocessor_mod.rb`,title="View the modded HighlightTreeprocessor extension"]]
+:hl_rb: pass:q[link:./highlight-treeprocessor.rb[`highlight-treeprocessor.rb`,title="View the original HighlightTreeprocessor extension"]]
+
+// Project folders inline links:
+:sass: pass:q[link:./sass[`/sass/`,title="Sass sources for styling Highlight themes"]]
+:haml: pass:q[link:./haml[`/haml/`,title="Custom Haml templates for the Asciidoctor HTML5 backend"]]
+
+// *****************************************************************************
+// *                                                                           *
+// *                            Document Preamble                              *
+// *                                                                           *
+// *****************************************************************************
+
+Asciidoctor extensions to support syntax highlighting via Highlight in the HTML backend.
+
+// >>> GitLab/GitHub hacks to ensure TOC is shown after Preamble: >>>>>>>>>>>>>>
+ifndef::backend-html5[]
+'''
+toc::[]
+'''
+endif::[]
+ifdef::env-github[]
+'''
+toc::[]
+'''
+endif::[]
+// <<< GitHub/GitLab hacks <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+== Introduction
+
+AsciiDoc is a very powerful documentation markup syntax for writing documents and books in plaintext sources files which can be version controlled and converted to HTML5, DocBook, PDF, and many other formats -- think markdown with tons of extra features.
+
+The most used AsciiDoc implementation today is
+link:https://asciidoctor.org/[Asciidoctor^,title="visit Asciidoctor (Ruby) website"],
+the Ruby successors of the original Python
+link:http://asciidoc.org//[AsciiDoc^,title="visit AsciiDoc (Python) website"].
+Asciidoctor is a fast, open source AsciiDoc text processor and publishing toolchain, with a rich echosystem of additional tools, extensions and resources.
+
+Unfortunately, Asciidoctor doesn't natively support using Highlight for coloring code blocks in documentation, although other highlighters are natively supported.
+
+However, the Asciidoctor team has published on the
+link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Asciidoctor Extensions Lab]
+project an
+link:https://asciidoctor.org/docs/user-manual/#extensions[extension^,{ADocDocs}]
+called *HighlightTreeprocessor* that adds some basic support for Highlight integration:
+
+* https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/highlight-treeprocessor.rb
+
+In this folder I'll be including and documenting both the original extension as well as a tweaked version which I use in many documentation projects.
+
+
+== Folder Contents
+
+
+[horizontal]
+{hl_rb} ::
+The original extension.
+{hl_mod_rb} ::
+The modded extension.
+{example_adoc}{LF}{example_html} ::
+Original extension usage example.
+{example_mod_adoc}{LF}{example_mod_html}{LF}{example_mod_css} ::
+Modded extension usage example.
+{block_listing_haml}{LF}{docinfo} ::
+// Further Asciidoctor assets required during the conversion with the modded extension.
+// Assets required to use the modded extension with Asciidoctor.
+Asciidoctor assets for the modded extension (only required during conversion).
+{sass} ::
+Sass sources and assets to customize the Highlight CSS themes for the modded extension examples.
+{build_sh} ::
+Converts the examples from AsciiDoc to HTML
+
+== Original vs Modded Extension
+
+Here's a comparison table of the differences between the original extension and my modded version:
+
+:YES: &check;
+:NO: pass:q[[red]#&cross;#]
+
+[cols="1*<d,2*^d",options="header,autowidth"]
+|==========
+| feature
+| original
+| modded
+
+| linenums
+| {YES}
+| {YES}
+
+| subs
+| {NO}
+| {YES}
+
+| external CSS
+| {NO}
+| {YES}
+
+| multiple themes
+| {NO}
+| {YES}
+
+| callouts
+| {NO}
+| {NO}
+
+| code in tables
+| {NO}
+| {NO}
+|==========
+
+
+=== Custom CSS and Multiple Themes
+
+The reason I've tweaked the original extension was to allow using custom CSS stylesheets to provide each language with its own theme, instead of having a single coloring theme for every code block in the document.
+This is the main difference between the original extension and my modded version, and it comes at the price of having to provide your own CSS to the document -- while the original extension will automatically inject into the document the CSS of an Highlight theme.
+
+So, if you're happy highlighting all the code with one of Highlight native themes, then you should use the original *HighlightTreeprocessor* extension; but if you'd like more control over CSS styles, and to theme each language separately, then the modded extension is the way to go.
+
+In the {sass} folder you'll find some useful Sass/SCSS templates and examples on how to easily create multiple themes targetting specific languages.
+
+
+=== Substitutions
+
+The other main difference is that the modded extension supports
+link:https://asciidoctor.org/docs/user-manual/#subs[substitutions^,{ADocDocs}]
+in the code block.
+
+.Code with substitutions
+================================================================================
+
+include::example_mod.asciidoc[tag=example_alan_substitutions]
+================================================================================
+
+
+== Missing Features
+
+Neither the original nor my modded version of the extension support callouts or highlighting listing blocks inside tables.
+
+
+
+=== Callouts
+
+The extension doesn't currently process callouts, and Asciidoctor will raise a warning if you use them (indeed, the {build_sh} script to convert this document does warn about missing callouts).
+
+.Code with callouts
+================================================================================
+[source,alan,subs=quotes]
+------------------------
+The 'dance hall' IsA location <1><2>
+  Description <3>
+    "The hall is bigger_ than you expected, and
+     far too crowded. You feel the urge to leave."
+End the.
+------------------------
+
+<1> `'dance hall'` is a quoted identifier, it will be show as the location name.
+<2> The dance hall is an instance of the `location` class.
+<3> The `Description` of a location will be shown every time the player enters the room or examines it via the `look` verb.
+================================================================================
+
+In the original extension support for callouts extraction and processing was never implemented.
+I've attempted to add callouts support myself, but without success.
+
+
+
+=== Code Inside Tables
+
+Listing blocks inside table cells are not processed by the treeprocessor extension.
+The listing block will just get some basic styling but the code won't be processed by Highlight.
+
+.Code listing inside a table cell
+================================================================================
+[cols="1*<d,1*<a",options="header,autowidth"]
+|==================================================
+^| problem
+| example
+
+| Listing blocks inside tables won't be highlighted.
+
+| This Lua block isn't processed by Highlight:
+[source,lua]
+------------------------
+if newState==HL_KEYWORD and kwgroup==5 then
+  AddKeyword(token, 5)
+end
+------------------------
+|==================================================
+
+In the above table the rightmost column is set to be styled as AsciiDoc (using the `a` specifier):
+
+.............................................
+[cols="1*<d,1*<a",options="header,autowidth"]
+.............................................
+
+
+But the treeprocessor extension doesn't process listings inside table cells.
+================================================================================
+
+NOTE: For more details regarding this limitation, see Dan Allen's reply in
+link:https://github.com/asciidoctor/asciidoctor/issues/2990[Issue #2990^].
+
+
+== Development Roadmap
+
+Bringing full Highlight support to Asciidoctor has always ranked high in my priorities list since I work a lot with code documentation and I enjoy the power of AsciiDoc.
+Unfortunately, I don't have any knowledge of Ruby and the Asciidoctor API, so all my tweaks to the *HighlightTreeprocessor* extension so far are nothing more than trial and error attempts to hack my way through it.
+
+Lack of support for callouts is a serious limitation which hinders using Highlight in Asciidoctor projects -- or the other way around, hinder using Asciidoctor in project which depend on Highlight.
+I've tried several times to add callouts support to the *HighlightTreeprocessor* extension, but to no avail.
+
+Also, as Dan Allen pointed out to me in
+link:https://github.com/asciidoctor/asciidoctor/issues/2990[Issue #2990^],
+the new Asciidoctor API makes the approach of the *HighlightTreeprocessor* extension somewhat obsolete:
+
+:Issue2990: pass:q[ link:https://github.com/asciidoctor/asciidoctor/issues/2990[Issue #2990^]]
+
+[quote, Dan Allen (@mojavelinux), Issue #2990 at asciidoctor]
+____
+Asciidoctor 2.0 introduces a new API for registering a syntax highlighter adapter. I recommend that you use this for your highlight extension. Here's an example:
+
+https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/syntax_highlighter/coderay.rb
+
+Instead of having to find nodes in a tree processor extension, the adapter gets called by the processor to highlight the relevant nodes, contribution markup to the output, and write a custom stylesheet.
+
+You can find the API docs here:
+
+https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/syntax_highlighter.rb
+____
+
+So, ultimately, any further development in the direction of fully supporting Highlight in Asciidoctor (wether natively or by a third party extension) will need to shift to the new Asciidoctor 2.0 API.
+
+Hopefully, someone with more Ruby competence than me will take on this task, and soon we might see Highlight natively supported by Asciidoctor.
+In the meantime, I haven't given up on this goal, and I'll be trying to learn a bit of Ruby and study the new Asciidoctor API, and see where I can get.
+
+
+== Credits
+
+Due credits and licenses for third party assets used in this directory tree.
+
+=== Asciidoctor Highlight Extensions
+
+* {hl_rb}
+* {hl_mod_rb}
+
+The file `highlight-treeprocessor.rb` was taken from the
+link:https://github.com/asciidoctor/asciidoctor-extensions-lab[*Asciidoctor Extensions Lab*^,title="Visit the Asciidoctor  Extensions Lab project"]
+project (commit `18bdf62`), Copyright (C) 2014-2016
+The Asciidoctor Project, released under MIT License:
+
+................................................................................
+The MIT License
+
+Copyright (C) 2014-2016 The Asciidoctor Project
+................................................................................
+
+The `highlight-treeprocessor_mod.rb` file was adapted by Tristano Ajmone from the original file `highlight-treeprocessor.rb`, also released under MIT License:
+
+................................................................................
+The MIT License
+
+Copyright (C) 2018 Tristano Ajmone.
+Copyright (C) 2014-2016 The Asciidoctor Project
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+................................................................................
+
+
+=== Asciidoctor Haml Templates
+
+* {haml}
+
+The files inside the `/haml/` folder were adapted by Tristano Ajmone from the original
+link:https://github.com/asciidoctor/asciidoctor-backends/tree/master/haml/html5[Haml HTML5 templates^]
+taken from the
+link:https://github.com/asciidoctor/asciidoctor-backends[*Asciidoctor Backends*^,title="Visit the Asciidoctor Backends project"]
+project, Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project, released under MIT License:
+
+................................................................................
+The MIT License
+
+Copyright (C) 2018 Tristano Ajmone.
+Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+................................................................................
+
+
+=== Base16 Color Schemes
+
+The Sass/CSS themes use the following Base16 color schemes:
+
+* _Base16 Eighties_, by link:http://chriskempson.com[Chris Kempson^]
+* _Base16 Brewer_, by link:http://github.com/tpoisot[Timothée Poisot^]
+
+The *Base16* project was created by Chris Kempson:
+
+* http://chriskempson.com/projects/base16/
+
+
+=== Base16 Sass
+
+
+The following Base16 SCSS files:
+
+* link:./sass/_base16-brewer.scss[`./sass/_base16-brewer.scss`]
+
+were taken from the *Base16 Sass* project by Tristano Ajmone:
+
+* https://github.com/tajmone/Base16-Sass
+
+also released under MIT License.
+
+
+................................................................................
+MIT License
+
+Copyright (c) 2019 Tristano Ajmone <tajmone@gmail.com>
+https://github.com/tajmone/Base16-Sass
+
+Copyright (c) 2012 Chris Kempson (http://chriskempson.com)
+https://github.com/chriskempson/base16-builder
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+................................................................................
+
+
+// EOF //

@@ -1,0 +1,33 @@
+// "highlight_mod.scss"                 v1.0.0 | 2019/03/25 | by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *               Custom Highlight CSS Themes for Asciidoctor                 *
+// *                                                                           *
+// *****************************************************************************
+
+// -----------------------------------------------------------------------------
+/* Highlight Default Theme: Base16 Eighties */
+// -----------------------------------------------------------------------------
+// We'll use the default values of the Highlight AsciiDoc template for the
+// default theme. This theme will be used for styling any language that doesn't
+// have a dedicated theme.
+@import 'hl-adoc-template';
+
+// Highlight Marker
+// ----------------
+.listingblock pre[class=highlight] mark {
+    background-color: rgba(#ff0, .6);
+}
+
+
+// -----------------------------------------------------------------------------
+/* Highlight Alan Theme: Base16 Brewer (light) */
+// -----------------------------------------------------------------------------
+@import 'hl-theme_alan';
+
+// -----------------------------------------------------------------------------
+/* Highlight PureBasic Theme: Native PureBasic IDE */
+// -----------------------------------------------------------------------------
+@import 'hl-theme_purebasic';
+
+// EOF //

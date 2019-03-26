@@ -1,0 +1,48 @@
+// "_hl-theme_alan.scss"                v1.0.0 | 2019/03/25 | by Tristano Ajmone
+// -----------------------------------------------------------------------------
+// Syntax highlighting theme for Alan IF code.
+
+$HL-Lang: "alan";
+
+// -----------------------------------------------------------------------------
+// Color Scheme: Base16 Brewer (light)
+// -----------------------------------------------------------------------------
+// by Timothée Poisot (http://github.com/tpoisot)
+
+@import 'base16-brewer';
+
+$HL-LangNameHover:  $base0F;
+
+$HL-Canvas:         $base07;
+$HL-Default:        $base02;
+
+$HL-Border-color:   $base06;
+$HL-LineNum:        $base06;
+
+$HL-Number:         $base09;
+$HL-Escape:         $base09;
+$HL-Interpolation:  $base0F;
+$HL-String:         $base0B;
+$HL-LineComment:    $base03;
+$HL-Operator:       $HL-Default;
+$HL-Keywords1:      $base08;
+$HL-Keywords2:      $base0A;
+$HL-Keywords3:      $base0D;
+
+@import 'hl-adoc-template';
+
+// Highlight Marker
+// ----------------
+// Let's add to the <mark> tag a smeared fluorescent marker effect.
+// Based on a tutorial by Chris Ferdinandi:
+// https://gomakethings.com/highlighting-effect-with-css/
+
+$fluo: #ccff00;
+$fluo-faded: #f5ff87;
+
+.listingblock pre[class=highlight][lang=alan] mark {
+    background-color: #{$fluo};
+    background-image: linear-gradient(to right, #{$fluo} 0%, #{$fluo-faded} 100%);
+}
+
+// EOF //
