@@ -66,8 +66,12 @@ win32 {
     CONFIG += static
     
     LIBS += -LE:\Devel\git\highlight\src -lhighlight
-    LIBS += -LE:\Devel\cpp\lua_bin_5.3.0 -llua
-    #LIBS += -LD:\Devel\cpp\lua_bin_5.3.0_x64 -llua
+
+    contains(QT_ARCH, i386) {
+        LIBS += -LE:\Devel\cpp\lua_bin_5.3.0 -llua
+    } else {
+        LIBS += -LE:\Devel\cpp\lua_bin_5.3.0_x64 -llua
+    }
 
     RC_FILE = highlight-gui.rc
     QMAKE_POST_LINK = $$quote(E:\Devel\upx393w\upx.exe --best E:\Devel\git\highlight\highlight-gui.exe)

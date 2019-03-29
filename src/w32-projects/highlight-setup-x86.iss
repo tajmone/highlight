@@ -5,7 +5,7 @@
 AppName=Highlight Code Converter
 
 AppVerName=Highlight
-OutputBaseFilename=highlight-setup-3.50
+OutputBaseFilename=highlight-setup-3.50-x64
 
 AppPublisher=André Simon
 AppPublisherURL=http://www.andre-simon.de
@@ -18,13 +18,14 @@ InfoAfterFile=..\..\README.adoc
 Compression=lzma2/ultra 
 SolidCompression=yes
 PrivilegesRequired=none
+ArchitecturesInstallIn64BitMode=x64
 
 [Tasks]
 Name: "desktopicon"; Description: "Create a &desktop icon"; GroupDescription: "Additional icons:"
 
 [Files]
 Source: "..\..\highlight-gui.exe"; DestDir: "{app}";  Flags: ignoreversion
-Source: "dlls\*.dll"; DestDir: "{app}";  Flags: ignoreversion
+Source: "dlls\x64\*.dll"; DestDir: "{app}";  Flags: ignoreversion
 Source: "hl_icon_exe.ico"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\langDefs\*.lang"; DestDir: "{app}\langDefs\";  Flags: ignoreversion sortfilesbyextension
 Source: "..\..\themes\*.theme"; DestDir: "{app}\themes\";  Flags: ignoreversion sortfilesbyextension
@@ -36,6 +37,7 @@ Source: "..\..\COPYING"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\filetypes.conf"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\gui_files\l10n\*.qm"; DestDir: "{app}\gui_files\l10n\";  Flags: ignoreversion sortfilesbyextension
 Source: "..\..\gui_files\ext\*.*"; DestDir: "{app}\gui_files\ext\";  Flags: ignoreversion
+
 Source: "..\..\plugins\*.lua";  DestDir: "{app}\plugins\";  Flags: ignoreversion;
 
 Source: "..\..\extras\*.py";  DestDir: "{app}\extras\";  Flags: ignoreversion; Components: sourcecode;
@@ -53,6 +55,7 @@ Source: "..\..\extras\web_plugins\movabletype\*.*";  DestDir: "{app}\extras\plug
 Source: "..\..\extras\web_plugins\wordpress\*.*";  DestDir: "{app}\extras\plugins\wordpress";  Flags: ignoreversion; Components: sourcecode;
 Source: "..\..\extras\web_plugins\serendipity_event_highlight\*.*";  DestDir: "{app}\extras\plugins\serendipity_event_highlight";  Flags: ignoreversion;  Components: sourcecode;
 
+
 Source: "..\..\highlight.exe";   DestDir: "{app}";  Flags: ignoreversion; Components: cli;
 Source: "..\..\man\*.*";  DestDir: "{app}\man\";  Flags: ignoreversion; Components: cli;
 
@@ -68,9 +71,6 @@ Source: "..\cli\*.*";  Excludes: "*.o"; DestDir: "{app}\src\cli\";  Flags: ignor
 Source: "..\w32-projects\*.iss";   DestDir: "{app}\projectfiles\";  Flags: ignoreversion; Components: sourcecode;
 Source: "..\w32-projects\highlight_cli\*.pro";   DestDir: "{app}\projectfiles\highlight_cli\";  Flags: ignoreversion; Components: sourcecode;
 Source: "..\w32-projects\highlight_lib\*.pro";   DestDir: "{app}\projectfiles\highlight_lib\";  Flags: ignoreversion; Components: sourcecode;
-;Source: "..\w32-projects\highlight_gui\*.*"; Excludes: "*.o,*.Release,*.Debug,ui_*,*.user,*.qm,Makefile"; DestDir: "{app}\projectfiles\highlight_gui\";  Flags: ignoreversion; Components: sourcecode;
-
-
 
 [Dirs]
 Name: "{userappdata}\Highlight"; Attribs: hidden
