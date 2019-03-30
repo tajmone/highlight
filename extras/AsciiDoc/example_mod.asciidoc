@@ -1,6 +1,11 @@
 = Modded HighlightTreeprocessor Example
 Tristano Ajmone <tajmone@gmail.com>
-v1, 2019-03-25
+include::README.asciidoc[tag=mod_revinfo]
+:revnumber: {modVer}
+:revdate: {modDate}
+:version-label: mod
+:revremark: Last edited: 2019-03-30
+//
 :toclevels: 5
 :toc: left
 :experimental: true
@@ -14,13 +19,14 @@ v1, 2019-03-25
 :source-highlighter: highlight
 :docinfo: shared
 
+
 A demonstration of the modded *HighlightTreeprocessor* extension with some usage instructions.
 
 Associated files:
 
 * link:./docinfo.html[`docinfo.html`]
 * link:./haml/block_listing.html.haml[`/haml/block_listing.html.haml`]
-* link:./highlight-treeprocessor.rb[`highlight-treeprocessor_mod.rb`]
+* link:./highlight-treeprocessor.rb[`highlight-treeprocessor_mod.rb`] {modVer}
 * link:./highlight_mod.css[`highlight_mod.css`]
 
 
@@ -186,5 +192,16 @@ whereas by default Asciidoctor will only emit the `lang` attribute on the `<code
 -----------------------------------
 
 In the link:./sass[`/sass/`] folder you'll find the commented SCSS sources used by this document, and a useful Sass template for quickly generating Highlight themes targetting specific syntaxes.
+
+
+=== Custom LangDefs
+
+If you'd like to make available to Highlight some custom langDefs, or override the native language definitions of Highlight with your same-named customized versions, you only need to set the `HIGHLIGHT_DATADIR` environment variable to point to your custom Hihglight settings folder before invoking Asciidoctor.
+
+The modded extension will check if the `HIGHLIGHT_DATADIR` environment variable is set, and if it is it will enforce it by invoking Highlight with the `--data-dir=<HIGHLIGHT_DATADIR>` option so that it gets the highest override priority.
+
+This ensures that custom langDefs inside `HIGHLIGHT_DATADIR` will always override the predefined ones of Highlight installation folder, even on Windows where the path of the `HIGHLIGHT_DATADIR` environment variable would be searched _after_ Highlight installation folder (unlike on Linux and Mac).
+
+
 
 // EOF //
