@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "highlight-langs2adoc.sh" v1.0.0 | 2019/01/13 | by Tristano Ajmone | MIT License
+# "highlight-langs2adoc.sh" v1.1.0 2019/03/30 | by Tristano Ajmone | MIT License
 # ******************************************************************************
 # *                                                                            *
 # *                    Highlight Languages 2 AsciiDoc Page                     *
@@ -83,7 +83,7 @@ See the {README} for other user defined locations.
 
 # Languages List
 
-Packaged language definitions, obtained via \`highlight --list-langs\`
+Packaged language definitions, obtained via \`highlight --list-scripts=langs\`
 
 [cols="<4d,<1m,<5m"]
 |==========================================
@@ -93,7 +93,7 @@ EOF
 # =====================================
 # Write Document Chunk #2 -- Langs List
 # =====================================
-highlight --list-langs |\
+highlight --list-scripts=langs |\
     grep -x -E '^(.*?)( *: )(.*?)$' |\
     sed -E 's/^(.*?): *(\w+)(( +\()(.*?)( +\)))?/| \1 | link:.\/langDefs\/\2.lang[`\2.lang`,title="View source file"] | \5/g' |\
     sort -\
