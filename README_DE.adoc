@@ -906,8 +906,8 @@ damit diese im GUI-Dateiauswahldialog als Filter angezeigt werden.
 Konfigurationsskripte werden in folgenden Verzeichnissen gesucht:
 
 1. `~/.highlight/`
-2. Wert der Umgebungsvariablen `HIGHLIGHT_DATADIR`
-3. benutzerdefiniertes Verz., definiert mit `--data-dir` (deprecated)
+2. benutzerdefiniertes Verz., definiert mit `--data-dir`
+3. Wert der Umgebungsvariablen `HIGHLIGHT_DATADIR`
 4. `/usr/share/highlight/`
 5. `/etc/highlight/` (Pfad von `filetypes.conf`)
 6. aktuelles Arbeitsverzeichnis (Fallback)
@@ -920,8 +920,6 @@ enthalten:
 * plugins: `*.lua`
 
 Eine eigene `filetypes.conf` kann direkt in in `~/.highlight/` gespeichert werden.
-Diese Suchreihenfolge vereinfacht die Erweiterung und Anpassung bestehender
-Skripte, ohne vorinstallierte Dateien umkopieren zu muessen.
 
 Stelle die Suchpfade mit `--print-config` fest::
 +

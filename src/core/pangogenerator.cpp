@@ -1,5 +1,5 @@
 /***************************************************************************
- PangoGenerator.cpp  -  description
+                   PangoGenerator.cpp  -  description
                              -------------------
     begin                : Sept 5 2014
     copyright            : (C) 2014 by Dominik Schmidt

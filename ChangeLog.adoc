@@ -7,6 +7,8 @@
 :toclevels: 1
 
 
+  - SVG output: added `white-space: pre` in styles
+
 == highlight 3.50
 
 22.03.2019

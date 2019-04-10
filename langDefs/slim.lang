@@ -3,6 +3,8 @@
 
 Description="Slim (experimental)"
 
+Categories = {"template"}
+
 Keywords={
 
     {   Id=1,

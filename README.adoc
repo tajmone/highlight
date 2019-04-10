@@ -895,8 +895,8 @@ the GUI's file open filter.
 Configuration scripts are searched in the following directories:
 
 1. `~/.highlight/`
-2. value of the environment variable `HIGHLIGHT_DATADIR`
-3. user defined directory set with `--data-dir` (deprecated option)
+2. user defined directory set with `--data-dir`
+3. value of the environment variable `HIGHLIGHT_DATADIR`
 4. `/usr/share/highlight/`
 5. `/etc/highlight/` (default location of `filetypes.conf`)
 6. current working directory (fallback)

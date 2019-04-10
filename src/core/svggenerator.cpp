@@ -1,5 +1,5 @@
 /***************************************************************************
-                          xmlcode.cpp  -  description
+                     svggenerator.cpp  -  description
                              -------------------
     begin                : Mo 23.06.2008
     copyright            : (C) 2008-2016 by Andre Simon
@@ -81,7 +81,7 @@ string SVGGenerator::getStyleDefinition()
            << ( docStyle.getBgColour().getBlue ( SVG ) )
            << "; } \n";
         os << "g { font-size: " << getBaseFontSize();
-        os << "; font-family: " << getBaseFont() << "; }\n";
+        os << "; font-family: " << getBaseFont() << "; white-space: pre;}\n";
         os << getAttributes ( "text", docStyle.getDefaultStyle() )
            << getAttributes ( "tspan."+STY_NAME_NUM, docStyle.getNumberStyle() )
            << getAttributes ( "tspan."+STY_NAME_ESC, docStyle.getEscapeCharStyle() )
