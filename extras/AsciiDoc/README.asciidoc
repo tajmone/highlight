@@ -1,6 +1,10 @@
 = Highlight Support for Asciidoctor
 Tristano Ajmone <tajmone@gmail.com>
 v1, 2019-03-25
+// tag::mod_revinfo[]
+:modVer: v1.3.0
+:modDate: 2019-03-30
+// end::mod_revinfo[]
 :lang: en
 // TOC Settings:
 :toclevels: 5
@@ -65,6 +69,9 @@ endif::[]
 // *****************************************************************************
 
 Asciidoctor extensions to support syntax highlighting via Highlight in the HTML backend.
+
+* `highlight-treeprocessor.rb`
+* `highlight-treeprocessor_mod.rb` {modVer} ({modDate})
 
 // >>> GitLab/GitHub hacks to ensure TOC is shown after Preamble: >>>>>>>>>>>>>>
 ifndef::backend-html5[]
@@ -180,9 +187,15 @@ in the code block.
 
 .Code with substitutions
 ================================================================================
-
 include::example_mod.asciidoc[tag=example_alan_substitutions]
 ================================================================================
+
+=== `HIGHLIGHT_DATADIR` Enforcement
+
+Another extra (optional) feature of the modded extension is that, if the `HIGHLIGHT_DATADIR` environment variable is set, it will enforce it by invoking Highlight with the `--data-dir=<HIGHLIGHT_DATADIR>` option so that it gets the highest override priority.
+
+This ensures that custom langDefs inside `HIGHLIGHT_DATADIR` will always override the predefined ones, even on Windows where the path of the `HIGHLIGHT_DATADIR` env var would be searched _after_ Highlight installation folder (unlike on Linux and Mac).
+
 
 
 == Missing Features

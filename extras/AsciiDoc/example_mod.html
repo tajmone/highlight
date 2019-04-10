@@ -439,8 +439,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email"><a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a></span><br>
-<span id="revnumber">version 1,</span>
-<span id="revdate">2019-03-25</span>
+<span id="revnumber">mod v1.3.0,</span>
+<span id="revdate">2019-03-30</span>
+<br><span id="revremark">Last edited: 2019-03-30</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -455,6 +456,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_usage_instructions">Usage Instructions</a>
 <ul class="sectlevel2">
 <li><a href="#_custom_css_stylesheets">Custom CSS Stylesheets</a></li>
+<li><a href="#_custom_langdefs">Custom LangDefs</a></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="./haml/block_listing.html.haml"><code>/haml/block_listing.html.haml</code></a></p>
 </li>
 <li>
-<p><a href="./highlight-treeprocessor.rb"><code>highlight-treeprocessor_mod.rb</code></a></p>
+<p><a href="./highlight-treeprocessor.rb"><code>highlight-treeprocessor_mod.rb</code></a> v1.3.0</p>
 </li>
 <li>
 <p><a href="./highlight_mod.css"><code>highlight_mod.css</code></a></p>
@@ -648,12 +650,24 @@ You may do so via the command line, using the <code>-a</code> (<code>--attribute
 <p>In the <a href="./sass"><code>/sass/</code></a> folder you&#8217;ll find the commented SCSS sources used by this document, and a useful Sass template for quickly generating Highlight themes targetting specific syntaxes.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_custom_langdefs"><a class="anchor" href="#_custom_langdefs"></a>Custom LangDefs</h3>
+<div class="paragraph">
+<p>If you&#8217;d like to make available to Highlight some custom langDefs, or override the native language definitions of Highlight with your same-named customized versions, you only need to set the <code>HIGHLIGHT_DATADIR</code> environment variable to point to your custom Hihglight settings folder before invoking Asciidoctor.</p>
+</div>
+<div class="paragraph">
+<p>The modded extension will check if the <code>HIGHLIGHT_DATADIR</code> environment variable is set, and if it is it will enforce it by invoking Highlight with the <code>--data-dir=&lt;HIGHLIGHT_DATADIR&gt;</code> option so that it gets the highest override priority.</p>
+</div>
+<div class="paragraph">
+<p>This ensures that custom langDefs inside <code>HIGHLIGHT_DATADIR</code> will always override the predefined ones of Highlight installation folder, even on Windows where the path of the <code>HIGHLIGHT_DATADIR</code> environment variable would be searched <em>after</em> Highlight installation folder (unlike on Linux and Mac).</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1<br>
+mod v1.3.0<br>
 </div>
 </div>
 </body>

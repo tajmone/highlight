@@ -451,6 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_custom_css_and_multiple_themes">Custom CSS and Multiple Themes</a></li>
 <li><a href="#_substitutions">Substitutions</a></li>
+<li><a href="#_highlight_datadir_enforcement"><code>HIGHLIGHT_DATADIR</code> Enforcement</a></li>
 </ul>
 </li>
 <li><a href="#_missing_features">Missing Features</a>
@@ -476,6 +477,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Asciidoctor extensions to support syntax highlighting via Highlight in the HTML backend.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>highlight-treeprocessor.rb</code></p>
+</li>
+<li>
+<p><code>highlight-treeprocessor_mod.rb</code> v1.3.0 (2019-03-30)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -674,6 +685,15 @@ End the.
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_highlight_datadir_enforcement"><a class="anchor" href="#_highlight_datadir_enforcement"></a><code>HIGHLIGHT_DATADIR</code> Enforcement</h3>
+<div class="paragraph">
+<p>Another extra (optional) feature of the modded extension is that, if the <code>HIGHLIGHT_DATADIR</code> environment variable is set, it will enforce it by invoking Highlight with the <code>--data-dir=&lt;HIGHLIGHT_DATADIR&gt;</code> option so that it gets the highest override priority.</p>
+</div>
+<div class="paragraph">
+<p>This ensures that custom langDefs inside <code>HIGHLIGHT_DATADIR</code> will always override the predefined ones, even on Windows where the path of the <code>HIGHLIGHT_DATADIR</code> env var would be searched <em>after</em> Highlight installation folder (unlike on Linux and Mac).</p>
 </div>
 </div>
 </div>
