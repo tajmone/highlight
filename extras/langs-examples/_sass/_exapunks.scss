@@ -1,0 +1,70 @@
+//  v1.2.0 (2019/04/13) by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                          EXAPUNKS Syntax Theme                            *
+// *                                                                           *
+// *****************************************************************************
+// We'll just tweak a few colors of the default theme.
+
+$EXA-Instructions:          $Eighties-08; // Red
+$EXA-Comments:              $Eighties-03; // Dark Grey
+$EXA-Macros:                $Eighties-04; // Grey
+$EXA-Labels:                $Eighties-0B; // Green
+$EXA-Numbers:               $Eighties-0A; // Yellow
+
+$EXA-Registers:             $Eighties-0D; // Blue
+$EXA-HardwareRegisters:     $Eighties-0E; // Purple
+$EXA-Operators:             $Eighties-05; // Light Grey
+
+// -----------------------------------------------------------------------------
+/* Highlight Theme for EXAPUNKS */
+// -----------------------------------------------------------------------------
+
+.listingblock pre[class=highlight][lang=exapunks] {
+    &>code {
+        font-size: 14px;
+    }
+    .hl {
+        &.num {
+            // Numbers
+            color: $EXA-Numbers;
+        }
+        &.slc {
+            // Single-line comments
+            color: $EXA-Comments;
+            font-style: italic;
+        }
+        &.opt {
+            // Operators
+            color: $EXA-Operators;
+        }
+        // ---------------------
+        //    Keywords Groups
+        // ---------------------
+        &.kwa, &.kwb, &.kwc, &.kwd, &.kwe {
+            font-weight: bold;
+        }   
+        &.kwa {
+            // EXA Instructions
+            color: $EXA-Instructions;
+        }
+        &.kwb {
+            // EXA Registers
+            color: $EXA-Registers;
+        }
+        &.kwc {
+            // Hardware Registers
+            color: $EXA-HardwareRegisters;
+        }
+        &.kwd {
+            // Labels
+            color: $EXA-Labels;
+        }
+        &.kwe{
+            // Macros
+            color: $EXA-Macros;
+        }
+    }
+}
+
+// EOF //

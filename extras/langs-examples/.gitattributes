@@ -19,21 +19,24 @@
 # ------------------------------------------------------------------------------
 
 # Alan
-*.alan    text
+*.alan      text
+
+# EXAPUNKS
+*.exapunks  text
 
 # PureBasic
-*.pb      text
+*.pb        text
 
 # Win Resource Files
 # ------------------
-*.rc      text eol=crlf
+*.rc        text eol=crlf
 
 # Shell scripts
 # -------------
-*.bat     text eol=crlf
-*.com     text eol=crlf
-*.sh      text eol=lf
-*.ps1     text eol=crlf
+*.bat       text eol=crlf
+*.com       text eol=crlf
+*.sh        text eol=lf
+*.ps1       text eol=crlf
 
 # ==============================================================================
 #                                GitHub Linguist
@@ -45,7 +48,7 @@
 # ==========================
 # Set all examples files in this folder as vendored, so they are exlcuded from
 # the repository statistics and don't inflate them:
-/ex-src/  linguist-vendored
+/ex-src/    linguist-vendored
 
 # ================
 # Syntax Overrides

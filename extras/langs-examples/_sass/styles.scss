@@ -1,4 +1,4 @@
-//  v1.0.0 (2018-10-05) by Tristano Ajmone
+//  v1.2.0 (2019/04/13) by Tristano Ajmone
 // *****************************************************************************
 // *                                                                           *
 // *                    Stylesheets for Highlight Examples                     *
@@ -9,12 +9,7 @@
 // Mixins and Helpers
 // ==================
 @import 'helpers';
-
-// ==============
-// Fonts Settings
-// ==============
 @import 'fonts';
-@import 'fonts-ligatures';
 
 
 // ==========================
@@ -31,8 +26,14 @@
 // Custom Syntax Themes
 // ====================
 @import 'purebasic'; // PureBasic's native IDE Color scheme
+@import 'exapunks';  // HEXAPUNKS: EXA Virtual Machine Assembly
 
-
+// ===============
+// Fonts Ligatures
+// ===============
+// This file enforces ligatures on a per-language basis, overriding the font
+// specified in the theme. (for ligatures, the FiraCode font is used)
+@import 'fonts-ligatures';
 
 // EOF //
 

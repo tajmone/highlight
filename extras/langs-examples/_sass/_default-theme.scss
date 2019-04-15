@@ -1,4 +1,4 @@
-//  v1.1.0 (2018/12/24) by Tristano Ajmone
+//  v1.2.0 (2019/04/13) by Tristano Ajmone
 // *****************************************************************************
 // *                                                                           *
 // *                         Highlight Default Theme                           *
@@ -39,23 +39,15 @@ $HL-Keywords6:          $Eighties-0F; // Raw Sienna ( brownish )
     // Color of language name (shown when hovering)
     color: $Eighties-04;
 }
-.listingblock pre[class="highlight"] {
-    background-color: $HL-CanvasBG;
+.listingblock pre[class="highlight"][lang] {
+    background: $HL-CanvasBG;
     &>code {
         color: $HL-Default;
-        // font-family: $FiraCode;
         font-family: $Consolas;
-        // font-size: 16px;
-        // letter-spacing: 0.0625em; // 16 * 0.0625 = 1px
     }
     // Border and padding
     border-radius: 4px;
     border: 1px solid $HL-Border;
-    padding: 1em;
-    
-    // Some basic styling, just in case you need it...
-    overflow: auto;
-
     .hl {
         color: $HL-Default;
 

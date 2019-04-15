@@ -1,6 +1,6 @@
 = Highlight Examples
 Tristano Ajmone <tajmone@gmail.com>
-v1.0.1, 2018-12-24
+v1.0.2, 2019-04-13
 :lang: en
 :toc: left
 :toclevels: 1
@@ -36,6 +36,17 @@ include::{examples-dir}alan.alan[]
 [horizontal]
 language:  :: link:https://www.alanif.se/[Alan IF 3^]
 langDef:   :: link:{langDefs}alan.lang[`alan.lang`^] by {tajmone}
+
+== EXAPUNKS
+
+[source,exapunks]
+------------------
+include::{examples-dir}EXAPUNKS.exapunks[]
+------------------
+
+[horizontal]
+language:  :: link:http://www.zachtronics.com/exapunks/[EXAPUNKS^]
+langDef:   :: link:{langDefs}exapunks.lang[`exapunks.lang`^] by {tajmone}
 
 == PureBasic
 
