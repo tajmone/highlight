@@ -77,9 +77,8 @@ Extensions.register do
         end
 
         # This ensures that custom langDefs will always override the predefined
-        # ones, even on Windows where the path of the HIGHLIGHT_DATADIR env var
-        # would be searched after Highlight installation folder (unlike on Linux
-        # and Mac).
+        # ones, whereas usually the the path of the HIGHLIGHT_DATADIR env var
+        # would be searched after Highlight installation folder.
         #-----------------------------------------------------------------------
 
         lang = src.attr 'language', 'text', false
@@ -113,8 +112,7 @@ v1.3.0 (2019/03/30)
         --data-dir=<HIGHLIGHT_DATADIR>
 
     This ensures that custom langDefs will always override same-named files in
-    Highlight installation folder, even under Windows (where HIGHLIGHT_DATADIR
-    has a lower search priority).
+    Highlight installation folder.
 
 v1.2.0 (2019/03/24)
   Fixes the problems introduced in v1.1.0:

@@ -4,7 +4,7 @@ include::README.asciidoc[tag=mod_revinfo]
 :revnumber: {modVer}
 :revdate: {modDate}
 :version-label: mod
-:revremark: Last edited: 2019-03-30
+:revremark: Last edited: 2019-03-12
 //
 :toclevels: 5
 :toc: left
@@ -200,8 +200,9 @@ If you'd like to make available to Highlight some custom langDefs, or override t
 
 The modded extension will check if the `HIGHLIGHT_DATADIR` environment variable is set, and if it is it will enforce it by invoking Highlight with the `--data-dir=<HIGHLIGHT_DATADIR>` option so that it gets the highest override priority.
 
-This ensures that custom langDefs inside `HIGHLIGHT_DATADIR` will always override the predefined ones of Highlight installation folder, even on Windows where the path of the `HIGHLIGHT_DATADIR` environment variable would be searched _after_ Highlight installation folder (unlike on Linux and Mac).
+This ensures that custom langDefs inside `HIGHLIGHT_DATADIR` will always override the predefined ones, whereas ordinarily the path of the `HIGHLIGHT_DATADIR` env var would be searched _after_ Highlight installation folder.
 
+Since it's not possible to control the `--data-dir` option from within AsciiDoc documents, this hardcoded workaround is a convenient solution for projects which need to override Highlight default configurations.
 
 
 // EOF //

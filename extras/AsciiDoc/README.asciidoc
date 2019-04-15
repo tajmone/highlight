@@ -1,6 +1,6 @@
 = Highlight Support for Asciidoctor
 Tristano Ajmone <tajmone@gmail.com>
-v1, 2019-03-25
+v1, 2019-04-12
 // tag::mod_revinfo[]
 :modVer: v1.3.0
 :modDate: 2019-03-30
@@ -194,8 +194,9 @@ include::example_mod.asciidoc[tag=example_alan_substitutions]
 
 Another extra (optional) feature of the modded extension is that, if the `HIGHLIGHT_DATADIR` environment variable is set, it will enforce it by invoking Highlight with the `--data-dir=<HIGHLIGHT_DATADIR>` option so that it gets the highest override priority.
 
-This ensures that custom langDefs inside `HIGHLIGHT_DATADIR` will always override the predefined ones, even on Windows where the path of the `HIGHLIGHT_DATADIR` env var would be searched _after_ Highlight installation folder (unlike on Linux and Mac).
+This ensures that custom langDefs inside `HIGHLIGHT_DATADIR` will always override the predefined ones, whereas ordinarily the path of the `HIGHLIGHT_DATADIR` env var would be searched _after_ Highlight installation folder.
 
+Since it's not possible to control the `--data-dir` option from within AsciiDoc documents, this hardcoded workaround is a convenient solution for projects which need to override Highlight default configurations.
 
 
 == Missing Features
