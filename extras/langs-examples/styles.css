@@ -6,80 +6,74 @@
   font-weight: 400;
   font-style: normal;
 }
-.listingblock pre[class=highlight][lang=alan] > code {
-  font-family: "Fira Code", Monaco, "Courier New", Courier, monospace;
-}
-
 /* Highlight Default Theme */
 .listingblock code[data-lang]::before {
   color: #A09F93;
 }
 
-.listingblock pre[class=highlight] {
-  background-color: #2D2D2D;
+.listingblock pre[class=highlight][lang] {
+  background: #2D2D2D;
   border-radius: 4px;
   border: 1px solid #A09F93;
-  padding: 1em;
-  overflow: auto;
 }
-.listingblock pre[class=highlight] > code {
+.listingblock pre[class=highlight][lang] > code {
   color: #D3D0C8;
   font-family: Consolas, Monaco, "Courier New", Courier, monospace;
 }
-.listingblock pre[class=highlight] .hl {
+.listingblock pre[class=highlight][lang] .hl {
   color: #D3D0C8;
 }
-.listingblock pre[class=highlight] .hl.num {
+.listingblock pre[class=highlight][lang] .hl.num {
   color: #F99157;
 }
-.listingblock pre[class=highlight] .hl.esc {
+.listingblock pre[class=highlight][lang] .hl.esc {
   color: #F99157;
 }
-.listingblock pre[class=highlight] .hl.ipl {
+.listingblock pre[class=highlight][lang] .hl.ipl {
   color: #D27B53;
 }
-.listingblock pre[class=highlight] .hl.str {
+.listingblock pre[class=highlight][lang] .hl.str {
   color: #99CC99;
 }
-.listingblock pre[class=highlight] .hl.ppc {
+.listingblock pre[class=highlight][lang] .hl.ppc {
   color: #CC99CC;
 }
-.listingblock pre[class=highlight] .hl.pps {
+.listingblock pre[class=highlight][lang] .hl.pps {
   color: #66CCCC;
 }
-.listingblock pre[class=highlight] .hl.com {
+.listingblock pre[class=highlight][lang] .hl.com {
   color: #A09F93;
   font-style: italic;
 }
-.listingblock pre[class=highlight] .hl.slc {
+.listingblock pre[class=highlight][lang] .hl.slc {
   color: #A09F93;
   font-style: italic;
 }
-.listingblock pre[class=highlight] .hl.lin {
+.listingblock pre[class=highlight][lang] .hl.lin {
   color: #747369;
 }
-.listingblock pre[class=highlight] .hl.opt {
+.listingblock pre[class=highlight][lang] .hl.opt {
   color: #D3D0C8;
 }
-.listingblock pre[class=highlight] .hl.kwa, .listingblock pre[class=highlight] .hl.kwb, .listingblock pre[class=highlight] .hl.kwc, .listingblock pre[class=highlight] .hl.kwd, .listingblock pre[class=highlight] .hl.kwe, .listingblock pre[class=highlight] .hl.kwf {
+.listingblock pre[class=highlight][lang] .hl.kwa, .listingblock pre[class=highlight][lang] .hl.kwb, .listingblock pre[class=highlight][lang] .hl.kwc, .listingblock pre[class=highlight][lang] .hl.kwd, .listingblock pre[class=highlight][lang] .hl.kwe, .listingblock pre[class=highlight][lang] .hl.kwf {
   font-weight: bold;
 }
-.listingblock pre[class=highlight] .hl.kwa {
+.listingblock pre[class=highlight][lang] .hl.kwa {
   color: #F2777A;
 }
-.listingblock pre[class=highlight] .hl.kwb {
+.listingblock pre[class=highlight][lang] .hl.kwb {
   color: #FFCC66;
 }
-.listingblock pre[class=highlight] .hl.kwc {
+.listingblock pre[class=highlight][lang] .hl.kwc {
   color: #6699CC;
 }
-.listingblock pre[class=highlight] .hl.kwd {
+.listingblock pre[class=highlight][lang] .hl.kwd {
   color: #CC99CC;
 }
-.listingblock pre[class=highlight] .hl.kwde {
+.listingblock pre[class=highlight][lang] .hl.kwde {
   color: #66CCCC;
 }
-.listingblock pre[class=highlight] .hl.kwf {
+.listingblock pre[class=highlight][lang] .hl.kwf {
   color: #D27B53;
 }
 
@@ -118,6 +112,43 @@
 }
 .listingblock pre[class=highlight][lang=purebasic] .hl.kwc {
   color: #006666;
+}
+
+/* Highlight Theme for EXAPUNKS */
+.listingblock pre[class=highlight][lang=exapunks] > code {
+  font-size: 14px;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.num {
+  color: #FFCC66;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.slc {
+  color: #747369;
+  font-style: italic;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.opt {
+  color: #D3D0C8;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.kwa, .listingblock pre[class=highlight][lang=exapunks] .hl.kwb, .listingblock pre[class=highlight][lang=exapunks] .hl.kwc, .listingblock pre[class=highlight][lang=exapunks] .hl.kwd, .listingblock pre[class=highlight][lang=exapunks] .hl.kwe {
+  font-weight: bold;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.kwa {
+  color: #F2777A;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.kwb {
+  color: #6699CC;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.kwc {
+  color: #CC99CC;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.kwd {
+  color: #99CC99;
+}
+.listingblock pre[class=highlight][lang=exapunks] .hl.kwe {
+  color: #A09F93;
+}
+
+.listingblock pre[class=highlight][lang=alan] > code {
+  font-family: "Fira Code", Monaco, "Courier New", Courier, monospace;
 }
 
 /*# sourceMappingURL=styles.css.map */
