@@ -59,3 +59,14 @@ Keywords = {{
   ------------------------------------------------------------------------------
     Regex = [=[ (?i)(@(rep|end|\{)|,|})  ]=], -- '@REP'  '@END' '@{' ',' '}'
     Group = 1 }}
+    
+    
+function OnStateChange(oldState, newState, token, kwGroupID, lineno, column)
+  if newState==HL_KEYWORD and kwGroupID==4 then
+    -- Add the Label found after MARK to the list of Labels:
+    AddKeyword(token:lower(), 1)
+  end
+  return newState
+end
+
+

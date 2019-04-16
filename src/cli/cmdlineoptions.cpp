@@ -118,7 +118,7 @@ const Arg_parser::Option options[] = {
         { S_OPT_PRETTY_SYMBOLS,   OPT_PRETTY_SYMBOLS,  Arg_parser::no },
         { S_OPT_EOL_DELIM_CR,     OPT_EOL_DELIM_CR,    Arg_parser::no },
         { S_OPT_PRINT_STYLE,      OPT_PRINT_STYLE,     Arg_parser::no },
-        { S_OPT_BASE16,           OPT_BASE16,          Arg_parser::no },
+        { S_OPT_BASE16,           OPT_BASE16,          Arg_parser::maybe },
         { S_OPT_NO_TRAILING_NL,   OPT_NO_TRAILING_NL,  Arg_parser::no },
         { S_OPT_KEEP_INJECTIONS,  OPT_KEEP_INJECTIONS, Arg_parser::no },
         { S_OPT_FORCE_STDOUT,     OPT_FORCE_STDOUT,    Arg_parser::no },
@@ -162,7 +162,6 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_verbose ( false ),
     opt_print_config ( false ),
     opt_linenumbers ( false ),
-    opt_style ( false ),
     opt_batch_mode ( false ),
     opt_fragment ( false ) ,
     opt_attach_line_anchors ( false ),
@@ -396,7 +395,6 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case 's':
             styleName = arg;
-            opt_style = true;
             break;
         case 'S':
         case S_OPT_COMPAT_SRCLANG:
@@ -511,6 +509,8 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case S_OPT_BASE16:
             opt_base16_theme = true;
+            if (!arg.empty())
+                styleName = arg;
             break;
         case S_OPT_NO_TRAILING_NL:
             opt_no_trailing_nl = true;
@@ -543,7 +543,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         }
         case S_OPT_LIST_SCRIPTS:
-            listScriptCat=arg;
+            listScriptType=arg;
             break;
         case S_OPT_CANVAS:
             canvasPaddingWidth=80;
@@ -553,7 +553,8 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
             
         case S_OPT_CATEGORIES:
-            categories=arg;
+            listScriptCategory=arg;
+            if (listScriptType.empty()) listScriptType = "langs";
             break;
         case S_OPT_PIPED_FNAME:
             redirectedFilename=arg;
@@ -677,12 +678,21 @@ bool CmdLineOptions::printLineNumbers() const
 
 string CmdLineOptions::getThemeName() const
 {
-    return ( ( opt_style ) ? styleName+".theme" : (outputType==highlight::ESC_XTERM256 || outputType==highlight::ESC_TRUECOLOR)?"edit-vim-dark.theme":"edit-kwrite.theme" );
+    if (!styleName.empty())
+        return styleName+".theme";
+    
+    bool isEscOutput = outputType==highlight::ESC_XTERM256 || outputType==highlight::ESC_TRUECOLOR;
+    if (opt_base16_theme)
+        return isEscOutput ? "harmonic-dark.theme" : "harmonic-light.theme";
+    
+    return isEscOutput ? "edit-vim-dark.theme" : "edit-kwrite.theme";
 }
+
 bool CmdLineOptions::enableBatchMode() const
 {
     return inputFileNames.size() >1 || opt_batch_mode;
 }
+
 bool CmdLineOptions::fragmentOutput() const
 {
     return opt_fragment;
@@ -968,7 +978,7 @@ int CmdLineOptions::getLineRangeEnd()
 }
 
 const string& CmdLineOptions::getCategories() const {
-    return categories;
+    return listScriptCategory;
 }
 
 const string& CmdLineOptions::getHelpTopic() const {
@@ -980,5 +990,5 @@ const string& CmdLineOptions::getSyntaxByFilename() const {
 }
 
 const string& CmdLineOptions::getListScriptKind() const{
-    return listScriptCat;
+    return listScriptType;
 }

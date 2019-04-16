@@ -354,7 +354,7 @@ public:
     /** \return parameter passed to plugin */
     const string& getPluginParameter() const ;
 
-    /** \return categories sepatated by X to filter scripts in --list-scripts */
+    /** \return category to filter scripts of --list-scripts */
     const string& getCategories() const ;
 
     /** \return optional help topic */
@@ -441,7 +441,6 @@ private:
     bool opt_verbose;
     bool opt_print_config;
     bool opt_linenumbers;
-    bool opt_style;
     bool opt_batch_mode;
     bool opt_fragment;
     bool opt_attach_line_anchors;
@@ -476,7 +475,7 @@ private:
     string helpLang, encodingName;
 
     string pluginPath, pluginParameter, 
-           categories, helpTopic, redirectedFilename, listScriptCat;
+           listScriptCategory, helpTopic, redirectedFilename, listScriptType;
 
     /** list of all input file names */
     vector <string> inputFileNames;

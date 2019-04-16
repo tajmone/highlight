@@ -193,7 +193,7 @@ void printHelp(const std::string &topic)
         cout<<"     --wrap-no-numbers          omit line numbers of wrapped lines\n";
         cout<<"                                  (assumes -l)\n";
         cout<<" -z, --zeroes                   pad line numbers with 0's\n";
-        cout<<"     --base16                   use a theme of the Base16 collection\n";
+        cout<<"     --base16[=theme]           use a theme of the Base16 collection\n";
         cout<<"     --delim-cr                 set CR as end-of-line delimiter (MacOS 9)\n";
         cout<<"     --keep-injections          output plug-in injections in spite of -f\n";
         cout<<"     --kw-case=<case>           change case of case insensitive keywords\n";

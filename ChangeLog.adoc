@@ -6,9 +6,16 @@
 :toc: left
 :toclevels: 1
 
+  
+== highlight 3.51
+
+xx.04.2019
 
   - SVG output: added `white-space: pre` in styles
-
+  - CLI: fixed --list-cat without --list-scripts (https://gitlab.com/saalen/highlight/issues/107)
+  - CLI: addded optional argument to --base16 (https://gitlab.com/saalen/highlight/issues/113)
+  - CLI: added default base16 themes (https://gitlab.com/saalen/highlight/issues/113)
+  
 == highlight 3.50
 
 22.03.2019
