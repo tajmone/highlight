@@ -12,7 +12,7 @@ Keywords={
             "import", "from", "as", "async", "await", "None", "True", "False"}
   },
   { Id=2,
-    List={  "bool", "enumerate", "set", "frozenset", "help", "reversed", "sorted", 
+    List={  "bool", "bytes", "enumerate", "set", "frozenset", "help", "reversed", "sorted", 
             "sum", "Ellipsis", "NotImplemented", "__import__", "abs", "apply", "buffer", 
             "callable", "chr", "classmethod", "cmp", "coerce", "compile", "complex", 
             "delattr", "dict", "dir", "divmod", "eval", "execfile", "file", "filter", 
