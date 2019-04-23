@@ -293,7 +293,7 @@ string HtmlGenerator::maskCharacter ( unsigned char c )
         return "&quot;";
         break;
     case '\'' :
-        return "&apos;";
+        return "&#39;"; // &apos; not supported by w3m
         break;
 
     case '@' :

@@ -12,6 +12,7 @@
 xx.04.2019
 
   - SVG output: added `white-space: pre` in styles
+  - HTML output: replaced &apos; by &#39; (https://bugs.debian.org/927410)
   - CLI: fixed --list-cat without --list-scripts (https://gitlab.com/saalen/highlight/issues/107)
   - CLI: addded optional argument to --base16 (https://gitlab.com/saalen/highlight/issues/113)
   - CLI: added default base16 themes (https://gitlab.com/saalen/highlight/issues/113)
