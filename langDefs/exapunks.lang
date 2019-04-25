@@ -1,4 +1,4 @@
---////////////// || 1.0.0:19.04.13:HL3.50:Lua5.3 || by Tristano Ajmone:
+--////////////// || 1.0.1:19.04.25:HL3.50:Lua5.3 || by Tristano Ajmone:
 --// EXAPUNKS // || EXA Virtual Machine Language || https://github.com/tajmone
 --////////////// || www.zachtronics.com/exapunks || http://unlicense.org/
 --------------------------------------------------------------------------------
@@ -50,8 +50,6 @@ Keywords = {{
   Id = 4,                                                          -- Labels | 4
   ------------------------------------------------------------------------------
   -- Consider a label any token following MARK, JUMP, TJMP or FJMP.
-  -- The JUMP, TJMP and FJMP instructions could be followed by a register, when
-  -- this happens Kwd group 2 prevails on this group, so we're safe.
     Regex = [=[ ^(?i)(mark|jump|[ft]jmp)\s*(\w+) ]=],
     Group = 2 },{
   ------------------------------------------------------------------------------
@@ -59,14 +57,12 @@ Keywords = {{
   ------------------------------------------------------------------------------
     Regex = [=[ (?i)(@(rep|end|\{)|,|})  ]=], -- '@REP'  '@END' '@{' ',' '}'
     Group = 1 }}
-    
-    
-function OnStateChange(oldState, newState, token, kwGroupID, lineno, column)
-  if newState==HL_KEYWORD and kwGroupID==4 then
-    -- Add the Label found after MARK to the list of Labels:
-    AddKeyword(token:lower(), 1)
-  end
-  return newState
-end
 
+--[[ CHANGELOG
+1.0.1 (2019/04/25) Highlight 3.50
+  - Amend comments descriptions.
 
+1.0.0 (2019/04/13) Highlight 3.50
+  - First release
+
+--]]
