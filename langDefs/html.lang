@@ -39,8 +39,9 @@ Comments={
 NestedSections = {
   { Lang="php", Delimiter= { [[<\?php]], [[\?>]] } },
   { Lang="jsp", Delimiter= { [[<\%[@!\=]?]], [[.*(%>).*]] } },
-  { Lang="css", Delimiter= { [[<style\s+type\=[\'\"]text\/css[\'\"]>]], [[<\/style>]] } },
+  { Lang="css", Delimiter= { [[<style>]], [[<\/style>]] } },
   { Lang="js", Delimiter= { [[<script>]], [[<\/script>]] } },
+  { Lang="css", Delimiter= { [[<style\s+type\=[\'\"]text\/css[\'\"]>]], [[<\/style>]] } },
   { Lang="js", Delimiter= { [[<script\s+language\=\"[jJ]ava[sS]cript\"(?:\s+type\=\"text\/javascript\")?>]], [[<\/script>]] } },
   { Lang="js", Delimiter= { [[<script\s+language=[\"\'][jJ]ava[sS]cript[\"\'](?:\s+type=[\"\']text/javascript[\"\'])?[^>]*>]], [[<\/script>]] } },
   { Lang="js", Delimiter= { [[<script(?:\s+type=[\"\']text/javascript[\"\'])\s+language=[\"\'][jJ]ava[sS]cript[\"\']?[^>]*>]], [[<\/script>]] } },
