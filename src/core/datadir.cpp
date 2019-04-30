@@ -2,7 +2,7 @@
                           dataDir.cpp  -  description
                              -------------------
     begin                : Sam March 1 2003
-    copyright            : (C) 2003-2013 by Andre Simon
+    copyright            : (C) 2003-2019 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -161,3 +161,104 @@ const string DataDir::getDocDir()
 {
     return getSystemDataPath() ;
 }
+
+
+string DataDir::getFileSuffix(const string& fileName)
+{
+    size_t ptPos=fileName.rfind(".");
+    size_t psPos = fileName.rfind ( Platform::pathSeparator );
+    if (ptPos == string::npos) {
+        return  (psPos==string::npos) ? fileName : fileName.substr(psPos+1, fileName.length());
+    }
+    return (psPos!=string::npos && psPos>ptPos) ? "" : fileName.substr(ptPos+1, fileName.length());
+}
+
+string DataDir::guessFileType ( const string& suffix, const string &inputFile, bool useUserSuffix, bool forceShebangCheckStdin )
+{   
+    string baseName = getFileBaseName(inputFile);
+    if (assocByFilename.count(baseName)) return assocByFilename.find(baseName)->second;
+   
+    string lcSuffix = StringTools::change_case(suffix);
+    if (assocByExtension.count(lcSuffix)) {
+        return assocByExtension[lcSuffix];
+    }
+
+    if (!useUserSuffix) {
+        string shebang =  analyzeFile(forceShebangCheckStdin ? "" : inputFile);
+        if (!shebang.empty()) return shebang;
+    }
+
+    return lcSuffix;
+}
+
+bool DataDir::loadFileTypeConfig (const string& path )
+{
+    string confPath=searchFile(path+".conf");
+    try {
+        Diluculum::LuaState ls;
+        Diluculum::LuaValueList ret= ls.doFile (confPath);
+
+        int idx=1;
+        string langName;
+        Diluculum::LuaValue mapEntry;
+        while ((mapEntry = ls["FileMapping"][idx].value()) !=Diluculum::Nil) {
+            langName = mapEntry["Lang"].asString();
+            if (mapEntry["Extensions"] !=Diluculum::Nil) {
+                readLuaList("Extensions", langName, mapEntry,  &assocByExtension);
+            } else if (mapEntry["Filenames"] !=Diluculum::Nil) {
+                readLuaList("Filenames", langName, mapEntry,  &assocByFilename);
+            } else if (mapEntry["Shebang"] !=Diluculum::Nil) {
+                assocByShebang.insert ( make_pair ( mapEntry["Shebang"].asString(),  langName ) );
+            }
+            idx++;
+        }
+
+    } catch (Diluculum::LuaError &err) {
+        cerr <<err.what()<<"\n";
+        return false;
+    }
+    return true;
+}
+
+void DataDir::readLuaList(const string& paramName, const string& langName,Diluculum::LuaValue &luaVal, StringMap* extMap){
+    int extIdx=1;
+    string val;
+    while (luaVal[paramName][extIdx] !=Diluculum::Nil) {
+        val = luaVal[paramName][extIdx].asString();
+        extMap->insert ( make_pair ( val,  langName ) );
+        extIdx++;
+    }
+}
+
+string DataDir::analyzeFile ( const string& file )
+{
+    string firstLine;
+    if ( !file.empty() ) {
+        ifstream inFile ( file.c_str() );
+        getline ( inFile, firstLine );
+    } else {
+        
+        //  This copies all the data to a new buffer, uses the data to get the
+        //  first line, then makes cin use the new buffer that underlies the
+        //  stringstream instance
+        stringstream cin_bufcopy;
+        cin_bufcopy << cin.rdbuf();
+        getline ( cin_bufcopy, firstLine );
+        cin_bufcopy.seekg ( 0, ios::beg );
+        cin.rdbuf ( cin_bufcopy.rdbuf() );
+    }
+    StringMap::iterator it;
+    boost::xpressive::sregex rex;
+    boost::xpressive::smatch what;
+    for ( it=assocByShebang.begin(); it!=assocByShebang.end(); it++ ) {
+        rex = boost::xpressive::sregex::compile( it->first );
+        if ( boost::xpressive::regex_search( firstLine, what, rex )  ) return it->second;
+    }
+    return "";
+}
+
+string DataDir::getFileBaseName(const string& fileName){
+    size_t psPos = fileName.rfind ( /*Platform::pathSeparator*/ '/' );
+    return  (psPos==string::npos) ? fileName : fileName.substr(psPos+1, fileName.length());
+}
+

@@ -139,6 +139,11 @@ void  SyntaxReader::initLuaState(Diluculum::LuaState& ls, const string& langDefP
     ls["HL_FORMAT_BBCODE"]=BBCODE;
     ls["HL_FORMAT_PANGO"]=PANGO;
     ls["HL_FORMAT_ODT"]=ODTFLAT;
+    
+    // default values for --verbose
+    ls["IgnoreCase"]=false;
+    ls["EnableIndentation"]=false;
+    ls["DisableHighlighting"]=false;
 }
 
 LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginReadFilePath, OutputType outputType )
@@ -326,7 +331,6 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
             string escRegex;
             if (ls["Strings"]["Escape"].value()==Diluculum::Nil){
                 escRegex=REGEX_ESCSEQ;
-                ls["Strings[Escape]"] = escRegex; //for --verbose output
             } else {
                 escRegex=ls["Strings"]["Escape"].value().asString();
             }

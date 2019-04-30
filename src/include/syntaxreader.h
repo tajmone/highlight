@@ -411,6 +411,7 @@ public:
     RegexElement ( State oState, State eState, const string&rePattern, unsigned int cID=0, int group=-1, const string& name="" ) :
         open ( oState ), end ( eState ), kwClass ( cID ), capturingGroup ( group ), langName(name),instanceId(instanceCnt++)
     {
+        pattern=rePattern;
         rex=boost::xpressive::sregex::compile(rePattern);
     }
 
@@ -425,17 +426,19 @@ public:
     unsigned int kwClass;        ///< keyword class
     int capturingGroup;          ///< capturing group ID
     string langName;             ///< language name
+    string pattern;
     static int instanceCnt;
     int instanceId;
 };
 
 /**\brief Association of a regex and its relevant capturing group
 */
+/*
 struct RegexDef {
     RegexDef() :capturingGroup ( -1 ) {}
     string reString;     ///< regex string
     int capturingGroup;  ///< capturing group which should be recognized as token
-};
+};*/
 
 }
 #endif

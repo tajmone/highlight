@@ -137,7 +137,7 @@ int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcar
                 cout << setw ( 30 ) <<setiosflags ( ios::left ) <<desc<<": "<<suffix;
             
                 int extCnt=0;
-                for (StringMap::iterator it=assocByExtension.begin(); it!=assocByExtension.end(); it++) {
+                for (StringMap::iterator it=dataDir.assocByExtension.begin(); it!=dataDir.assocByExtension.end(); it++) {
                     if (it->second==suffix ) {
                         cout << ((++extCnt==1)?" ( ":" ")<<it->first;
                     }
@@ -181,24 +181,30 @@ void HLCmdLineApp::printDebugInfo ( const highlight::SyntaxReader *lang,
                                     const string & langDefPath )
 {
     if (!lang) return;
+    
+    map <int, string> HLStateMap;
+    
     cerr << "\nLoading language definition:\n" << langDefPath;
     cerr << "\n\nDescription: " << lang->getDescription();
-
     Diluculum::LuaState* luaState=lang->getLuaState();
     if (luaState) {
         cerr << "\n\nLUA GLOBALS:\n" ;
         Diluculum::LuaValueMap::iterator it;
         Diluculum::LuaValueMap glob =luaState->globals();
+        string elemName;
         for(it = glob.begin(); it != glob.end(); it++) {
             Diluculum::LuaValue first = it->first;
             Diluculum::LuaValue second = it->second;
-            std::cerr << first.asString()<<": ";
+            elemName = first.asString();
+            std::cerr << elemName<<": ";
             switch (second.type()) {
             case  LUA_TSTRING:
                 cerr << "string [ "<<second.asString()<<" ]";
                 break;
             case  LUA_TNUMBER:
                 cerr << "number [ "<<second.asNumber()<<" ]";
+                if (elemName.find("HL_")==0 && elemName.find("HL_FORMAT")==string::npos)
+                    HLStateMap[second.asNumber()] = elemName;
                 break;
             case  LUA_TBOOLEAN:
                 cerr << "boolean [ "<<second.asBoolean()<<" ]";
@@ -211,17 +217,22 @@ void HLCmdLineApp::printDebugInfo ( const highlight::SyntaxReader *lang,
 
     }
     
-    /*cerr << "\nREGEX:\n";
     highlight::RegexElement *re=NULL;
     for ( unsigned int i=0; i<lang->getRegexElements().size(); i++ )
     {
+        if (i==0)
+             cerr << "\nREGEX:\n";
+   
         re = lang->getRegexElements() [i];
-        cerr << "State "<<re->open<<":\t"<<re->rex <<"\n";
-    }*/
-    cerr << "\nKEYWORDS:\n";
+        cerr << "State "<<re->open<< " ("<< HLStateMap[re->open]<<  "):\t"<<re->pattern <<"\n";
+    }
+    
     highlight::KeywordMap::iterator it;
     highlight::KeywordMap keys=lang->getKeywords();
     for ( it=keys.begin(); it!=keys.end(); it++ ) {
+        if (it==keys.begin())
+            cerr << "\nKEYWORDS:\n";
+    
         cerr << " "<< it->first << "("<< it->second << ")";
     }
     cerr <<"\n\n";
@@ -240,60 +251,6 @@ void HLCmdLineApp::printConfigInfo ( )
     cout << "Compiler directive HL_CONFIG_DIR = " <<HL_CONFIG_DIR<< "\n";
 #endif
     cout << endl;
-}
-
-string HLCmdLineApp::getFileBaseName(const string& fileName){
-    size_t psPos = fileName.rfind ( /*Platform::pathSeparator*/ '/' );
-    return  (psPos==string::npos) ? fileName : fileName.substr(psPos+1, fileName.length());
-}
-
-string HLCmdLineApp::getFileSuffix(const string& fileName)
-{
-    size_t ptPos=fileName.rfind(".");
-    size_t psPos = fileName.rfind ( Platform::pathSeparator );
-    if (ptPos == string::npos) {
-        return  (psPos==string::npos) ? fileName : fileName.substr(psPos+1, fileName.length());
-    }
-    return (psPos!=string::npos && psPos>ptPos) ? "" : fileName.substr(ptPos+1, fileName.length());
-}
-
-void HLCmdLineApp::readLuaList(const string& paramName, const string& langName,Diluculum::LuaValue &luaVal, StringMap* extMap){
-    int extIdx=1;
-    string val;
-    while (luaVal[paramName][extIdx] !=Diluculum::Nil) {
-        val = luaVal[paramName][extIdx].asString();
-        extMap->insert ( make_pair ( val,  langName ) );
-        extIdx++;
-    }
-}
-
-bool HLCmdLineApp::loadFileTypeConfig ( const string& confName)
-{
-    string confPath=dataDir.getFiletypesConfPath(confName);
-    try {
-        Diluculum::LuaState ls;
-        Diluculum::LuaValueList ret= ls.doFile (confPath);
-
-        int idx=1;
-        string langName;
-        Diluculum::LuaValue mapEntry;
-        while ((mapEntry = ls["FileMapping"][idx].value()) !=Diluculum::Nil) {
-            langName = mapEntry["Lang"].asString();
-            if (mapEntry["Extensions"] !=Diluculum::Nil) {
-                readLuaList("Extensions", langName, mapEntry,  &assocByExtension);
-            } else if (mapEntry["Filenames"] !=Diluculum::Nil) {
-                readLuaList("Filenames", langName, mapEntry,  &assocByFilename);
-            } else if (mapEntry["Shebang"] !=Diluculum::Nil) {
-                assocByShebang.insert ( make_pair ( mapEntry["Shebang"].asString(),  langName ) );
-            }
-            idx++;
-        }
-
-    } catch (Diluculum::LuaError &err) {
-        cerr <<err.what()<<"\n";
-        return false;
-    }
-    return true;
 }
 
 int HLCmdLineApp::getNumDigits ( int i )
@@ -353,49 +310,6 @@ void HLCmdLineApp::printIOErrorReport ( unsigned int numberErrorFiles,
     }
 }
 
-string HLCmdLineApp::analyzeFile ( const string& file )
-{
-    string firstLine;
-    if ( !file.empty() ) {
-        ifstream inFile ( file.c_str() );
-        getline ( inFile, firstLine );
-    } else {
-        //  This copies all the data to a new buffer, uses the data to get the
-        //  first line, then makes cin use the new buffer that underlies the
-        //  stringstream instance
-        cin_bufcopy << cin.rdbuf();
-        getline ( cin_bufcopy, firstLine );
-        cin_bufcopy.seekg ( 0, ios::beg );
-        cin.rdbuf ( cin_bufcopy.rdbuf() );
-    }
-    StringMap::iterator it;
-    boost::xpressive::sregex rex;
-    boost::xpressive::smatch what;
-    for ( it=assocByShebang.begin(); it!=assocByShebang.end(); it++ ) {
-        rex = boost::xpressive::sregex::compile( it->first );
-        if ( boost::xpressive::regex_search( firstLine, what, rex )  ) return it->second;
-    }
-    return "";
-}
-
-string HLCmdLineApp::guessFileType ( const string& suffix, const string &inputFile, bool useUserSuffix, bool forceShebangCheckStdin )
-{   
-    string baseName = getFileBaseName(inputFile);
-    if (assocByFilename.count(baseName)) return assocByFilename.find(baseName)->second;
-   
-    string lcSuffix = StringTools::change_case(suffix);
-    if (assocByExtension.count(lcSuffix)) {
-        return assocByExtension[lcSuffix];
-    }
-
-    if (!useUserSuffix) {
-        string shebang =  analyzeFile(forceShebangCheckStdin ? "" : inputFile);
-        if (!shebang.empty()) return shebang;
-    }
-
-    return lcSuffix;
-}
-
 vector <string> HLCmdLineApp::collectPluginPaths(const vector<string>& plugins)
 {
     vector<string> absolutePaths;
@@ -434,7 +348,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     }
 
     //call before printInstalledLanguages!
-    loadFileTypeConfig ( "filetypes" );
+    dataDir.loadFileTypeConfig ( "filetypes" );
 
     string scriptKind=options.getListScriptKind();
     if (scriptKind.length()) {
@@ -591,8 +505,8 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         //TODO check for filename given prior to IO redirection
         //--syntax-by-name overrides --syntax
         string syntaxByFile=options.getSyntaxByFilename();
-        string testSuffix = syntaxByFile.empty() ? options.getSyntax() : getFileSuffix(syntaxByFile); 
-        suffix = guessFileType (testSuffix, syntaxByFile, syntaxByFile.empty(), true );         
+        string testSuffix = syntaxByFile.empty() ? options.getSyntax() : dataDir.getFileSuffix(syntaxByFile); 
+        suffix = dataDir.guessFileType (testSuffix, syntaxByFile, syntaxByFile.empty(), true );         
     }
          
     generator->setFilesCnt(fileCount);
@@ -600,7 +514,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     while ( i < fileCount && !initError ) {
            
         if ( !options.syntaxGiven() ) { // determine file type for each file
-            suffix = guessFileType ( getFileSuffix ( inFileList[i] ), inFileList[i] );
+            suffix = dataDir.guessFileType ( dataDir.getFileSuffix ( inFileList[i] ), inFileList[i] );
         }
         if ( suffix.empty()  && options.forceOutput()) suffix="txt"; //avoid segfault
         if ( suffix.empty() ) {

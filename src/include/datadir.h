@@ -2,7 +2,7 @@
                           datadir.h  -  description
                              -------------------
     begin                : Sam March 1 2003
-    copyright            : (C) 2003 by Andre Simon
+    copyright            : (C) 2003-2019 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -28,7 +28,16 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef DATADIR_H
 #define DATADIR_H
 
+#include <map>
+#include <boost/xpressive/xpressive_dynamic.hpp>
+#include <Diluculum/LuaState.hpp>
+
+#include "stringtools.h"
+
 using namespace std;
+
+typedef map<string, string> StringMap;
+
 
 /** \brief Manages access to installation directories.
 
@@ -40,8 +49,20 @@ using namespace std;
 class DataDir
 {
     vector <string> possibleDirs;
+    
+private:
 
+    const string searchFile(const string path);
+    
+    string getFileBaseName(const string& fileName);
+
+    string analyzeFile ( const string& file );
+    
+    void readLuaList(const string& paramName, const string& langName,Diluculum::LuaValue &luaVal, StringMap* extMap);
+    
 public:
+
+    StringMap assocByExtension, assocByFilename, assocByShebang;
 
     static string LSB_DATA_DIR;
     static string LSB_CFG_DIR;
@@ -57,8 +78,6 @@ public:
 
     const void printConfigPaths();
 
-    const string searchFile(const string path);
-
     /**  \param file file
          \return Location of given syntax definition */
     const string getLangPath ( const string & file) ;
@@ -72,16 +91,21 @@ public:
     /** \return System syntax location */
     const string getSystemDataPath ( ) ;
 
+    /** \return Location of plugins */
+    const string getPluginPath ();
+
     /** \param file file
      *  \param base16 set to true if the theme is located in the base16 sub dir
         \return Location of given theme */
     const string getThemePath ( const string & file, bool base16=false ) ;
 
-    const string getFiletypesConfPath (const string &);
-
+    /** \param file file
+        \return Location of given configuration file */
+    const string getFiletypesConfPath (const string &path="filetypes.conf");
+    
+    /** \param file file
+        \return Location of given plugin file */
     const string getPluginPath (const string &);
-
-    const string getPluginPath ();
 
     /** \return Location of GUI menu translation files */
     const string getI18nDir();
@@ -91,6 +115,30 @@ public:
 
     /** \return Location of documentation (README) files (GUI) */
     const string getDocDir();
+    
+    // These functions were moved from main.cpp in 3.51:
+    
+    /**
+     * \param fileName input file name 
+     * \return file extension or the base filename if no file extension exists
+    */
+    string getFileSuffix ( const string &fileName );
+
+    /**
+     * \param suffix file name suffix
+     * \param inputFile name of the input file
+     * \param useUserSuffix true if user has defined a syntax suffix
+     * \param forceShebangCheckStdin true if stdin should be peeked to look for shebang patterns 
+     * \return file type deferred from extension or file shebang comment
+    */
+    string guessFileType ( const string &suffix, const string &inputFile, 
+                           bool useUserSuffix=false, bool forceShebangCheckStdin=false );
+    
+    /**
+     * \param name absolute path of filetypes.conf
+     * \return true if successfull
+    */
+    bool loadFileTypeConfig ( const string& name);
 };
 
 #endif
