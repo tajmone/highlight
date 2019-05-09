@@ -127,6 +127,7 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      lineNumberFillZeroes ( false ),
      printNewLines(true),
      omitVersionComment(false),
+     isolateTags(false),
      baseFontSize("10"),
      lineNumber ( 0 ),
      lineNumberOffset ( 0 ),
@@ -302,6 +303,16 @@ void CodeGenerator::setOmitVersionComment ( bool flag )
 bool CodeGenerator::getOmitVersionComment ()
 {
     return omitVersionComment;
+}
+
+void CodeGenerator::setIsolateTags ( bool flag )
+{
+    isolateTags=flag;
+}
+
+bool CodeGenerator::getIsolateTags ()
+{
+    return isolateTags;
 }
 
 void CodeGenerator::setBaseFont ( const string& fontName )
@@ -1813,6 +1824,7 @@ bool CodeGenerator::processKeywordState ( State myState )
         switch ( newState ) {
         case _WS:
             processWsState();
+            exitState=isolateTags;
             break;
         case _EOL:
             insertLineNumber();
@@ -1849,6 +1861,7 @@ bool CodeGenerator::processNumberState()
         switch ( newState ) {
         case _WS:
             processWsState();
+            exitState=isolateTags;
             break;
         case _EOL:
             insertLineNumber();
@@ -1866,7 +1879,6 @@ bool CodeGenerator::processNumberState()
     closeTag ( NUMBER );
     return eof;
 }
-
 
 
 bool CodeGenerator::processMultiLineCommentState()
@@ -1935,10 +1947,6 @@ bool CodeGenerator::processMultiLineCommentState()
 
 bool CodeGenerator::processSingleLineCommentState()
 {
-    if ( checkSpecialCmd() ) {
-        return in->bad(); // if input stream is bad, report eof to calling method
-    }
-
     State newState=STANDARD;
     bool eof=false, exitState=false, containedTestCase=false;
     unsigned int startColumn = lineIndex - token.size() ;
@@ -2120,14 +2128,7 @@ bool CodeGenerator::processStringState ( State oldState )
             openTag ( myState );
             returnedFromOtherState=true;
             break;
-        
-        /*case _REJECT:
-            exitState = true;
-            closeTag ( myState );
-            openTag ( KEYWORD );
-            printMaskedToken();
-            break;
-        */
+    
         case _EOF:
             eof = true;
             break;
@@ -2156,6 +2157,7 @@ bool CodeGenerator::processSymbolState()
         switch ( newState ) {
         case _WS:
             processWsState();
+            exitState=isolateTags;
             break;
         case _EOL:
             insertLineNumber();
@@ -2189,6 +2191,7 @@ bool CodeGenerator::processEscapeCharState()
             break;
         case _WS:
             processWsState();
+            exitState=isolateTags;
             break;
         case _EOF:
             eof = true;
@@ -2218,6 +2221,7 @@ bool CodeGenerator::processInterpolationState()
             break;
         case _WS:
             processWsState();
+            exitState=isolateTags;
             break;
         case _EOF:
             eof = true;
@@ -2567,26 +2571,6 @@ bool CodeGenerator::initPluginScript(const string& script)
         return false;
     }
     return true;
-}
-
-bool CodeGenerator::checkSpecialCmd()
-{
-    string noParseCmd="@highlight";
-    size_t cmdPos = line.find ( noParseCmd );
-
-    if ( cmdPos!=string::npos ) {
-        *out<<line.substr ( noParseCmd.size() +cmdPos + 1 );
-
-        // hide comment line from output
-        token.clear();
-        lineIndex=line.length();
-        getInputChar();
-        lineNumber--;
-        // end hide
-
-        return true; // do not parse line as comment
-    }
-    return false; //parse comment as usual
 }
 
 }

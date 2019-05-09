@@ -304,11 +304,17 @@ public:
     /** return number wrapped lines flag */
     bool getNumberWrappedLines ();
     
-    /** \param  flag true if version info comment should be omitted */
+    /** \param flag true if version info comment should be omitted */
     void setOmitVersionComment ( bool flag );
 
     /** return version info comment flag */
     bool getOmitVersionComment ();
+    
+    /** \param flag true if token of the same syntax category should be outputted in separate tags */
+    void setIsolateTags ( bool flag );
+
+    /** return version info comment flag */
+    bool getIsolateTags ();
     
     /** \return style path */
     const string& getStyleName();
@@ -583,6 +589,9 @@ protected:
 
     /** Test if version info comment printed */
     bool omitVersionComment;
+    
+    /** Flag to output token of the same syntax category in separate tags */
+    bool isolateTags;
     
     /** The base font to use */
     string baseFont ;
@@ -916,9 +925,6 @@ private:
     void applyPluginChunk(const string& fctName, string *result, bool *keepDefault);
     
     static vector<Diluculum::LuaFunction*> pluginChunks;
-    
-    /** \deprecated replace by Lua functionality */
-    bool checkSpecialCmd();
 };
 
 }

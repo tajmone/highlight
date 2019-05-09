@@ -48,7 +48,8 @@ enum Optcode {
         S_OPT_PRINT_STYLE, S_OPT_NO_TRAILING_NL, S_OPT_PLUGIN, S_OPT_ABS_CFG_PATH,
         S_OPT_PLUGIN_READFILE, S_OPT_PLUGIN_PARAMETER, S_OPT_LIST_SCRIPTS, S_OPT_CANVAS,
         S_OPT_KEEP_INJECTIONS, S_OPT_FORCE_STDOUT, S_OPT_LATEX_BEAMER, S_OPT_NO_VERSION_INFO,
-        S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16, S_OPT_CATEGORIES, S_OPT_PIPED_FNAME
+        S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16, S_OPT_CATEGORIES, S_OPT_PIPED_FNAME,
+        S_OPT_ISOLATE
     };
 
 const Arg_parser::Option options[] = {
@@ -135,6 +136,7 @@ const Arg_parser::Option options[] = {
         { S_OPT_RANGE_OPT,        OPT_RANGE_OPT,       Arg_parser::yes },
         { S_OPT_CATEGORIES,       OPT_CATEGORIES,      Arg_parser::yes },
         { S_OPT_PIPED_FNAME,      OPT_PIPED_FNAME,     Arg_parser::yes },
+        { S_OPT_ISOLATE,          OPT_ISOLATE_TAGS,    Arg_parser::no },
         
 
         { 0, 0, Arg_parser::no }
@@ -191,6 +193,7 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_force_stdout(false),
     opt_no_version_info(false),
     explicit_output_format(false),
+    opt_isolate(false),
     anchorPrefix ( "l" ),
     helpLang ( "en" ),
     encodingName ( "ISO-8859-1" )
@@ -560,6 +563,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             redirectedFilename=arg;
             opt_syntax=true;
             break;
+        case S_OPT_ISOLATE:
+            opt_isolate=true;
+            break;
         default:
             cerr << "highlight: option parsing failed" << endl;
         }
@@ -700,6 +706,11 @@ bool CmdLineOptions::fragmentOutput() const
 
 bool CmdLineOptions::omitVersionInfo() const {
     return opt_no_version_info;    
+}
+
+bool CmdLineOptions::isolateTags() const
+{
+    return opt_isolate;
 }
 
 string CmdLineOptions::getOutFileSuffix() const

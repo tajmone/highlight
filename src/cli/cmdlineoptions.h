@@ -114,6 +114,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_BASE16           "base16"
 #define OPT_CATEGORIES       "list-cat"  
 #define OPT_PIPED_FNAME      "syntax-by-name"
+#define OPT_ISOLATE_TAGS     "isolate"
 
 // Improve CLI option compatibility with GNU source-highlight
 #define OPT_COMPAT_DOC       "doc"
@@ -318,6 +319,9 @@ public:
     /** \return True if Base16 theme should be used */
     bool useBase16Theme() const;
 
+    /** \return True if output token of the same syntax category should be in separate tags */
+    bool isolateTags() const;
+    
     /** \return The given base font, empty string by default */
     const string& getBaseFont() const ;
 
@@ -470,6 +474,7 @@ private:
     bool opt_force_stdout;
     bool opt_no_version_info;
     bool explicit_output_format;
+    bool opt_isolate;
 
     string anchorPrefix;
     string helpLang, encodingName;
