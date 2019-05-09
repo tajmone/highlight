@@ -36,6 +36,9 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include "io_report.h"
 #include "syntax_chooser.h"
 
+#ifdef Q_OS_WIN32
+#include <windows.h>
+#endif
 //#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -1000,6 +1003,12 @@ void MainWindow::on_pbStartConversion_clicked()
 
     for (int i=0; i<ui->lvInputFiles->count(); i++) {
         inFilePath =  ui->lvInputFiles->item(i)->data(Qt::UserRole).toString();
+
+#ifdef Q_OS_WIN32
+
+        inFilePath = getWindowsShortPath(inFilePath);
+
+#endif
         currentFile = inFilePath.toStdString();
 
         statusBar()->showMessage(tr("Processing %1 (%2/%3)").arg(inFilePath).arg(i+1).arg(ui->lvInputFiles->count()));
@@ -1025,23 +1034,38 @@ void MainWindow::on_pbStartConversion_clicked()
             }
 
             inFileName = ui->lvInputFiles->item(i)->text(); // QFileInfo(inFilePath).fileName();
-
             if (ui->cbWrite2Src->isChecked()) {
-                outfileName = currentFile;
+                outfileName = currentFile + getOutFileSuffix().toStdString();
             } else {
                 QFileInfo outFileInfo;
                 QString fName=inFileName;
                 if (usedFileNames.contains(fName)) {
+
                     QString prefix=QFileInfo(inFilePath).canonicalPath()+ QDir::separator();
-                    prefix.replace(QDir::separator(), '_');
+#ifdef Q_OS_WIN32
+                    prefix.remove(0,2); // Get rid of drive letter and ':'
+#endif
+                    prefix.replace('/', '_');
+                    prefix.replace('\\', '_');
                     fName.insert(0, prefix);
+
                 } else {
                     usedFileNames.insert(fName);
                 }
                 outFileInfo.setFile(ui->leOutputDest->text(),fName);
-                outfileName = outFileInfo.absoluteFilePath().toStdString();
+
+                QString absOutPath=outFileInfo.absoluteFilePath() + getOutFileSuffix();
+
+#ifdef Q_OS_WIN32
+                QFile file( absOutPath );
+                if ( file.open(QIODevice::ReadWrite) )
+                {
+                    absOutPath = getWindowsShortPath(absOutPath);
+                }
+#endif
+                outfileName = absOutPath.toStdString();
             }
-            outfileName +=  getOutFileSuffix().toStdString();
+            //outfileName +=  getOutFileSuffix().toStdString();
 
             if (ui->cbHTMLFileNameAnchor->isChecked()) {
                 generator->setHTMLAnchorPrefix(inFileName.toStdString());
@@ -1150,6 +1174,7 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
     QString previewFilePath = (getDataFromCP) ? "": ui->lvInputFiles->currentItem()->data(Qt::UserRole).toString();
 
     if (getDataFromCP) {
+
         suffix= getFileType((ui->comboSelectSyntax->itemData(ui->comboSelectSyntax->currentIndex())).toString().toStdString(),"");
 
         if (ui->cbCopyRange->isEnabled() && ui->cbCopyRange->isChecked()) {
@@ -1169,6 +1194,13 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
             }
         }
     } else {
+
+#ifdef Q_OS_WIN32
+
+        previewFilePath = getWindowsShortPath(previewFilePath);
+
+#endif
+
         string currentFile = previewFilePath.toStdString();
         suffix = getFileType(getFileSuffix(currentFile), currentFile);
 
@@ -1312,6 +1344,12 @@ void MainWindow::updatePreview()
     string suffix;
     QString previewInputPath = (getDataFromCP) ? "" : ui->lvInputFiles->currentItem()->data(Qt::UserRole).toString();
     QString croppedName = QFileInfo(previewInputPath).fileName();
+
+#ifdef Q_OS_WIN32
+
+        previewInputPath = getWindowsShortPath(previewInputPath);
+
+#endif
 
     if (getDataFromCP) {
         suffix= getFileType((ui->comboSelectSyntax->itemData(ui->comboSelectSyntax->currentIndex())).toString().toStdString(),"");
@@ -1683,4 +1721,17 @@ void MainWindow::on_comboThemeFilter_currentIndexChanged(int index)
 {
     if (ui->comboTheme->count())
         fillThemeCombo(0);
+}
+
+QString MainWindow::getWindowsShortPath(const QString & path){
+    QString shortPath(path);
+#ifdef Q_OS_WIN32
+        int length = GetShortPathName( (const wchar_t*)path.utf16(),0,0);
+        wchar_t* buffer = new wchar_t[length];
+
+        length = GetShortPathName( (const wchar_t*)path.utf16(), buffer, length);
+        shortPath = QString::fromUtf16((const char16_t*)buffer, length);
+        delete[] buffer;
+#endif
+    return shortPath;
 }

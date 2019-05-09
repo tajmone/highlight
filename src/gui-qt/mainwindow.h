@@ -111,6 +111,8 @@ private:
     QString getDistFileConfigPath();
     QString getDistFileFilterPath();
 
+    QString getWindowsShortPath(const QString & path);
+
     void applyCtrlValues(highlight::CodeGenerator* generator, bool previewMode);
     void selectSingleFile(QLineEdit*, const QString&, const QString&);
     bool loadFileTypeConfig();

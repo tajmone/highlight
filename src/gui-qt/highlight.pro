@@ -60,7 +60,7 @@ win32 {
 
     INCLUDEPATH += E:/devel/cpp/lua_bin_5.3.0
     INCLUDEPATH += ../../include
-    INCLUDEPATH += E:/devel/cpp/boost_1_64_0
+    INCLUDEPATH += E:/devel/cpp/boost_1_70_0
 
     DEFINES += WIN32
     CONFIG += static

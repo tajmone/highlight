@@ -19,7 +19,7 @@ HEADERS += ..\\..\\cli\\main.h \
 INCLUDEPATH += E:\\devel\\cpp\\lua_bin_5.3.0
 #INCLUDEPATH +=D:/Devel/cpp/LuaJIT-2.0.0/src
 
-INCLUDEPATH += E:\\devel\\cpp\\boost_1_64_0
+INCLUDEPATH += E:\\devel\\cpp\\boost_1_70_0
 INCLUDEPATH += ..\\..\\include
 QMAKE_CXXFLAGS += -std=c++11
 }
@@ -37,8 +37,13 @@ HEADERS += src/cli/main.h \
 win32:LIBS += -L../../ -lhighlight
 unix:LIBS += -L.. -lhighlight
 
-win32:LIBS += -LE:\Devel\cpp\lua_bin_5.3.0 -llua
-#win32:LIBS += -LE:\Devel\cpp\lua_bin_5.3.0_x64 -llua
+win32 {
+    contains(QT_ARCH, i386) {
+        LIBS += -LE:\Devel\cpp\lua_bin_5.3.0 -llua
+    } else {
+        LIBS += -LE:\Devel\cpp\lua_bin_5.3.0_x64 -llua
+    }
+}
 
 !contains( LINKTYPE, LUA52 ) {
 unix:LIBS += -L.. -llua5.1
