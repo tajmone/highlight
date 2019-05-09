@@ -409,6 +409,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     generator->setPrintZeroes ( options.fillLineNrZeroes() );
     generator->setFragmentCode ( options.fragmentOutput() );
     generator->setOmitVersionComment ( options.omitVersionInfo() );
+    generator->setIsolateTags ( options.isolateTags() );
 
     generator->setKeepInjections ( options.keepInjections());
     generator->setPreformatting ( options.getWrappingStyle(),
