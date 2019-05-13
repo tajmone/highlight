@@ -36,7 +36,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include "io_report.h"
 #include "syntax_chooser.h"
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
 #include <windows.h>
 #endif
 //#include <QDebug>
@@ -995,23 +995,23 @@ void MainWindow::on_pbStartConversion_clicked()
     QString langDefPath;
     QString userLangPath = getUserScriptPath("lang");
 
-    QString inFileName, inFilePath;
+    QString inFileName, inFilePath, origFilePath;
     QString lastStyleDestDir;
     QSet<QString> usedFileNames;
 
     QStringList inputErrors, outputErrors, reformatErrors, syntaxTestErrors;
 
     for (int i=0; i<ui->lvInputFiles->count(); i++) {
-        inFilePath =  ui->lvInputFiles->item(i)->data(Qt::UserRole).toString();
+        inFilePath = origFilePath =  ui->lvInputFiles->item(i)->data(Qt::UserRole).toString();
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
 
         inFilePath = getWindowsShortPath(inFilePath);
 
 #endif
         currentFile = inFilePath.toStdString();
 
-        statusBar()->showMessage(tr("Processing %1 (%2/%3)").arg(inFilePath).arg(i+1).arg(ui->lvInputFiles->count()));
+        statusBar()->showMessage(tr("Processing %1 (%2/%3)").arg(origFilePath).arg(i+1).arg(ui->lvInputFiles->count()));
 
         langDefPath = (userLangPath.isEmpty()) ? getDistLangPath(getFileType(getFileSuffix(currentFile), currentFile)) : userLangPath;
 
@@ -1022,11 +1022,11 @@ void MainWindow::on_pbStartConversion_clicked()
                                      QString::fromStdString( generator->getSyntaxRegexError())));
             break;
         } else  if (loadRes==highlight::LOAD_FAILED) {
-            QMessageBox::warning(this, tr("Unknown syntax"), tr("Could not convert %1").arg(inFilePath));
-            inputErrors.append(inFilePath);
+            QMessageBox::warning(this, tr("Unknown syntax"), tr("Could not convert %1").arg(origFilePath));
+            inputErrors.append(origFilePath);
         } else  if (loadRes==highlight::LOAD_FAILED_LUA) {
-            QMessageBox::warning(this, tr("Lua error"), tr("Could not convert %1:\nLua Syntax error: %2").arg(inFilePath).arg(QString::fromStdString(generator->getSyntaxLuaError())) );
-            inputErrors.append(inFilePath);
+            QMessageBox::warning(this, tr("Lua error"), tr("Could not convert %1:\nLua Syntax error: %2").arg(origFilePath).arg(QString::fromStdString(generator->getSyntaxLuaError())) );
+            inputErrors.append(origFilePath);
         } else {
 
             if (ui->cbReformat->isChecked()&& !generator->formattingIsPossible()) {
@@ -1035,14 +1035,25 @@ void MainWindow::on_pbStartConversion_clicked()
 
             inFileName = ui->lvInputFiles->item(i)->text(); // QFileInfo(inFilePath).fileName();
             if (ui->cbWrite2Src->isChecked()) {
-                outfileName = currentFile + getOutFileSuffix().toStdString();
+                //outfileName = currentFile + getOutFileSuffix().toStdString();
+
+                QString absOutPath=origFilePath + getOutFileSuffix();
+
+#ifdef Q_OS_WIN
+                QFile file( absOutPath );
+                if ( file.open(QIODevice::ReadWrite) )
+                {
+                    absOutPath = getWindowsShortPath(absOutPath);
+                }
+#endif
+                outfileName = absOutPath.toStdString();
             } else {
                 QFileInfo outFileInfo;
                 QString fName=inFileName;
                 if (usedFileNames.contains(fName)) {
 
                     QString prefix=QFileInfo(inFilePath).canonicalPath()+ QDir::separator();
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
                     prefix.remove(0,2); // Get rid of drive letter and ':'
 #endif
                     prefix.replace('/', '_');
@@ -1056,7 +1067,7 @@ void MainWindow::on_pbStartConversion_clicked()
 
                 QString absOutPath=outFileInfo.absoluteFilePath() + getOutFileSuffix();
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
                 QFile file( absOutPath );
                 if ( file.open(QIODevice::ReadWrite) )
                 {
@@ -1074,9 +1085,9 @@ void MainWindow::on_pbStartConversion_clicked()
             error = generator->generateFile(currentFile, outfileName );
             if (error != highlight::PARSE_OK) {
                 if (error == highlight::BAD_INPUT) {
-                    inputErrors.append(inFilePath);
+                    inputErrors.append(origFilePath);
                 } else {
-                    outputErrors.append(inFilePath);
+                    outputErrors.append(origFilePath);
                 }
             }
             ui->progressBar->setValue(100*i / ui->lvInputFiles->count());
@@ -1195,7 +1206,7 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
         }
     } else {
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
 
         previewFilePath = getWindowsShortPath(previewFilePath);
 
@@ -1226,7 +1237,7 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
             highlight::OutputType outputType = getOutputType();
             if ( outputType==highlight::RTF) {
                 QMimeData *mimeData = new QMimeData();
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
                 mimeData->setData("Rich Text Format", clipBoardData.toLatin1());
 #else
                 mimeData->setData("text/rtf", clipBoardData.toLatin1());
@@ -1345,7 +1356,7 @@ void MainWindow::updatePreview()
     QString previewInputPath = (getDataFromCP) ? "" : ui->lvInputFiles->currentItem()->data(Qt::UserRole).toString();
     QString croppedName = QFileInfo(previewInputPath).fileName();
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
 
         previewInputPath = getWindowsShortPath(previewInputPath);
 
@@ -1725,7 +1736,7 @@ void MainWindow::on_comboThemeFilter_currentIndexChanged(int index)
 
 QString MainWindow::getWindowsShortPath(const QString & path){
     QString shortPath(path);
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
         int length = GetShortPathName( (const wchar_t*)path.utf16(),0,0);
         wchar_t* buffer = new wchar_t[length];
 
