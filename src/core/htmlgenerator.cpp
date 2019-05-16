@@ -401,7 +401,11 @@ bool HtmlGenerator::printIndexFile ( const vector<string> &fileList,
                                      const string &outPath )
 {
     string suffix = fileSuffix;
-    string outFilePath = outPath + "index" + suffix;
+    string outFilePath(outPath);
+    string fileName = "index" + suffix;
+    if (outFilePath.size()==0 || outFilePath[outFilePath.size()-1] == Platform::pathSeparator)
+        outFilePath.append(fileName);
+
     ofstream indexfile ( outFilePath.c_str() );
 
     if ( !indexfile.fail() ) {
@@ -449,6 +453,7 @@ bool HtmlGenerator::printIndexFile ( const vector<string> &fileList,
                     << ", <a href=\"" << HIGHLIGHT_URL << "\" target=\"new\">"
                     << HIGHLIGHT_URL << "</a></small>";
         }
+        indexfile << "</body></html>\n";
     } else {
         return false;
     }

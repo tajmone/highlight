@@ -1101,6 +1101,14 @@ void MainWindow::on_pbStartConversion_clicked()
             if (lastStyleDestDir!=styleDestDir){
                 lastStyleDestDir = styleDestDir;
                 QString stylePath=QFileInfo(styleDestDir, leStyleFile->text()).absoluteFilePath();
+
+#ifdef Q_OS_WIN
+                QFile file( stylePath );
+                if ( file.open(QIODevice::ReadWrite) )
+                {
+                    stylePath = getWindowsShortPath(stylePath);
+                }
+#endif
                 bool styleFileOK=generator -> printExternalStyle(QDir::toNativeSeparators(stylePath).toStdString());
                 if (!styleFileOK) {
                     outputErrors.append(stylePath);
@@ -1118,9 +1126,19 @@ void MainWindow::on_pbStartConversion_clicked()
         }
         QString outPath = QDir::toNativeSeparators(ui->leOutputDest->text());
         if (!outPath.endsWith(QDir::separator())) outPath.append(QDir::separator());
-        bool indexFileOK=generator->printIndexFile(fileList,  outPath.toStdString());
+        outPath.append("index");
+        outPath.append(getOutFileSuffix());
+#ifdef Q_OS_WIN
+                QFile file( outPath );
+                if ( file.open(QIODevice::ReadWrite) )
+                {
+                    outPath = getWindowsShortPath(outPath);
+                }
+#endif
+
+        bool indexFileOK=generator->printIndexFile(fileList, outPath.toStdString());
         if (!indexFileOK) {
-            outputErrors.append(outPath+ ((outType==highlight::HTML)?"index.html":"index.xhtml"));
+            outputErrors.append(outPath);
         }
     }
 
