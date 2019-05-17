@@ -1,6 +1,6 @@
 = HIGHLIGHT MANUAL
 André Simon
-v3.50, March 2019
+v3.51, May 2019
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -249,6 +249,7 @@ Output formatting options:
  -z, --zeroes                   pad line numbers with 0's
      --base16                   use a theme of the Base16 collection
      --delim-cr                 set CR as end-of-line delimiter (MacOS 9)
+     --isolate                  output each syntax token separately (verbose output)
      --keep-injections          output plug-in injections in spite of -f
      --kw-case=<case>           change case of case insensitive keywords
                                   <case> =  [upper, lower, capitalize]
