@@ -1,0 +1,2 @@
+# Exclude local html previews of AsciiDoc README files (for editing purposes):
+/*.html
