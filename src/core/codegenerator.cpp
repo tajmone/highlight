@@ -2410,8 +2410,13 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
             || assertGroup != stateTraceTest[column].kwClass) {
             
             testFailed=!negation;
-        } else if (negation) {
-            testFailed=true;
+       
+        } else if (negation ) {
+            
+            //TODO Fix ~ws 
+            if (assertState!=_WS  && !stateTraceTest[column].isWhiteSpace )
+                testFailed=true;
+            
         }
 
         if (testFailed) {
