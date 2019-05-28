@@ -6,6 +6,17 @@
 :toc: left
 :toclevels: 1
 
+
+== highlight 3.52
+
+28.05.2019
+
+  - added negation `~` to test state indicators (https://gitlab.com/saalen/highlight/issues/122)
+  - added support for Hugo (https://gitlab.com/saalen/highlight/merge_requests/113)
+  - added 5 duotone themes (https://gitlab.com/saalen/highlight/merge_requests/115)
+  - CLI: fixed segfault with `--force` (https://gitlab.com/saalen/highlight/issues/125)
+  - GUI: limited font selection to monospace fonts (https://gitlab.com/saalen/highlight/issues/124)
+  
   
 == highlight 3.51
 

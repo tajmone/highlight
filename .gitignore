@@ -1,2 +1,27 @@
 # Exclude local html previews of AsciiDoc README files (for editing purposes):
 /*.html
+
+# Compiled Object files
+*.o
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dll
+
+*.a
+*.lib
+
+# Executables
+*.exe
+
+src/gui-qt/moc_predefs.h
+src/highlight
+src/highlight-gui
+src/gui-qt/qrc_*
+src/gui-qt/ui_*
+src/gui-qt/moc_*
+src/gui-qt/.qmake.stash

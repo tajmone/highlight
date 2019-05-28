@@ -2360,11 +2360,22 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
     unsigned int assertGroup=0;
     size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);
     State assertState=_UNKNOWN;
-    
+    bool negation=false;
+    bool testFailed=false;
+   
+    ostringstream errMsg;
+    string prefix;
     //printTrace("trace 2");
     
     if (typeDescPos!=string::npos) {
     
+        if (line[typeDescPos]=='~') {
+        
+            negation=true;
+            prefix="~";
+            ++typeDescPos;
+        }
+        
         if (line.find(STY_NAME_NUM, typeDescPos)==typeDescPos)
             assertState=NUMBER;
         else if (line.find(STY_NAME_STR, typeDescPos)==typeDescPos)
@@ -2394,14 +2405,21 @@ void CodeGenerator::runSyntaxTestcases(unsigned int column){
                 assertGroup=line[typeDescPos+2] - 'a' +1;
         }
     
-        if (   (assertState!=_WS && stateTraceTest[column].state != assertState && !stateTraceTest[column].isWhiteSpace )
+       if (   (assertState!=_WS && stateTraceTest[column].state != assertState && !stateTraceTest[column].isWhiteSpace )
             || (assertState==_WS && !stateTraceTest[column].isWhiteSpace)
             || assertGroup != stateTraceTest[column].kwClass) {
-            ostringstream err;
-            err << inFile << " line " << lineNumber << ", column "<< column 
-                << ": got " << getTestcaseName(stateTraceTest[column].state, stateTraceTest[column].kwClass)  
-                << " instead of " << getTestcaseName(assertState, assertGroup);
-            failedPosTests.push_back(err.str());
+            
+            testFailed=!negation;
+        } else if (negation) {
+            testFailed=true;
+        }
+
+        if (testFailed) {
+            errMsg << inFile << " line " << lineNumber << ", column "<< column 
+                    << ": got " << getTestcaseName(stateTraceTest[column].state, stateTraceTest[column].kwClass)  
+                    << " instead of " << prefix << getTestcaseName(assertState, assertGroup);
+        
+            failedPosTests.push_back(errMsg.str());    
         }
         
     }

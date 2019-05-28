@@ -20,11 +20,11 @@ QMAKE=qmake
 
 # Added -std=c++11 because of auto_ptr to unique_ptr transition
 CFLAGS:=-Wall -O2 ${CFLAGS} -DNDEBUG -std=c++11
-#CFLAGS:=-ggdb ${CFLAGS} -std=c++11
+#CFLAGS:=-ggdb -O0 ${CFLAGS} -std=c++11
 
 CFLAGS_DILU=-fno-strict-aliasing
 
-SO_VERSION=3.51
+SO_VERSION=3.52
 
 # Source paths
 CORE_DIR=./core/

@@ -78,6 +78,14 @@ else
   exit 1
 fi
 
+echo 'ENFORCER' | ${HL_BIN} --force --fragment -O html | grep 'ENFORCER'
+if [ $? -eq 0 ]; then
+  echo "force option test #1 OK"
+else
+  echo "force option test #1 FAILED"
+  exit 1
+fi
+
 #if [ "$OUTPUT" == "BEGIN ... END" ]; then
 #  echo "Output is correct, OK"
 #else

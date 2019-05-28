@@ -60,6 +60,9 @@ private:
     
     void readLuaList(const string& paramName, const string& langName,Diluculum::LuaValue &luaVal, StringMap* extMap);
     
+    // object needs to life until cin is no longer used
+    stringstream cin_bufcopy;
+    
 public:
 
     StringMap assocByExtension, assocByFilename, assocByShebang;

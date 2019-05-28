@@ -241,7 +241,6 @@ string DataDir::analyzeFile ( const string& file )
         //  This copies all the data to a new buffer, uses the data to get the
         //  first line, then makes cin use the new buffer that underlies the
         //  stringstream instance
-        stringstream cin_bufcopy;
         cin_bufcopy << cin.rdbuf();
         getline ( cin_bufcopy, firstLine );
         cin_bufcopy.seekg ( 0, ios::beg );

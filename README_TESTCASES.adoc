@@ -1,6 +1,6 @@
 = HIGHLIGHT TESTCASES MANUAL
 André Simon
-v3.47, October 2018
+v3.52, May 2019
 :lang: en
 :icons: font
 :toc: left
@@ -67,6 +67,8 @@ The state identifiers match the corresponding HTML output CSS class names.
 Since release 3.47, the whitespace indicator `ws` is no longer exclusive.
 A test will succeed at a position with whitespace if the enclosing state is matched
 or if `ws` is tested specifically.
+
+Starting with release 3.52, you can negate the state with a leading `~`.
 
 
 === Example

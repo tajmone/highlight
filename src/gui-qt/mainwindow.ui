@@ -778,7 +778,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <property name="movable">
         <bool>false</bool>
@@ -2353,9 +2353,12 @@ Set the width to 0 to keep tabs.</string>
              <property name="toolTip">
               <string>Select or enter the font name. HTML supports a list of fonts, separated with comma.</string>
              </property>
+             <property name="fontFilters">
+              <set>QFontComboBox::MonospacedFonts</set>
+             </property>
              <property name="currentFont">
               <font>
-               <family>DejaVu Sans</family>
+               <family>cursor.pcf</family>
               </font>
              </property>
             </widget>

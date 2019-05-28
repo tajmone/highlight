@@ -866,6 +866,10 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
         themePath=getDistThemePath();
     }
 
+#ifdef Q_OS_WIN
+        themePath = getWindowsShortPath(themePath);                
+#endif
+
     for (int i=0; i<ui->lvPluginScripts->count(); i++) {
         if (ui->lvPluginScripts->item(i)->checkState()==Qt::Checked) {
             if (!generator->initPluginScript(ui->lvPluginScripts->item(i)->data(Qt::UserRole).toString().toStdString()) ) {
@@ -1015,6 +1019,10 @@ void MainWindow::on_pbStartConversion_clicked()
 
         langDefPath = (userLangPath.isEmpty()) ? getDistLangPath(getFileType(getFileSuffix(currentFile), currentFile)) : userLangPath;
 
+#ifdef Q_OS_WIN
+        langDefPath = getWindowsShortPath(langDefPath);                
+#endif
+        
         loadRes=generator->loadLanguage(langDefPath.toStdString());
         if (loadRes==highlight::LOAD_FAILED_REGEX) {
             QMessageBox::warning(this, tr("Language definition error"),
@@ -1242,6 +1250,10 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
         langPath = getDistLangPath(suffix);
     }
 
+#ifdef Q_OS_WIN
+        langPath = getWindowsShortPath(langPath);                
+#endif
+
     if ( generator->loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
         QString clipBoardData;
         if (getDataFromCP) {
@@ -1393,6 +1405,10 @@ void MainWindow::updatePreview()
         langInfo="";
         langPath = getDistLangPath(suffix);
     }
+    
+#ifdef Q_OS_WIN
+    langPath = getWindowsShortPath(langPath);                
+#endif
 
     QString themePath = getUserScriptPath("theme");
     QString themeInfo=tr("(user script)");
