@@ -62,6 +62,78 @@ else
   exit 1
 fi
 
+${HL_BIN} ${TEST_DIR}/exapunks/syntax_test_macros.exa
+if [ $? -eq 0 ]; then
+  echo "exapunks test #1 OK"
+else
+  echo "exapunks test #1 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/exapunks/syntax_test_labels.exa
+if [ $? -eq 0 ]; then
+  echo "exapunks test #2 OK"
+else
+  echo "exapunks test #2 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/exapunks/syntax_test_numbers.exa
+if [ $? -eq 0 ]; then
+  echo "exapunks test #3 OK"
+else
+  echo "exapunks test #3 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/exapunks/syntax_test_registers.exa
+if [ $? -eq 0 ]; then
+  echo "exapunks test #4 OK"
+else
+  echo "exapunks test #4 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/exapunks/syntax_test_comments.exa
+if [ $? -eq 0 ]; then
+  echo "exapunks test #5 OK"
+else
+  echo "exapunks test #5 FAILED"
+  exit 1
+fi
+
+${HL_BIN} ${TEST_DIR}/hugo/syntax_test_comments.hug
+if [ $? -eq 0 ]; then
+  echo "hugo test #1 OK"
+else
+  echo "hugo test #1 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/hugo/syntax_test_keywords.hug
+if [ $? -eq 0 ]; then
+  echo "hugo test #2 OK"
+else
+  echo "hugo test #2 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/hugo/syntax_test_strings.hug
+if [ $? -eq 0 ]; then
+  echo "hugo test #3 OK"
+else
+  echo "hugo test #3 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/hugo/syntax_test_chars.hug
+if [ $? -eq 0 ]; then
+  echo "hugo test #4 OK"
+else
+  echo "hugo test #4 FAILED"
+  exit 1
+fi
+${HL_BIN} ${TEST_DIR}/hugo/syntax_test_compiler-directives.hug
+if [ $? -eq 0 ]; then
+  echo "hugo test #5 OK"
+else
+  echo "hugo test #5 FAILED"
+  exit 1
+fi
+
 echo '#!/usr/bin/perl' | ${HL_BIN} --verbose 2>&1 >/dev/null |  grep 'Description: Perl'
 if [ $? -eq 0 ]; then
   echo "stdin shebang test #1 OK"
