@@ -369,6 +369,9 @@ public:
 
     /** \return category of scripts which should be listed */
     const string& getListScriptKind() const;
+    
+        /** \return fallback syntax if not defined or found by filename or shebang */
+    const string& getFallbackSyntax() const;
 
     /** \return line number width */
     int getNumberWidth();
@@ -476,7 +479,7 @@ private:
     bool explicit_output_format;
     bool opt_isolate;
 
-    string anchorPrefix;
+    string fallbackSyntax, anchorPrefix;
     string helpLang, encodingName;
 
     string pluginPath, pluginParameter, 

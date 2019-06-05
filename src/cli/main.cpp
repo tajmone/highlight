@@ -517,7 +517,8 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         if ( !options.syntaxGiven() ) { // determine file type for each file
             suffix = dataDir.guessFileType ( dataDir.getFileSuffix ( inFileList[i] ), inFileList[i] );
         }
-        if ( suffix.empty()  && options.forceOutput()) suffix="txt"; //avoid segfault
+        
+        if ( suffix.empty()  && options.forceOutput()) suffix=options.getFallbackSyntax(); //avoid segfault
         if ( suffix.empty() ) {
             if ( !options.enableBatchMode() )
                 cerr << "highlight: Undefined language definition. Use --"

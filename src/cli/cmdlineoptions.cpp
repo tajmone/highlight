@@ -97,7 +97,7 @@ const Arg_parser::Option options[] = {
         { S_OPT_SVG_WIDTH,        OPT_SVG_WIDTH,    Arg_parser::yes  },
         { S_OPT_SVG_HEIGHT,       OPT_SVG_HEIGHT,   Arg_parser::yes  },
         { S_OPT_ENCLOSE_PRE,      OPT_ENCLOSE_PRE,  Arg_parser::no  },
-        { S_OPT_FORCE_OUTPUT,     OPT_FORCE_OUTPUT, Arg_parser::no  },
+        { S_OPT_FORCE_OUTPUT,     OPT_FORCE_OUTPUT, Arg_parser::maybe  },
         { S_OPT_INLINE_CSS,       OPT_INLINE_CSS,   Arg_parser::no  },
         { S_OPT_KW_CASE,          OPT_KW_CASE,      Arg_parser::yes },
         { S_OPT_PRINT_CONFIG,     OPT_PRINT_CONFIG, Arg_parser::no  },
@@ -194,6 +194,7 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_no_version_info(false),
     explicit_output_format(false),
     opt_isolate(false),
+    fallbackSyntax("txt"),
     anchorPrefix ( "l" ),
     helpLang ( "en" ),
     encodingName ( "ISO-8859-1" )
@@ -441,6 +442,8 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         case S_OPT_FORCE_OUTPUT:
         case S_OPT_COMPAT_FAILSAFE:
             opt_force_output = true;
+            if  ( !arg.empty() ) 
+                fallbackSyntax=arg;
             break;
         case S_OPT_INLINE_CSS:
             opt_inline_css=true;
@@ -1003,3 +1006,8 @@ const string& CmdLineOptions::getSyntaxByFilename() const {
 const string& CmdLineOptions::getListScriptKind() const{
     return listScriptType;
 }
+
+const string& CmdLineOptions::getFallbackSyntax() const {
+    return fallbackSyntax;
+}
+
