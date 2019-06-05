@@ -1,4 +1,4 @@
-.TH highlight 1 "2019-04-16" "Andre Simon" "user documentation"
+.TH highlight 1 "2019-06-05" "Andre Simon" "user documentation"
 
 .SH NAME
 Highlight - a universal sourcecode to formatted text converter
@@ -44,8 +44,8 @@ specify type of source code by given name.  Will not read a file of this name, u
 print debug info to stderr
 .IP "-q, --quiet"
 suppress progress info in batch mode
-.IP "--force"
-generate output if input syntax is unknown
+.IP "--force[=syntax]"
+generate output if input syntax is unknown. The fallback syntax may be set here, Plain Text is default.
 .IP "--list-scripts=<type>"
 list installed scripts 
 <type> = [langs, themes, plugins]

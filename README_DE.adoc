@@ -1,6 +1,6 @@
 = HIGHLIGHT HANDBUCH
 André Simon
-v3.51, Mai 2019
+v3.53, Juni 2019
 :lang: de
 :toc: left
 :toc-title: Contents
@@ -186,7 +186,7 @@ General options:
      --syntax-by-name=<name>    specify type of source code by given name
                                   will not read a file of this name, useful for stdin
  -v, --verbose                  print debug info
-     --force                    generate output if input syntax is unknown
+     --force[=syntax]           generate output if input syntax is unknown
      --list-scripts=<type>      list installed scripts
                                   <type> = [langs, themes, plugins]
      --list-cat=<categories>    filter the scripts by the given categories

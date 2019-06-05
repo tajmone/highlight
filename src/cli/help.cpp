@@ -135,7 +135,7 @@ void printHelp(const std::string &topic)
         cout<<"     --syntax-by-name=<name>    specify type of source code by given name\n";
         cout<<"                                  will not read a file of this name, useful for stdin\n";
         cout<<" -v, --verbose                  print debug info\n";
-        cout<<"     --force                    generate output if input syntax is unknown\n";
+        cout<<"     --force[=syntax]           generate output if input syntax is unknown\n";
         cout<<"     --list-scripts=<type>      list installed scripts\n";
         cout<<"                                  <type> = [langs, themes, plugins]\n";
         cout<<"     --list-cat=<categories>    filter the scripts by the given categories\n"; 
