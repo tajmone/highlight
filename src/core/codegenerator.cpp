@@ -720,7 +720,9 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
     for ( unsigned int i=0; i< s.length(); i++ ) {
         ss << maskCharacter ( s[i] );
 
-        if (applySyntaxTestCase) {
+        // do not add a trace indicator state for each byte of a UTF-8 sequence, only for the seq start
+        // https://stackoverflow.com/questions/4063146/getting-the-actual-length-of-a-utf-8-encoded-stdstring
+        if (applySyntaxTestCase && (s[i] & 0xc0) != 0x80 ) {
             PositionState ps(currentState, getCurrentKeywordClassId(), false);
             stateTraceCurrent.push_back(ps);
             
@@ -2355,6 +2357,7 @@ void CodeGenerator::printTrace(const string &s){
     std::cout<<"\n";
 }
 
+//column: lineIndex (not a UTF-8 validated string position)
 void CodeGenerator::runSyntaxTestcases(unsigned int column){
     
     unsigned int assertGroup=0;

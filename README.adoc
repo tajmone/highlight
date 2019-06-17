@@ -989,11 +989,5 @@ a.simon@mailbox.org
 Git project with repository, bug tracker:
 
 * https://gitlab.com/saalen/highlight/
-* https://github.com/andre-simon/highlight (will be set to archive mode)
-
-sf.net project with SVN repository, download mirror, bug tracker, help forum:
-
-* http://sourceforge.net/projects/syntaxhighlight/
-
 
 // EOF //

@@ -512,7 +512,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         
     while ( i < fileCount && !initError ) {
         
-        if ( Platform::fileSize(inFileList[i]) > options.getMaxFileSize() /* 268435456 */ ) {
+        if ( Platform::fileSize(inFileList[i]) > options.getMaxFileSize() ) {
             
             if ( numBadInput++ < IO_ERROR_REPORT_LENGTH || options.printDebugInfo() ) {
                 badInputFiles.push_back ( inFileList[i] + " (size)" );
