@@ -1,4 +1,4 @@
-.TH highlight 1 "2019-06-05" "Andre Simon" "user documentation"
+.TH highlight 1 "2019-06-17" "Andre Simon" "user documentation"
 
 .SH NAME
 Highlight - a universal sourcecode to formatted text converter
@@ -50,7 +50,9 @@ generate output if input syntax is unknown. The fallback syntax may be set here,
 list installed scripts 
 <type> = [langs, themes, plugins]
 .IP "--list-cat=<categories>"
-filter the scripts by the given categories (example: --list-cat='source;script' ) 
+filter the scripts by the given categories (example: --list-cat='source;script') 
+.IP "--max-size=<size>"
+set maximum input file size (examples: 512M, 1G; default: 256M)
 .IP "--plug-in=<script>"
 execute Lua plug-in script; repeat option to apply multiple plug-ins
 .IP "--plug-in-param"

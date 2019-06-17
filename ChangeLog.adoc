@@ -6,8 +6,12 @@
 :toc: left
 :toclevels: 1
 
+== highlight 3.53
+
+17.06.2019
 
   - CLI: added optional fallback syntax to `--force` (https://gitlab.com/saalen/highlight/issues/126)
+  - CLI: added option `--max-size` (https://gitlab.com/saalen/highlight/issues/127)
 
 == highlight 3.52
 

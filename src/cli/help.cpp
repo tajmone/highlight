@@ -140,6 +140,8 @@ void printHelp(const std::string &topic)
         cout<<"                                  <type> = [langs, themes, plugins]\n";
         cout<<"     --list-cat=<categories>    filter the scripts by the given categories\n"; 
         cout<<"                                  (example: --list-cat='source;script')\n";
+        cout<<"     --max-size=<size>          set maximum input file size\n";
+        cout<<"                                  (examples: 512M, 1G; default: 256M)\n"; 
         cout<<"     --plug-in=<script>         execute Lua plug-in script; repeat option to\n";
         cout<<"                                  execute multiple plug-ins\n";
         cout<<"     --plug-in-param=<value>    set plug-in input parameter\n";

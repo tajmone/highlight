@@ -335,4 +335,15 @@ bool fileExists(const string &fName)
     return !stat(fName.c_str(),&fileInfo);
 }
 
+//-D_FILE_OFFSET_BITS=64
+//268435456 256 MB
+
+off_t fileSize(const string& fName) {
+    struct stat fileInfo;
+    if(stat(fName.c_str(), &fileInfo) != 0) {
+        return 0;
+    }
+    return fileInfo.st_size;   
+}
+
 }

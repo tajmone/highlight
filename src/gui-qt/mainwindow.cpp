@@ -855,6 +855,8 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
 
     generator->setPrintLineNumbers( ui->cbIncLineNo->isChecked(), ui->sbLineNoStart->value());
     generator->setPrintZeroes(ui->cbPadZeroes->isEnabled() && ui->cbPadZeroes->isChecked());
+    
+    //TODO Check Windows MB Path
     generator->setPluginParameter(ui->lePluginReadFilePath->text().toStdString());
     generator->setOmitVersionComment(ui->cbHTMLPasteMIME->isChecked() || ui->cbOmitVersionInfo->isChecked());
     
@@ -869,6 +871,8 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
 #ifdef Q_OS_WIN
         themePath = getWindowsShortPath(themePath);                
 #endif
+
+    //TODO Check Windows MB Path
 
     for (int i=0; i<ui->lvPluginScripts->count(); i++) {
         if (ui->lvPluginScripts->item(i)->checkState()==Qt::Checked) {
@@ -1685,6 +1689,7 @@ void MainWindow::on_lvPluginScripts_itemClicked(QListWidgetItem *item)
 {
     try {
         Diluculum::LuaState ls;
+        //TODO Check Windows MB Path
         ls.doFile ( item->data(Qt::UserRole).toString().toStdString());
         ui->lblPluginDescription->setText(QString::fromStdString(ls["Description"].value().asString()));
         statusBar()->showMessage(tr("Some plug-in effects may not be visible in the preview."));

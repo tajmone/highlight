@@ -49,7 +49,7 @@ enum Optcode {
         S_OPT_PLUGIN_READFILE, S_OPT_PLUGIN_PARAMETER, S_OPT_LIST_SCRIPTS, S_OPT_CANVAS,
         S_OPT_KEEP_INJECTIONS, S_OPT_FORCE_STDOUT, S_OPT_LATEX_BEAMER, S_OPT_NO_VERSION_INFO,
         S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16, S_OPT_CATEGORIES, S_OPT_PIPED_FNAME,
-        S_OPT_ISOLATE
+        S_OPT_ISOLATE, S_OPT_MAX_FILE_SIZE
     };
 
 const Arg_parser::Option options[] = {
@@ -137,6 +137,7 @@ const Arg_parser::Option options[] = {
         { S_OPT_CATEGORIES,       OPT_CATEGORIES,      Arg_parser::yes },
         { S_OPT_PIPED_FNAME,      OPT_PIPED_FNAME,     Arg_parser::yes },
         { S_OPT_ISOLATE,          OPT_ISOLATE_TAGS,    Arg_parser::no },
+        { S_OPT_MAX_FILE_SIZE,    OPT_MAX_FILE_SIZE,   Arg_parser::yes },
         
 
         { 0, 0, Arg_parser::no }
@@ -194,6 +195,7 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_no_version_info(false),
     explicit_output_format(false),
     opt_isolate(false),
+    maxFileSize(268435456),
     fallbackSyntax("txt"),
     anchorPrefix ( "l" ),
     helpLang ( "en" ),
@@ -442,8 +444,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         case S_OPT_FORCE_OUTPUT:
         case S_OPT_COMPAT_FAILSAFE:
             opt_force_output = true;
-            if  ( !arg.empty() ) 
+            if  ( !arg.empty() ) {
                 fallbackSyntax=arg;
+            } 
             break;
         case S_OPT_INLINE_CSS:
             opt_inline_css=true;
@@ -569,6 +572,16 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         case S_OPT_ISOLATE:
             opt_isolate=true;
             break;
+        case S_OPT_MAX_FILE_SIZE: {
+            StringTools::str2num<off_t> ( maxFileSize, arg, std::dec );
+            switch (arg[arg.size()-1]) {
+                case 'G': maxFileSize *= 1024;
+                case 'M': maxFileSize *= 1024;
+                case 'K': maxFileSize *= 1024;
+            }
+            break;
+        }
+            
         default:
             cerr << "highlight: option parsing failed" << endl;
         }
@@ -794,10 +807,13 @@ bool CmdLineOptions::printOnlyStyle() const
 {
     return opt_print_style;
 }
-
 bool CmdLineOptions::useBase16Theme() const
 {
     return opt_base16_theme;
+}
+off_t CmdLineOptions::getMaxFileSize() const
+{
+    return maxFileSize;
 }
 
 string CmdLineOptions::getIndentScheme() const

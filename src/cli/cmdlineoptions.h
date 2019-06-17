@@ -115,6 +115,8 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_CATEGORIES       "list-cat"  
 #define OPT_PIPED_FNAME      "syntax-by-name"
 #define OPT_ISOLATE_TAGS     "isolate"
+#define OPT_MAX_FILE_SIZE    "max-size"
+
 
 // Improve CLI option compatibility with GNU source-highlight
 #define OPT_COMPAT_DOC       "doc"
@@ -322,6 +324,9 @@ public:
     /** \return True if output token of the same syntax category should be in separate tags */
     bool isolateTags() const;
     
+    /** \return max. input file size (default 256 MB) */
+    off_t getMaxFileSize() const;
+    
     /** \return The given base font, empty string by default */
     const string& getBaseFont() const ;
 
@@ -478,6 +483,8 @@ private:
     bool opt_no_version_info;
     bool explicit_output_format;
     bool opt_isolate;
+    
+    off_t maxFileSize;
 
     string fallbackSyntax, anchorPrefix;
     string helpLang, encodingName;

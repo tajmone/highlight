@@ -503,8 +503,6 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     string suffix, lastSuffix;
 
     if ( options.syntaxGiven() ) { // user defined language definition, valid for all files
-        //TODO check for filename given prior to IO redirection
-        //--syntax-by-name overrides --syntax
         string syntaxByFile=options.getSyntaxByFilename();
         string testSuffix = syntaxByFile.empty() ? options.getSyntax() : dataDir.getFileSuffix(syntaxByFile); 
         suffix = dataDir.guessFileType (testSuffix, syntaxByFile, syntaxByFile.empty(), true );         
@@ -513,7 +511,16 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     generator->setFilesCnt(fileCount);
         
     while ( i < fileCount && !initError ) {
-           
+        
+        if ( Platform::fileSize(inFileList[i]) > options.getMaxFileSize() /* 268435456 */ ) {
+            
+            if ( numBadInput++ < IO_ERROR_REPORT_LENGTH || options.printDebugInfo() ) {
+                badInputFiles.push_back ( inFileList[i] + " (size)" );
+            }
+            ++i;
+            continue;
+        }
+    
         if ( !options.syntaxGiven() ) { // determine file type for each file
             suffix = dataDir.guessFileType ( dataDir.getFileSuffix ( inFileList[i] ), inFileList[i] );
         }
