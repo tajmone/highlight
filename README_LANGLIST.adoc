@@ -124,6 +124,7 @@ Packaged language definitions, obtained via `highlight --list-scripts=langs`
 | Fortran 90                     | link:./langDefs/fortran90.lang[`fortran90.lang`,title="View source file"] |  f90 f95
 | Frink                          | link:./langDefs/frink.lang[`frink.lang`,title="View source file"] |
 | fstab config file              | link:./langDefs/fstab.lang[`fstab.lang`,title="View source file"] |
+| Fish                           | link:./langDefs/fish.lang[`fish.lang`,title="View source file"] |
 | Gambas                         | link:./langDefs/gambas.lang[`gambas.lang`,title="View source file"] |  class
 | gdb                            | link:./langDefs/gdb.lang[`gdb.lang`,title="View source file"] |
 | GDScript                       | link:./langDefs/gdscript.lang[`gdscript.lang`,title="View source file"] |  gd
