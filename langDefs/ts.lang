@@ -10,13 +10,11 @@ Keywords={
   {  Id=1,
    List={ "import", "export", "arguments", "this", "let", "var", "yield", "delete", "new", "instanceof", "typeof", "alert", 
           "confirm", "prompt", "status", "self", "top", "parent", "if", "else", "switch", "do", "while", "for", "in", "break",
-          "continue", "case", "default", "return",
-          "with", "try", "catch", "throw", "finally", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError",
-          "URIError", "declare", "as",
-          "interface", "module", "abstract", "enum", "export", "interface", "static", "extends", "super", "final",
-          "native", "synchronized", "class", "package", "throws", "const", "goto", "private", "transient", "debugger", "implements",
-          "protected", "volatile",
-          "double", "import", "public", "function", "type", "readonly", "is", "async", "await", "namespace", "of"
+          "continue", "case", "default", "return", "with", "try", "catch", "throw", "finally", "Error", "EvalError", 
+          "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError", "declare", "as", "interface", "module", 
+          "abstract", "enum", "static", "extends", "super", "final", "native", "synchronized", "class", 
+          "package", "throws", "const", "goto", "private", "transient", "debugger", "implements", "protected", "volatile",
+          "double", "public", "function", "type", "readonly", "is", "async", "await", "namespace", "of"
         }
   },
   { Id=2,
