@@ -72,6 +72,14 @@ bool ShowTextFile::setFileName(const QString& fileName)
     return file.exists();
 }
 
+void ShowTextFile::setText(const QString& content, const QString& title)
+{
+
+   m_ui->textBrowser->setText( content );
+   m_ui->lbTitle->setText(title);
+}
+
+
 void ShowTextFile::on_pushButton_clicked()
 {
     this->close();

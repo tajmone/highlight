@@ -92,6 +92,7 @@ private:
     QFileSystemWatcher scriptWatcher;
     QStringList themesClassic;
     QStringList themesBase16;
+    QStringList accessedPaths; //to debug multibyte path access
     QList< QList<QString> > themesList;
 
     int oldThemeIndex;
@@ -182,6 +183,8 @@ private slots:
 
     void on_browserPreview_selectionChanged();
     void on_comboThemeFilter_currentIndexChanged(int index);
+
+    void on_action_File_access_trace_W32_triggered();
 };
 
 #endif // MAINWINDOW_H

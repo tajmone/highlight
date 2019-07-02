@@ -96,6 +96,8 @@ MainWindow::MainWindow(QWidget *parent)
                 constIterator != filesClassic.constEnd(); ++constIterator) {
             QString tPath(*constIterator);
             QString tCat;
+            accessedPaths.append(tPath);
+
             ls.doFile (themesDirClassic.absoluteFilePath(tPath).toStdString());
             QString tDesc (QString::fromStdString(ls["Description"].value().asString()));
             if (ls["Categories"].value() !=Diluculum::Nil){
@@ -116,6 +118,8 @@ MainWindow::MainWindow(QWidget *parent)
                 constIterator != filesBase16.constEnd(); ++constIterator) {
             QString tPath(*constIterator);
             QString tCat;
+            accessedPaths.append(tPath);
+
             ls.doFile (themesDirBase16.absoluteFilePath(tPath).toStdString());
             QString tDesc (QString::fromStdString(ls["Description"].value().asString()));
             if (ls["Categories"].value() !=Diluculum::Nil){
@@ -496,6 +500,8 @@ void MainWindow::readSettings()
     // QMessageBox::information(this, "path", settings.fileName());
     if (!QFile(settings.fileName()).exists()) return;
 
+    accessedPaths.append(settings.fileName());
+
     settings.beginGroup("MainWindow");
 
     restoreGeometry(settings.value("geometry").toByteArray());
@@ -872,11 +878,16 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
         themePath = getWindowsShortPath(themePath);                
 #endif
 
+
     //TODO Check Windows MB Path
 
     for (int i=0; i<ui->lvPluginScripts->count(); i++) {
         if (ui->lvPluginScripts->item(i)->checkState()==Qt::Checked) {
-            if (!generator->initPluginScript(ui->lvPluginScripts->item(i)->data(Qt::UserRole).toString().toStdString()) ) {
+            QString pluginPath=ui->lvPluginScripts->item(i)->data(Qt::UserRole).toString();
+#ifdef Q_OS_WIN
+        pluginPath = getWindowsShortPath(pluginPath);
+#endif
+            if (!generator->initPluginScript(pluginPath.toStdString()) ) {
                 QMessageBox::critical(this,"Plug-In init error", QString::fromStdString(generator->getPluginScriptError()));
             }
         }
@@ -1026,7 +1037,7 @@ void MainWindow::on_pbStartConversion_clicked()
 #ifdef Q_OS_WIN
         langDefPath = getWindowsShortPath(langDefPath);                
 #endif
-        
+
         loadRes=generator->loadLanguage(langDefPath.toStdString());
         if (loadRes==highlight::LOAD_FAILED_REGEX) {
             QMessageBox::warning(this, tr("Language definition error"),
@@ -1783,5 +1794,15 @@ QString MainWindow::getWindowsShortPath(const QString & path){
         shortPath = QString::fromUtf16((const char16_t*)buffer, length);
         delete[] buffer;
 #endif
+    accessedPaths.append(shortPath);
     return shortPath;
+}
+
+void MainWindow::on_action_File_access_trace_W32_triggered(){
+    accessedPaths<<"BUFFER CLEARED";
+
+    ShowTextFile show;
+    show.setText(accessedPaths.join("\n"), "Windows file access debug trace");
+    show.exec();
+    accessedPaths.clear();
 }

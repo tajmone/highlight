@@ -99,6 +99,7 @@
     <addaction name="action_Changelog"/>
     <addaction name="action_License"/>
     <addaction name="separator"/>
+    <addaction name="action_File_access_trace_W32"/>
     <addaction name="actionAbout_translations"/>
     <addaction name="separator"/>
     <addaction name="actionVisit_website"/>
@@ -2478,6 +2479,11 @@ Set the width to 0 to keep tabs.</string>
   <action name="action_Plug_Ins">
    <property name="text">
     <string>&amp;Plug-Ins</string>
+   </property>
+  </action>
+  <action name="action_File_access_trace_W32">
+   <property name="text">
+    <string>&amp;File access trace (W32)</string>
    </property>
   </action>
  </widget>

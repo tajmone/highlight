@@ -45,6 +45,7 @@ public:
     explicit ShowTextFile(QWidget *parent = 0);
     virtual ~ShowTextFile();
     bool setFileName(const QString& fileName);
+    void setText(const QString& content, const QString& title);
 
 protected:
     virtual void changeEvent(QEvent *e);

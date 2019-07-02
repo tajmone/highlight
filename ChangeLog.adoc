@@ -10,6 +10,7 @@
 
 17.06.2019
 
+  - added Fish syntax definition (thanks to James Lee)
   - CLI: added optional fallback syntax to `--force` (https://gitlab.com/saalen/highlight/issues/126)
   - CLI: added option `--max-size` (https://gitlab.com/saalen/highlight/issues/127)
 
