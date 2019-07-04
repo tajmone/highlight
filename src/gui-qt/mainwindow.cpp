@@ -610,6 +610,9 @@ void MainWindow::readLuaList(const string& paramName, const string& langName,Dil
 bool MainWindow::loadFileTypeConfig()
 {
     QString filetypesPath=getDistFileConfigPath();
+#ifdef Q_OS_WIN
+   filetypesPath = getWindowsShortPath(filetypesPath);
+#endif
 
     try {
         Diluculum::LuaState ls;
@@ -1785,6 +1788,9 @@ void MainWindow::on_comboThemeFilter_currentIndexChanged(int index)
 }
 
 QString MainWindow::getWindowsShortPath(const QString & path){
+    accessedPaths.append("origPath:");
+    accessedPaths.append(path);
+
     QString shortPath(path);
 #ifdef Q_OS_WIN
         int length = GetShortPathName( (const wchar_t*)path.utf16(),0,0);
@@ -1794,6 +1800,7 @@ QString MainWindow::getWindowsShortPath(const QString & path){
         shortPath = QString::fromUtf16((const char16_t*)buffer, length);
         delete[] buffer;
 #endif
+    accessedPaths.append("shortPath:");
     accessedPaths.append(shortPath);
     return shortPath;
 }
