@@ -564,8 +564,8 @@ protected:
     string docTitle;
 
     string inFile,   ///< input file name
-           outFile; ///< output file name
-
+           outFile;  ///< output file name
+           
     /** Test if maskWsBegin and maskWsEnd should be applied */
     bool maskWs;
 

@@ -516,17 +516,41 @@ void CodeGenerator::matchRegex ( const string &line, State skipState)
         RegexElement *regexElem = currentSyntax->getRegexElements() [i];
 
         if (regexElem->open == skipState) continue;
+
+        if (regexElem->constraintLineNum && regexElem->constraintLineNum != lineNumber) {
+            continue;
+        }
         
+        if (regexElem->constraintFilename.size() && regexElem->constraintFilename != inFile) {
+            continue;
+        }
+
         boost::xpressive::sregex_iterator cur( line.begin(), line.end(), regexElem->rex );
         boost::xpressive::sregex_iterator end;
 
         for( ; cur != end; ++cur )  {
             groupID = ( regexElem->capturingGroup<0 ) ? cur->size()-1 : regexElem->capturingGroup;
-            matchBegin =  cur->position(groupID);
+            matchBegin = cur->position(groupID);
+        
             regexGroups.insert (
                 make_pair ( matchBegin + 1, ReGroup ( regexElem->open, cur->length(groupID), regexElem->kwClass, regexElem->langName ) ) );
+            
+            //Only return first match
+            //if (regexElem->kwClass==6)
+              //  break;
         }
+        
+        // priority regex
+        if (regexElem->priority) {
+           // cerr<<"\n BREAK "<<regexElem->kwClass; 
+            break;
+        }
+
     }
+    
+    //TODO Positionsabh. States verwalten: Linenum>=1: nur in dieser Zeile;<0: in allen Zeilen, Spalte - Spalte + Länge Token; Dateiname zum Abgleich
+    //analog wie RE in Regexgroups einfügen, statt RegexElements einen anderen Container mit Positionsdaten
+    //in Langdef können Positionen, Listen, Regex für einen nächsten Lauf gespeichert und in Lua-Datei geschrieben werden (2pass-Mustererkennung)
 }
 
 unsigned char CodeGenerator::getInputChar()

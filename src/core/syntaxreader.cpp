@@ -221,7 +221,25 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                 if (ls["Keywords"][idx]["Group"].value()!=Diluculum::Nil) {
                     captGroup=ls["Keywords"][idx]["Group"].value().asInteger();
                 }
-                regex.push_back ( new RegexElement ( KEYWORD, KEYWORD_END, reString, kwId, captGroup ) );
+
+                unsigned int priority=0;
+                if (ls["Keywords"][idx]["Priority"].value()!=Diluculum::Nil) {
+                    priority=ls["Keywords"][idx]["Priority"].value().asInteger();
+                }
+                
+                unsigned int constraintLineNum=0;
+                //int constraintColumn=-1; 
+                string constraintFilename;
+                if (ls["Keywords"][idx]["Constraints"].value()!=Diluculum::Nil) {
+
+                    if (ls["Keywords"][idx]["Constraints"]["Line"].value()!=Diluculum::Nil)
+                        constraintLineNum=ls["Keywords"][idx]["Constraints"]["Line"].value().asInteger();
+                   // if (ls["Keywords"][idx]["Constraints"]["Column"].value()!=Diluculum::Nil)
+                   //     constraintColumn=ls["Keywords"][idx]["Constraints"]["Column"].value().asInteger();
+                    if (ls["Keywords"][idx]["Constraints"]["Filename"].value()!=Diluculum::Nil)
+                        constraintFilename =ls["Keywords"][idx]["Constraints"]["Filename"].value().asString();
+                }
+                regex.push_back ( new RegexElement ( KEYWORD, KEYWORD_END, reString, kwId, captGroup, "", priority, constraintLineNum, /*constraintColumn,*/ constraintFilename ) );
             }
             idx++;
         }

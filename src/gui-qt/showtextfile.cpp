@@ -74,7 +74,6 @@ bool ShowTextFile::setFileName(const QString& fileName)
 
 void ShowTextFile::setText(const QString& content, const QString& title)
 {
-
    m_ui->textBrowser->setText( content );
    m_ui->lbTitle->setText(title);
 }

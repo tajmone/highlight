@@ -403,13 +403,16 @@ class RegexElement
 {
 public:
     RegexElement()
-        :open ( STANDARD ), end ( STANDARD ), kwClass ( 0 ),capturingGroup ( -1 ), langName(), instanceId(instanceCnt++)
+        :open ( STANDARD ), end ( STANDARD ), kwClass ( 0 ), capturingGroup ( -1 ), 
+        langName(), instanceId(instanceCnt++),
+        priority(0), constraintLineNum (0) /*constraintColumn(-1)*/
     {
-
     }
 
-    RegexElement ( State oState, State eState, const string&rePattern, unsigned int cID=0, int group=-1, const string& name="" ) :
-        open ( oState ), end ( eState ), kwClass ( cID ), capturingGroup ( group ), langName(name),instanceId(instanceCnt++)
+    RegexElement ( State oState, State eState, const string&rePattern, unsigned int cID=0, int group=-1, const string& name="", 
+                   unsigned int prio=0, unsigned int cLineNum=0, /*unsigned int cColumn=-1,*/ const string &cFilename="" ) :
+        open ( oState ), end ( eState ), kwClass ( cID ), capturingGroup ( group ), langName(name),instanceId(instanceCnt++),
+        priority(prio), constraintLineNum (cLineNum), /* constraintColumn (cColumn),*/ constraintFilename (cFilename)
     {
         pattern=rePattern;
         rex=boost::xpressive::sregex::compile(rePattern);
@@ -429,16 +432,11 @@ public:
     string pattern;
     static int instanceCnt;
     int instanceId;
+    unsigned int priority;
+    unsigned int constraintLineNum;       ///< restrict this regex to this source line number
+    //int constraintColumn;        ///< restrict this regex to this source column
+    string constraintFilename;   ///< restrict this regex to this source filename
 };
-
-/**\brief Association of a regex and its relevant capturing group
-*/
-/*
-struct RegexDef {
-    RegexDef() :capturingGroup ( -1 ) {}
-    string reString;     ///< regex string
-    int capturingGroup;  ///< capturing group which should be recognized as token
-};*/
 
 }
 #endif
