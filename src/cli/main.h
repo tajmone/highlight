@@ -86,6 +86,8 @@ private:
     */
     void printDebugInfo ( const highlight::SyntaxReader *lang,
                           const string &langDefPath );
+    
+    void printPersistentStates ( const highlight::SyntaxReader *lang);
 
     int getNumDigits ( int i );
 

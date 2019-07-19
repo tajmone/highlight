@@ -8,14 +8,15 @@
 
 == highlight 3.53
 
-17.06.2019
+17.07.2019
 
-  - added Constraints element to Regex definitions (restricts pattern to line number, column or filename)
+  - added `Priority` and `Constraints` elements to syntax regex definitions
   - renamed md.lang to markdown.lang
   - added Fish syntax definition (thanks to James Lee)
   - CLI: added optional fallback syntax to `--force` (https://gitlab.com/saalen/highlight/issues/126)
   - CLI: added option `--max-size` (https://gitlab.com/saalen/highlight/issues/127)
-
+  - GUI: added multibyte path trace window
+  
 == highlight 3.52
 
 28.05.2019

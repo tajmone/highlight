@@ -222,6 +222,12 @@ public:
       */
     bool printExternalStyle ( const string &outFile );
 
+        /** Print persistent state snippets to external file 
+      \param outFile Path of plugin file to generate
+       \return true if successfull
+      */
+    bool printPersistentState ( const string &outFile );
+    
     /** Print index file with all input file names
        \param fileList List of output file names
        \param outPath Output path

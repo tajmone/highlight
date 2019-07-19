@@ -49,7 +49,7 @@ enum Optcode {
         S_OPT_PLUGIN_READFILE, S_OPT_PLUGIN_PARAMETER, S_OPT_LIST_SCRIPTS, S_OPT_CANVAS,
         S_OPT_KEEP_INJECTIONS, S_OPT_FORCE_STDOUT, S_OPT_LATEX_BEAMER, S_OPT_NO_VERSION_INFO,
         S_OPT_REFORMAT_OPT, S_OPT_RANGE_OPT, S_OPT_BASE16, S_OPT_CATEGORIES, S_OPT_PIPED_FNAME,
-        S_OPT_ISOLATE, S_OPT_MAX_FILE_SIZE
+        S_OPT_ISOLATE, S_OPT_MAX_FILE_SIZE, S_OPT_TWO_PASS
     };
 
 const Arg_parser::Option options[] = {
@@ -138,8 +138,8 @@ const Arg_parser::Option options[] = {
         { S_OPT_PIPED_FNAME,      OPT_PIPED_FNAME,     Arg_parser::yes },
         { S_OPT_ISOLATE,          OPT_ISOLATE_TAGS,    Arg_parser::no },
         { S_OPT_MAX_FILE_SIZE,    OPT_MAX_FILE_SIZE,   Arg_parser::yes },
+        { S_OPT_TWO_PASS,         OPT_TWO_PASS,        Arg_parser::yes },
         
-
         { 0, 0, Arg_parser::no }
     };
 
@@ -581,6 +581,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             }
             break;
         }
+        case S_OPT_TWO_PASS:
+            twoPassFile=arg;
+            break;
             
         default:
             cerr << "highlight: option parsing failed" << endl;
@@ -627,6 +630,10 @@ const string &CmdLineOptions::getOutDirectory()
         outDirectory=getDirName ( outFilename );
     }
     return outDirectory;
+}
+
+const string& CmdLineOptions::getTwoPassFile() const {
+    return twoPassFile;
 }
 
 const string CmdLineOptions::getStyleOutFilename() const

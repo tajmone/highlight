@@ -538,19 +538,16 @@ void CodeGenerator::matchRegex ( const string &line, State skipState)
             //Only return first match
             //if (regexElem->kwClass==6)
               //  break;
+
+            // priority regex (match required)
+            if (regexElem->priority) {
+                return;
+            }
+
         }
         
-        // priority regex
-        if (regexElem->priority) {
-           // cerr<<"\n BREAK "<<regexElem->kwClass; 
-            break;
-        }
-
+        // prio check here if match not necessary
     }
-    
-    //TODO Positionsabh. States verwalten: Linenum>=1: nur in dieser Zeile;<0: in allen Zeilen, Spalte - Spalte + Länge Token; Dateiname zum Abgleich
-    //analog wie RE in Regexgroups einfügen, statt RegexElements einen anderen Container mit Positionsdaten
-    //in Langdef können Positionen, Listen, Regex für einen nächsten Lauf gespeichert und in Lua-Datei geschrieben werden (2pass-Mustererkennung)
 }
 
 unsigned char CodeGenerator::getInputChar()
@@ -1531,6 +1528,7 @@ ParseError CodeGenerator::generateFile ( const string &inFileName,
         if ( formatter != NULL ) {
             formatter->init ( new astyle::ASStreamIterator ( in ) );
         }
+        currentSyntax->setInputFileName(inFile);
         printHeader();
         printBody();
         printFooter();
@@ -1605,6 +1603,8 @@ string CodeGenerator::generateStringFromFile ( const string &inFileName )
     if ( formatter != NULL ) {
         formatter->init ( new astyle::ASStreamIterator ( in ) );
     }
+    currentSyntax->setInputFileName(inFile);
+    
     printHeader();
     printBody();
     printFooter();
@@ -2547,6 +2547,35 @@ bool CodeGenerator::printExternalStyle ( const string &outFile )
             return false;
         }
     }
+    return true;
+}
+
+bool CodeGenerator::printPersistentState ( const string &outFile )
+{
+    if (!currentSyntax) return false;
+
+    ofstream pluginOutFile( outFile.c_str());
+    if ( !pluginOutFile.fail() ) {
+        
+        pluginOutFile   <<"Description=\"Plugin generated with --two-pass option\"\n"
+                        <<"Categories = {\"persistence\" }\n"
+                        <<"function syntaxUpdate(desc)\n\n";
+     
+        for ( unsigned int i=0; i<currentSyntax->getPersistentSnippets().size(); i++ )
+        {   
+            pluginOutFile << currentSyntax->getPersistentSnippets() [i];
+            pluginOutFile <<"\n\n";
+        }
+        
+        pluginOutFile<<"\nend\n"
+                     <<"Plugins={\n"
+                     <<"  { Type=\"lang\", Chunk=syntaxUpdate }\n"
+                     <<"}";
+        
+    } else {
+        return false;
+    }
+    
     return true;
 }
 

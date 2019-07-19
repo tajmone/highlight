@@ -50,6 +50,8 @@ AllowInnerSectionsMap SyntaxReader::allowInnerSections;
 
 vector<Diluculum::LuaFunction*> SyntaxReader::pluginChunks;
 
+vector<string> SyntaxReader::persistentSnippets;
+
 int RegexElement::instanceCnt=0;
 
 
@@ -163,8 +165,9 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         Diluculum::LuaState& ls=*luaState;
         initLuaState(ls, langDefPath, pluginReadFilePath, outputType);
 
-        lua_register (ls.getState(),"AddKeyword",luaAddKeyword);
-        lua_register (ls.getState(),"RemoveKeyword",luaRemoveKeyword);
+        lua_register (ls.getState(), "AddKeyword", luaAddKeyword);
+        lua_register (ls.getState(), "RemoveKeyword", luaRemoveKeyword);
+        lua_register (ls.getState(), "AddPersistentState", luaAddPersistentState);
 
         SyntaxReader **s = (SyntaxReader **)lua_newuserdata(ls.getState(), sizeof(SyntaxReader *));
         *s=this;
@@ -227,19 +230,20 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                     priority=ls["Keywords"][idx]["Priority"].value().asInteger();
                 }
                 
+                //string semantics;
+                //if (ls["Keywords"][idx]["Semantics"].value()!=Diluculum::Nil)
+                //         constraintFilename =ls["Keywords"][idx]["Semantics"].value().asString();
+                
                 unsigned int constraintLineNum=0;
-                //int constraintColumn=-1; 
-                string constraintFilename;
+                string constraintFilename, semanticDescription;
                 if (ls["Keywords"][idx]["Constraints"].value()!=Diluculum::Nil) {
 
                     if (ls["Keywords"][idx]["Constraints"]["Line"].value()!=Diluculum::Nil)
                         constraintLineNum=ls["Keywords"][idx]["Constraints"]["Line"].value().asInteger();
-                   // if (ls["Keywords"][idx]["Constraints"]["Column"].value()!=Diluculum::Nil)
-                   //     constraintColumn=ls["Keywords"][idx]["Constraints"]["Column"].value().asInteger();
                     if (ls["Keywords"][idx]["Constraints"]["Filename"].value()!=Diluculum::Nil)
                         constraintFilename =ls["Keywords"][idx]["Constraints"]["Filename"].value().asString();
                 }
-                regex.push_back ( new RegexElement ( KEYWORD, KEYWORD_END, reString, kwId, captGroup, "", priority, constraintLineNum, /*constraintColumn,*/ constraintFilename ) );
+                regex.push_back ( new RegexElement ( KEYWORD, KEYWORD_END, reString, kwId, captGroup, "", priority, constraintLineNum,  constraintFilename ) );
             }
             idx++;
         }
@@ -545,5 +549,63 @@ bool SyntaxReader::matchesOpenDelimiter ( const string& token, State s, int open
     }
     return false;
 }
+
+void SyntaxReader::addPersistentKeyword(unsigned int groupID, const string& kw){
+    ostringstream expr;
+    expr <<"AddKeyword(\""<<kw<<"\", "<<groupID<<")";
+             
+    persistentSnippets.push_back(expr.str());
+}
+    
+void SyntaxReader::addPersistentStateRange(unsigned int groupID, unsigned int column,unsigned int length, unsigned int lineNumber, const string& fileName){
+    ostringstream expr;
+    expr <<"table.insert(Keywords,\n"
+         << "{ Id="<<groupID<<",\n"
+         <<"  Regex=[[^.{"<<column<<"}(.{"<<length<<"})]],\n"
+         <<"  Priority=1,\n"
+         <<"  Constraints = {\n"
+         <<"    Line = "<<lineNumber<<",\n"
+         <<"    Filename = \""<<fileName<<"\",\n"
+         <<" }\n"
+         <<"})";
+                
+    persistentSnippets.push_back(expr.str());
+}
+ 
+int SyntaxReader::luaAddPersistentState (lua_State *L)
+{
+    int retVal=0;
+    if (lua_gettop(L)==2) {
+        const char*keyword=lua_tostring(L, 1);
+        unsigned int kwgroupID=lua_tonumber(L, 2);
+        lua_getglobal(L, GLOBAL_SR_INSTANCE_NAME);
+        SyntaxReader **a=reinterpret_cast<SyntaxReader **>(lua_touserdata(L, 3));
+        if (*a) {
+
+            if (!(*a)->isKeyword(keyword)) {
+                (*a)->addKeyword(kwgroupID, keyword);
+                (*a)->addPersistentKeyword(kwgroupID, keyword);
+            }
+            
+            retVal=1;
+        }
+    }
+    if (lua_gettop(L)==4) {
+        unsigned int lineNumber=lua_tonumber(L, 1);
+        unsigned int kwgroupID=lua_tonumber(L, 2);
+        unsigned int column=lua_tonumber(L, 3);
+        unsigned int length=lua_tonumber(L, 4);
+        lua_getglobal(L, GLOBAL_SR_INSTANCE_NAME);
+        SyntaxReader **a=reinterpret_cast<SyntaxReader **>(lua_touserdata(L, 5));
+        if (*a) {
+            (*a)->addPersistentStateRange(kwgroupID, column, length, lineNumber, (*a)->getInputFileName() );
+            retVal=1;
+        }
+    }
+    lua_pushboolean(L, retVal);
+    return 1;
+} 
+
+
 
 }

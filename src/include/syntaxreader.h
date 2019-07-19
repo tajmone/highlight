@@ -175,6 +175,11 @@ public:
         return regex;
     };
 
+    const vector<string>& getPersistentSnippets() const
+    {
+        return persistentSnippets;
+    };
+    
     /** \return description of the programming language */
     const string & getDescription () const
     {
@@ -305,6 +310,13 @@ public:
         pluginChunks.push_back(new Diluculum::LuaFunction(chunk));
     }
 
+    void setInputFileName(const string& fn) { currentInputFile=fn; }
+    string getInputFileName() const { return currentInputFile; }
+    
+    void addPersistentKeyword(unsigned int groupID, const string& kw);
+    
+    void addPersistentStateRange(unsigned int groupID, unsigned int column,unsigned int length, unsigned int lineNumber, const string& fileName);
+    
     /**
         \param ls Lua state to be initialized with constants
         \param langDefPath absolute path of language definition
@@ -321,6 +333,9 @@ private:
     // path to loaded language definition
     string currentPath;
 
+    // name of file being processed
+    string currentInputFile;
+    
     // Language description
     string langDesc, categories;
 
@@ -331,6 +346,7 @@ private:
     KeywordMap keywords;
 
     vector <string> keywordClasses;
+    static vector <string> persistentSnippets;
 
     vector <RegexElement*> regex;
 
@@ -377,6 +393,8 @@ private:
     // interface for plug-ins: remove keywords dynamically
     static int luaRemoveKeyword (lua_State *L);
     
+    static int luaAddPersistentState (lua_State *L);
+    
     // generate a keyword class 
     unsigned int generateNewKWClass ( int classID );
     
@@ -405,14 +423,14 @@ public:
     RegexElement()
         :open ( STANDARD ), end ( STANDARD ), kwClass ( 0 ), capturingGroup ( -1 ), 
         langName(), instanceId(instanceCnt++),
-        priority(0), constraintLineNum (0) /*constraintColumn(-1)*/
+        priority(0), constraintLineNum (0) 
     {
     }
 
     RegexElement ( State oState, State eState, const string&rePattern, unsigned int cID=0, int group=-1, const string& name="", 
-                   unsigned int prio=0, unsigned int cLineNum=0, /*unsigned int cColumn=-1,*/ const string &cFilename="" ) :
+                   unsigned int prio=0, unsigned int cLineNum=0,  const string &cFilename="" /*, const string &sDesc=""*/) :
         open ( oState ), end ( eState ), kwClass ( cID ), capturingGroup ( group ), langName(name),instanceId(instanceCnt++),
-        priority(prio), constraintLineNum (cLineNum), /* constraintColumn (cColumn),*/ constraintFilename (cFilename)
+        priority(prio), constraintLineNum (cLineNum), constraintFilename (cFilename) //, semantics(sDesc)
     {
         pattern=rePattern;
         rex=boost::xpressive::sregex::compile(rePattern);
@@ -429,13 +447,14 @@ public:
     unsigned int kwClass;        ///< keyword class
     int capturingGroup;          ///< capturing group ID
     string langName;             ///< language name
-    string pattern;
+    string pattern;              ///< RE pattern
     static int instanceCnt;
     int instanceId;
-    unsigned int priority;
-    unsigned int constraintLineNum;       ///< restrict this regex to this source line number
-    //int constraintColumn;        ///< restrict this regex to this source column
-    string constraintFilename;   ///< restrict this regex to this source filename
+    unsigned int priority;          ///< if set and matched, no other other regular expression will be evaluated 
+    unsigned int constraintLineNum; ///< restrict this regex to this source line number
+    //int constraintColumn;         ///< restrict this regex to this source column
+    string constraintFilename;      ///< restrict this regex to this source filename
+    //string semantics;
 };
 
 }

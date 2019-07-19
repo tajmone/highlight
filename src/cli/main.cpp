@@ -671,6 +671,12 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         IOError = true;
         printIOErrorReport ( posTestErrors.size(), posTestErrors, "validate" );
     }
+    
+    string twoPassOutFile=options.getTwoPassFile();
+    if (twoPassOutFile.size()) {
+        generator->printPersistentState(twoPassOutFile);
+    }
+    
     return ( initError || IOError ) ? EXIT_FAILURE : EXIT_SUCCESS;
 }
 
