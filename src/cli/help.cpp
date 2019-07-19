@@ -203,7 +203,7 @@ void printHelp(const std::string &topic)
         cout<<"                                  <case> =  [upper, lower, capitalize]\n";
         cout<<"     --no-trailing-nl           omit trailing newline\n";
         cout<<"     --no-version-info          omit version info comment\n";
-        cout<<"     --two-pass=<file>          write plug-in with persistant state information\n";
+        cout<<"     --two-pass=<file>          write plug-in with persistent state information\n";
         cout<<"                                  (beta; requires syntax with store instructions)\n";
         
         cout<<"\n\n";
