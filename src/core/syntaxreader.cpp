@@ -442,6 +442,13 @@ bool SyntaxReader::isKeyword ( const string &s )
     return ( s.length() && keywords.count ( s ) ) ;
 }
 
+int SyntaxReader::getKeywordListGroup ( const string &s ) {
+    if (isKeyword(s)) {
+        return keywords[s];
+    }
+    return 0;
+}
+    
 int SyntaxReader::luaAddKeyword (lua_State *L)
 {
     int retVal=0;

@@ -133,6 +133,10 @@ public:
          \return true if s is not a known keyword */
     bool isKeyword ( const string &s ) ;
     
+    /** \param s String
+         \return keyword list group id */
+    int getKeywordListGroup ( const string &s );
+    
     /** \return True if multi line comments may be nested */
     bool allowNestedMLComments() const
     {

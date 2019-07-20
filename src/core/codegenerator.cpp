@@ -658,7 +658,7 @@ SKIP_EMBEDDED:
 
             if ( regexGroups[oldIndex].state==IDENTIFIER_BEGIN || regexGroups[oldIndex].state==KEYWORD ) {
                 string reservedWord= ( currentSyntax->isIgnoreCase() ) ? StringTools::change_case ( token ) :token;
-                currentKeywordClass=currentSyntax->isKeyword ( reservedWord ); //check in lists (no regex)
+                currentKeywordClass=currentSyntax->getKeywordListGroup ( reservedWord ); //check in lists (no regex)
                 
                 if ( !currentKeywordClass && regexGroups[oldIndex].state==KEYWORD ){
                     currentKeywordClass = regexGroups[oldIndex].kwClass;
