@@ -2557,8 +2557,8 @@ bool CodeGenerator::printPersistentState ( const string &outFile )
     ofstream pluginOutFile( outFile.c_str());
     if ( !pluginOutFile.fail() ) {
         
-        pluginOutFile   <<"Description=\"Plugin generated with --two-pass option\"\n"
-                        <<"Categories = {\"persistence\" }\n"
+        pluginOutFile   <<"Description=\"Plugin generated with --two-pass option\"\n\n"
+                        <<"Categories = {\"two-pass\" }\n\n"
                         <<"function syntaxUpdate(desc)\n\n";
      
         for ( unsigned int i=0; i<currentSyntax->getPersistentSnippets().size(); i++ )
@@ -2567,10 +2567,10 @@ bool CodeGenerator::printPersistentState ( const string &outFile )
             pluginOutFile <<"\n\n";
         }
         
-        pluginOutFile<<"\nend\n"
+        pluginOutFile<<"end\n\n"
                      <<"Plugins={\n"
                      <<"  { Type=\"lang\", Chunk=syntaxUpdate }\n"
-                     <<"}";
+                     <<"}\n";
         
     } else {
         return false;

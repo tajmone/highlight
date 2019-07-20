@@ -234,7 +234,7 @@ The available character classes are:
 | xdigit  | Any hexadecimal digit character, 0-9, a-f and A-F.
 | word    | Any word character - all alphanumeric characters plus the underscore.
 | Unicode | Any character whose code is greater than 255, this applies to the
-            wide character traits classes only.
+            wide character traits classes only. (not applicable in highlight)
 |===============================================================================
 
 There are some shortcuts that can be used in place of the character classes,

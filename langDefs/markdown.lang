@@ -1,6 +1,6 @@
 Description="GitHub Flavored Markdown"
 
-Categories = {"markup"}
+Categories = {"markup", "two-pass"}
 
 Keywords={
   { Id=1,
@@ -12,6 +12,13 @@ Keywords={
   { Id=3,
     Regex=[[\(http.+?\) ]],
   },
+  --needs to be placed before kwd 4
+  { Id=1,
+    Regex=[[ ^\-{3,} ]],
+  },
+  { Id=1,
+    Regex=[[ ^\={3,} ]],
+  },
   { Id=4,
     Regex=[[ ^\s*(\-|\*|>) ]],
   },
@@ -22,3 +29,17 @@ Strings={
 }
 
 IgnoreCase=false
+
+-- if highlight is called with --two-pass, this handler will save all lines 
+-- preceeding header lines as range with keyword ID 1
+function OnStateChange(oldState, newState, token, kwgroup, lineNumber, column)
+   if newState==HL_KEYWORD and kwgroup==1 and token[0]~='#' and lineNumber>1 then
+       
+       AddPersistentState(lineNumber-1, kwgroup, column, #token)
+   end
+   
+   if token=="gfsdg" then
+    AddPersistentState(token, 5)
+   end
+
+end

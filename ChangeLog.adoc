@@ -10,6 +10,7 @@
 
 19.07.2019
 
+  - fixed out-of-range exception with repeated `AddKeyword` calls
   - added `Priority` and `Constraints` elements to syntax regex definitions
   - added Lua function `AddPersistentState`
   - renamed md.lang to markdown.lang

@@ -177,7 +177,7 @@ General options:
      --config-file=<file>       set path to a lang or theme file
  -d, --outdir=<directory>       name of output directory
  -h, --help[=topic]             print this help or a topic description
-                                  <topic> = [syntax, theme, plugin, config]
+                                  <topic> = [syntax, theme, plugin, config, test]
  -i, --input=<file>             name of single input file
  -o, --output=<file>            name of single output file
  -P, --progress                 print progress bar in batch mode
@@ -191,6 +191,8 @@ General options:
                                   <type> = [langs, themes, plugins]
      --list-cat=<categories>    filter the scripts by the given categories
                                   (example: --list-cat='source;script')
+     --max-size=<size>          set maximum input file size
+                                  (examples: 512M, 1G; default: 256M)
      --plug-in=<script>         execute Lua plug-in script; repeat option to
                                   execute multiple plug-ins
      --plug-in-param=<value>    set plug-in input parameter
@@ -216,17 +218,21 @@ Output formatting options:
                                   use a plug-in file instead
  -f, --fragment                 omit document header and footer
  -F, --reformat=<style>         reformats and indents output in given style
-                                  <style> = [allman, banner, gnu,
-                                  horstmann, java, kr, linux, mozilla, otbs, vtk,
-                                  stroustrup, whitesmith, google, pico, lisp]
+                                  <style> = [allman, gnu, google, horstmann,
+                                  java, kr, linux, lisp, mozilla, otbs, pico,
+                                  vtk, ratliff, stroustrup, webkit, whitesmith, user]
+                                  The user style does not apply a predefined scheme.
+                                  Use --reformat-option to define the reformatting.
+     --reformat-option=<opt>    apply an astyle cmd line option (assumes -F)
  -I, --include-style            include style definition in output file
  -J, --line-length=<num>        line length before wrapping (see -V, -W)
  -j, --line-number-length=<num> line number width incl. left padding (default: 5)
+     --line-range=<start-end>   output only lines from number <start> to <end>
  -k, --font=<font>              set font (specific to output format)
  -K, --font-size=<num?>         set font size (specific to output format)
  -l, --line-numbers             print line numbers in output file
  -m, --line-number-start=<cnt>  start line numbering with cnt (assumes -l)
- -s, --style=<style>            set colour style (theme). See --base16
+ -s, --style=<style>            set colour style (theme). See  --base16
  -t, --replace-tabs=<num>       replace tabs by <num> spaces
  -T, --doc-title=<title>        document title
  -u, --encoding=<enc>           set output encoding which matches input file
@@ -237,7 +243,7 @@ Output formatting options:
      --wrap-no-numbers          omit line numbers of wrapped lines
                                   (assumes -l)
  -z, --zeroes                   pad line numbers with 0's
-     --base16                   use a theme of the Base16 collection
+     --base16[=theme]           use a theme of the Base16 collection
      --delim-cr                 set CR as end-of-line delimiter (MacOS 9)
      --isolate                  output each syntax token separately (verbose output)
      --keep-injections          output plug-in injections in spite of -f
@@ -245,6 +251,8 @@ Output formatting options:
                                   <case> =  [upper, lower, capitalize]
      --no-trailing-nl           omit trailing newline
      --no-version-info          omit version info comment
+     --two-pass=<file>          write plug-in with persistent state information
+                                  (beta; requires syntax with store instructions)
 
 
 (X)HTML output options:
@@ -257,7 +265,7 @@ Output formatting options:
      --class-name=<name>        set CSS class name prefix;
                                   omit class name if set to NONE
      --inline-css               output CSS within each tag (verbose output)
-     --enclose-pre              enclose fragmented output with pre tag
+     --enclose-pre              enclose fragmented output with pre tag 
                                   (assumes -f)
 
 
@@ -272,7 +280,7 @@ LaTeX output options:
 RTF output options:
 
      --page-color               include page color attributes
- -x, --page-size=<ps>           set page size
+ -x, --page-size=<ps>           set page size 
                                   <ps> = [a3, a4, a5, b4, b5, b6, letter]
      --char-styles              include character stylesheets
 
@@ -281,6 +289,11 @@ SVG output options:
 
      --height                   set image height (units allowed)
      --width                    set image width (see --height)
+
+
+Terminal escape output options (xterm256 or truecolor):
+
+     --canvas[=width]           set background colour padding (default: 80)
 
 
 GNU source-highlight compatibility options:
@@ -537,17 +550,25 @@ Sollte es mehrere gebrauechliche Erweiterungen geben, werden diese in der Datei
 ==== Syntax-Elemente
 
 ................................................................................
-Keywords = { Id, List|Regex, Group? }
+Keywords = { Id, List|Regex, Group?, Priority?, Constraints? }
 
-  Id:    Integer, ID der Schluesselwortgruppe (Werte 1-4, die mehrfach verwendet
-         werden koennen)
-  List:  Liste, Auflistung von Schluesselwoertern
-  Regex: String, Regulaerer Ausdruck
-  Group: Integer, Capturing Group ID der Regex, bestimmt den Teil des gefundenen
-         Ausdrucks, der als Schluesselwort hervorgehoben werden soll (optional,
-         wenn nicht gesetzt wird der Match mit der hoechsten Group-ID zurueck-
-         gegeben (gezaehlt wird von links nach rechts))
+  Id:          Integer, ID der Schluesselwortgruppe (mehrfach verwendbar)
+               Default-Themes unterstuetzen 4  Gruppen, Base16-Themes 6.
+  List:        Liste, Auflistung von Schluesselwoertern
+  Regex:       String, Regulaerer Ausdruck
+  Group:       Integer, Capturing Group ID der Regex, bestimmt den Teil des 
+               gefundenen Ausdrucks, der als Schluesselwort hervorgehoben werden
+               soll (optional, wenn nicht gesetzt wird der Match mit der 
+               hoechsten Group-ID zurueckgegeben (Zaehlung von links nach rechts))
+  Priority:    Integer, wenn nicht Null werden keine weiteren Ausdruecke 
+               ausgewertet wenn diese Regex einen Treffer liefert
+  Constraints: Tabelle, bestehend aus:
+               Line: Integer, begrenzt Suche auf die Zeilennummer, 
+               Filename: String, begrenzt Suche auf den DAteinamen
 
+Regulaere Ausdruecke werden in ihrer Reihenfolge innerhalb von Keywords ausgewertet.
+Sollte ein Ausdruck nicht funktionieren, koennte ein vorher definierter Ausdruck
+ebenfalls matchen und einen Konflikt ausloesen.
 
 Comments = { {Block, Nested?, Delimiter} }
 
@@ -661,7 +682,7 @@ OnStateChange(oldState, newState, token, kwGroupID, lineno, column)
 ................................................................................
 
 `HL_REJECT` wird dann zurueckgegeben, wenn das Token und der erkannte Zustand
-verworfen werden sollen; das erste Zeichzen von Token wird dann ausgegeben und
+verworfen werden sollen; das erste Zeichen von Token wird dann ausgegeben und
 als `oldState` hervorgehoben.
 
 Weitere Funktionen sind in {README_PLUGINS} beschrieben.
@@ -867,6 +888,8 @@ Mit Hilfe dieser Plugins kann die Ausgabe angepasst werden, ohne installierte
 Konfigurations-Dateien zu aendern.
 Man kann mehrere Plugins anwenden, indem die `--plug-in` Option wiederholt
 angegeben wird.
+Wenn die Syntax Persistenz unterstuetzt, kann mit `--two-pass` ein Plugin erzeugt
+werden, das bei folgenden Aufrufen genutzt werden kann.
 
 Siehe {README_PLUGINS} um mehr darueber zu erfahren.
 

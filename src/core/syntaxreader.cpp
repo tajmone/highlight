@@ -437,9 +437,9 @@ void SyntaxReader::removeKeyword(const string& kw)
     keywords.erase(kw);
 }
 
-int SyntaxReader::isKeyword ( const string &s )
+bool SyntaxReader::isKeyword ( const string &s )
 {
-    return ( s.length() && keywords.count ( s ) ) ? keywords[s] : 0;
+    return ( s.length() && keywords.count ( s ) ) ;
 }
 
 int SyntaxReader::luaAddKeyword (lua_State *L)
@@ -581,7 +581,6 @@ int SyntaxReader::luaAddPersistentState (lua_State *L)
         lua_getglobal(L, GLOBAL_SR_INSTANCE_NAME);
         SyntaxReader **a=reinterpret_cast<SyntaxReader **>(lua_touserdata(L, 3));
         if (*a) {
-
             if (!(*a)->isKeyword(keyword)) {
                 (*a)->addKeyword(kwgroupID, keyword);
                 (*a)->addPersistentKeyword(kwgroupID, keyword);

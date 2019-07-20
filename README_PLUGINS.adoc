@@ -1,6 +1,6 @@
 = HIGHLIGHT PLUGIN MANUAL
 André Simon
-v3.50, March 2019
+v3.53, July 2019
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -219,6 +219,34 @@ The `RemoveKeyword` function erases the given keyword from the internal list.
 RemoveKeyword(keyword)
 
   Parameters: keyword:   string which should be removed from the keyword list
+  Returns:    true if successfull
+................................................................................
+
+
+=== FUNCTION ADDPERSISTENTSTATE
+
+[[AddPersistentState]]
+This function enables storage of keywords and keyword ranges in a plug-in file. 
+If the syntax contains elements which depend on a context, you can highlight 
+them although this context is lost in other input files or code sections.
+The `--two-pass` command line parameter will save the information passed to 
+AddPersistentState as syntax plug-in for subsequent invocations with `--plug-in`.
+
+................................................................................
+AddPersistentState(keyword, kwGroupID)
+
+  Parameters: keyword:   string which should be added to a keyword list
+              kwGroupID: keyword group ID of the keyword
+  Returns:    true if successfull
+................................................................................
+
+................................................................................
+AddPersistentState(lineno, kwGroupID, column, length)
+
+  Parameters: lineno:    line number
+              kwGroupID: the keyword group ID
+              column:    column
+              length:    length of the keyword
   Returns:    true if successfull
 ................................................................................
 

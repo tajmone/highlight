@@ -130,8 +130,8 @@ public:
     }
 
     /** \param s String
-         \return class id of keyword, 0 if s is not a keyword */
-    int isKeyword ( const string &s ) ;
+         \return true if s is not a known keyword */
+    bool isKeyword ( const string &s ) ;
     
     /** \return True if multi line comments may be nested */
     bool allowNestedMLComments() const
