@@ -37,9 +37,4 @@ function OnStateChange(oldState, newState, token, kwgroup, lineNumber, column)
        
        AddPersistentState(lineNumber-1, kwgroup, column, #token)
    end
-   
-   if token=="gfsdg" then
-    AddPersistentState(token, 5)
-   end
-
 end
