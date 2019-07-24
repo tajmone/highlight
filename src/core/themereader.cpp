@@ -32,7 +32,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 namespace highlight
 {
 
-ThemeReader::ThemeReader() : fileOK ( false )
+ThemeReader::ThemeReader() : fileOK ( false ), restoreStyles(false), dirtyAttributes(false)
 {}
 
 ThemeReader::~ThemeReader()
@@ -132,6 +132,8 @@ bool ThemeReader::load ( const string &styleDefinitionPath , OutputType type)
             keywordStyles.insert ( make_pair ( string(kwName), kwStyle ));
             idx++;
         }
+        
+        originalStyles=keywordStyles;
         
         idx=1;
         while (ls["Injections"][idx].value() !=Diluculum::Nil) {
@@ -246,6 +248,32 @@ KeywordStyles ThemeReader::getKeywordStyles() const
 string ThemeReader::getInjections() const
 {
     return themeInjections;
+}
+
+void ThemeReader::overrideAttributes(vector<int>& attributes) {
+    
+    if (dirtyAttributes)
+        keywordStyles=originalStyles;
+    
+    for ( std::vector<int>::iterator it = attributes.begin() ; it != attributes.end(); ++it)
+    {
+        int kwGroup=*it & 0xf;
+        char kwName[5];
+        snprintf(kwName, sizeof(kwName), "kw%c", ('a'+kwGroup-1));
+        
+        if (keywordStyles.count ( kwName)) {
+   
+            ElementStyle elem = keywordStyles[kwName]; 
+            if (*it & 128) elem.setBold(true);
+            if (*it & 256) elem.setItalic(true);
+            if (*it & 512) elem.setUnderline(true);
+            if (*it & 1024) elem.setBold(false);
+            if (*it & 2048) elem.setItalic(false);
+            if (*it & 4096) elem.setUnderline(false);
+            keywordStyles[kwName] = elem;
+            dirtyAttributes = true;
+        }
+    }
 }
 
 }

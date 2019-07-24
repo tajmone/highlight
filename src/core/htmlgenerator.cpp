@@ -224,7 +224,7 @@ string HtmlGenerator::getGeneratorComment()
 
 string HtmlGenerator::getStyleDefinition()
 {
-    if ( styleDefinitionCache.empty() ) {
+    if (disableStyleCache || styleDefinitionCache.empty() ) {
         bool quoteFont=getBaseFont().find_first_of(",'")==string::npos;
         ostringstream os;
         

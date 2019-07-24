@@ -128,6 +128,7 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      printNewLines(true),
      omitVersionComment(false),
      isolateTags(false),
+     disableStyleCache(false),
      baseFontSize("10"),
      lineNumber ( 0 ),
      lineNumberOffset ( 0 ),
@@ -434,11 +435,16 @@ void CodeGenerator::reset()
     syntaxChangeIndex = syntaxChangeLineNo = UINT_MAX;
     startLineCntCurFile = startLineCnt;
     applySyntaxTestCase=lineContainedTestCase=false;
+    
+    vector<int> overrideStyleAttrs=currentSyntax->getOverrideStyleAttributes();
+    docStyle.overrideAttributes(overrideStyleAttrs);
+    if (overrideStyleAttrs.size())
+        disableStyleCache = true;
 }
 
 string CodeGenerator::getThemeInitError()
 {
-    return  docStyle.getErrorMessage();
+    return docStyle.getErrorMessage();
 }
 
 string CodeGenerator::getPluginScriptError()

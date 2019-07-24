@@ -46,7 +46,7 @@ ODTGenerator::~ODTGenerator() {}
 
 string ODTGenerator::getStyleDefinition()
 {
-    if ( styleDefinitionCache.empty() ) {
+    if ( disableStyleCache || styleDefinitionCache.empty() ) {
         ostringstream os;
 
         os  << "<office:styles>\n<style:style style:name=\"Standard\" style:family=\"paragraph\" style:class=\"text\">\n"

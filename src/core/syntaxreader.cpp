@@ -210,7 +210,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         int kwId=0;
         while (ls["Keywords"][idx].value() !=Diluculum::Nil) {
             kwId= generateNewKWClass ( ls["Keywords"][idx]["Id"].value().asInteger() );
-
+            
             if (ls["Keywords"][idx]["List"].value()!=Diluculum::Nil) {
                 int listIdx=1;
                 Diluculum::LuaVariable luaList=ls["Keywords"][idx]["List"];
@@ -255,6 +255,29 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                 pluginConfigOverride[StringTools::change_case(lVal["Param"].asString())] = lVal["Value"].asString();
                 idx++;
                 lVal = ls["GeneratorOverride"][idx].value();
+            }
+        }
+        
+        if (globals.count("KeywordFormatHints")) {
+            idx=1;
+            Diluculum::LuaValue lVal = ls["KeywordFormatHints"][idx].value();
+            while (lVal !=Diluculum::Nil) {
+                
+                int kwStyleOverride = lVal["Id"].asInteger();
+
+                if (lVal["Bold"]!=Diluculum::Nil){
+                    kwStyleOverride += lVal["Bold"].asBoolean() ? 128 : 1024;
+                }
+                if (lVal["Italic"]!=Diluculum::Nil){
+                     kwStyleOverride += lVal["Italic"].asBoolean() ? 256 : 2048;
+                }
+                if (lVal["Underline"]!=Diluculum::Nil){
+                    kwStyleOverride += lVal["Underline"].asBoolean() ? 512 : 4096;
+                }
+                 
+                overrideStyles.push_back(kwStyleOverride);
+                idx++;
+                lVal = ls["KeywordFormatHints"][idx].value();
             }
         }
         
@@ -611,7 +634,5 @@ int SyntaxReader::luaAddPersistentState (lua_State *L)
     lua_pushboolean(L, retVal);
     return 1;
 } 
-
-
 
 }

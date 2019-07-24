@@ -69,7 +69,7 @@ void SVGGenerator::initOutputTags()
 
 string SVGGenerator::getStyleDefinition()
 {
-    if ( styleDefinitionCache.empty() ) {
+    if (disableStyleCache || styleDefinitionCache.empty() ) {
         ostringstream os;
         if ( includeStyleDef ) {
             os << "<style type=\"text/css\">\n"

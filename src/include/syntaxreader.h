@@ -177,12 +177,19 @@ public:
     const vector<RegexElement*>& getRegexElements() const
     {
         return regex;
-    };
+    }
 
+    /** \return list of Lua code snippets to be stored on disk */
     const vector<string>& getPersistentSnippets() const
     {
         return persistentSnippets;
-    };
+    }
+
+    /** \return list of format override flags defined in syntax definitions */
+    vector<int>& getOverrideStyleAttributes()
+    {
+        return overrideStyles;
+    }
     
     /** \return description of the programming language */
     const string & getDescription () const
@@ -283,14 +290,15 @@ public:
         return decorateFct;
     }
 
-     /**
+    /**
     	\return pointer to line begin decorate function
     */
     Diluculum::LuaFunction* getDecorateLineBeginFct() const
     {
         return decorateLineBeginFct;
     }
-     /**
+    
+    /**
     	\return pointer to line end decorate function
     */
     Diluculum::LuaFunction* getDecorateLineEndFct() const
@@ -314,11 +322,31 @@ public:
         pluginChunks.push_back(new Diluculum::LuaFunction(chunk));
     }
 
+    /**
+    	\param fn name of the processed input file
+    */
     void setInputFileName(const string& fn) { currentInputFile=fn; }
+    
+    /**
+    	\return name of the processed input file
+    */
+    
     string getInputFileName() const { return currentInputFile; }
+    
+    /**
+    	\param groupID keyword group to be stored on disk
+    	\param kw keyword token to be stored on disk
+    */
     
     void addPersistentKeyword(unsigned int groupID, const string& kw);
     
+    /**
+    	\param groupID keyword group to be stored on disk
+    	\param column start of range within line
+    	\param length length of range
+    	\param lineNumber line number
+    	\param fileName file name of processed file containing the line
+    	*/
     void addPersistentStateRange(unsigned int groupID, unsigned int column,unsigned int length, unsigned int lineNumber, const string& fileName);
     
     /**
@@ -353,6 +381,8 @@ private:
     static vector <string> persistentSnippets;
 
     vector <RegexElement*> regex;
+    
+    vector <int>overrideStyles;
 
     // collect delimiters or get current delimiter in CodeGenerator::loadEmbeddedLang
     static DelimiterMap nestedStateEndDelimiters;

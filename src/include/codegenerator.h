@@ -599,6 +599,8 @@ protected:
     /** Flag to output token of the same syntax category in separate tags */
     bool isolateTags;
     
+    bool disableStyleCache;
+    
     /** The base font to use */
     string baseFont ;
 

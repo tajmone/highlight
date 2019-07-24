@@ -66,9 +66,9 @@ private:
         
     vector<Diluculum::LuaFunction*> pluginChunks;
 
-    bool fileOK;
+    bool fileOK, restoreStyles, dirtyAttributes;
 
-    KeywordStyles keywordStyles;
+    KeywordStyles keywordStyles, originalStyles;
 
     void initStyle(ElementStyle& style, const Diluculum::LuaVariable& var);
 
@@ -154,6 +154,8 @@ public:
 
     /** \return True if language definition was found */
     bool found() const ;
+    
+    void overrideAttributes( vector<int>& attributes);
 };
 
 }

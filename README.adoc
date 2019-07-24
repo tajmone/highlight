@@ -551,7 +551,7 @@ If there exist multiple suffixes, list them in {filetypes_conf}.
 ==== Syntax elements
 
 ................................................................................
-Keywords = { Id, List|Regex, Group?, Priority?, Constraints? }
+Keywords = { { Id, List|Regex, Group?, Priority?, Constraints? } }
 
   Id:          Integer, keyword group id (can be reused for several groups).
                Default themes support 4 and base16 themes 6 groups.
@@ -569,6 +569,7 @@ Keywords = { Id, List|Regex, Group?, Priority?, Constraints? }
                
 Regular expressions are evaluated in the their order within Keywords. If a regex 
 does not appear to match, there might be a conflicting expression listed before.
+
 
 Comments = { {Block, Nested?, Delimiter={Open, Close?} }
 
@@ -602,7 +603,16 @@ NestedSections = {Lang, Delimiter= {} }
   Lang:      String, name of nested language
   Delimiter: List, contains open and close delimiters of the code section
 
-
+  
+KeywordFormatHints={ { Id, Bold?, Italic?, Underline? } }
+  Id:         Integer, keyword group id whose attributes should be changed
+  Bold:       Boolean, font weight property
+  Italic:     Boolean, font style property
+  Underline:  Boolean, font decoration property
+  
+These hints may have no effect if multiple syntax types are highlighted in batch
+mode without --include-style.
+  
 Description:       String, Defines syntax description
 
 Categories:        Table, List of categories (config, source, script, etc)

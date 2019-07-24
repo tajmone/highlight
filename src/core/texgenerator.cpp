@@ -261,7 +261,7 @@ string TexGenerator::getKeywordCloseTag ( unsigned int styleID )
 
 string TexGenerator::getStyleDefinition()
 {
-    if ( styleDefinitionCache.empty() ) {
+    if ( disableStyleCache || styleDefinitionCache.empty() ) {
         ostringstream os;
         os << "% highlight theme: "<<docStyle.getDescription()<<"\n";
         os << getAttributes ( STY_NAME_STD, docStyle.getDefaultStyle() );

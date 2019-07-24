@@ -550,7 +550,7 @@ Sollte es mehrere gebrauechliche Erweiterungen geben, werden diese in der Datei
 ==== Syntax-Elemente
 
 ................................................................................
-Keywords = { Id, List|Regex, Group?, Priority?, Constraints? }
+Keywords = { { Id, List|Regex, Group?, Priority?, Constraints? } }
 
   Id:          Integer, ID der Schluesselwortgruppe (mehrfach verwendbar)
                Default-Themes unterstuetzen 4  Gruppen, Base16-Themes 6.
@@ -601,6 +601,16 @@ NestedSections = {Lang, Delimiter= {} }
 
   Lang:      String, Name der eingebetteten Sprache
   Delimiter: Liste, Ausdruecke der oeffnenden und der schliessenden Begrenzer
+
+
+KeywordFormatHints={ { Id, Bold?, Italic?, Underline? } }
+  Id:         Integer, Id der Schluesselwortgruppe deren Attribute geaendert werden
+  Bold:       Boolean, font weight property
+  Italic:     Boolean, font style property
+  Underline:  Boolean, font decoration property
+  
+Diese Angaben werden bei gemischten Syntaxtypen im Batch-Modus ohne --include-style
+nicht in allen Faellen uebernommen.
 
 
 Description:       String, Beschreibung der Syntax

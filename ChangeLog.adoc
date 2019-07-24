@@ -11,10 +11,11 @@
 19.07.2019
 
   - fixed out-of-range exception with repeated `AddKeyword` calls
-  - added `Priority` and `Constraints` elements to syntax regex definitions
+  - added `KeywordFormatHints`, `Priority` and `Constraints` elements to syntax regex definitions
   - added Lua function `AddPersistentState`
   - renamed md.lang to markdown.lang
   - added Fish syntax definition (thanks to James Lee)
+  - makefile: added _FILE_OFFSET_BITS=64 flag
   - CLI: added optional fallback syntax to `--force` (https://gitlab.com/saalen/highlight/issues/126)
   - CLI: added option `--max-size` (https://gitlab.com/saalen/highlight/issues/127)
   - CLI: added option `--two-pass` (https://gitlab.com/saalen/highlight/issues/112)

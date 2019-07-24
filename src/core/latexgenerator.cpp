@@ -306,7 +306,7 @@ string LatexGenerator::getKeywordCloseTag ( unsigned int styleID )
 
 string LatexGenerator::getStyleDefinition()
 {
-    if ( styleDefinitionCache.empty() ) {
+    if ( disableStyleCache || styleDefinitionCache.empty() ) {
         ostringstream os;
         
         os << "% highlight theme: "<<docStyle.getDescription()<<"\n";
