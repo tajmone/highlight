@@ -72,7 +72,7 @@ private:
 
     /** print input and output errors */
     void printIOErrorReport ( unsigned int numberErrorFiles, vector<string> & fileList, 
-                              const string &action );
+                              const string &action, const string &streamName );
 
     /** list installed  files
         \return true if files were found

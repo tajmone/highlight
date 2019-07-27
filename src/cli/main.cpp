@@ -292,13 +292,22 @@ void HLCmdLineApp::printCurrentAction ( const string&outfilePath,
 
 void HLCmdLineApp::printIOErrorReport ( unsigned int numberErrorFiles,
                                         vector<string> & fileList,
-                                        const string &action )
+                                        const string &action, const string &streamName  )
 {
+    
+    
     cerr << "highlight: Could not "
          << action
          << " file"
          << ( ( numberErrorFiles>1 ) ?"s":"" ) <<":\n";
-    copy ( fileList.begin(), fileList.end(), ostream_iterator<string> ( cerr, "\n" ) );
+    
+    if (numberErrorFiles==1 && fileList[0].size()==0){
+        cerr<<streamName<<"\n";
+    }
+    else {
+        copy ( fileList.begin(), fileList.end(), ostream_iterator<string> ( cerr, "\n" ) );
+    }
+    
     if ( fileList.size() < numberErrorFiles ) {
         cerr << "... ["
              << ( numberErrorFiles - fileList.size() )
@@ -647,7 +656,8 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         
         ++i;
         
-        if (i==fileCount && generator->requiresTwoPassParsing() && !numBadInput && !numBadOutput && !twoPassMode) {
+        if (i==fileCount && outFilePath.size() && generator->requiresTwoPassParsing() && twoPassOutFile.size() 
+            && !numBadInput && !numBadOutput && !twoPassMode) {
             
             if (twoPassOutFile.size()) {
                 bool success=generator->printPersistentState(twoPassOutFile);
@@ -663,9 +673,9 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
                     usedFileNames.clear();
                     generator->resetSyntaxReaders();
                     i=0;
-                    lastSuffix.clear(); 
+                    lastSuffix.clear();
                     numBadFormatting=0;
-                    badFormattedFiles.clear();
+                    badFormattedFiles.clear();    
                 }
             }
         }
@@ -694,21 +704,21 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     
 
     if ( numBadInput ) {
-        printIOErrorReport ( numBadInput, badInputFiles, "read input" );
+        printIOErrorReport ( numBadInput, badInputFiles, "read input", "<stdin>" );
         IOError = true;
     }
     if ( numBadOutput ) {
-        printIOErrorReport ( numBadOutput, badOutputFiles, "write output" );
+        printIOErrorReport ( numBadOutput, badOutputFiles, "write output",  "<stdout>" );
         IOError = true;
     }
     if ( numBadFormatting ) {
-        printIOErrorReport ( numBadFormatting, badFormattedFiles, "reformat" );
+        printIOErrorReport ( numBadFormatting, badFormattedFiles, "reformat", "<stdout>" );
     }
     
     vector<string> posTestErrors = generator->getPosTestErrors();
     if (posTestErrors.size()){
         IOError = true;
-        printIOErrorReport ( posTestErrors.size(), posTestErrors, "validate" );
+        printIOErrorReport ( posTestErrors.size(), posTestErrors, "validate", "<stdin>" );
     }
     
     return ( initError || IOError ) ? EXIT_FAILURE : EXIT_SUCCESS;
