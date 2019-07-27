@@ -167,9 +167,7 @@ CodeGenerator::~CodeGenerator()
 {
     delete formatter;
 
-    for ( map<string, SyntaxReader*>::iterator it=syntaxReaders.begin(); it!=syntaxReaders.end(); it++ ) {
-        delete it->second;
-    }
+    resetSyntaxReaders();
     
     for (unsigned int i=0; i<pluginChunks.size(); i++) {
         delete pluginChunks[i];
@@ -389,6 +387,7 @@ void CodeGenerator::setMaxInputLineCnt ( unsigned int cnt )
 void CodeGenerator::setFilesCnt ( unsigned int cnt )
 {
     inputFilesCnt = cnt;
+    processedFilesCnt = 0;
 }
 
 bool CodeGenerator::formattingIsPossible()
@@ -435,11 +434,13 @@ void CodeGenerator::reset()
     syntaxChangeIndex = syntaxChangeLineNo = UINT_MAX;
     startLineCntCurFile = startLineCnt;
     applySyntaxTestCase=lineContainedTestCase=false;
+    if (currentSyntax){
+        vector<int> overrideStyleAttrs=currentSyntax->getOverrideStyleAttributes();
+        docStyle.overrideAttributes(overrideStyleAttrs);
+        if (overrideStyleAttrs.size())
+            disableStyleCache = true;    
+    }
     
-    vector<int> overrideStyleAttrs=currentSyntax->getOverrideStyleAttributes();
-    docStyle.overrideAttributes(overrideStyleAttrs);
-    if (overrideStyleAttrs.size())
-        disableStyleCache = true;
 }
 
 string CodeGenerator::getThemeInitError()
@@ -1313,7 +1314,6 @@ LoadResult CodeGenerator::loadLanguage ( const string& langDefPath, bool embedde
     
     bool reloadNecessary= currentSyntax ? currentSyntax->needsReload ( langDefPath ): true;
     LoadResult result=LOAD_OK;
-
     if ( reloadNecessary ) {
         if (syntaxReaders.count(langDefPath)) {
             currentSyntax=syntaxReaders[langDefPath];
@@ -1413,7 +1413,7 @@ bool CodeGenerator::validateInputStream()
 
 void CodeGenerator::applyPluginChunk(const string& fctName, string *result, bool *keepDefault) {
     
-    if ( pluginChunks.size()) {
+    if (currentSyntax && pluginChunks.size()) {
     
         Diluculum::LuaState luaState;
 
@@ -2534,6 +2534,12 @@ unsigned int CodeGenerator::getLastLineLength()
     return lastLineLength;
 }
 
+bool CodeGenerator::requiresTwoPassParsing() const {
+    if (!currentSyntax) return false;
+    return currentSyntax->getPersistentSnippetsNum()>0;
+}
+
+
 bool CodeGenerator::printExternalStyle ( const string &outFile )
 {
     if ( !includeStyleDef ) {
@@ -2656,6 +2662,14 @@ bool CodeGenerator::initPluginScript(const string& script)
         return false;
     }
     return true;
+}
+
+void CodeGenerator::resetSyntaxReaders() {
+    for ( map<string, SyntaxReader*>::iterator it=syntaxReaders.begin(); it!=syntaxReaders.end(); it++ ) {
+        delete it->second;
+    }
+    currentSyntax=NULL;
+    syntaxReaders.clear();
 }
 
 }

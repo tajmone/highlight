@@ -489,7 +489,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     dirTest.close();
 #endif
 
-    bool initError=false, IOError=false;
+    bool initError=false, IOError=false, twoPassMode=false;
     unsigned int fileCount=inFileList.size(),
                  fileCountWidth=getNumDigits ( fileCount ),
                  i=0,
@@ -501,7 +501,8 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     std::set<string> usedFileNames;
     string inFileName, outFilePath;
     string suffix, lastSuffix;
-
+    string twoPassOutFile=options.getTwoPassFile();
+    
     if ( options.syntaxGiven() ) { // user defined language definition, valid for all files
         string syntaxByFile=options.getSyntaxByFilename();
         string testSuffix = syntaxByFile.empty() ? options.getSyntax() : dataDir.getFileSuffix(syntaxByFile); 
@@ -520,6 +521,18 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
             ++i;
             continue;
         }
+        
+        if (i==0 && twoPassMode) {
+             if ( !generator->initPluginScript(twoPassOutFile) ) {
+                cerr << "highlight: "
+                 << generator->getPluginScriptError()
+                 << " in "
+                 << twoPassOutFile
+                 <<"\n";
+                initError = true;
+                break;
+            }
+        }
     
         if ( !options.syntaxGiven() ) { // determine file type for each file
             suffix = dataDir.guessFileType ( dataDir.getFileSuffix ( inFileList[i] ), inFileList[i] );
@@ -537,7 +550,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         }
 
         if ( suffix != lastSuffix ) {
-        
+            
             string langDefPath=options.getAbsLangPath().empty() ? dataDir.getLangPath ( suffix+".lang" ) : options.getAbsLangPath();
 
             highlight::LoadResult loadRes= generator-> loadLanguage( langDefPath );
@@ -631,7 +644,31 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
                 badFormattedFiles.push_back ( outFilePath );
             }
         }
+        
         ++i;
+        
+        if (i==fileCount && generator->requiresTwoPassParsing() && !numBadInput && !numBadOutput && !twoPassMode) {
+            
+            if (twoPassOutFile.size()) {
+                bool success=generator->printPersistentState(twoPassOutFile);
+                if ( !success ) {
+                    cerr << "highlight: Could not write "<< twoPassOutFile <<".\n";
+                    IOError = true;
+                } else {
+                    twoPassMode=true;
+                    if ( !options.quietMode() &&  !options.forceStdout() ) {
+                        cout << "Enabling two-pass mode using "<<twoPassOutFile<<"\n";
+                    }
+                    //start over, add plug-in to list in next iteration
+                    usedFileNames.clear();
+                    generator->resetSyntaxReaders();
+                    i=0;
+                    lastSuffix.clear(); 
+                    numBadFormatting=0;
+                    badFormattedFiles.clear();
+                }
+            }
+        }
     }
 
     if ( i  && !options.includeStyleDef()
@@ -653,6 +690,8 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
             IOError = true;
         }
     }
+    
+    
 
     if ( numBadInput ) {
         printIOErrorReport ( numBadInput, badInputFiles, "read input" );
@@ -670,11 +709,6 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     if (posTestErrors.size()){
         IOError = true;
         printIOErrorReport ( posTestErrors.size(), posTestErrors, "validate" );
-    }
-    
-    string twoPassOutFile=options.getTwoPassFile();
-    if (twoPassOutFile.size()) {
-        generator->printPersistentState(twoPassOutFile);
     }
     
     return ( initError || IOError ) ? EXIT_FAILURE : EXIT_SUCCESS;

@@ -285,7 +285,7 @@ public:
 
     /** \return line number width */
     int getLineNumberWidth();
-
+    
     /** check if input is binary or text
        \param  flag true if input should be checked
     */
@@ -302,6 +302,8 @@ public:
 
     /** \return keep injection flag */
     bool getKeepInjections();
+    
+    bool requiresTwoPassParsing() const;
 
     /** \param  flag true if wrapped lines receive unique line numbers.
      *  otherwise wrapped lines don't have line numbers at all. */
@@ -404,6 +406,8 @@ public:
     */
     void setPluginParameter ( const string& param );
 
+    void resetSyntaxReaders();
+    
     /** Load the Lua functions og the plug-in script
     	\param script path of the plug-in script
     */

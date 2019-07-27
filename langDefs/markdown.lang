@@ -32,10 +32,10 @@ IgnoreCase=false
 
 KeywordFormatHints={ 
     {   
-    Id=3,
-    Bold=true,
+    --Id=1,
+    --Bold=true,
     --Italic=true,
-    Underline=true
+    --Underline=true
     }
 }
 

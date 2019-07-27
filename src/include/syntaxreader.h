@@ -185,6 +185,12 @@ public:
         return persistentSnippets;
     }
 
+    /** \return number of Lua code snippets to be stored on disk */
+    const int getPersistentSnippetsNum() const
+    {
+        return persistentSnippets.size();
+    }
+    
     /** \return list of format override flags defined in syntax definitions */
     vector<int>& getOverrideStyleAttributes()
     {
