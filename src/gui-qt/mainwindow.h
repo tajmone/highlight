@@ -87,6 +87,8 @@ private:
     SMap assocByShebang, rememberedAssoc;
     QString fileOpenFilter;
     QString savedClipboardContent;
+    QString twoPassOutFile;
+
     QShortcut *copyShortcut;
     QShortcut *pasteShortcut;
     QFileSystemWatcher scriptWatcher;

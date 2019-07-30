@@ -412,6 +412,11 @@ public:
     	\param script path of the plug-in script
     */
     bool initPluginScript(const string& script);
+    
+    bool syntaxRequiresTwoPassRun();
+    
+    void clearPersistentSnippets();
+
 
     /** \return Syntaxreader Regex error message */
     string getSyntaxRegexError();

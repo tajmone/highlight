@@ -235,6 +235,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     fillThemeCombo(oldThemeIndex);
 
+    twoPassOutFile=QDir::tempPath() + "/highlight_twopass.lua";
+
     plausibility();
     statusBar()->showMessage(tr("Always at your service"), 2500);
 }
@@ -261,6 +263,8 @@ void MainWindow::fillThemeCombo(int restoreVal)
 MainWindow::~MainWindow()
 {
     writeSettings();
+    QFile::remove(twoPassOutFile);
+
     delete ui;
     delete copyShortcut;
     delete pasteShortcut;
@@ -1013,6 +1017,7 @@ void MainWindow::on_pbStartConversion_clicked()
     string outfileName;
     highlight::ParseError error;
     highlight::LoadResult loadRes;
+    bool twoPassMode=false;
 
     QString langDefPath;
     QString userLangPath = getUserScriptPath("lang");
@@ -1023,7 +1028,17 @@ void MainWindow::on_pbStartConversion_clicked()
 
     QStringList inputErrors, outputErrors, reformatErrors, syntaxTestErrors;
 
-    for (int i=0; i<ui->lvInputFiles->count(); i++) {
+    int i=-1;
+    while ( ++i<ui->lvInputFiles->count()) {
+
+        if (i==0 && twoPassMode) {
+
+             if ( !generator->initPluginScript(twoPassOutFile.toStdString()) ) {
+                 QMessageBox::critical(this,"Plug-In init error", QString::fromStdString(generator->getPluginScriptError()));
+                 break;
+            }
+        }
+
         inFilePath = origFilePath =  ui->lvInputFiles->item(i)->data(Qt::UserRole).toString();
 
 #ifdef Q_OS_WIN
@@ -1055,13 +1070,16 @@ void MainWindow::on_pbStartConversion_clicked()
             inputErrors.append(origFilePath);
         } else {
 
+            if (twoPassMode && !generator->syntaxRequiresTwoPassRun()) {
+                 continue;
+            }
+
             if (ui->cbReformat->isChecked()&& !generator->formattingIsPossible()) {
                 reformatErrors.append(inFilePath);
             }
 
-            inFileName = ui->lvInputFiles->item(i)->text(); // QFileInfo(inFilePath).fileName();
+            inFileName = ui->lvInputFiles->item(i)->text();
             if (ui->cbWrite2Src->isChecked()) {
-                //outfileName = currentFile + getOutFileSuffix().toStdString();
 
                 QString absOutPath=origFilePath + getOutFileSuffix();
 
@@ -1102,7 +1120,6 @@ void MainWindow::on_pbStartConversion_clicked()
 #endif
                 outfileName = absOutPath.toStdString();
             }
-            //outfileName +=  getOutFileSuffix().toStdString();
 
             if (ui->cbHTMLFileNameAnchor->isChecked()) {
                 generator->setHTMLAnchorPrefix(inFileName.toStdString());
@@ -1119,26 +1136,46 @@ void MainWindow::on_pbStartConversion_clicked()
             ui->progressBar->setValue(100*i / ui->lvInputFiles->count());
         }
 
-        // write external Stylesheet
-        if ( cbEmbed && leStyleFile && !cbEmbed->isChecked()) {
+        if (i==ui->lvInputFiles->count()-1 && generator->requiresTwoPassParsing() && twoPassOutFile.size()
+                    && inputErrors.size()==0 && outputErrors.size()==0 && !twoPassMode) {
+                //QMessageBox::information(this, "print3", "print 3");
 
-            QString styleDestDir(ui->cbWrite2Src->isChecked() ? QFileInfo(inFilePath).path() : ui->leOutputDest->text() );
+                bool success=generator->printPersistentState(twoPassOutFile.toStdString());
+                if ( !success ) {
+                    outputErrors.append(twoPassOutFile);
+                } else {
+                    twoPassMode=true;
 
-            if (lastStyleDestDir!=styleDestDir){
-                lastStyleDestDir = styleDestDir;
-                QString stylePath=QFileInfo(styleDestDir, leStyleFile->text()).absoluteFilePath();
+                    //start over, add plug-in to list in next iteration
+                    usedFileNames.clear();
+                    generator->resetSyntaxReaders();
+                    i=-1;
+                    ui->progressBar->setValue(0);
+                }
+         }
+    }
+
+    generator->clearPersistentSnippets();
+
+    // write external Stylesheet
+    if ( cbEmbed && leStyleFile && !cbEmbed->isChecked()) {
+
+        QString styleDestDir(ui->cbWrite2Src->isChecked() ? QFileInfo(inFilePath).path() : ui->leOutputDest->text() );
+
+        if (lastStyleDestDir!=styleDestDir){
+            lastStyleDestDir = styleDestDir;
+            QString stylePath=QFileInfo(styleDestDir, leStyleFile->text()).absoluteFilePath();
 
 #ifdef Q_OS_WIN
-                QFile file( stylePath );
-                if ( file.open(QIODevice::ReadWrite) )
-                {
-                    stylePath = getWindowsShortPath(stylePath);
-                }
+            QFile file( stylePath );
+            if ( file.open(QIODevice::ReadWrite) )
+            {
+                stylePath = getWindowsShortPath(stylePath);
+            }
 #endif
-                bool styleFileOK=generator -> printExternalStyle(QDir::toNativeSeparators(stylePath).toStdString());
-                if (!styleFileOK) {
-                    outputErrors.append(stylePath);
-                }
+            bool styleFileOK=generator -> printExternalStyle(QDir::toNativeSeparators(stylePath).toStdString());
+            if (!styleFileOK) {
+                outputErrors.append(stylePath);
             }
         }
     }
@@ -1272,14 +1309,64 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
         langPath = getWindowsShortPath(langPath);                
 #endif
 
+    QString clipBoardData;
+
+    for (int twoPass=0; twoPass<2; twoPass++) {
+
     if ( generator->loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
-        QString clipBoardData;
+
         if (getDataFromCP) {
             clipBoardData= QString::fromStdString( generator->generateString(savedClipboardContent.toStdString()));
         } else {
             clipBoardData= QString::fromStdString( generator->generateStringFromFile(previewFilePath.toStdString()));
         }
 
+        if ( twoPass==0 ) {
+
+           if (generator->requiresTwoPassParsing()) {
+                   // QMessageBox::information(this, "print1", "print 1");
+
+                   if (generator->printPersistentState(twoPassOutFile.toStdString())) {
+                   generator->resetSyntaxReaders();
+                   generator->initPluginScript(twoPassOutFile.toStdString());
+
+                    }
+               continue;
+           } else {
+
+               //TODO method
+               QClipboard *clipboard = QApplication::clipboard();
+               if (clipboard) {
+                   highlight::OutputType outputType = getOutputType();
+                   if ( outputType==highlight::RTF) {
+                       QMimeData *mimeData = new QMimeData();
+       #ifdef Q_OS_WIN
+                       mimeData->setData("Rich Text Format", clipBoardData.toLatin1());
+       #else
+                       mimeData->setData("text/rtf", clipBoardData.toLatin1());
+       #endif
+                       clipboard->setMimeData(mimeData);
+                   }
+                   else if ( (outputType==highlight::HTML || outputType==highlight::XHTML) && ui->cbHTMLPasteMIME->isChecked()) {
+                       QMimeData *mimeData = new QMimeData();
+
+                       if (ui->cbEncoding->isChecked() && ui->comboEncoding->currentText().toLower()=="utf-8") {
+                           mimeData->setHtml(clipBoardData.toUtf8());
+                       } else {
+                           mimeData->setHtml(clipBoardData.toLatin1());
+                       }
+                       clipboard->setMimeData(mimeData);
+                   }
+                   else {
+                       clipboard->setText(clipBoardData);
+                   }
+               }
+
+               break;
+           }
+       }
+
+           //TODO method
         QClipboard *clipboard = QApplication::clipboard();
         if (clipboard) {
             highlight::OutputType outputType = getOutputType();
@@ -1310,6 +1397,10 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
         statusBar()->showMessage(
             tr("Conversion of \"%1\" not possible.").arg((getDataFromCP)?tr("clipboard data"):previewFilePath));
     }
+
+    }
+
+    generator->clearPersistentSnippets();
     this->setCursor(Qt::ArrowCursor);
 }
 
@@ -1430,43 +1521,71 @@ void MainWindow::updatePreview()
 
     QString themePath = getUserScriptPath("theme");
     QString themeInfo=tr("(user script)");
+    QString previewData;
+
     if (themePath.isEmpty()) {
         themeInfo="";
     }
 
-    if ( pwgenerator.loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
+    for (int twoPass=0; twoPass<2; twoPass++) {
 
-        langInfo.append(QString(" [%1]").arg(QString::fromStdString(pwgenerator.getSyntaxCatDescription())));
-        themeInfo.append(QString(" [%1]").arg(QString::fromStdString(pwgenerator.getThemeCatDescription())));
+        if ( pwgenerator.loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
 
-        ui->lbPreview->setText(tr("Preview (%1):").arg(
-                                   (getDataFromCP)?tr("clipboard data"):croppedName) );
+            if ( twoPass==0 ) {
+                langInfo.append(QString(" [%1]").arg(QString::fromStdString(pwgenerator.getSyntaxCatDescription())));
+                themeInfo.append(QString(" [%1]").arg(QString::fromStdString(pwgenerator.getThemeCatDescription())));
 
-        QString syntaxDesc = tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(langInfo);
-        QString themeDesc = tr("Current theme: %1 %2").arg(QString::fromStdString(pwgenerator.getThemeDescription())).arg(themeInfo);
+                ui->lbPreview->setText(tr("Preview (%1):").arg(
+                                           (getDataFromCP)?tr("clipboard data"):croppedName) );
 
-        statusBar()->showMessage(QString("%1 | %2").arg(syntaxDesc, themeDesc));
+                QString syntaxDesc = tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(langInfo);
+                QString themeDesc = tr("Current theme: %1 %2").arg(QString::fromStdString(pwgenerator.getThemeDescription())).arg(themeInfo);
 
-        QString previewData;
-
-        // fix utf-8 data preview - to be improved (other encodings??)
-        if (ui->cbEncoding->isChecked() && ui->comboEncoding->currentText().toLower()=="utf-8") {
-            if (getDataFromCP) {
-                previewData= QString::fromUtf8( pwgenerator.generateString(savedClipboardContent.toStdString()).c_str());
-            } else {
-                previewData= QString::fromUtf8( pwgenerator.generateStringFromFile(previewInputPath.toStdString()).c_str());
+                statusBar()->showMessage(QString("%1 | %2").arg(syntaxDesc, themeDesc));
             }
+
+
+            // fix utf-8 data preview - to be improved (other encodings??)
+            if (ui->cbEncoding->isChecked() && ui->comboEncoding->currentText().toLower()=="utf-8") {
+                if (getDataFromCP) {
+                    previewData= QString::fromUtf8( pwgenerator.generateString(savedClipboardContent.toStdString()).c_str());
+                } else {
+                    previewData= QString::fromUtf8( pwgenerator.generateStringFromFile(previewInputPath.toStdString()).c_str());
+                }
+            } else {
+                if (getDataFromCP) {
+                    previewData= QString::fromStdString( pwgenerator.generateString(savedClipboardContent.toStdString()));
+                } else {
+                    previewData= QString::fromStdString( pwgenerator.generateStringFromFile(previewInputPath.toStdString()));
+                }
+            }
+
+            if ( twoPass==0 ) {
+
+                if (pwgenerator.requiresTwoPassParsing()
+                   ) {
+                   //QMessageBox::information(this, "print2", "print 2");
+
+                   if (pwgenerator.printPersistentState(twoPassOutFile.toStdString())) {
+                        pwgenerator.resetSyntaxReaders();
+                        pwgenerator.initPluginScript(twoPassOutFile.toStdString());
+                    }
+                    continue;
+                } else {
+                    ui->browserPreview->setHtml(previewData);
+                    break;
+                }
+            }
+
+            ui->browserPreview->setHtml(previewData);
         } else {
-            if (getDataFromCP) {
-                previewData= QString::fromStdString( pwgenerator.generateString(savedClipboardContent.toStdString()));
-            } else {
-                previewData= QString::fromStdString( pwgenerator.generateStringFromFile(previewInputPath.toStdString()));
-            }
+            statusBar()->showMessage(tr("Preview of \"%1\" not possible.").arg((getDataFromCP)?tr("clipboard data"):croppedName));
+            break;
         }
-        ui->browserPreview->setHtml(previewData);
-    } else {
-        statusBar()->showMessage(tr("Preview of \"%1\" not possible.").arg((getDataFromCP)?tr("clipboard data"):croppedName));
     }
+
+    pwgenerator.clearPersistentSnippets();
+
     ui->browserPreview->verticalScrollBar()->setValue(vScroll);
     ui->browserPreview->horizontalScrollBar()->setValue(hScroll);
     this->setCursor(Qt::ArrowCursor);

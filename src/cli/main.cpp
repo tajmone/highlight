@@ -596,6 +596,11 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
             lastSuffix = suffix;
         }
 
+        if (twoPassMode && !generator->syntaxRequiresTwoPassRun()) {
+            ++i;
+            continue;
+        }
+        
         string::size_type pos= ( inFileList[i] ).find_last_of ( Platform::pathSeparator );
         inFileName = inFileList[i].substr ( pos+1 );
 
@@ -659,24 +664,22 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         if (i==fileCount && outFilePath.size() && generator->requiresTwoPassParsing() && twoPassOutFile.size() 
             && !numBadInput && !numBadOutput && !twoPassMode) {
             
-            if (twoPassOutFile.size()) {
-                bool success=generator->printPersistentState(twoPassOutFile);
-                if ( !success ) {
-                    cerr << "highlight: Could not write "<< twoPassOutFile <<".\n";
-                    IOError = true;
-                } else {
-                    twoPassMode=true;
-                    if ( !options.quietMode() &&  !options.forceStdout() ) {
-                        cout << "Enabling two-pass mode using "<<twoPassOutFile<<"\n";
-                    }
-                    //start over, add plug-in to list in next iteration
-                    usedFileNames.clear();
-                    generator->resetSyntaxReaders();
-                    i=0;
-                    lastSuffix.clear();
-                    numBadFormatting=0;
-                    badFormattedFiles.clear();    
+            bool success=generator->printPersistentState(twoPassOutFile);
+            if ( !success ) {
+                cerr << "highlight: Could not write "<< twoPassOutFile <<".\n";
+                IOError = true;
+            } else {
+                twoPassMode=true;
+                if ( !options.quietMode() &&  !options.forceStdout() ) {
+                    cout << "Enabling two-pass mode using "<<twoPassOutFile<<"\n";
                 }
+                //start over, add plug-in to list in next iteration
+                usedFileNames.clear();
+                generator->resetSyntaxReaders();
+                i=0;
+                lastSuffix.clear();
+                numBadFormatting=0;
+                badFormattedFiles.clear();    
             }
         }
     }

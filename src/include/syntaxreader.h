@@ -186,7 +186,7 @@ public:
     }
 
     /** \return number of Lua code snippets to be stored on disk */
-    const int getPersistentSnippetsNum() const
+    int getPersistentSnippetsNum() const
     {
         return persistentSnippets.size();
     }
@@ -259,6 +259,12 @@ public:
     
     bool allowsInnerSection(const string& langPath);
 
+    bool requiresTwoPassRun();
+    
+    string getPersistentHookConditions();
+
+    void clearPersistentSnippets();
+    
     /**
     	\param lang language definition name  (no path, no ".lang" extension)
     	\return absolute path based on the previously loaded definition
@@ -385,6 +391,7 @@ private:
 
     vector <string> keywordClasses;
     static vector <string> persistentSnippets;
+    static set <string> persistentSyntaxDescriptions;
 
     vector <RegexElement*> regex;
     

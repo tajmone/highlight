@@ -52,6 +52,9 @@ vector<Diluculum::LuaFunction*> SyntaxReader::pluginChunks;
 
 vector<string> SyntaxReader::persistentSnippets;
 
+set<string> SyntaxReader::persistentSyntaxDescriptions;
+
+
 int RegexElement::instanceCnt=0;
 
 
@@ -141,7 +144,7 @@ void  SyntaxReader::initLuaState(Diluculum::LuaState& ls, const string& langDefP
     ls["HL_FORMAT_BBCODE"]=BBCODE;
     ls["HL_FORMAT_PANGO"]=PANGO;
     ls["HL_FORMAT_ODT"]=ODTFLAT;
-    
+
     // default values for --verbose
     ls["IgnoreCase"]=false;
     ls["EnableIndentation"]=false;
@@ -585,6 +588,7 @@ void SyntaxReader::addPersistentKeyword(unsigned int groupID, const string& kw){
     expr <<"AddKeyword(\""<<kw<<"\", "<<groupID<<")";
              
     persistentSnippets.push_back(expr.str());
+    persistentSyntaxDescriptions.insert(langDesc);
 }
     
 void SyntaxReader::addPersistentStateRange(unsigned int groupID, unsigned int column,unsigned int length, unsigned int lineNumber, const string& fileName){
@@ -600,6 +604,21 @@ void SyntaxReader::addPersistentStateRange(unsigned int groupID, unsigned int co
          <<"})";
                 
     persistentSnippets.push_back(expr.str());
+    persistentSyntaxDescriptions.insert(langDesc);
+}
+
+string SyntaxReader::getPersistentHookConditions() {
+    ostringstream expr;
+    expr << "ValidDesc = {";
+    
+    for (auto desc: persistentSyntaxDescriptions) {
+        expr << "\"" << desc << "\",";
+    }
+    
+    expr << "}\nif ValidDesc[desc] ~= nil then return end\n\n";
+    
+    return expr.str();
+    
 }
  
 int SyntaxReader::luaAddPersistentState (lua_State *L)
@@ -634,5 +653,15 @@ int SyntaxReader::luaAddPersistentState (lua_State *L)
     lua_pushboolean(L, retVal);
     return 1;
 } 
+
+bool SyntaxReader::requiresTwoPassRun(){
+    return persistentSyntaxDescriptions.count(langDesc)>0;
+}
+
+void SyntaxReader::clearPersistentSnippets() {
+    persistentSyntaxDescriptions.clear();
+    persistentSnippets.clear();
+}
+
 
 }
