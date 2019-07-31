@@ -12,15 +12,13 @@
 
   - fixed out-of-range exception with repeated `AddKeyword` calls
   - added `KeywordFormatHints`, `Priority` and `Constraints` elements to syntax definitions
-  - added Lua function `AddPersistentState`
+  - added Lua function `AddPersistentState` (https://gitlab.com/saalen/highlight/issues/112)
   - renamed md.lang to markdown.lang
   - added Fish syntax definition (thanks to James Lee)
   - makefile: added _FILE_OFFSET_BITS=64 flag
   - CLI: added optional fallback syntax to `--force` (https://gitlab.com/saalen/highlight/issues/126)
   - CLI: added option `--max-size` (https://gitlab.com/saalen/highlight/issues/127)
-  - CLI: added option `--two-pass` (https://gitlab.com/saalen/highlight/issues/112)
   - GUI: added multibyte path trace window
-  - GUI: added two-pass syntax support
   - GUI: fixed superflouos creation of the same stylesheet file
   
 == highlight 3.52
