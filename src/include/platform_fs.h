@@ -31,6 +31,9 @@ std::string getAppPath();
 
 std::string getHomePath();
 
+std::string getTempFilePath();
+
+
 /** \param fileList Vector where found entries will be stored
     \param  wildcard Directory path and wildcard
     \param recursiveSearch Test if directory should be searched recursively */

@@ -510,7 +510,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     std::set<string> usedFileNames;
     string inFileName, outFilePath;
     string suffix, lastSuffix;
-    string twoPassOutFile=options.getTwoPassFile();
+    string twoPassOutFile=Platform::getTempFilePath();
     
     if ( options.syntaxGiven() ) { // user defined language definition, valid for all files
         string syntaxByFile=options.getSyntaxByFilename();
@@ -704,8 +704,6 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         }
     }
     
-    
-
     if ( numBadInput ) {
         printIOErrorReport ( numBadInput, badInputFiles, "read input", "<stdin>" );
         IOError = true;
@@ -724,6 +722,10 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         printIOErrorReport ( posTestErrors.size(), posTestErrors, "validate", "<stdin>" );
     }
     
+    if (twoPassMode) {
+        unlink(twoPassOutFile.c_str());
+    }
+        
     return ( initError || IOError ) ? EXIT_FAILURE : EXIT_SUCCESS;
 }
 

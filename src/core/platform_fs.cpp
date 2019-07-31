@@ -71,6 +71,18 @@ int isColorEscCapable() {
 }
 
 
+std::string getTempFilePath(){
+
+    char tmpPath[MAX_PATH], tmpFile[MAX_PATH];
+    if (!GetTempPath(MAX_PATH, tmpPath))
+        return "";
+    
+    if (!GetTempFileName(tmpPath, "hlt", 0, tmpFile))
+        return "";
+   
+    return std::string(tmpFile);
+}
+
 #else
 #include <unistd.h>
 #include <sys/types.h>
@@ -113,6 +125,17 @@ int isColorEscCapable() {
     }
     
     return 0;
+}
+
+std::string getTempFilePath(){
+    std::string path("/tmp");
+    
+    char* tempOption=getenv("TEMP");
+    if (tempOption) path=string(tempOption);
+    char tmpPath[100];
+    snprintf(tmpPath, sizeof tmpPath-1, "/highlight%d.lua", getpid());
+    path += tmpPath;
+    return path;
 }
 
 #endif

@@ -116,7 +116,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_PIPED_FNAME      "syntax-by-name"
 #define OPT_ISOLATE_TAGS     "isolate"
 #define OPT_MAX_FILE_SIZE    "max-size"
-#define OPT_TWO_PASS         "two-pass"
+//#define OPT_TWO_PASS         "two-pass"
 
 
 // Improve CLI option compatibility with GNU source-highlight
@@ -379,8 +379,6 @@ public:
         /** \return fallback syntax if not defined or found by filename or shebang */
     const string& getFallbackSyntax() const;
 
-    const string& getTwoPassFile() const;
-
     /** \return line number width */
     int getNumberWidth();
 
@@ -447,7 +445,7 @@ private:
     string docTitle, className;
     string skipArg;
     string svg_height, svg_width;
-    string absThemePath, absLangPath, twoPassFile;
+    string absThemePath, absLangPath/*, twoPassFile*/;
 
     bool opt_syntax;
     bool opt_include_style;
