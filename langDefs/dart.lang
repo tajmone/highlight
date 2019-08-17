@@ -16,7 +16,7 @@ Keywords={
     List={ "num", "int", "double", "bool" }
   },
   
-  { Id=2,
+  { Id=4,
     Regex=[[[A-Z][a-z_-]+]]
   },
 
@@ -25,7 +25,7 @@ Keywords={
     Regex=[[(#\w+)\s*\(]]
   },
 
-  { Id=4,
+  { Id=2,
     Regex=[[(\w+)\s*\(]]
   }
 }
