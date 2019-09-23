@@ -6,6 +6,11 @@
 :toc: left
 :toclevels: 1
 
+
+  - TODO Win32 GUI: short name notice (once)
+  - added ballerina.lang
+  - added block strings to java.lang
+
 == highlight 3.53
 
 31.07.2019

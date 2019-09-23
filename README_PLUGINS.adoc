@@ -229,8 +229,8 @@ RemoveKeyword(keyword)
 This function enables storage of keywords and keyword ranges in a plug-in file. 
 If the syntax contains elements which depend on a context, you can highlight 
 them although this context is lost in other input files or code sections.
-The `--two-pass` command line parameter will save the information passed to 
-AddPersistentState as syntax plug-in for subsequent invocations with `--plug-in`.
+The invocation of AddPersistentState will cause highlight to save a plugin as 
+temporary file and parse input files using this plug-in again if necessary.
 
 ................................................................................
 AddPersistentState(keyword, kwGroupID)
