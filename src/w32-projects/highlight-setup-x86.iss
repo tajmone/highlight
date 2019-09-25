@@ -5,7 +5,7 @@
 AppName=Highlight Code Converter
 
 AppVerName=Highlight
-OutputBaseFilename=highlight-setup-3.51-x64
+OutputBaseFilename=highlight-setup-3.53-x64
 
 AppPublisher=André Simon
 AppPublisherURL=http://www.andre-simon.de
@@ -19,6 +19,7 @@ Compression=lzma2/ultra
 SolidCompression=yes
 PrivilegesRequired=none
 ArchitecturesInstallIn64BitMode=x64
+WizardStyle=modern
 
 [Tasks]
 Name: "desktopicon"; Description: "Create a &desktop icon"; GroupDescription: "Additional icons:"
