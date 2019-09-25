@@ -12,8 +12,8 @@ PERL_INC=$(shell perl -MExtUtils::Embed -eccopts)
 PHP_INC=$(shell php-config --includes)
 
 lib-stamp:
-	make -C ${HL_SRC} -f ./makefile clean
-	PIC=1 make -C ${HL_SRC} -f ./makefile CFLAGS="${CFLAGS}" libhighlight.a
+	make -C ../.. -f ./makefile clean
+	PIC=1 make -C ../.. -f ./makefile CFLAGS="${CFLAGS}" lib-static
 	touch $@
 
 python: lib-stamp
