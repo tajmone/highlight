@@ -42,7 +42,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 //#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindowClass), oldThemeIndex(0), getDataFromCP(false)
+    : QMainWindow(parent), ui(new Ui::MainWindowClass), oldThemeIndex(0), getDataFromCP(false), runFirstTime(true)
 {
     ui->setupUi(this);
     this->setWindowTitle(QString("Highlight %1").arg( HIGHLIGHT_VERSION));
@@ -96,7 +96,6 @@ MainWindow::MainWindow(QWidget *parent)
                 constIterator != filesClassic.constEnd(); ++constIterator) {
             QString tPath(*constIterator);
             QString tCat;
-            accessedPaths.append(tPath);
 
             ls.doFile (themesDirClassic.absoluteFilePath(tPath).toStdString());
             QString tDesc (QString::fromStdString(ls["Description"].value().asString()));
@@ -118,7 +117,6 @@ MainWindow::MainWindow(QWidget *parent)
                 constIterator != filesBase16.constEnd(); ++constIterator) {
             QString tPath(*constIterator);
             QString tCat;
-            accessedPaths.append(tPath);
 
             ls.doFile (themesDirBase16.absoluteFilePath(tPath).toStdString());
             QString tDesc (QString::fromStdString(ls["Description"].value().asString()));
@@ -238,7 +236,23 @@ MainWindow::MainWindow(QWidget *parent)
     twoPassOutFile=QDir::tempPath() + "/highlight_twopass.lua";
 
     plausibility();
+
+    if (runFirstTime && shortNamesDisabled()) {
+        QMessageBox::warning(this, tr("NTFS Short Names"), tr("NTFS short names may be disabled on your volumes. Highlight can not read input with multibyte file names if no short name is available. This information will no longer bother you."));
+    }
+
     statusBar()->showMessage(tr("Always at your service"), 2500);
+}
+
+bool MainWindow::shortNamesDisabled() {
+#ifdef Q_OS_WIN
+    QSettings reg("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\FileSystem",
+    QSettings::NativeFormat);
+    int disableShortNames=reg.value("NtfsDisable8dot3NameCreation",0).toInt();
+    return disableShortNames;
+#else
+    return false;
+#endif
 }
 
 void MainWindow::fillThemeCombo(int restoreVal)
@@ -492,6 +506,8 @@ void MainWindow::writeSettings()
     settings.setValue(ui->tabWidgetOptions->property(name).toString(),
                       ui->tabWidgetOptions->currentIndex());
 
+    settings.setValue("runFirstTime", false);
+
     settings.endGroup();
 }
 
@@ -501,10 +517,8 @@ void MainWindow::readSettings()
     QSettings settings(QSettings::IniFormat, QSettings::UserScope,
                        "andre-simon.de", "highlight-gui");
 
-    // QMessageBox::information(this, "path", settings.fileName());
+   // QMessageBox::information(this, "path", settings.fileName());
     if (!QFile(settings.fileName()).exists()) return;
-
-    accessedPaths.append(settings.fileName());
 
     settings.beginGroup("MainWindow");
 
@@ -597,6 +611,8 @@ void MainWindow::readSettings()
 
     ui->sbLineNoWidth->setValue(settings.value(ui->sbLineNoWidth->property(name).toString(), 2).toInt());
     ui->sbLineNoStart->setValue(settings.value(ui->sbLineNoStart->property(name).toString(), 1).toInt());
+
+    runFirstTime = settings.value("runFirstTime", true).toBool();
 
     settings.endGroup();
 }
@@ -1907,8 +1923,6 @@ void MainWindow::on_comboThemeFilter_currentIndexChanged(int index)
 }
 
 QString MainWindow::getWindowsShortPath(const QString & path){
-    accessedPaths.append("origPath:");
-    accessedPaths.append(path);
 
     QString shortPath(path);
 #ifdef Q_OS_WIN
@@ -1919,16 +1933,7 @@ QString MainWindow::getWindowsShortPath(const QString & path){
         shortPath = QString::fromUtf16((const char16_t*)buffer, length);
         delete[] buffer;
 #endif
-    accessedPaths.append("shortPath:");
-    accessedPaths.append(shortPath);
+
     return shortPath;
 }
 
-void MainWindow::on_action_File_access_trace_W32_triggered(){
-    accessedPaths<<"BUFFER CLEARED";
-
-    ShowTextFile show;
-    show.setText(accessedPaths.join("\n"), "Windows file access debug trace");
-    show.exec();
-    accessedPaths.clear();
-}

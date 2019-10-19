@@ -99,7 +99,6 @@
     <addaction name="action_Changelog"/>
     <addaction name="action_License"/>
     <addaction name="separator"/>
-    <addaction name="action_File_access_trace_W32"/>
     <addaction name="actionAbout_translations"/>
     <addaction name="separator"/>
     <addaction name="actionVisit_website"/>

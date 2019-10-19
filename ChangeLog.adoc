@@ -7,9 +7,9 @@
 :toclevels: 1
 
 
-  - TODO Win32 GUI: short name notice (once)
   - added ballerina.lang
   - added block strings to java.lang
+  - GUI: replaced multibyte path trace window by startup hint if NtfsDisable8dot3NameCreation is set
 
 == highlight 3.53
 

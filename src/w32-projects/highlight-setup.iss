@@ -5,7 +5,7 @@
 AppName=Highlight Code Converter
 
 AppVerName=Highlight
-OutputBaseFilename=highlight-setup-3.51
+OutputBaseFilename=highlight-setup-3.53
 
 AppPublisher=André Simon
 AppPublisherURL=http://www.andre-simon.de
@@ -18,6 +18,7 @@ InfoAfterFile=..\..\README.adoc
 Compression=lzma2/ultra 
 SolidCompression=yes
 PrivilegesRequired=none
+WizardStyle=modern
 
 [Tasks]
 Name: "desktopicon"; Description: "Create a &desktop icon"; GroupDescription: "Additional icons:"

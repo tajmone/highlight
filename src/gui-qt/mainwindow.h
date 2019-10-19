@@ -94,12 +94,11 @@ private:
     QFileSystemWatcher scriptWatcher;
     QStringList themesClassic;
     QStringList themesBase16;
-    QStringList accessedPaths; //to debug multibyte path access
     QList< QList<QString> > themesList;
 
     int oldThemeIndex;
 
-    bool getDataFromCP;
+    bool getDataFromCP, runFirstTime;
 
     void readSettings();
     void writeSettings();
@@ -119,6 +118,7 @@ private:
     void applyCtrlValues(highlight::CodeGenerator* generator, bool previewMode);
     void selectSingleFile(QLineEdit*, const QString&, const QString&);
     bool loadFileTypeConfig();
+    bool shortNamesDisabled();
     void highlight2Clipboard(bool getDataFromCP);
 
     string analyzeFile(const string& file);
@@ -185,8 +185,6 @@ private slots:
 
     void on_browserPreview_selectionChanged();
     void on_comboThemeFilter_currentIndexChanged(int index);
-
-    void on_action_File_access_trace_W32_triggered();
 };
 
 #endif // MAINWINDOW_H
