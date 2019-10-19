@@ -209,7 +209,7 @@ AddKeyword(keyword, kwGroupID)
 
   Parameters: keyword:   string which should be added to a keyword list
               kwGroupID: keyword group ID of the keyword
-  Returns:    true if successfull
+  Returns:    true if successful
 ................................................................................
 
 [[RemoveKeyword]]
@@ -219,7 +219,7 @@ The `RemoveKeyword` function erases the given keyword from the internal list.
 RemoveKeyword(keyword)
 
   Parameters: keyword:   string which should be removed from the keyword list
-  Returns:    true if successfull
+  Returns:    true if successful
 ................................................................................
 
 
@@ -237,7 +237,7 @@ AddPersistentState(keyword, kwGroupID)
 
   Parameters: keyword:   string which should be added to a keyword list
               kwGroupID: keyword group ID of the keyword
-  Returns:    true if successfull
+  Returns:    true if successful
 ................................................................................
 
 ................................................................................
@@ -247,7 +247,7 @@ AddPersistentState(lineno, kwGroupID, column, length)
               kwGroupID: the keyword group ID
               column:    column
               length:    length of the keyword
-  Returns:    true if successfull
+  Returns:    true if successful
 ................................................................................
 
 

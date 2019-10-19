@@ -2,7 +2,7 @@
 Sample plugin file for highlight 3.2
 
 Adds additional function names to keyword list to recognize them later
-without parantheses
+without parentheses
 ]]
 
 Description="Add function names to keyword list"

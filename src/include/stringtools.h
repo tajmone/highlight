@@ -73,7 +73,7 @@ vector <string> splitString ( const string& s, unsigned char delim );
     \param val variable of specified type which will contain the numeric value
     \param s string containing a number
     \param f format specifier function (IO manipulator)
-    \return true if successfull */
+    \return true if successful */
 template <class T>
 bool str2num ( T &val, const std::string& s, std::ios_base& ( *f ) ( std::ios_base& ) )
 {

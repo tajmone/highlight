@@ -79,7 +79,7 @@ public:
 
     /** load style definition
           \param styleDefinitionFile Style definition path
-          \return True if successfull */
+          \return True if successful */
     bool load ( const string & styleDefinitionFile, OutputType outputType=HTML );
 
     void addUserChunk(const Diluculum::LuaFunction& chunk)

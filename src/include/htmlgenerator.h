@@ -178,7 +178,7 @@ private:
     /** \return escaped character*/
     virtual string maskCharacter ( unsigned char );
 
-    /** test if anchors should be appied to line numbers*/
+    /** test if anchors should be applied to line numbers*/
     bool attachAnchors;
 
     /**Optional anchor prefix */

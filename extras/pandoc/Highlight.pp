@@ -35,7 +35,7 @@ This file is part of "The Pandoc-Goodies PP-Macros Library":
 
 !comment{  !HighlightFile                                    v2.0 | 2017-10-25 }
 ````````````````````````````````````````````````````````````````````````````````
-DECRIPTION: Syntax highlight the source code file passed in 1st parameter using
+DESCRIPTION: Syntax highlight the source code file passed in 1st parameter using
     Highlight external tool. The code language must be defined in the 2nd param,
     it will be passed as Highlight's syntax parameter option, and will also be
     added as a class to the <code> & <pre> tags to allow finer styling control
@@ -68,8 +68,8 @@ highlight -f -S !2 --no-trailing-nl --validate-input !3 -i !1
 
 !comment{  !HighlightInlineTheme                             v2.0 | 2017-10-25 }
 ````````````````````````````````````````````````````````````````````````````````
-DECRIPTION: Retrives a Highlight Theme and injects its CSS into the document. 
-            A quick solution for theming Highlight code withouth having to import
+DESCRIPTION: Retrieves a Highlight Theme and injects its CSS into the document. 
+            A quick solution for theming Highlight code without having to import
             an external CSS file via pandoc.
 
 NOTE:       The Theme name must be passed without the ".theme" extension!
@@ -102,7 +102,7 @@ Defines a temporary files counter at module load-time, and sets it to zero.
 
 !comment{   !Highlight                                     v2.1 | 2017-10-25 }
 ``````````````````````````````````````````````````````````````````````````````
-DECRIPTION: Syntax highlight the source code within the 3rd parameter using
+DESCRIPTION: Syntax highlight the source code within the 3rd parameter using
     Highlight external tool. The code language must be defined in 1st param.
     Optionally:
     -- 2nd parameter can contain extra Highlight invocation options.
@@ -158,7 +158,7 @@ check that.
 
 !comment{   !HighlightCMD                                  v2.1 | 2017-10-25 }
 ``````````````````````````````````````````````````````````````````````````````
-DECRIPTION: The Win CMD version of !Highlight macro, automatically invoked by
+DESCRIPTION: The Win CMD version of !Highlight macro, automatically invoked by
             !Highlight after establishing that the current context is Win CMD.
             Used for Windows CMD (not Git Bash for Windows).
 USAGE:
@@ -194,7 +194,7 @@ highlight -f -S !1 --no-trailing-nl --validate-input !2 -i !TEMPFILE
 
 !comment{   !HighlightSh                                   v2.1 | 2017-10-25 }
 ``````````````````````````````````````````````````````````````````````````````
-DECRIPTION: The Shell version of !Highlight macro, automatically invoked by
+DESCRIPTION: The Shell version of !Highlight macro, automatically invoked by
             !Highlight after establishing the current context is Shell/Bash.
             Used for Linux, Mac and Git Bash for Windows.
 USAGE:

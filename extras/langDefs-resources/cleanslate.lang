@@ -143,7 +143,7 @@ Strings = {
   -- SYMMETRICAL STRINGS DELIMITERS
   Delimiter = [=[ \A(?!x)x ]=], -- Never-Matching RegEx!
 
-  -- ASSYMMETRICAL STRINGS DELIMITERS
+  -- ASYMMETRICAL STRINGS DELIMITERS
   DelimiterPairs= {
     { Open  = [=[ \A(?!x)x ]=], -- Never-Matching RegEx!
       Close = [=[ \A(?!x)x ]=], -- Never-Matching RegEx!

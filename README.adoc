@@ -191,7 +191,7 @@ General options:
  -i, --input=<file>             name of single input file
  -o, --output=<file>            name of single output file
  -P, --progress                 print progress bar in batch mode
- -q, --quiet                    supress progress info in batch mode
+ -q, --quiet                    suppress progress info in batch mode
  -S, --syntax=<type>            specify type of source code
      --syntax-by-name=<name>    specify type of source code by given name
                                   will not read a file of this name, useful for stdin
@@ -506,7 +506,7 @@ For more details about the Lua syntax, please refer to:
 
 These constructs are sufficient to edit the scripts:
 
-Variable assigment::
+Variable assignment::
 `name = value` +
 (variables have no type, only values have)
 
@@ -514,7 +514,7 @@ Strings::
 `string1="string literal with escape: \n"` +
 `string2=[[raw string without escape sequence]]`
 +
-If raw string content starts with `[` or ends with `]`, pad the paranthesis
+If raw string content starts with `[` or ends with `]`, pad the parenthesis
 with space to avoid a syntax error. Highlight will strip the string.
 +
 If the string is a regular expression containing a set with a character class
@@ -883,7 +883,7 @@ See the {cpp_qt_lua} sample plug-in script and {README_PLUGINS} for details.
 
 The `--plug-in` option reads the path of a Lua script which overrides or
 enhances the settings of theme and language definition files. Plug-ins make
-it possible to apply costum settings without the need to edit installed
+it possible to apply custom settings without the need to edit installed
 configuration files.
 You can apply multiple plugins by using the `--plug-in` option more than once.
 If your syntax supports persistent states, use `--two-pass` to generate a 

@@ -66,7 +66,7 @@ Also, there should be only one example per language, unless the language justifi
 ## Commit Checklist
 
 
-Before commiting a new example, you should check if you need to update the Git configuration files in this folder:
+Before committing a new example, you should check if you need to update the Git configuration files in this folder:
 
 - [`.gitattributes`][.gitattributes]
 - [`.gitignore`][.gitignore]
@@ -82,7 +82,7 @@ If the editor/IDE you use to work on the example creates some configuration file
 
 ## Using Third Party Code
 
-Custom desgined examples are preferable to third pary code snippets because rarely you'll find some real code examples meeting the criteria mentioned in these guidelines.
+Custom designed examples are preferable to third party code snippets because rarely you'll find some real code examples meeting the criteria mentioned in these guidelines.
 
 Nevertheless, if you do find third party code that you deem fit to use, and you'd like to add it as an example, you must make sure that:
 
@@ -103,7 +103,7 @@ Here is a list resuming the guidelines for designing a custom example.
 
 - __Keep It Short__ — Examples shouldn't be huge in size and number of code lines. They are intended as a preview of the language, not as test files.
 - __Syntactically Complete__ — An example should cover the various syntax elements defined in its langDef so that it can be used to test or design color themes for that language.
-- __Valid Code__ — Example files should be error free in their natural use context (e.g. compiler, parser, etc.). They don't have to do anything meaningful, but they should be editable and error free in a IDE that supports the lang. This makes its maintainance easier.   
+- __Valid Code__ — Example files should be error free in their natural use context (e.g. compiler, parser, etc.). They don't have to do anything meaningful, but they should be editable and error free in a IDE that supports the lang. This makes its maintenance easier.   
 
 These are guidelines, not rules set in stone. If you think that it would make more sense to take a different approach for a given example, go ahead.
 

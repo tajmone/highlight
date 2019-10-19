@@ -114,7 +114,7 @@ std::string PreFormatter::getNextLine()
 
         if ( wsPrefixLength!=string::npos ) {
             index = wsPrefixLength;
-            // Falls Anzahl der Whitespaces am beginn der ersten zeile groesser
+            // Falls Anzahl der Whitespaces am Beginn der ersten Zeile groesser
             // als Max. Zeilenlaenge, Whitespaces verwerfen
             if ( wsPrefixLength>maxLineLength ) {
                 wsPrefixLength=0;

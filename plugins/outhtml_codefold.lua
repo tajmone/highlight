@@ -15,7 +15,7 @@ function syntaxUpdate(desc)
   
   function init()
     pID=0      -- a sequential counter to generate HTML IDs
-    pCount=0   -- paranthesis counter to keep track of opening and closing pairs
+    pCount=0   -- parenthesis counter to keep track of opening and closing pairs
     openPID={} -- save opening IDs as they are needed again for the close tag IDs
     currentLineNumber=0 -- remember the current line number
     notEmbedded=false   -- disable plugin for nested code snippets (like JS in HTML)

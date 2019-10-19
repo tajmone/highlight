@@ -80,7 +80,7 @@ void Xterm256Generator::initOutputTags ( )
         bg_rgb[2] = ( unsigned char ) strtoll ( bg.getBlue ( HTML ).c_str(), NULL, 16 );
         
         if (use16mColours) {
-            //use 24bit true colour ("888" colours (aka 16 milion))
+            //use 24bit true colour ("888" colours (aka 16 million))
             bgs << "\033[48;2;"<< ( int ) bg_rgb[0] << ";" << ( int ) bg_rgb[1] << ";" << ( int ) bg_rgb[2] << "m";
         } else {
             int bgApprox=( int ) rgb2xterm ( bg_rgb );
@@ -128,7 +128,7 @@ string  Xterm256Generator::getOpenTag ( const ElementStyle &col )
     if ( col.isUnderline() ) s << "4;";
 
     if (use16mColours) {
-        //use 24bit true colour ("888" colours (aka 16 milion))
+        //use 24bit true colour ("888" colours (aka 16 million))
         s << "38;2;"<< ( int ) rgb[0] << ";" << ( int ) rgb[1] << ";" << ( int ) rgb[2] << "m";
     } else {
         // apply color approximation, 256 colour palette (216 colours + 16 ansi + 24 gray) (colors are 24bit)

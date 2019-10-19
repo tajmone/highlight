@@ -61,7 +61,7 @@
   - added support for Crystal (thanks to C R Jaensch)
   - added support for Slim (https://gitlab.com/saalen/highlight/merge_requests/85)
   - compress man docs during installation (thanks to Chris Mayo)
-  - fixed several typos in documentaion and manpages
+  - fixed several typos in documentation and manpages
   - CLI: added `--syntax-by-name` option (suggested by Chris Mayo)
   - CLI: removed deprecated `--list-langs` and`--list-themes` options
   - GUI: added terminal sequence output options (https://gitlab.com/saalen/highlight/issues/110)
@@ -835,7 +835,7 @@
  - added support for BNF (thanks to Julien Fontanet)
  - updated Logtalk definition (thanks to Paulo Moura)
  - updated THE theme  (thanks to Marc Hessling)
- - CLI: `--quiet` switch supresses "Unknown source file extension" error
+ - CLI: `--quiet` switch suppresses "Unknown source file extension" error
    (suggested by Nathan Gray)
 
 
@@ -907,7 +907,7 @@
 
  - added more customized boxes for the LaTeX `--pretty-symbols` switch
    (thanks to Romain Francois)
- - GUI: fixed makefile to pass costum paths to the Qt project makefile
+ - GUI: fixed makefile to pass custom paths to the Qt project makefile
    (thanks to Joerg Germeroth)
  - GUI: reduced window height (thanks to Fidel Barrera)
  - GUI: added Spanish translation (thanks to Fidel Barrera)
@@ -1470,7 +1470,7 @@
  - fixed tab replacement (thanks to Adrian Bader)
  - fixed parsing of keywords with special characters as prefix ($ALLOWEDCHARS)
    (thanks to Magnus ?erg)
- - single spaces in (La)TeX are no longer preceeded by backslash
+ - single spaces in (La)TeX are no longer preceded by backslash
 
 
 == highlight 2.2-6
@@ -1554,7 +1554,7 @@
  - added new output format: ANSI terminal sequences (`--ansi`)
    (suggested by David Villa)
    assigned `-A` to `--ansi`, `-g` to `--fop-compatible`
- - added `$SL-COMMENT` parameter to colour themes (enables seperate highlighting
+ - added `$SL-COMMENT` parameter to colour themes (enables separate highlighting
    of single and multi line comments)
  - added option to fill linenumbers with zeroes
  - improved quality of colour themes
@@ -1915,7 +1915,7 @@
 19-March-2003
 
  - added css-infile and css-outfile options to make generation of customizable css
-   definitons clearer (suggested by Markus Werle)
+   definitions clearer (suggested by Markus Werle)
  - fixed bug reading fontsize parameter of themes
 
 
@@ -1933,7 +1933,7 @@
  - improved RTF output (added bold/italics/underline attributes)
  - improved TeX output (added theme colors [thanks to Markus Henning for TeX-URL],
    bold and italics)
- - added a decription how to use the highlight parser in own applications
+ - added a description how to use the highlight parser in own applications
 
 
 == highlight 2.0b
@@ -1971,7 +1971,7 @@
    (both bugs reported by Peter Albert)
  - added \ttfamily to LaTeX header (suggested by Peter Albert)
  - rpm-spec file allows relocatable builds (thanks to Dwight Engen)
- - added "CPP" to recogniced source file suffixes (suggested by Maniac)
+ - added "CPP" to recognised source file suffixes (suggested by Maniac)
  - replaced verb-|- by \textbar
  - fixed php.lang and py.lang
 
@@ -2017,7 +2017,7 @@
 
 18-November-2002
 
- - fixed bug whioch disabled batch mode
+ - fixed bug which disabled batch mode
  - added POV Ray Definition (thanks to Christian Perle)
  - added emacs and kwrite style
 

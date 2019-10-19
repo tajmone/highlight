@@ -394,7 +394,7 @@
          <item>
           <widget class="QPushButton" name="pbCopyFile2CP">
            <property name="toolTip">
-            <string>Copy highlighted code of the seleted file into the clipboard.</string>
+            <string>Copy highlighted code of the selected file into the clipboard.</string>
            </property>
            <property name="text">
             <string>Copy file to clipboard</string>
@@ -611,7 +611,7 @@
                </size>
               </property>
               <property name="toolTip">
-               <string>Shows decription of a selected plug-in script.</string>
+               <string>Shows description of a selected plug-in script.</string>
               </property>
               <property name="text">
                <string>Plug-In description</string>
@@ -741,7 +741,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="lblScriptDescription">
               <property name="toolTip">
-               <string>Shows decription of a selected script.</string>
+               <string>Shows description of a selected script.</string>
               </property>
               <property name="text">
                <string>Script description</string>
@@ -1376,7 +1376,7 @@ The result has to match the input file encoding.</string>
                  <item>
                   <widget class="QCheckBox" name="cbHTMLAnchors">
                    <property name="toolTip">
-                    <string>Add an achor to each line.</string>
+                    <string>Add an anchor to each line.</string>
                    </property>
                    <property name="text">
                     <string>Add line anchors</string>

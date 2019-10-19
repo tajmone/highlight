@@ -28,13 +28,13 @@ echo "==========================================="
 OUT_FILE="./README_LANGLIST.adoc"
 
 # =========================
-# Retrive Highlight Version
+# Retrieve Highlight Version
 # =========================
 HL_VER="$(highlight --version | grep -P -o -m1 '\d\.\d\d')"
 echo "Highlight version found: ${HL_VER}"
 
 # ================================
-# Retrive Current Date (Moth Year)
+# Retrieve Current Date (Moth Year)
 # ================================
 CURR_DATE="$(LANG=en_US.utf8 date -u '+%B %Y')"
 echo "Current date: ${CURR_DATE}"

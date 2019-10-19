@@ -28,7 +28,7 @@ int main (void){
 } [/highlight]
 
 Normally the file extension can be used for the lang parameter (like pl, py, java, pas etc).
-Execute 'highlight --list-langs' to get a list of all supported programming langauges.
+Execute 'highlight --list-langs' to get a list of all supported programming languages.
 
 == Installation ==
 

@@ -131,7 +131,7 @@ CONTENTS
 </ul>
 <div class="flash-messages">
 <div class="flash">
-<p><strong>ADVISE</strong>: If you intend using the <em>Highlight PP-Macros</em>, you are strongly adviced to check regularly the above link for updated versions of “<code>Highlight.pp</code>”. The contents of this folder are intended mainly as a starting example of how to integrate Highlight into pandoc workflow, and they may not reflect the latest release of the macros found on the <strong>Pandoc Goodies</strong> project.</p>
+<p><strong>ADVISE</strong>: If you intend using the <em>Highlight PP-Macros</em>, you are strongly advised to check regularly the above link for updated versions of “<code>Highlight.pp</code>”. The contents of this folder are intended mainly as a starting example of how to integrate Highlight into pandoc workflow, and they may not reflect the latest release of the macros found on the <strong>Pandoc Goodies</strong> project.</p>
 </div>
 </div>
 <h1 id="how-it-works">How It Works</h1>
@@ -139,8 +139,8 @@ CONTENTS
 <p>There are three macros available:</p>
 <ul>
 <li><code>!HighlightFile(FILE)(LANG)[(OPTIONS)]</code> — imports and syntax-highlights an external file into the document as a raw HTML <code>&lt;pre&gt;&lt;code&gt;</code> block.</li>
-<li><code>!Highlight(LANG)([OPTIONS])(CODE BLOCK)</code> — syntax-higlights the block of source code passed as <code>CODE BLOCK</code> parameter (using tilda fences instead of brackets; <a href="#fence-params-note">see Note below</a>).</li>
-<li><code>!HighlightInlineTheme(THEME)</code> — retrives a Highlight theme and injects its CSS version into the document.</li>
+<li><code>!Highlight(LANG)([OPTIONS])(CODE BLOCK)</code> — syntax-highlights the block of source code passed as <code>CODE BLOCK</code> parameter (using tilda fences instead of brackets; <a href="#fence-params-note">see Note below</a>).</li>
+<li><code>!HighlightInlineTheme(THEME)</code> — retrieves a Highlight theme and injects its CSS version into the document.</li>
 </ul>
 <h2 id="the-highlightfile-macro">The <code>!HighlightFile</code> Macro</h2>
 <p>The <code>!HighlightFile</code> macro takes two mandatory parameters and an optional third one:</p>
@@ -165,7 +165,7 @@ CONTENTS
 <ol type="1">
 <li><code>LANG</code> — the language of the source code.</li>
 <li><code>OPTIONS</code> — command line options to be passed to Highlight.</li>
-<li><code>CODE BLOCK</code> — the source code to higlight.</li>
+<li><code>CODE BLOCK</code> — the source code to highlight.</li>
 </ol>
 <p>The <code>CODE BLOCK</code> parameter is passed as fenced code — ie: using two equal-lenght lines of tildas (or backticks) as delimiters, instead of brackets:</p>
 <pre><code>!Highlight( LANG )( OPTIONS )
@@ -203,7 +203,7 @@ CODE BLOCK
 <p>This macro can be invoked anywhere in the document and will apply to all Highlight code blocks (one theme per document). The imported theme will not affect code blocks highlighted by pandoc.</p>
 <div class="flash-messages">
 <div class="flash">
-<p><strong>NOTE</strong>: Pandoc’s built-in highlighting styles might or might not interfere with imported Highlight themes, depending on the style’s definition (pandoc’s default style, <code>pygments</code>, usually doesn’t interfere because it doesn’t set a background color). In some cases, slight adjustments to Highlight’s CSS are required to preserve styling integrity; this can be achived by adding some custom inline CSS that affects the classes used by both highlighters.</p>
+<p><strong>NOTE</strong>: Pandoc’s built-in highlighting styles might or might not interfere with imported Highlight themes, depending on the style’s definition (pandoc’s default style, <code>pygments</code>, usually doesn’t interfere because it doesn’t set a background color). In some cases, slight adjustments to Highlight’s CSS are required to preserve styling integrity; this can be achieved by adding some custom inline CSS that affects the classes used by both highlighters.</p>
 </div>
 </div>
 <h1 id="example-files">Example Files</h1>

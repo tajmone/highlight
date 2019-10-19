@@ -91,7 +91,7 @@ void printHelp(const std::string &topic)
         cout <<"\n";
         cout <<"The --plug-in option reads the path of a Lua script which overrides or\n";
         cout <<"enhances the settings of theme and language definition files. Plug-ins make\n";
-        cout <<"it possible to apply costum settings without the need to edit installed\n";
+        cout <<"it possible to apply custom settings without the need to edit installed\n";
         cout <<"configuration files.\n";
         cout <<"You can apply multiple plugins by using the --plug-in option more than once.\n";
         cout <<"\n";
@@ -130,7 +130,7 @@ void printHelp(const std::string &topic)
         cout<<" -i, --input=<file>             name of single input file\n";
         cout<<" -o, --output=<file>            name of single output file\n";
         cout<<" -P, --progress                 print progress bar in batch mode\n";
-        cout<<" -q, --quiet                    supress progress info in batch mode\n";
+        cout<<" -q, --quiet                    suppress progress info in batch mode\n";
         cout<<" -S, --syntax=<type>            specify type of source code\n";
         cout<<"     --syntax-by-name=<name>    specify type of source code by given name\n";
         cout<<"                                  will not read a file of this name, useful for stdin\n";

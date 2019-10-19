@@ -22,7 +22,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace highlight
 {
-/** states which may occour during input file parsing */
+/** states which may occur during input file parsing */
 enum State {
     STANDARD=0,
     STRING,

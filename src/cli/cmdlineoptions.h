@@ -286,7 +286,7 @@ public:
     /** \return True if encoding specification should be omitted in output*/
     bool omitEncoding() const;
 
-    /** \return True if output should be generated if languege type is unknown*/
+    /** \return True if output should be generated if language type is unknown*/
     bool forceOutput() const;
 
     /** \return True if line numbers should be replaced by ordered list (HTML) */
@@ -313,7 +313,7 @@ public:
     /** \return True if RTF output should include page color */
     bool includePageColor() const ;
     
-    /** \return True if LaTeX output should includ fancier symbols */
+    /** \return True if LaTeX output should include fancier symbols */
     bool prettySymbols() const;
 
     /** \return True if style should be printed */

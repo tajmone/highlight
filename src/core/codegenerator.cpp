@@ -1948,7 +1948,7 @@ bool CodeGenerator::processMultiLineCommentState()
             if ( currentSyntax->allowNestedMLComments() ) {
                 ++commentCount;
             }
-            // if delimiters are equal, close the comment by continueing to
+            // if delimiters are equal, close the comment by continuing to
             // ML_COMMENT_END section
             if (currentSyntax->delimiterIsDistinct(currentSyntax->getOpenDelimiterID ( token, ML_COMMENT  ))) break;
 

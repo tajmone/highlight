@@ -79,7 +79,7 @@ private:
     void initOutputTags();
 
     /** @param style associated element style
-        @return formatting seqence */
+        @return formatting sequence */
     string getOpenTag (const ElementStyle &style );
 
     /** @param styleID current style ID

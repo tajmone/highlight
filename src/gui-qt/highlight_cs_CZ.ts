@@ -419,7 +419,7 @@ Tato funkce je povolena pro C, C++, C# a pro kód Java.</translation>
     </message>
     <message>
         <source>Add an achor to each line.</source>
-        <translation>Přidat kotvu ke každému řádku.</translation>
+        <translation type="vanished">Přidat kotvu ke každému řádku.</translation>
     </message>
     <message>
         <source>Add line numbers</source>
@@ -575,7 +575,7 @@ Odstraní značku Unicode BOM.</translation>
     </message>
     <message>
         <source>Copy highlighted code of the seleted file into the clipboard.</source>
-        <translation>Kopírovat obsah vybraného souboru se zvýrazněním do schránky.</translation>
+        <translation type="vanished">Kopírovat obsah vybraného souboru se zvýrazněním do schránky.</translation>
     </message>
     <message>
         <source>Font name:</source>
@@ -747,7 +747,7 @@ Tyto stylové listy můžete vybrat ve svém textovém editoru, abyste přeform�
     </message>
     <message>
         <source>Shows decription of a selected plug-in script.</source>
-        <translation>Ukázat popis vybraného skriptu přídavného modulu.</translation>
+        <translation type="vanished">Ukázat popis vybraného skriptu přídavného modulu.</translation>
     </message>
     <message>
         <source>Embed style (macros)</source>
@@ -1087,10 +1087,6 @@ This feature is enabled for C, C++, C# and Java code.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shows decription of a selected script.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Script description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1104,6 +1100,38 @@ This feature is enabled for C, C++, C# and Java code.</source>
     </message>
     <message>
         <source>Output selected lines only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy highlighted code of the selected file into the clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows description of a selected plug-in script.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows description of a selected script.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ANSI ESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XTerm256 ESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Truecolor ESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an anchor to each line.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File access trace (W32)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

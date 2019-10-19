@@ -304,7 +304,7 @@ void ASFormatter::init(ASSourceIterator* si)
 }
 
 /**
- * build vectors for each programing language
+ * build vectors for each programming language
  * depending on the file extension.
  */
 void ASFormatter::buildLanguageVectors()
@@ -4171,7 +4171,7 @@ void ASFormatter::formatPointerOrReferenceToType()
 			break;
 		}
 	}
-	// append the seqence
+	// append the sequence
 	string charSave;
 	size_t prevCh = formattedLine.find_last_not_of(" \t");
 	if (prevCh < formattedLine.length())

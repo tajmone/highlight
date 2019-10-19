@@ -142,7 +142,7 @@ Strings = {
   -- SYMMETRICAL STRINGS DELIMITERS
   Delimiter = [=[ "|' ]=], -- Double- and single-quote delimiters: " '
 
-  -- ASSYMMETRICAL STRINGS DELIMITERS
+  -- ASYMMETRICAL STRINGS DELIMITERS
   -- Example: Lua style string-delimiters:
   DelimiterPairs= {
     { Open  = [=[ \[=*\[ ]=],  -- [[  [=[  [===[   etc.
@@ -167,7 +167,7 @@ NOTE: Escape sequences are not restricted to occur inside strings only, they
       and Bash, allow their use anywhere). Usually this doesn't constitute a
       problem, but in some languages this uncostrained behaviour might cause
       false positives matches; in such cases you'll need to restrict escape
-      sequences occurence to inside-strings context only by implementing a
+      sequences occurrence to inside-strings context only by implementing a
       custom hook via the OnStateChange() function --- see "Hook Preset #01"
       further down.                                                         --]]
 

@@ -176,7 +176,7 @@ This is the main difference between the original extension and my modded version
 
 So, if you're happy highlighting all the code with one of Highlight native themes, then you should use the original *HighlightTreeprocessor* extension; but if you'd like more control over CSS styles, and to theme each language separately, then the modded extension is the way to go.
 
-In the {sass} folder you'll find some useful Sass/SCSS templates and examples on how to easily create multiple themes targetting specific languages.
+In the {sass} folder you'll find some useful Sass/SCSS templates and examples on how to easily create multiple themes targeting specific languages.
 
 
 === Substitutions
@@ -294,7 +294,7 @@ You can find the API docs here:
 https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/syntax_highlighter.rb
 ____
 
-So, ultimately, any further development in the direction of fully supporting Highlight in Asciidoctor (wether natively or by a third party extension) will need to shift to the new Asciidoctor 2.0 API.
+So, ultimately, any further development in the direction of fully supporting Highlight in Asciidoctor (whether natively or by a third party extension) will need to shift to the new Asciidoctor 2.0 API.
 
 Hopefully, someone with more Ruby competence than me will take on this task, and soon we might see Highlight natively supported by Asciidoctor.
 In the meantime, I haven't given up on this goal, and I'll be trying to learn a bit of Ruby and study the new Asciidoctor API, and see where I can get.

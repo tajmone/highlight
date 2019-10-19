@@ -33,11 +33,11 @@ Associated files:
 == Highlighting Previews
 
 A couple of examples of how the rendered code looks like.
-link:./highlight_mod.css[The custom CSS stylesheet] defines a default theme plus some dedicated themes targetting specific syntaxes.
+link:./highlight_mod.css[The custom CSS stylesheet] defines a default theme plus some dedicated themes targeting specific syntaxes.
 
 === Example 1
 
-For PureBasic code I've defined a dedicated theme mimicking the native IDE of the language.
+For PureBasic code I've defined a dedicated theme mimicing the native IDE of the language.
 
 [source,purebasic]
 ------------------
@@ -87,8 +87,8 @@ End the.
 ------------------------
 // end::example_alan_substitutions[]
 
-Text enclosed withing single or double `&num;` symbols will be wrapped in the `<mark>` tag (See
-link:https://asciidoctor.org/docs/user-manual/#custom-styling-with-attributes[Asciidoctor Manual §19.5^]), which I've customized to mimick a smeared flourescent marker.
+Text enclosed within single or double `&num;` symbols will be wrapped in the `<mark>` tag (See
+link:https://asciidoctor.org/docs/user-manual/#custom-styling-with-attributes[Asciidoctor Manual §19.5^]), which I've customized to mimic a smeared fluorescent marker.
 Also notice how the word '`bigger`' is rendered as emphasized text.
 
 
@@ -191,7 +191,7 @@ whereas by default Asciidoctor will only emit the `lang` attribute on the `<code
   <code class="language-alan" data-lang="alan">
 -----------------------------------
 
-In the link:./sass[`/sass/`] folder you'll find the commented SCSS sources used by this document, and a useful Sass template for quickly generating Highlight themes targetting specific syntaxes.
+In the link:./sass[`/sass/`] folder you'll find the commented SCSS sources used by this document, and a useful Sass template for quickly generating Highlight themes targeting specific syntaxes.
 
 
 === Custom LangDefs

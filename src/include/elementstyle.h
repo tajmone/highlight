@@ -51,11 +51,11 @@ public:
         \param u Underline flag */
     ElementStyle ( const Colour& col, bool b, bool i, bool u );
 
-    /** Constuctor
+    /** Constructor
          \param elementStyleString String with formatting information (eg "00 aa ff bold") */
     ElementStyle ( const string & elementStyleString );
 
-    /** Constuctor */
+    /** Constructor */
     ElementStyle();
 
     /**copy constructor */

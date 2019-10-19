@@ -134,7 +134,7 @@ private:
 
     /** @param styleNumber number of current style
         @param elem associated element style
-        @return RTF formatting seqence (colour index + bold + italic)*/
+        @return RTF formatting sequence (colour index + bold + italic)*/
     string getOpenTag ( int styleNumber,const ElementStyle &elem );
 
     /** @param styleNumber number of current style

@@ -165,7 +165,7 @@ public:
      Define colour theme information; needs to be called before using a generate* method.
      Call this method before loadLanguage().
      \param themePath Path of style description file
-     \return true if successfull
+     \return true if successful
     */
     bool initTheme ( const string& themePath );
 
@@ -182,14 +182,14 @@ public:
     /** initialize source code indentation and reformatting scheme;
         needs to be called before using a generate* method
         \param indentScheme Name of indentation scheme
-        \return true if successfull
+        \return true if successful
      */
     bool initIndentationScheme ( const string& indentScheme );
     
     void setIndentationOptions (const vector<string>& options);
 
     /** \param langDefPath Absolute path to language definition, may be used multiple times for a generator instance
-     *  \param embedded set True if method is called to laod an embedded language
+     *  \param embedded set True if method is called to load an embedded language
         \return   LOAD_OK, LOAD_FAILED, LOAD_FAILED_REGEX, LOAD_FAILED_LUA
     */
     LoadResult loadLanguage ( const string& langDefPath, bool embedded=false );
@@ -218,20 +218,20 @@ public:
 
     /** Print style definitions to external file or stdout
       \param outFile Path of external style definition; print to stdout if empty
-       \return true if successfull
+       \return true if successful
       */
     bool printExternalStyle ( const string &outFile );
 
         /** Print persistent state snippets to external file 
       \param outFile Path of plugin file to generate
-       \return true if successfull
+       \return true if successful
       */
     bool printPersistentState ( const string &outFile );
     
     /** Print index file with all input file names
        \param fileList List of output file names
        \param outPath Output path
-        \return true if successfull
+        \return true if successful
      */
     virtual bool printIndexFile ( const vector<string> & fileList,
                                   const string &outPath );
@@ -396,7 +396,7 @@ public:
     */
     void setEOLDelimiter(char delim);
 
-    /** Define the name of a nested langage which is located at the beginning of input.
+    /** Define the name of a nested language which is located at the beginning of input.
         The opening embedded delimiter is missing, but the closing delimiter must exist.
     	\param langName name of nested language
     */
@@ -781,7 +781,7 @@ private:
     /// line number where syntax change takes place
     unsigned int syntaxChangeLineNo;
 
-    /// width of line numbering coloumn
+    /// width of line numbering column
     unsigned int lineNumberWidth;
 
     /**first input line to be processed*/
@@ -913,7 +913,7 @@ private:
 
     /** load syntax description of embedded snippet's language
      \param embedLangDefPath path to language definition
-      \return true if successfull */
+      \return true if successful */
     bool loadEmbeddedLang(const string&embedLangDefPath);
 
     /** call user script OnStateChange function if defined to confirm state change

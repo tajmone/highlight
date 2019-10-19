@@ -42,7 +42,7 @@ typedef map<string, string> StringMap;
 /** \brief Manages access to installation directories.
 
     Apart from the standard installation directory, one can define additional
-    search paths. If the additonal paths do not exist, the default paths are
+    search paths. If the additional paths do not exist, the default paths are
     returned.
  **/
 
@@ -139,7 +139,7 @@ public:
     
     /**
      * \param name absolute path of filetypes.conf
-     * \return true if successfull
+     * \return true if successful
     */
     bool loadFileTypeConfig ( const string& name);
 };

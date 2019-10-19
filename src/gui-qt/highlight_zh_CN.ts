@@ -127,7 +127,7 @@ Check installation.</source>
 Revise su instalación.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="+132"/>
+        <location filename="mainwindow.cpp" line="+139"/>
         <location line="+20"/>
         <source>Initialization error</source>
         <translation type="unfinished">初始化错误</translation>
@@ -163,12 +163,12 @@ Revise su instalación.</translation>
         <translation type="unfinished">找不到语法定义文件.请检查安装.</translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+81"/>
         <source>Always at your service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+36"/>
         <source>Select one or more files to open</source>
         <translation type="unfinished">选择一个或多个文件打开</translation>
     </message>
@@ -186,7 +186,7 @@ Revise su instalación.</translation>
         <translation type="obsolete">无法读取 &quot;%1&quot; 的Tag信息</translation>
     </message>
     <message>
-        <location line="+627"/>
+        <location line="+657"/>
         <location line="+31"/>
         <source>Output error</source>
         <translation type="unfinished">输出错误</translation>
@@ -202,12 +202,12 @@ Revise su instalación.</translation>
         <translation type="unfinished">你必须等译一个style输出文件！</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+49"/>
         <source>Processing %1 (%2/%3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>Language definition error</source>
         <translation type="unfinished">语言定义错误</translation>
     </message>
@@ -240,35 +240,35 @@ Lua Syntax error: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+78"/>
+        <location line="+144"/>
         <source>Converted %1 files in %2 ms</source>
         <translation type="unfinished">文件%1 转换完毕，用时 %2 ms</translation>
     </message>
     <message>
-        <location line="+123"/>
+        <location line="+185"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation type="unfinished">No es posible la conversión de &quot;%1&quot;.</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+122"/>
-        <location line="+25"/>
+        <location line="+141"/>
+        <location line="+43"/>
         <source>clipboard data</source>
         <translation type="unfinished">剪贴板数据</translation>
     </message>
     <message>
-        <location line="-80"/>
+        <location line="-113"/>
         <source>%1 options</source>
         <translation type="unfinished">%1 选项</translation>
     </message>
     <message>
-        <location line="+37"/>
-        <location line="+7"/>
+        <location line="+43"/>
+        <location line="+11"/>
         <source>(user script)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+15"/>
         <source>Preview (%1):</source>
         <translation type="unfinished">预览 (%1):</translation>
     </message>
@@ -287,12 +287,12 @@ Lua Syntax error: %2</source>
         <translation type="obsolete">当前语言: %1</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+40"/>
         <source>Preview of &quot;%1&quot; not possible.</source>
         <translation type="unfinished">&quot;%1&quot;.的预览不可用.</translation>
     </message>
     <message>
-        <location line="+240"/>
+        <location line="+246"/>
         <source>Some plug-in effects may not be visible in the preview.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -301,7 +301,7 @@ Lua Syntax error: %2</source>
         <translation type="obsolete">选择一个ctags文件</translation>
     </message>
     <message>
-        <location line="-205"/>
+        <location line="-206"/>
         <location line="+4"/>
         <location line="+4"/>
         <location line="+5"/>
@@ -345,7 +345,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
 <context>
     <name>MainWindowClass</name>
     <message>
-        <location filename="mainwindow.ui" line="+180"/>
+        <location filename="mainwindow.ui" line="+181"/>
         <source>Choose the source code files you want to convert.</source>
         <translation>选择你想要转换的代码文件.</translation>
     </message>
@@ -400,7 +400,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
     <message>
         <location line="+3"/>
         <location line="+359"/>
-        <location line="+649"/>
+        <location line="+664"/>
         <location line="+269"/>
         <location line="+108"/>
         <location line="+295"/>
@@ -408,7 +408,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation>...</translation>
     </message>
     <message>
-        <location line="-1645"/>
+        <location line="-1660"/>
         <source>Save output in the input file directories.</source>
         <translation>将输出保存在输入路径中.</translation>
     </message>
@@ -473,7 +473,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
         <translation></translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+39"/>
         <source>Add line numbers to the output.</source>
         <translation>给输出添加代码行号.</translation>
     </message>
@@ -534,7 +534,7 @@ Removes Unicode BOM mark.</source>
         <translation type="vanished">设置输出文件的编码格式.</translation>
     </message>
     <message>
-        <location line="+1471"/>
+        <location line="+1474"/>
         <source>&amp;Plug-Ins</source>
         <translation type="unfinished"></translation>
     </message>
@@ -543,7 +543,7 @@ Removes Unicode BOM mark.</source>
         <translation type="obsolete">Codificación:</translation>
     </message>
     <message>
-        <location line="-1442"/>
+        <location line="-1445"/>
         <source>Select or define the encoding.
 The result has to match the input file encoding.</source>
         <translation>选择或者定义编码格式.
@@ -747,12 +747,11 @@ See ctags.sf.net for details.</source>
         <translation>杂项</translation>
     </message>
     <message>
-        <location line="+19"/>
         <source>Add an achor to each line.</source>
-        <translation>给每一行代码添加锚点..</translation>
+        <translation type="vanished">给每一行代码添加锚点..</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+22"/>
         <source>Add line anchors</source>
         <translation>给每一行代码添加Anchor(锚点)</translation>
     </message>
@@ -847,12 +846,12 @@ See ctags.sf.net for details.</source>
         <translation>编码设置：</translation>
     </message>
     <message>
-        <location line="-740"/>
+        <location line="-755"/>
         <source>Output destination:</source>
         <translation>输出路径：</translation>
     </message>
     <message>
-        <location line="+966"/>
+        <location line="+981"/>
         <location line="+278"/>
         <location line="+108"/>
         <location line="+295"/>
@@ -872,12 +871,12 @@ See ctags.sf.net for details.</source>
         <translation type="obsolete">读取ctags文件：</translation>
     </message>
     <message>
-        <location line="-1933"/>
+        <location line="-1949"/>
         <source>Highlight</source>
         <translation>Highlight</translation>
     </message>
     <message>
-        <location line="+157"/>
+        <location line="+158"/>
         <source>Files</source>
         <translation>文件</translation>
     </message>
@@ -942,12 +941,11 @@ See ctags.sf.net for details.</source>
         <translation>描述</translation>
     </message>
     <message>
-        <location line="-124"/>
         <source>Shows decription of a selected plug-in script.</source>
-        <translation>显示选中插件的描述.</translation>
+        <translation type="vanished">显示选中插件的描述.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-121"/>
         <source>Plug-In description</source>
         <translation>插件描述</translation>
     </message>
@@ -969,12 +967,17 @@ See ctags.sf.net for details.</source>
         <translation>选择传递给插件的文件.</translation>
     </message>
     <message>
-        <location line="+203"/>
+        <location line="+77"/>
+        <source>Shows description of a selected script.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+126"/>
         <source>BBCode</source>
         <translation>BBCode</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+57"/>
         <source>Set line numbering start.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1263,7 +1266,7 @@ Set the width to 0 to keep tabs.</source>
         <translation type="vanished">字体大小：</translation>
     </message>
     <message>
-        <location line="+55"/>
+        <location line="+58"/>
         <source>Enter the font size.</source>
         <translation>输入字体大小.</translation>
     </message>
@@ -1279,12 +1282,12 @@ Set the width to 0 to keep tabs.</source>
         <translation>停靠浮动面板(&amp;D)</translation>
     </message>
     <message>
-        <location line="-2427"/>
+        <location line="-2446"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location line="+353"/>
+        <location line="+354"/>
         <source>Start the conversion of your input files.</source>
         <translation>点击按钮开始转换文件.</translation>
     </message>
@@ -1294,12 +1297,11 @@ Set the width to 0 to keep tabs.</source>
         <translation>转换文件</translation>
     </message>
     <message>
-        <location line="+10"/>
         <source>Copy highlighted code of the seleted file into the clipboard.</source>
-        <translation>将选中文件的高亮代码复制到剪贴板中.</translation>
+        <translation type="vanished">将选中文件的高亮代码复制到剪贴板中.</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+25"/>
         <source>Clipboard</source>
         <translation>剪贴板</translation>
     </message>
@@ -1330,7 +1332,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>移除所有插件.</translation>
     </message>
     <message>
-        <location line="-531"/>
+        <location line="-532"/>
         <source>Output progress:</source>
         <translation>输出进度：</translation>
     </message>
@@ -1345,12 +1347,17 @@ Set the width to 0 to keep tabs.</source>
         <translation>帮助(&amp;H)</translation>
     </message>
     <message>
-        <location line="+235"/>
+        <location line="+236"/>
         <source>Browse output directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+152"/>
+        <location line="+67"/>
+        <source>Copy highlighted code of the selected file into the clipboard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+85"/>
         <source>Paste code from clipboard and copy the output back in one step</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1370,7 +1377,12 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+167"/>
+        <location line="+97"/>
+        <source>Shows description of a selected plug-in script.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+70"/>
         <source>Scripts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1401,17 +1413,27 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>Shows decription of a selected script.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="+21"/>
         <source>Script description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+252"/>
+        <location line="+128"/>
+        <source>ANSI ESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>XTerm256 ESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Truecolor ESC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+129"/>
         <source>Generate output without version information comment.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1426,7 +1448,12 @@ Set the width to 0 to keep tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+417"/>
+        <location line="+353"/>
+        <source>Add an anchor to each line.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
         <source>Add HTML MIME Type when copying code to the clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1482,7 +1509,7 @@ This feature is enabled for C, C++, C# and Java code.</source>
         <translation>选择或者输入字体名. HTML支持用逗号分隔的字体列表.</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+15"/>
         <source>Font si&amp;ze:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1542,6 +1569,11 @@ This feature is enabled for C, C++, C# and Java code.</source>
         <source>A&amp;bout translations</source>
         <oldsource>About &amp;translations</oldsource>
         <translation type="unfinished">关于翻译(&amp;T)</translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>&amp;File access trace (W32)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
