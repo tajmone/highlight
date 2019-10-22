@@ -85,7 +85,7 @@ string  BBCodeGenerator::getCloseTag ( const ElementStyle &elem )
 
 void BBCodeGenerator::initOutputTags ()
 {
-    openTags.push_back ( "");
+    openTags.push_back ( getOpenTag ( docStyle.getDefaultStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getStringStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getNumberStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getSingleLineCommentStyle() ) );
@@ -97,7 +97,7 @@ void BBCodeGenerator::initOutputTags ()
     openTags.push_back ( getOpenTag ( docStyle.getOperatorStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getInterpolationStyle() ) );
 
-    closeTags.push_back ( "" );
+    closeTags.push_back ( getCloseTag ( docStyle.getDefaultStyle() ) );
     closeTags.push_back ( getCloseTag ( docStyle.getStringStyle() ) );
     closeTags.push_back ( getCloseTag ( docStyle.getNumberStyle() ) );
     closeTags.push_back ( getCloseTag ( docStyle.getSingleLineCommentStyle() ) );

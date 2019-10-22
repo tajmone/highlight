@@ -1,6 +1,8 @@
 
 Description="Arc"
 
+-- Syntax file created by Pierre Larochelle
+
 Categories = {"source"}
 
 Identifiers=[[ [a-zA-Z_][\w\-\/]* ]]
