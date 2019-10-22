@@ -18,5 +18,5 @@ See the makefile how to compile Python, Perl or PHP modules:
 
 2. Run the test scripts
    python testmod.py (use 2.x interpreter)
-   perl testmod.pl
+   perl -I . testmod.pl
    php testmod.php

@@ -1,6 +1,8 @@
 
 Description="Generic config files"
 
+-- Syntax file created by Victor Ananjevsky 
+
 Categories = {"config"}
 
 Keywords={

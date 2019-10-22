@@ -1,6 +1,8 @@
 
 Description="Pike"
 
+-- Syntax file created by Olivier Girondel
+
 Categories = {"source"}
 
 Keywords={

@@ -1,5 +1,5 @@
 Developer/Maintainer:
-André Simon <andre.simon1 at gmx de>
+André Simon <a dot simon at mailbox dot org>
 
 Developer of the Diluculum Lua Wrapper:
 Leandro Motta Barros
@@ -15,6 +15,7 @@ Developer of the argparser class:
 Antonio Diaz Diaz
 
 Language definitions:
+
 Christian Perle (Povray)
 Andreas Schoenberg (AWK)
 Olivier Girondel (Pike)
@@ -42,6 +43,7 @@ Mate Ory (EBNF)
 Julien Fontanet (BNF)
 
 Colour themes:
+
 David (matlab)
 Mark Hessling (THE)
 Alexandre Bonneau (Acid)
@@ -52,6 +54,7 @@ Tristano Ajmone (edit-godot, edit-fasm)
 Andrei Rosca (edit-flashdevelop)
 
 Patches:
+
 Marc Duponcheel (gcc 3.x compatibility)
 Jonas Fonseca (Ruby language definition)
 Georg Young (gcc 3.x compatibility)

@@ -1,6 +1,9 @@
 
 Description="(G)AWK"
 
+-- Syntax file created by Andreas Schoenberg
+
+
 Categories = {"source", "script"}
 
 Keywords={

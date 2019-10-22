@@ -1,5 +1,7 @@
 Description="Ansible YAML"
 
+-- Syntax file created by Raphael Droz 
+
 Categories = {"markup"}
 
 Identifiers=[[ ([\w][\S]+?\:) ]]

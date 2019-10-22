@@ -1,6 +1,8 @@
 
 Description="Extended Backus-Naur Form"
 
+-- Syntax file created by Mate Ory 
+
 Categories = {"protocol"}
 
 Keywords={

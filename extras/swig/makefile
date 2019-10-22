@@ -12,7 +12,7 @@ PERL_INC=$(shell perl -MExtUtils::Embed -eccopts)
 PHP_INC=$(shell php-config --includes)
 
 lib-stamp:
-	make -C ../.. -f ./makefile clean
+	make -C ../.. -f ./makefile clean-obj
 	PIC=1 make -C ../.. -f ./makefile CFLAGS="${CFLAGS}" lib-static
 	touch $@
 

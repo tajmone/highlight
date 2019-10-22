@@ -3,6 +3,9 @@
 
 Description="gdb"
 
+-- Syntax file created by A. Aniruddha
+
+
 Categories = {"source", "script"}
 
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]

@@ -1,5 +1,7 @@
 Description="Yang"
 
+-- Syntax file created by A. Aniruddha
+
 Categories = {"protocol"}
 
 Identifiers=[[ [a-zA-Z_][\w\-]* ]]

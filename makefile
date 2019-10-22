@@ -160,6 +160,9 @@ uninstall:
 clean cleanall:
 	$(MAKE) -C ./src -f ./makefile clean
 
+clean-obj:
+	$(MAKE) -C ./src -f ./makefile clean-obj
+
 apidocs:
 	doxygen Doxyfile
 
@@ -182,4 +185,4 @@ help:
 # Target needed for redhat 9.0 rpmbuild
 install-strip:
 
-.PHONY: clean all install apidocs help uninstall install-strip
+.PHONY: clean all install apidocs help uninstall install-strip clean-obj

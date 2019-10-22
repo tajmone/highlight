@@ -1,6 +1,8 @@
 
 Description="POV-Ray"
 
+-- Syntax file created by Christian Perle
+
 Categories = {"source", "graphics"}
 
 

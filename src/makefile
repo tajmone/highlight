@@ -260,3 +260,7 @@ clean:
 	@rm -f gui-qt/ui_*.h gui-qt/qrc_*.cpp gui-qt/moc_*.cpp
 	@rm -rf gui-qt/highlight-gui.gch/
 	@rm -f gui-qt/.qmake.stash
+
+# for SWIG makefile
+clean-obj:
+	@rm -f *.o

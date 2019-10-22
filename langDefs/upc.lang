@@ -3,6 +3,9 @@ dofile(HL_LANG_DIR.."c.lang")
 
 Description="UPC (and C, technically)"
 
+-- Syntax file created by Viraj Sinha
+
+
 Categories = {"source"}
 
 -- append keywords to C keywords

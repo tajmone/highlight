@@ -1,6 +1,8 @@
 
 Description="ColdFusion MX"
 
+-- Syntax file created by Paul Connell
+
 Categories = {"source"}
 
 Keywords={
