@@ -71,7 +71,7 @@ void DataDir::initSearchDirectories ( const string &userDefinedDir )
 #endif
 }
 
-void DataDir:: searchDataDir( const string &userDefinedDir )
+void DataDir::searchDataDir( const string &userDefinedDir )
 {
     initSearchDirectories(userDefinedDir);
 }
@@ -79,7 +79,8 @@ void DataDir:: searchDataDir( const string &userDefinedDir )
 const string DataDir::searchFile(const string path)
 {
     for ( unsigned int i=0; i<possibleDirs.size(); i++ ) {
-        // cerr << "searching "<<possibleDirs[i]<< path<<"\n";
+    
+        //cerr << "Searching "<<possibleDirs[i]<< path<<"\n";
         if ( Platform::fileExists ( possibleDirs[i] + path ) )
             return possibleDirs[i]+ path;
     }

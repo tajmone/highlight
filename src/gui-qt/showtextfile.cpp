@@ -66,8 +66,17 @@ bool ShowTextFile::setFileName(const QString& fileName)
 #endif
     if ( file.open( QIODevice::ReadOnly) ) {
         QTextStream stream( &file );
-        m_ui->textBrowser->setText( stream.readAll() );
+        //m_ui->textBrowser->setText( stream.readAll() );
+        
+        QString line;
+        do {
+            line = stream.readLine();
+            if (! (line.startsWith(":") || line.startsWith("//")) )
+                m_ui->textBrowser->append( line );
+        } while (!line.isNull());
+        
         m_ui->lbTitle->setText(fileName);
+        m_ui->textBrowser->moveCursor(QTextCursor::Start);
     }
     return file.exists();
 }
