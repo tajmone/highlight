@@ -140,8 +140,8 @@ README_LANGLIST.adoc   text eol=lf
 
 ## Repository settings
 ## -------------------
+.*.yml         text eol=lf
 .editorconfig  text eol=lf
-.gitlab-ci.yml text eol=lf
 
 ## Git settings
 ## ----------

@@ -1,0 +1,15 @@
+#########################################
+#  Highlight                            #
+#  https://gitlab.com/saalen/highlight  #
+#########################################
+
+dist: trusty
+
+git:
+  depth: false
+
+install:
+  - npm install -g eclint
+
+script:
+  - eclint check
