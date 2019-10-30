@@ -1,7 +1,7 @@
 
 Description="Generic config files"
 
--- Syntax file created by Victor Ananjevsky 
+-- Syntax file created by Victor Ananjevsky
 
 Categories = {"config"}
 
@@ -9,13 +9,13 @@ Keywords={
   { Id=1,
     Regex=[[^\s*[\w@]+]]
   },
- { Id=2,
+  { Id=2,
     Regex=[[\d[\d.]*]]
   },
   { Id=3,
     Regex=[[/\S+|/]]
   }
- 
+
 }
 
 Strings={

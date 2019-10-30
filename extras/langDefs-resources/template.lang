@@ -67,7 +67,7 @@ Categories = {"source", "script"} -- The categories the syntax belongs to.
 
 -- Common categories are: "source", "markup", "script" and "config".
 -- For more info see the Wiki:
--- 
+--
 --    https://gitlab.com/saalen/highlight/wikis/LangDefs-Elements#categories
 
 -- *** DON'T FORGET TO: *** ----------------------------------------------------
@@ -84,7 +84,7 @@ IgnoreCase = false -- Are keywords case-sensitive? (true/false)
 EnableIndentation = false -- Syntax may be reformatted and indented? (true/false)
 
 --[[============================================================================
-                                  IDENTIFIERS                                   
+                                  IDENTIFIERS
 ================================================================================
 String, Regular expression which defines identifiers (optional).
 
@@ -94,14 +94,14 @@ can customize it to match yout lang needs.                                  --]]
 Identifiers = [=[ [a-zA-Z_]\w* ]=] -- Highlight's default Identifiers definition
 
 --[[============================================================================
-                                    COMMENTS                                    
+                                    COMMENTS
 ================================================================================
 Comments = { {Block, Nested?, Delimiter=} }
 
   Block:     Boolean, true if comment is a block comment
   Nested:    Boolean, true if block comments can be nested (optional)
   Delimiter: List, contains open delimiter regex (line comment) or open and
-             close delimiter regexes (block comment)
+              close delimiter regexes (block comment)
 ------------------------------------------------------------------------------]]
 Comments = {
   -- Define BLOCK-COMMENTS delimiters
@@ -119,15 +119,15 @@ Comments = {
   }
 }
 --[[============================================================================
-                                    STRINGS                                     
+                                    STRINGS
 ================================================================================
 Strings = { Delimiter|DelimiterPairs={Open, Close, Raw?}, Escape?, Interpolation?,
             RawPrefix?, AssertEqualLength? }
 
   Delimiter:         String, regular expression which describes string delimiters
   DelimiterPairs:    List, includes open and close delimiter expressions if not
-                     equal, includes optional Raw flag as boolean which marks
-                     delimiter pair to contain a raw string
+                      equal, includes optional Raw flag as boolean which marks
+                      delimiter pair to contain a raw string
   Escape:            String, regex of escape sequences (optional)
   Interpolation:     String, regex of interpolation sequences (optional)
   RawPrefix:         String, defines raw string indicator (optional)
@@ -136,7 +136,7 @@ Strings = { Delimiter|DelimiterPairs={Open, Close, Raw?}, Escape?, Interpolation
 Strings = {
 
 --------------------------------------------------------------------------------
---                              STRING DELIMITERS                               
+--                              STRING DELIMITERS
 --------------------------------------------------------------------------------
 
   -- SYMMETRICAL STRINGS DELIMITERS
@@ -155,7 +155,7 @@ Strings = {
   -- RAW-STRING PREFIX (if language supports it)
   RawPrefix = "R",           -- Raw string indicator (optional): R (C style)
 --[[----------------------------------------------------------------------------
-                                ESCAPE SEQUENCES                                
+                                ESCAPE SEQUENCES
 --------------------------------------------------------------------------------
 If the language at hand supports escape sequences, define a RegEx pattern to
 capture them.
@@ -174,7 +174,7 @@ NOTE: Escape sequences are not restricted to occur inside strings only, they
 -- Highlight's default built-in Escape definition:
   Escape = [=[ \\u[[:xdigit:]]{4}|\\\d{3}|\\x[[:xdigit:]]{2}|\\[ntvbrfa\\\?'"] ]=],
 --[[----------------------------------------------------------------------------
-                                INTERPOLATION                                   
+                                INTERPOLATION
 --------------------------------------------------------------------------------
 String, regex of interpolation sequences (optional)
 
@@ -182,7 +182,7 @@ To understand interpolation, here is an example from Javascript:
 
     var apples = 6;
     console.log(`There are ${apples} apples in the basket!`);
-    
+
 which will otuput:
 
     There are 6 apples in the basket!
@@ -194,7 +194,7 @@ References:
 }
 
 --[[============================================================================
-                                  PREPROCESSOR                                  
+                                  PREPROCESSOR
 ================================================================================
 PreProcessor = { Prefix, Continuation? }
 
@@ -204,10 +204,10 @@ PreProcessor = { Prefix, Continuation? }
 NOTE: This element is treated by Highlight parser in a similar way to single-
       line comments: it swallows up everything from the matching Prefix up to
       the end of the line -- but unlike comment lines (which can't contain
-      further syntax elements), the parser will still be looking for some 
+      further syntax elements), the parser will still be looking for some
       syntax elements (in the current line) which might be reasonably found
       within a line of preprocessor directives (eg: strings and comments);
-      but once these elements are dealt with, the parser will resume the 
+      but once these elements are dealt with, the parser will resume the
       PreProcessor state to carry on parsing the rest of the line.
 
       Furthermore, the Continuation character allows this element to span
@@ -220,12 +220,12 @@ PreProcessor = {  -- C/C++ PreProcessor example:
 }
 
 --[[============================================================================
-                                   OPERATORS                                    
+                                  OPERATORS
 ============================================================================--]]
-Operators = [=[ \&|<|>|\!|\||\=|\/|\*|\%|\+|\-|~ ]=] -- Match: &<>!|=/*%+-~ 
+Operators = [=[ \&|<|>|\!|\||\=|\/|\*|\%|\+|\-|~ ]=] -- Match: &<>!|=/*%+-~
 
 --[[============================================================================
-                                        DIGITS                                    
+                                  DIGITS
 ================================================================================
 String, Regular expression which defines digits (optional).                 --]]
 
@@ -233,7 +233,7 @@ String, Regular expression which defines digits (optional).                 --]]
 Digits = [=[ (?:0x|0X)[0-9a-fA-F]+|\d*[\.]?\d+(?:[eE][\-\+]\d+)?[lLuU]* ]=]
 
 --[[============================================================================
-                                       KEYWORDS                                   
+                                  KEYWORDS
 ================================================================================
 Keywords = { Id, List|Regex, Group? }
 
@@ -242,8 +242,8 @@ Keywords = { Id, List|Regex, Group? }
   List:  List, list of keywords
   Regex: String, regular expression
   Group: Integer, capturing group id of regular expression, defines part of regex
-         which should be returned as keyword (optional; if not set, the match
-         with the highest group number is returned (counts from left to right))
+          which should be returned as keyword (optional; if not set, the match
+          with the highest group number is returned (counts from left to right))
 
 NOTE: Keyword group Ids are not limited to 4, you can create as many as you
       need; but bare in mind that most themes that ship with Highlight usually
@@ -253,7 +253,7 @@ NOTE: Keyword group Ids are not limited to 4, you can create as many as you
 
 Keywords = {
 --------------------------------------------------------------------------------
---                               Keywords by List                               
+--                               Keywords by List
 --------------------------------------------------------------------------------
 -- NOTE: If you've set `IgnoreCase = false` then all keywords in the list must
 --       be in lowercase otherwise they'll never match! With case-insensitive
@@ -267,7 +267,7 @@ Keywords = {
     }
   },
 --------------------------------------------------------------------------------
---                              Keywords by RegEx                               
+--                              Keywords by RegEx
 --------------------------------------------------------------------------------
   { Id = 2,
     Regex = [=[ (\w+)\s*\:\: ]=],
@@ -276,7 +276,7 @@ Keywords = {
 }
 
 --[=[===========================================================================
-                                NESTED LANGUAGES                                
+                                NESTED LANGUAGES
 ================================================================================
 If the language at hand may contain other languages in its source code (eg, like
 HTML sources might contain CSS, JavaScript or PHP code):
@@ -317,9 +317,9 @@ For more info, see:
     https://github.com/andre-simon/highlight/blob/master/README#L596
     https://github.com/andre-simon/highlight/blob/master/README_PLUGINS#L170
 --------------------------------------------------------------------------------
-                                OnStateChange()                                 
+                                OnStateChange()
 --------------------------------------------------------------------------------
-This function is a hook which is called if an internal state changes (e.g. 
+This function is a hook which is called if an internal state changes (e.g.
 from HL_STANDARD to HL_KEYWORD if a keyword is found). It can be used to alter
 the new state or to manipulate syntax elements like keyword lists.
 
@@ -330,13 +330,13 @@ the new state or to manipulate syntax elements like keyword lists.
                   newState:  intended new state
                   token:     the current token which triggered the new state
                   kwGroupID: if newState is HL_KEYWORD, the parameter
-                             contains the keyword group ID
+                              contains the keyword group ID
       Returns:    Correct state to continue OR HL_REJECT
 
-Return HL_REJECT if the recognized token and state should be discarded; the 
+Return HL_REJECT if the recognized token and state should be discarded; the
 first character of token will be outputted and highlighted as "oldState".
 --------------------------------------------------------------------------------
-                                  STATES VARS                                   
+                                  STATES VARS
 --------------------------------------------------------------------------------
 The following integer variables, representing the internal highlighting states,
 are available within a language definition (read-only):
@@ -388,31 +388,32 @@ function OnStateChange(oldState, newState, token, kwgroup)
   return newState
 end
 
---[[ ** DON'T FORGET THE CHANGELOG ** 
-     Readapt the changelog found below to your new syntax definition.
-     Changelogs are important for other people who might take on maintaining
-     your langDef from where you left it.
-     
-     Always include in each revision:
-     -- langDef version number*
-     -- date of release
-     -- Highlight version used at the time of release
-     
-     *  Adopt a meaningful release scheme, like MAJOR.MINOR.PATCH, where:
-        -- MAJOR is incremented for backward incompatible changes,
-           (and MINOR and PATCH are set to "0")
-        -- MINOR is incremented for backwards-compatible added functionality 
-           (and PATCH is set to "0")
-        -- PATCH is incremented for backwards-compatible bug fixes and retouches
+--[[ ** DON'T FORGET THE CHANGELOG **
 
-        For more info, see:
-        -- http://semver.org/
+Readapt the changelog found below to your new syntax definition.
+Changelogs are important for other people who might take on maintaining
+your langDef from where you left it.
+
+* Always include in each revision:
+  * langDef version number*
+  * date of release
+  * Highlight version used at the time of release
+
+* Adopt a meaningful release scheme, like MAJOR.MINOR.PATCH, where:
+  * MAJOR is incremented for backward incompatible changes,
+    (and MINOR and PATCH are set to "0")
+  * MINOR is incremented for backwards-compatible added functionality
+    (and PATCH is set to "0")
+  * PATCH is incremented for backwards-compatible bug fixes and retouches
+
+  For more info, see:
+    http://semver.org
 --]]
 
 --[[============================================================================
-                                   CHANGELOG                                   
+                                    CHANGELOG
 ================================================================================
-v1.1.0 (2019/03/02) | Highlight v3.49 
+v1.1.0 (2019/03/02) | Highlight v3.49
   - Added new 'Categories' element.
 
 v1.0.4 (2018/07/02) | Highlight v3.43

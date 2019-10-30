@@ -149,7 +149,7 @@ function OnStateChange(oldState, newState, token, kwgroup) --[[
   return newState
 end
 --[[============================================================================
-                                   CHANGELOG
+                                  CHANGELOG
 ================================================================================
 v1.0.0 (2019/05/24) | Highlight v3.51
   - First release. --]]

@@ -41,7 +41,7 @@ INCLUDE_DIR=./include/
 LUA_PKG_NAME=lua5.3
 LUA_TEST=$(shell pkg-config --exists ${LUA_PKG_NAME}; echo $$?)
 
-ifeq (${LUA_TEST},1)  
+ifeq (${LUA_TEST},1)
 LUA_PKG_NAME=lua
 endif
 
@@ -131,21 +131,21 @@ platform_fs.o: ${CORE_DIR}platform_fs.cpp ${INCLUDE_DIR}platform_fs.h
 	${CXX_COMPILE} ${CORE_DIR}platform_fs.cpp
 
 themereader.o: ${CORE_DIR}themereader.cpp ${INCLUDE_DIR}themereader.h \
-  ${INCLUDE_DIR}stringtools.h ${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h ${DILU_OBJECTS}
+	${INCLUDE_DIR}stringtools.h ${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h ${DILU_OBJECTS}
 	${CXX_COMPILE} ${CORE_DIR}themereader.cpp
 
 elementstyle.o: ${CORE_DIR}elementstyle.cpp ${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h
 	${CXX_COMPILE} ${CORE_DIR}elementstyle.cpp
 
 syntaxreader.o: ${CORE_DIR}syntaxreader.cpp ${INCLUDE_DIR}syntaxreader.h \
-  ${INCLUDE_DIR}platform_fs.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}stringtools.h
+	${INCLUDE_DIR}platform_fs.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}stringtools.h
 	${CXX_COMPILE} ${CORE_DIR}syntaxreader.cpp
 
 codegenerator.o: ${CORE_DIR}codegenerator.cpp ${INCLUDE_DIR}codegenerator.h ${INCLUDE_DIR}syntaxreader.h \
-  ${INCLUDE_DIR}stringtools.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}themereader.h \
-  ${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h ${INCLUDE_DIR}preformatter.h \
-  ${INCLUDE_DIR}htmlgenerator.h ${INCLUDE_DIR}version.h ${INCLUDE_DIR}charcodes.h ${INCLUDE_DIR}xhtmlgenerator.h ${INCLUDE_DIR}rtfgenerator.h \
-  ${INCLUDE_DIR}latexgenerator.h ${INCLUDE_DIR}texgenerator.h ${INCLUDE_DIR}ansigenerator.h
+	${INCLUDE_DIR}stringtools.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}themereader.h \
+	${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h ${INCLUDE_DIR}preformatter.h \
+	${INCLUDE_DIR}htmlgenerator.h ${INCLUDE_DIR}version.h ${INCLUDE_DIR}charcodes.h ${INCLUDE_DIR}xhtmlgenerator.h ${INCLUDE_DIR}rtfgenerator.h \
+	${INCLUDE_DIR}latexgenerator.h ${INCLUDE_DIR}texgenerator.h ${INCLUDE_DIR}ansigenerator.h
 	${CXX_COMPILE} ${CORE_DIR}codegenerator.cpp
 
 ansigenerator.o: ${CORE_DIR}ansigenerator.cpp ${INCLUDE_DIR}ansigenerator.h ${INCLUDE_DIR}codegenerator.h
@@ -165,7 +165,7 @@ pangogenerator.o: ${CORE_DIR}pangogenerator.cpp ${INCLUDE_DIR}pangogenerator.h $
 
 odtgenerator.o: ${CORE_DIR}odtgenerator.cpp ${INCLUDE_DIR}odtgenerator.h ${INCLUDE_DIR}codegenerator.h
 	${CXX_COMPILE} ${CORE_DIR}odtgenerator.cpp
-	
+
 rtfgenerator.o: ${CORE_DIR}rtfgenerator.cpp ${INCLUDE_DIR}rtfgenerator.h ${INCLUDE_DIR}codegenerator.h
 	${CXX_COMPILE} ${CORE_DIR}rtfgenerator.cpp
 
@@ -173,7 +173,7 @@ texgenerator.o: ${CORE_DIR}texgenerator.cpp ${INCLUDE_DIR}texgenerator.h ${INCLU
 	${CXX_COMPILE} ${CORE_DIR}texgenerator.cpp
 
 xhtmlgenerator.o: ${CORE_DIR}xhtmlgenerator.cpp ${INCLUDE_DIR}xhtmlgenerator.h ${INCLUDE_DIR}htmlgenerator.h \
-  ${INCLUDE_DIR}codegenerator.h
+	${INCLUDE_DIR}codegenerator.h
 	${CXX_COMPILE} ${CORE_DIR}xhtmlgenerator.cpp
 
 svggenerator.o: ${CORE_DIR}svggenerator.cpp ${INCLUDE_DIR}svggenerator.h ${INCLUDE_DIR}codegenerator.h
@@ -202,10 +202,10 @@ help.o: ${CLI_DIR}help.cpp ${CLI_DIR}help.h
 	${CXX_COMPILE} ${CLI_DIR}help.cpp
 
 main.o: ${CLI_DIR}main.cpp ${CLI_DIR}main.h ${CLI_DIR}cmdlineoptions.h ${INCLUDE_DIR}platform_fs.h \
-  ${INCLUDE_DIR}datadir.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}codegenerator.h \
-  ${INCLUDE_DIR}syntaxreader.h ${INCLUDE_DIR}themereader.h ${INCLUDE_DIR}elementstyle.h \
-  ${INCLUDE_DIR}stylecolour.h  ${INCLUDE_DIR}preformatter.h \
-  ${CLI_DIR}help.h ${INCLUDE_DIR}version.h
+	${INCLUDE_DIR}datadir.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}codegenerator.h \
+	${INCLUDE_DIR}syntaxreader.h ${INCLUDE_DIR}themereader.h ${INCLUDE_DIR}elementstyle.h \
+	${INCLUDE_DIR}stylecolour.h  ${INCLUDE_DIR}preformatter.h \
+	${CLI_DIR}help.h ${INCLUDE_DIR}version.h
 	${CXX_COMPILE} ${CLI_DIR}main.cpp ${CXX_DIR}
 
 

@@ -8,12 +8,12 @@
 # ******************************************************************************
 # The script queries Highlight for its version and the full list of packaged
 # languages, it then creates a well formatted AsciiDoc file.
-# 
+#
 # Created for autoupdating the Highlight README_LANGLIST page that lists all the
 # supported languages by the latest Highlight version:
-# 
+#
 #   https://gitlab.com/saalen/highlight/README_LANGLIST.adoc
-# 
+#
 # You're free to adapt this script to your own needs, but please do honour its
 # license terms and duely credit me!
 # ------------------------------------------------------------------------------
@@ -61,9 +61,9 @@ ifdef::env-github[]
 endif::[]
 
 ////
-***************************************** 
+*****************************************
 * THIS IS AN AUTO-GENERATED DOCUMENT!!! *
-***************************************** 
+*****************************************
 Any manual changes to this document will be
 overwritten by automated scripted updates!
 ////
@@ -94,10 +94,10 @@ EOF
 # Write Document Chunk #2 -- Langs List
 # =====================================
 highlight --list-scripts=langs |\
-    grep -x -E '^(.*?)( *: )(.*?)$' |\
-    sed -E 's/^(.*?): *(\w+)(( +\()(.*?)( +\)))?/| \1 | link:.\/langDefs\/\2.lang[`\2.lang`,title="View source file"] | \5/g' |\
-    sort -\
-    >> $OUT_FILE
+	grep -x -E '^(.*?)( *: )(.*?)$' |\
+	sed -E 's/^(.*?): *(\w+)(( +\()(.*?)( +\)))?/| \1 | link:.\/langDefs\/\2.lang[`\2.lang`,title="View source file"] | \5/g' |\
+	sort -\
+	>> $OUT_FILE
 # =================================
 # Write Document Chunk #3 -- Footer
 # =================================
@@ -113,19 +113,19 @@ EOF
 
 # ------------------------------------------------------------------------------
 # MIT License
-# 
+#
 # Copyright (c) 2018 Tristano Ajmone <tajmone@gmail.com>
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
