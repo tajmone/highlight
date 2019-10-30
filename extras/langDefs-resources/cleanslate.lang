@@ -48,7 +48,7 @@ Released into the public domain according to the Unlicense terms:
 Description = "Clean Slate" -- Syntax description
 
 --[[============================================================================
-                                   CATEGORIES                                   
+                                  CATEGORIES
 ================================================================================
 Categories:        Table, List of categories (config, source, script, etc)
 ------------------------------------------------------------------------------]]
@@ -74,7 +74,7 @@ IgnoreCase = false -- Are keywords case-sensitive? (true/false)
 EnableIndentation = false -- Syntax may be reformatted and indented? (true/false)
 
 --[[============================================================================
-                                  IDENTIFIERS                                   
+                                  IDENTIFIERS
 ================================================================================
 String, Regular expression which defines identifiers (optional).
 
@@ -96,14 +96,14 @@ Highlight's default Identifiers definition:
 --               other elements.
 
 --[[============================================================================
-                                    COMMENTS                                    
+                                    COMMENTS
 ================================================================================
 Comments = { {Block, Nested?, Delimiter=} }
 
   Block:     Boolean, true if comment is a block comment
   Nested:    Boolean, true if block comments can be nested (optional)
   Delimiter: List, contains open delimiter regex (line comment) or open and
-             close delimiter regexes (block comment)
+              close delimiter regexes (block comment)
 ------------------------------------------------------------------------------]]
 Comments = {
   -- Define BLOCK-COMMENTS delimiters
@@ -120,15 +120,15 @@ Comments = {
   }
 }
 --[[============================================================================
-                                    STRINGS                                     
+                                    STRINGS
 ================================================================================
 Strings = { Delimiter|DelimiterPairs={Open, Close, Raw?}, Escape?, Interpolation?,
             RawPrefix?, AssertEqualLength? }
 
   Delimiter:         String, regular expression which describes string delimiters
   DelimiterPairs:    List, includes open and close delimiter expressions if not
-                     equal, includes optional Raw flag as boolean which marks
-                     delimiter pair to contain a raw string
+                      equal, includes optional Raw flag as boolean which marks
+                      delimiter pair to contain a raw string
   Escape:            String, regex of escape sequences (optional)
   Interpolation:     String, regex of interpolation sequences (optional)
   RawPrefix:         String, defines raw string indicator (optional)
@@ -137,7 +137,7 @@ Strings = { Delimiter|DelimiterPairs={Open, Close, Raw?}, Escape?, Interpolation
 Strings = {
 
 --------------------------------------------------------------------------------
---                              STRING DELIMITERS                               
+--                              STRING DELIMITERS
 --------------------------------------------------------------------------------
 
   -- SYMMETRICAL STRINGS DELIMITERS
@@ -155,7 +155,7 @@ Strings = {
   -- RAW-STRING PREFIX (if language supports it)
   RawPrefix = [=[ \A(?!x)x ]=], -- Never-Matching RegEx!
 --[==[--------------------------------------------------------------------------
-                                ESCAPE SEQUENCES                                
+                                ESCAPE SEQUENCES
 --------------------------------------------------------------------------------
 If the language at hand supports escape sequences, define a RegEx pattern to
 capture them.
@@ -170,7 +170,7 @@ NOTE: Escape sequences will be matched anywhere, not just inside strings. If you
 
   Escape = [=[ \A(?!x)x ]=], -- Never-Matching RegEx!
 --[[----------------------------------------------------------------------------
-                                INTERPOLATION                                   
+                                INTERPOLATION
 --------------------------------------------------------------------------------
 String, regex of interpolation sequences (optional)                         --]]
 
@@ -178,7 +178,7 @@ String, regex of interpolation sequences (optional)                         --]]
 }
 
 --[[============================================================================
-                                  PREPROCESSOR                                  
+                                  PREPROCESSOR
 ================================================================================
 PreProcessor = { Prefix, Continuation? }
 
@@ -192,12 +192,12 @@ PreProcessor = {
   -- Continuation = "", -- A character, not a RegEx! (escaping rules apply)
 }
 --[[============================================================================
-                                   OPERATORS                                    
+                                  OPERATORS
 ============================================================================--]]
 Operators = [=[ \A(?!x)x ]=] -- Never-Matching RegEx!
 
 --[[============================================================================
-                                        DIGITS                                    
+                                        DIGITS
 ================================================================================
 String, Regular expression which defines digits (optional).
 
@@ -208,7 +208,7 @@ Highlight's default built-in Digits definition:
 Digits = [=[ \A(?!x)x ]=] -- Never-Matching RegEx!
 
 --[[============================================================================
-                                       KEYWORDS                                   
+                                      KEYWORDS
 ================================================================================
 Keywords = { Id, List|Regex, Group? }
 
@@ -217,8 +217,8 @@ Keywords = { Id, List|Regex, Group? }
   List:  List, list of keywords
   Regex: String, regular expression
   Group: Integer, capturing group id of regular expression, defines part of regex
-         which should be returned as keyword (optional; if not set, the match
-         with the highest group number is returned (counts from left to right))
+          which should be returned as keyword (optional; if not set, the match
+          with the highest group number is returned (counts from left to right))
 
 NOTE: Keyword group Ids are not limited to 4, you can create as many as you
       need; but bare in mind that most themes that ship with Highlight usually
@@ -228,7 +228,7 @@ NOTE: Keyword group Ids are not limited to 4, you can create as many as you
 
 Keywords = {
 --------------------------------------------------------------------------------
---                               Keywords by List                               
+--                               Keywords by List
 --------------------------------------------------------------------------------
 -- NOTE: If you've set `IgnoreCase = false` then all keywords in the list must
 --       be in lowercase otherwise they'll never match! With case-insensitive
@@ -242,7 +242,7 @@ Keywords = {
     }
   },
 --------------------------------------------------------------------------------
---                              Keywords by RegEx                               
+--                              Keywords by RegEx
 --------------------------------------------------------------------------------
   { Id = 2,
     Regex = [=[ \A(?!x)x ]=], -- Never-Matching RegEx!
@@ -264,9 +264,9 @@ For more info, see:
 ------------------------------------------------------------------------------]]
 
 --[[============================================================================
-                                   CHANGELOG                                   
+                                  CHANGELOG
 ================================================================================
-v1.1.0 (2019/03/02) | Highlight v3.49 
+v1.1.0 (2019/03/02) | Highlight v3.49
   - Added new 'Categories' element.
 
 v1.0.2 (2018/07/02) | Highlight v3.43

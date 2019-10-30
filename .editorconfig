@@ -1,5 +1,5 @@
 #########################################
-#  Highlight                            #
+#  Highlight EditorConfig Settings:     #
 #  https://gitlab.com/saalen/highlight  #
 #########################################
 
@@ -12,6 +12,16 @@ root = true
 indent_style = space
 indent_size = unset
 end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Lua Scripts
+##############
+[*.{lua,lang,theme}]
+indent_style = space
+indent_size = 2
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
