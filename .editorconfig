@@ -1,0 +1,30 @@
+#########################################
+#  Highlight                            #
+#  https://gitlab.com/saalen/highlight  #
+#########################################
+
+root = true
+
+
+## Configurations
+#################
+[.{git*,editorconfig,*.yml}]
+indent_style = space
+indent_size = unset
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Shell Scripts
+################
+[*.sh]
+end_of_line = lf
+indent_style = tab
+indent_size = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# EOF #

@@ -9,7 +9,8 @@
 #      https://chocolatey.org/packages/sass
 # ------------------------------------------------------------------------------
 echo -e "Compiling the CSS stylesheet"
-sass ./highlight_mod.scss\
-     ../highlight_mod.css
+sass \
+	./highlight_mod.scss \
+	../highlight_mod.css
 echo -e "/// Finished ///"
 exit

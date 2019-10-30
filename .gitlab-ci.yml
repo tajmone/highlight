@@ -6,7 +6,7 @@ image: debian:stable-slim
 before_script:
   - apt-get update
   - apt-get install -y make gcc g++ libboost-dev liblua5.3-dev git
-  
+
 compile:
   script:
   - make
