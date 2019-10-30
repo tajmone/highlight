@@ -29,7 +29,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define VERSION_H
 
 #define HIGHLIGHT_MAJOR "3"
-#define HIGHLIGHT_MINOR "53"
+#define HIGHLIGHT_MINOR "54"
 
 #define HIGHLIGHT_VERSION  HIGHLIGHT_MAJOR "." HIGHLIGHT_MINOR
 

@@ -362,13 +362,13 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     string scriptKind=options.getListScriptKind();
     if (scriptKind.length()) {
         if ( scriptKind.find("theme")==0 ) {
-            return printInstalledFiles(dataDir.getThemePath(), "*.theme", "theme", OPT_STYLE, options.getCategories());
+            return printInstalledFiles(dataDir.getThemePath(""), "*.theme", "theme", OPT_STYLE, options.getCategories());
         }
         else if ( scriptKind.find("plug")==0 ) {
-            return printInstalledFiles(dataDir.getPluginPath(), "*.lua", "plug-in", OPT_PLUGIN, options.getCategories());
+            return printInstalledFiles(dataDir.getPluginPath(""), "*.lua", "plug-in", OPT_PLUGIN, options.getCategories());
         }
         else if (  scriptKind.find("lang")==0 ) {
-            return printInstalledFiles(dataDir.getLangPath(), "*.lang", "langDef", OPT_SYNTAX, options.getCategories());
+            return printInstalledFiles(dataDir.getLangPath(""), "*.lang", "langDef", OPT_SYNTAX, options.getCategories());
         } else {
             cerr << "highlight: Unknown script type '"<< scriptKind << "'. Apply one of 'themes', 'langs' or 'plug-ins'.\n";
             return EXIT_FAILURE;

@@ -6,7 +6,7 @@
 :toc: left
 :toclevels: 1
 
-== highlight 3.53
+== highlight 3.54
 
 28.10.2019
 
@@ -15,6 +15,8 @@
   - fixed default colour output in BBCode (https://gitlab.com/saalen/highlight/issues/134)
   - added author hints in themes and language definitions
   - added C++20 reserved words in c.lang
+  - added editorconfig file and validated all files accordingly (thanks to Tristano Ajmone)
+  - CLI: fixed `--list-scripts` with `-d` or HIGHLIGHT_DATADIR env variable (https://gitlab.com/saalen/highlight/issues/139)
   - GUI W32: replaced multibyte path trace window by startup hint if NtfsDisable8dot3NameCreation is set
   - GUI: removed AsciiDoc instruction lines from the README popup window
 

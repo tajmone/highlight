@@ -1,19 +1,23 @@
+
 Description="Ballerina"
 
 Categories = {"source"}
 
 Keywords={
   { Id=1,
-    List={ "boolean", "int","float","decimal","string",
-     "send","receive","flush","checking","trap","fork",
-          "start","wait","default","final","type","xmlns","as","if","else",
-          "match","var","error","foreach","while","continue","break","panic",
-          "return","import","version","public","listener","service","on",
-          "function","external","type","annotation","parameter","resource", 
-          "is", "returns" },
+    List={
+      "boolean", "int","float","decimal","string",
+      "send","receive","flush","checking","trap","fork",
+      "start","wait","default","final","type","xmlns","as","if","else",
+      "match","var","error","foreach","while","continue","break","panic",
+      "return","import","version","public","listener","service","on",
+      "function","external","type","annotation","parameter","resource",
+      "is", "returns" },
   },
   { Id=2,
-    List={"false", "true", "nil"},
+    List={
+      "false", "true", "nil"
+  },
   },
   { Id=3,
     Regex=[[@\w+]],
@@ -32,7 +36,8 @@ Strings={
 IgnoreCase=false
 
 Comments={
-  { Block=false,
+  {
+    Block=false,
     Delimiter= { [[\/\/|#]] },
   }
 }
