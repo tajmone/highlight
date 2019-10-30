@@ -44,15 +44,15 @@ LineNum       = { Colour="#0078D7" }  -- "Lochmara" blue (in FASM IDE: Selection
 
 PreProcessor  = Operator -- (not used by FASM syntax)
 
-Keywords = {
+Keywords =  {
                 Default, -- REGISTERS
                 Default, -- INSTRUCTIONS
                 Default, -- LABELS
                 Default, -- DIRECTIVES
-           }
+            }
 --[[
 ==============================================================================
-                                  CHANGELOG                                   
+                                  CHANGELOG
 ==============================================================================
 v1.0 (2017/03/14)
   -- First release.

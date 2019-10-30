@@ -3,8 +3,8 @@
 -- This script converts a highlight theme to a JSON dataset
 
 function bool2str(b)
-   if not b then return "false" end
-   return "true"
+  if not b then return "false" end
+  return "true"
 end
 
 function printAttributes(e, isLast)
@@ -18,11 +18,11 @@ function printAttributes(e, isLast)
 end
 
 function printKeywords()
-    retVal="\n" 
+    retVal="\n"
     for k, v in pairs(Keywords) do
         retVal = retVal.."        "..printAttributes(v, k==#Keywords)
-     end
-   return retVal
+    end
+    return retVal
 end
 
 function theme2json()
@@ -48,7 +48,7 @@ function theme2json()
 end
 
 if #arg < 1 then
-   print ("Invoke this script with a theme file as argument")
+  print ("Invoke this script with a theme file as argument")
 else
     if not pcall(theme2json) then
         print ("Script not existing or invalid")

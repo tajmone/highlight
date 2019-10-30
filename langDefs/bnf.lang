@@ -1,7 +1,7 @@
 
 Description="Backus-Naur Form"
 
--- Syntax file created by Julien Fontanet 
+-- Syntax file created by Julien Fontanet
 
 Categories = {"protocol"}
 

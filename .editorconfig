@@ -1,0 +1,61 @@
+#########################################
+#  Highlight EditorConfig Settings:     #
+#  https://gitlab.com/saalen/highlight  #
+#########################################
+
+root = true
+
+
+## Batch Scripts
+################
+[*.bat]
+end_of_line = crlf
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Configurations
+#################
+[.{git*,editorconfig,*.yml}]
+end_of_line = lf
+indent_style = space
+indent_size = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Lua Scripts
+##############
+[*.{lua,lang,theme}]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Make Files
+#############
+[{*[Mm]akefile*,*.mak,*.mk,depend}]
+indent_style = tab
+indent_size = 2
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Shell Scripts
+################
+[*.{sh,bash,fish}]
+end_of_line = lf
+indent_style = tab
+indent_size = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# EOF #

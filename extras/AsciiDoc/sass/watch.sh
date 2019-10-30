@@ -10,5 +10,5 @@
 # ------------------------------------------------------------------------------
 echo -e "Watching the CSS stylesheet"
 sass --watch\
-     ./highlight_mod.scss\
-     ../highlight_mod.css
+	./highlight_mod.scss\
+	../highlight_mod.css
