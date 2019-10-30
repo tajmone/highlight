@@ -12,11 +12,11 @@
 
   - added ballerina.lang
   - added block strings to java.lang
-  - fixed default color output in BBCode (https://gitlab.com/saalen/highlight/issues/134)
+  - fixed default colour output in BBCode (https://gitlab.com/saalen/highlight/issues/134)
   - added author hints in themes and language definitions
   - added C++20 reserved words in c.lang
-  - CLI added data dir search traversal in verbose output
   - GUI W32: replaced multibyte path trace window by startup hint if NtfsDisable8dot3NameCreation is set
+  - GUI: removed AsciiDoc instruction lines from the README popup window
 
 == highlight 3.53
 
