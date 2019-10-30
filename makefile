@@ -80,7 +80,7 @@ install:
 		${DESTDIR}${examples_dir}themes-resources \
 		${DESTDIR}${examples_dir}themes-resources/base16 \
 		${DESTDIR}${examples_dir}themes-resources/css-themes
-		
+
 	${MKDIR} ${DESTDIR}${data_dir} \
 		${DESTDIR}${data_dir}themes \
 		${DESTDIR}${data_dir}themes/base16 \

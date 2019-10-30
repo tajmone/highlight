@@ -149,10 +149,10 @@ README_LANGLIST.adoc   text eol=lf
 
 ## Make files
 ## ----------
-Makefile       text
-makefile       text
-*.Debug        text
-*.Release      text
+Makefile       text eol=lf
+makefile       text eol=lf
+*.Debug        text eol=lf
+*.Release      text eol=lf
 
 # ------------------------------------------------------------------------------
 #                                  Binary Files
