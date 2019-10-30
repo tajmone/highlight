@@ -1,5 +1,5 @@
 :: =============================================================================
-::                  Test Base16 to Highlight Theme Conversion                   
+::                  Test Base16 to Highlight Theme Conversion
 :: =============================================================================
 :: This script requires the following Node.js apps to be installed globally:
 :: - mustache.js
@@ -26,8 +26,9 @@ highlight ^
     --doc-title="Base16 Eighties (Dark)" ^
     --font-size=16 ^
     --line-numbers ^
-    -o example-dark.html ^
-       example.pb
+    -o  example-dark.html ^
+        example.pb
+
 :: Test Light Theme with some code:
 highlight ^
     --config-file=example_light.theme ^
@@ -36,6 +37,7 @@ highlight ^
     --doc-title="Base16 Eighties (Light)" ^
     --font-size=16 ^
     --line-numbers ^
-    -o example-light.html ^
-       example.pb
+    -o  example-light.html ^
+        example.pb
 
+EXIT /B

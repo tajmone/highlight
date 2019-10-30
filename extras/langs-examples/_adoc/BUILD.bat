@@ -16,11 +16,11 @@ ECHO =====================================
 ECHO Building "..\Highlight_Examples.html"
 ECHO =====================================
 CALL asciidoctor^
-    --verbose^
-    --safe-mode unsafe^
-    --destination-dir ../^
-    --template-dir haml^
-    --require ../../AsciiDoc/highlight-treeprocessor_mod.rb^
-     -a docinfo=private^
-       Highlight_Examples.adoc
+  --verbose^
+  --safe-mode unsafe^
+  --destination-dir ../^
+  --template-dir haml^
+  --require ../../AsciiDoc/highlight-treeprocessor_mod.rb^
+  -a docinfo=private^
+    Highlight_Examples.adoc
 EXIT /B
