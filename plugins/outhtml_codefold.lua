@@ -59,7 +59,7 @@ function syntaxUpdate(desc)
     "Ceylon", "Crack", "Not eXactly C", "Rust", "TTCN3", "Yang", "(G)AWK", "D",
     "Dart", "Nemerle", "Perl", "PHP", "Microsoft PowerShell", "Pike", "Scala",
     "Swift", "Kotlin", "Pascal", "Ruby", "Lua", "Go", "AutoHotKey", "TypeScript",
-    "R" }
+    "R", "Bash" }
 
   if not foldable[desc] then
     return
@@ -95,6 +95,15 @@ function syntaxUpdate(desc)
     blockBegin["function"] = true
     blockEnd["elseif"] = true
     blockEnd["end"] = true
+    blockStates[HL_KEYWORD] = true
+  elseif desc=="Bash" then
+    blockBegin["then"] = true
+    blockBegin["do"] = true
+    blockBegin["case"] = true
+    blockEnd["fi"] = true
+    blockEnd["else"] = true
+    blockEnd["done"] = true
+    blockEnd["esac"] = true
     blockStates[HL_KEYWORD] = true
   elseif desc=="Ruby" then
     blockBegin["do"] = true

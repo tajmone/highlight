@@ -8,7 +8,7 @@
 
 == highlight 3.54
 
-28.10.2019
+08.11.2019
 
   - added ballerina.lang
   - added block strings to java.lang
