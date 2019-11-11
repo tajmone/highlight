@@ -750,13 +750,15 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
 
         // do not add a trace indicator state for each byte of a UTF-8 sequence, only for the seq start
         // https://stackoverflow.com/questions/4063146/getting-the-actual-length-of-a-utf-8-encoded-stdstring
-        if (applySyntaxTestCase && (s[i] & 0xc0) != 0x80 ) {
+        //if ( applySyntaxTestCase && ( (s[i]&0xff) != 0xC2  || StringTools::change_case(encoding) !="utf-8" ) /*&& ( (s[i] & 0xc0) != 0x80 || StringTools::change_case(encoding) !="utf-8" ) */ ) {
+        if ( applySyntaxTestCase && ( (s[i] & 0xc0) != 0x80  || StringTools::change_case(encoding) !="utf-8" ) /*&& ( (s[i] & 0xc0) != 0x80 || StringTools::change_case(encoding) !="utf-8" ) */ ) {
+            
             PositionState ps(currentState, getCurrentKeywordClassId(), false);
             stateTraceCurrent.push_back(ps);
             
             if (stateTraceCurrent.size()>200) 
                 stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
-        }
+        } 
     }
 }
 

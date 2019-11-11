@@ -8,11 +8,14 @@
 
 == highlight 3.54
 
-08.11.2019
+11.11.2019
 
+  - fixed default colour output in BBCode (https://gitlab.com/saalen/highlight/issues/134)
+  - fixed corner case in sh.lang
+  - fixed syntax tests with UTF-8 input (https://gitlab.com/saalen/highlight/issues/123)
+  - added support for Bash in outhtml_codefold.lua plug-in
   - added ballerina.lang
   - added block strings to java.lang
-  - fixed default colour output in BBCode (https://gitlab.com/saalen/highlight/issues/134)
   - added author hints in themes and language definitions
   - added C++20 reserved words in c.lang
   - added editorconfig file and validated all files accordingly (thanks to Tristano Ajmone)
