@@ -13,8 +13,8 @@ function syntaxUpdate(desc)
 
   function Decorate(token)
     if token == "\27" then
-     -- return "<span class=\"hl esc\">ESC</span>"
-     -- return "&#xFFFD;"
+      -- return "<span class=\"hl esc\">ESC</span>"
+      -- return "&#xFFFD;"
       return "&#x9243;"
     end
 
