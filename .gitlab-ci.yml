@@ -6,15 +6,33 @@ image: debian:stable-slim
 before_script:
   - apt-get update
   - apt-get install -y make gcc g++ libboost-dev liblua5.3-dev git
+  # ======================
+  # EditorConfig Toolchain
+  # ======================
+  # Install Node.js:
+  - apt-get install -y curl
+  - curl -sL https://deb.nodesource.com/setup_13.x | bash
+  - apt-get install -y nodejs
+  - node -v
+  - npm -v
+  # Install EClint:
+  - npm install -g eclint
 
 compile:
   script:
-  - make
-  - make install
-  # Verify that our compiled app works properly with a custom "test" script
-  - bash ./src/ci_test.sh
+    - make
+    - make install
+    # Verify that our compiled app works properly with a custom "test" script
+    - bash ./src/ci_test.sh
 
   # Save the compiled output from the above for downloading via GitLab and in Gitlab 8.6 to use in future build steps
   #artifacts:
   #  paths:
   #  - ansifilter
+
+validate:
+  script:
+    # Validate committed files against EditorConfig settings via EClint using
+    # a custom script that in case of error lists only the problematic files:
+    - bash ./validate.sh
+
