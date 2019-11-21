@@ -6,6 +6,12 @@
 :toc: left
 :toclevels: 1
 
+== highlight 3.54.1
+
+21.11.2019
+
+  - W32 CLI: fixed two pass mode if executed in Mingw shell
+
 == highlight 3.54
 
 11.11.2019

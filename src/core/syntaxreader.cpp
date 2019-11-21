@@ -599,7 +599,7 @@ void SyntaxReader::addPersistentStateRange(unsigned int groupID, unsigned int co
          <<"  Priority=1,\n"
          <<"  Constraints = {\n"
          <<"    Line = "<<lineNumber<<",\n"
-         <<"    Filename = \""<<fileName<<"\",\n"
+         <<"    Filename = [=["<<fileName<<"]=],\n"
          <<" }\n"
          <<"})";
                 
