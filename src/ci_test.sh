@@ -18,6 +18,17 @@ else
 	exit 1
 fi
 
+# new set of test scripts
+bash ${TEST_DIR}/exapunks/regression.sh
+if [ $? -eq 0 ]; then
+	echo "exapunks regression tests OK"
+else
+	echo "exapunks regression tests FAILED"
+	exit 1
+fi
+
+
+# old tests
 ${HL_BIN} ${TEST_DIR}/bash/syntax_test_heredoc.sh
 if [ $? -eq 0 ]; then
 	echo "bash test #1 OK"
@@ -135,6 +146,9 @@ else
 	exit 1
 fi
 
+
+# special configurations
+
 echo '#!/usr/bin/perl' | ${HL_BIN} --verbose 2>&1 >/dev/null |  grep 'Description: Perl'
 if [ $? -eq 0 ]; then
 	echo "stdin shebang test #1 OK"
@@ -159,9 +173,3 @@ else
 	exit 1
 fi
 
-#if [ "$OUTPUT" == "BEGIN ... END" ]; then
-#  echo "Output is correct, OK"
-#else
-#  echo "Output is not right, FAIL"
-#  exit 1
-#fi
