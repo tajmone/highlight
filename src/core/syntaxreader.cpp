@@ -430,6 +430,10 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
             footerInjection+= ls["FooterInjection"].value().asString();
         }
 
+        if (globals.count("EncodingHint")) {
+            encodingHint = ls["EncodingHint"].value().asString();
+        }
+        
         // load hook functions
         if (globals.count("OnStateChange")) {
             validateStateChangeFct=new Diluculum::LuaFunction(ls["OnStateChange"].value().asFunction());

@@ -1,6 +1,6 @@
 = HIGHLIGHT HANDBUCH
 André Simon
-v3.54, November 2019
+v3.55, Januar 2020
 :lang: de
 :toc: left
 :toc-title: Contents
@@ -626,8 +626,10 @@ Operators:         String, Regulaerer Ausdruck fuer Operatoren
 EnableIndentation: Boolean, True wenn Syntax formatiert und eingerueckt werden kann
 
 IgnoreCase:        Boolean, True wenn Sprache nicht case-sensitive ist
-................................................................................
 
+EncodingHint:      String, Standard-Eingabeencoding
+
+................................................................................
 
 
 ==== Globale Variablen

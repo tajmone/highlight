@@ -41,7 +41,7 @@ void printHelp(const std::string &topic)
         cout <<"File extensions and shebangs are mapped to language definitions in \n";
         cout <<"filetypes.conf (see --print-config for the configuration search paths).\n";
         cout <<"\n";
-        cout <<"Apply custom language definitions with --config-file.\n";
+        cout <<"Apply custom language definitions with --config-file or as absolute path to -S.\n";
         cout <<"\n";
         cout <<"Use plug-in scripts (--plug-in) to modify syntax parsing and output.\n";
         cout <<"\n";
@@ -61,13 +61,13 @@ void printHelp(const std::string &topic)
         cout <<"\n";
         cout <<"These descriptions are saved as Lua scripts in HL_DATA_DIR/themes.\n";
         cout <<"\n";
-        cout <<"Apply custom themes with --config-file.\n";
+        cout <<"Apply custom themes with --config-file or as absolute path to --theme.\n";
         cout <<"\n";
         cout <<"Use plug-in scripts (--plug-in) to modify the formatting output.\n";
         cout <<"\n";
         cout <<"Print all installed themes with --list-scripts=themes.\n";
         cout <<"\n";
-        cout <<"Use --base16 to read a theme of the Base16 set.\n";
+        cout <<"Use --base16 to read a theme of the Base16 set or add 'base16/' as prefix.\n";
         cout <<"\n";
         cout <<"Exemplary config files:\n";
         cout <<"darkspectrum.theme: dark canvas (vim) \n";
@@ -131,7 +131,7 @@ void printHelp(const std::string &topic)
         cout<<" -o, --output=<file>            name of single output file\n";
         cout<<" -P, --progress                 print progress bar in batch mode\n";
         cout<<" -q, --quiet                    suppress progress info in batch mode\n";
-        cout<<" -S, --syntax=<type>            specify type of source code\n";
+        cout<<" -S, --syntax=<type|path>       specify type of source code or syntax file path\n";
         cout<<"     --syntax-by-name=<name>    specify type of source code by given name\n";
         cout<<"                                  will not read a file of this name, useful for stdin\n";
         cout<<" -v, --verbose                  print debug info\n";
@@ -184,7 +184,7 @@ void printHelp(const std::string &topic)
         cout<<" -K, --font-size=<num?>         set font size (specific to output format)\n";
         cout<<" -l, --line-numbers             print line numbers in output file\n";
         cout<<" -m, --line-number-start=<cnt>  start line numbering with cnt (assumes -l)\n";
-        cout<<" -s, --style=<style>            set colour style (theme). See  --base16\n";
+        cout<<" -s, --style=<style|path>       set colour style (theme) or theme file path\n";
         cout<<" -t, --replace-tabs=<num>       replace tabs by <num> spaces\n";
         cout<<" -T, --doc-title=<title>        document title\n";
         cout<<" -u, --encoding=<enc>           set output encoding which matches input file\n";

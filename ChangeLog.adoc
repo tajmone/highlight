@@ -6,6 +6,14 @@
 :toc: left
 :toclevels: 1
 
+== highlight 3.55
+
+18.01.2020
+
+  - added EncodingHint attributes to filetypes.conf and language definitions (https://gitlab.com/saalen/highlight/issues/141)
+  - CLI: allowed file paths as --theme and --syntax argument (https://gitlab.com/saalen/highlight/issues/145)
+  - GUI: removed deprecated QTime API call
+
 == highlight 3.54.1
 
 21.11.2019

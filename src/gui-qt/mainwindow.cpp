@@ -2,7 +2,7 @@
                                mainwindow.cpp
                              -------------------
     begin                : Mo 16.03.2009
-    copyright            : (C) 2009-2019 by Andre Simon
+    copyright            : (C) 2009-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -648,6 +648,8 @@ bool MainWindow::loadFileTypeConfig()
                 readLuaList("Filenames", langName, mapEntry,  &assocByFilename);
             } else if (mapEntry["Shebang"] !=Diluculum::Nil) {
                 assocByShebang.insert ( make_pair ( mapEntry["Shebang"].asString(),  langName ) );
+            } else if (mapEntry["EncodingHint"] !=Diluculum::Nil) {
+                encodingHints.insert ( make_pair ( langName, mapEntry["EncodingHint"].asString() ) );
             }
             idx++;
         }
@@ -747,7 +749,7 @@ void MainWindow::on_action_About_Highlight_triggered()
     QMessageBox::about( this, "About Highlight",
                         QString("Highlight is a code to formatted text converter.\n\n"
                                 "Highlight GUI %1\n"
-                                "(C) 2002-2019 Andre Simon <a.simon at mailbox.org>\n\n"
+                                "(C) 2002-2020 Andre Simon <a.simon at mailbox.org>\n\n"
                                 "Artistic Style Classes\n(C) 1998-2002 Tal Davidson\n"
                                 "(C) 2006-2018 Jim Pattee <jimp03 at email.com>\n\n"
                                 "Diluculum Lua wrapper\n"
@@ -920,11 +922,7 @@ void MainWindow::applyCtrlValues(highlight::CodeGenerator* generator, bool previ
         QMessageBox::critical(this,"Theme init error", QString::fromStdString(generator->getThemeInitError()));
     }
 
-    if (ui->cbEncoding->isChecked()) {
-        generator->setEncoding(ui->comboEncoding->currentText().toStdString());
-    } else {
-        generator->setEncoding("none");
-    }
+   
     generator->setValidateInput(ui->cbValidateInput->isChecked());
     generator->setLineNumberWidth(ui->sbLineNoWidth->value());
     generator->setNumberWrappedLines(!ui->cbOmitWrappedLineNumbers->isChecked());
@@ -971,6 +969,26 @@ highlight::WrapMode MainWindow::getWrappingStyle()
     if (!ui->cbAdvWrapping->isChecked() && ui->cbAdvWrapping->isEnabled())
         return highlight::WRAP_SIMPLE;
     return (ui->cbWrapping->isChecked())?highlight::WRAP_DEFAULT:highlight::WRAP_DISABLED;
+}
+
+void MainWindow::applyEncoding(highlight::CodeGenerator* generator, QString &langDefPath) {
+    if (ui->cbEncoding->isChecked()) {
+        generator->setEncoding(ui->comboEncoding->currentText().toStdString());
+    } else {
+
+        string encoding="none";
+        //syntax definition setting:
+        string encodingHint= generator->getSyntaxEncodingHint();
+        if (encodingHint.size())
+            encoding=encodingHint;
+        
+        // filetypes.conf setting has higher priority:
+        encodingHint= encodingHints[QFileInfo(langDefPath).baseName().toStdString()];
+        if (encodingHint.size())
+            encoding=encodingHint;
+
+        generator->setEncoding(encoding);
+    }
 }
 
 void MainWindow::on_pbStartConversion_clicked()
@@ -1023,7 +1041,7 @@ void MainWindow::on_pbStartConversion_clicked()
     ui->pbCopyFile2CP->setDisabled(true);
     this->setCursor(Qt::WaitCursor);
 
-    QTime t;
+    QElapsedTimer t;
     t.start();
 
     std::unique_ptr<highlight::CodeGenerator> generator(highlight::CodeGenerator::getInstance(outType));
@@ -1141,6 +1159,9 @@ void MainWindow::on_pbStartConversion_clicked()
                 generator->setHTMLAnchorPrefix(inFileName.toStdString());
             }
             generator->setTitle(inFileName.toStdString());
+      
+            applyEncoding(generator.get(), langDefPath);
+            
             error = generator->generateFile(currentFile, outfileName );
             if (error != highlight::PARSE_OK) {
                 if (error == highlight::BAD_INPUT) {
@@ -1325,11 +1346,15 @@ void MainWindow::highlight2Clipboard(bool getDataFromCP)
         langPath = getWindowsShortPath(langPath);                
 #endif
 
+      
     QString clipBoardData;
 
     for (int twoPass=0; twoPass<2; twoPass++) {
 
     if ( generator->loadLanguage(langPath.toStdString()) != highlight::LOAD_FAILED) {
+        
+        applyEncoding(generator.get(), langPath);
+
 
         if (getDataFromCP) {
             clipBoardData= QString::fromStdString( generator->generateString(savedClipboardContent.toStdString()));

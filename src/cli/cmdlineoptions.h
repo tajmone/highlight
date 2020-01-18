@@ -286,6 +286,12 @@ public:
     /** \return True if encoding specification should be omitted in output*/
     bool omitEncoding() const;
 
+     /** \return True if encoding was set by user*/
+    bool encodingDefined() const
+        {
+        return opt_encoding_explicit;
+    }
+    
     /** \return True if output should be generated if language type is unknown*/
     bool forceOutput() const;
 
@@ -484,6 +490,7 @@ private:
     bool opt_no_version_info;
     bool explicit_output_format;
     bool opt_isolate;
+    bool opt_encoding_explicit;
     
     off_t maxFileSize;
 

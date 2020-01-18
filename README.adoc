@@ -1,6 +1,6 @@
 = HIGHLIGHT MANUAL
 André Simon
-v3.54, November 2019
+v3.55, January 2020
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -627,6 +627,9 @@ Operators:         String, Regular expression which defines operators
 EnableIndentation: Boolean, set true if syntax may be reformatted and indented
 
 IgnoreCase:        Boolean, set true if keyword case should be ignored
+
+EncodingHint:      String, default input file encoding
+
 ................................................................................
 
 

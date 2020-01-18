@@ -195,6 +195,7 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_no_version_info(false),
     explicit_output_format(false),
     opt_isolate(false),
+    opt_encoding_explicit(false),
     maxFileSize(268435456),
     fallbackSyntax("txt"),
     anchorPrefix ( "l" ),
@@ -401,11 +402,20 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case 's':
             styleName = arg;
+            if (Platform::fileExists(styleName)){
+                absThemePath = styleName; 
+            }
             break;
         case 'S':
         case S_OPT_COMPAT_SRCLANG:
             syntax = arg;
             opt_syntax = true;
+            
+            if (Platform::fileExists(arg)){
+                absLangPath = arg;
+                syntax = arg.substr(0, arg.find_last_of('.'));
+           
+            }
             break;
         case 't':
         case S_OPT_COMPAT_TAB:
@@ -413,6 +423,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case 'u':
             encodingName = arg;
+            opt_encoding_explicit=true;
             break;
         case 'v':
             opt_verbose = true;

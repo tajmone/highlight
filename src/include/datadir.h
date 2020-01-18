@@ -65,7 +65,7 @@ private:
     
 public:
 
-    StringMap assocByExtension, assocByFilename, assocByShebang;
+    StringMap assocByExtension, assocByFilename, assocByShebang, encodingHint;
 
     static string LSB_DATA_DIR;
     static string LSB_CFG_DIR;
@@ -119,8 +119,11 @@ public:
     /** \return Location of documentation (README) files (GUI) */
     const string getDocDir();
     
-    // These functions were moved from main.cpp in 3.51:
-    
+    /** \param snytax name
+        \return Encoding hint assigned to the syntax */
+    const string getEncodingHint (const string &);
+
+        
     /**
      * \param fileName input file name 
      * \return file extension or the base filename if no file extension exists

@@ -45,7 +45,7 @@ void HLCmdLineApp::printVersionInfo()
 {
     cout << "\n highlight version "
          << HIGHLIGHT_VERSION
-         << "\n Copyright (C) 2002-2019 Andre Simon <a dot simon at mailbox.org>"
+         << "\n Copyright (C) 2002-2020 Andre Simon <a dot simon at mailbox.org>"
          << "\n\n Argparser class"
          << "\n Copyright (C) 2006-2008 Antonio Diaz Diaz <ant_diaz at teleline.es>"
          << "\n\n Artistic Style Classes (3.1)"
@@ -426,7 +426,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
                                   options.getLineLength() - options.getNumberWidth() : options.getLineLength(),
                                   options.getNumberSpaces() );
 
-    generator->setEncoding ( options.getEncoding() );
+    //generator->setEncoding ( options.getEncoding() );
     generator->setBaseFont ( options.getBaseFont() ) ;
     generator->setBaseFontSize ( options.getBaseFontSize() ) ;
     generator->setLineNumberWidth ( options.getNumberWidth() );
@@ -594,6 +594,22 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
                 printDebugInfo ( generator->getSyntaxReader(), langDefPath );
             }
             lastSuffix = suffix;
+            
+            string encoding= options.getEncoding();
+            //user has explicitly defined the encoding:
+            if (!options.encodingDefined()) {
+                
+                //syntax definition setting:
+                string encodingHint= generator->getSyntaxEncodingHint();
+                if (encodingHint.size())
+                    encoding=encodingHint;
+                
+                // filetypes.conf setting has higher priority:
+                encodingHint= dataDir.getEncodingHint(suffix);
+                if (encodingHint.size())
+                    encoding=encodingHint;
+            }
+            generator->setEncoding (encoding);
         }
 
         if (twoPassMode && !generator->syntaxRequiresTwoPassRun()) {

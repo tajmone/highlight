@@ -2,7 +2,7 @@
                                mainwindow.h
                              -------------------
     begin                : Mo 16.03.2009
-    copyright            : (C) 2009-2018 by Andre Simon
+    copyright            : (C) 2009-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -49,7 +49,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDir>
 #include <QClipboard>
 #include <QMimeData>
-#include <QTime>
+#include <QElapsedTimer>
 #include <QShortcut>
 #include <QString>
 #include <QList>
@@ -84,7 +84,7 @@ public:
 private:
     Ui::MainWindowClass *ui;
     MMap assocByExtension, assocByFilename;
-    SMap assocByShebang, rememberedAssoc;
+    SMap assocByShebang, rememberedAssoc, encodingHints;
     QString fileOpenFilter;
     QString savedClipboardContent;
     QString twoPassOutFile;
@@ -116,6 +116,8 @@ private:
     QString getWindowsShortPath(const QString & path);
 
     void applyCtrlValues(highlight::CodeGenerator* generator, bool previewMode);
+    void applyEncoding(highlight::CodeGenerator* generator, QString &langDefPath);
+
     void selectSingleFile(QLineEdit*, const QString&, const QString&);
     bool loadFileTypeConfig();
     bool shortNamesDisabled();

@@ -2,7 +2,7 @@
                           syntaxreader.h  -  description
                              -------------------
     begin                : Wed Nov 28 2001
-    copyright            : (C) 2001-2019 by Andre Simon
+    copyright            : (C) 2001-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -279,6 +279,14 @@ public:
         return currentPath;
     }
 
+    /**
+    	\return encoding which is normally used for input files of this syntax
+    */
+    string getEncodingHint() const
+    {
+        return encodingHint;
+    }
+
      /**
     	\return test function
     */
@@ -381,7 +389,7 @@ private:
     string currentInputFile;
     
     // Language description
-    string langDesc, categories;
+    string langDesc, categories, encodingHint;
 
     string headerInjection, footerInjection;
 

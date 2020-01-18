@@ -1,4 +1,4 @@
-.TH highlight 1 "2019-07-27" "Andre Simon" "user documentation"
+.TH highlight 1 "2020-01-18" "Andre Simon" "user documentation"
 
 .SH NAME
 Highlight - a universal sourcecode to formatted text converter
@@ -36,8 +36,8 @@ name of output file
 name of output directory
 .IP "-P, --progress"
 print progress bar in batch mode
-.IP "-S, --syntax=<type>"
-set type of source code, necessary if input file suffix is missing
+.IP "-S, --syntax=<type|path>"
+set type of source code, necessary if input file suffix is missing. The syntax may also be defined as path of the language file.
 .IP "--syntax-by-name=<name>"
 specify type of source code by given name.  Will not read a file of this name, useful for stdin and to determine the syntax of the file before piping its content to highlight. This option overrides --syntax.
 .IP "-v, --verbose"
@@ -107,8 +107,8 @@ print line numbers in output file
 start line numbering with cnt (assumes -l)
 .IP "--line-range=<start-end>"
 output only lines from number <start> to <end>
-.IP "-s, --style=<style name>"
-set highlighting style (theme). See --base16.
+.IP "-s, --style=<style name|path>"
+set highlighting style (theme). Add 'base16/' prefix to use a Base16 theme. The theme may also be defined as path of the theme file.
 .IP "-t  --replace-tabs=<num>"
 replace tabs by num spaces
 .IP "-u, --encoding=<enc>"

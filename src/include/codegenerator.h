@@ -427,6 +427,9 @@ public:
     /** \return Syntaxreader description */
     string getSyntaxDescription();
 
+        /** \return Encoding hint */
+    string getSyntaxEncodingHint();
+    
     /** \return Theme description */
     string getThemeDescription();
 

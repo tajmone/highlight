@@ -2,7 +2,7 @@
                           dataDir.cpp  -  description
                              -------------------
     begin                : Sam March 1 2003
-    copyright            : (C) 2003-2019 by Andre Simon
+    copyright            : (C) 2003-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -160,7 +160,12 @@ const string  DataDir::getExtDir()
 
 const string DataDir::getDocDir()
 {
-    return getSystemDataPath() ;
+    return getSystemDataPath();
+}
+
+const string DataDir::getEncodingHint (const string &syntax) {
+        
+    return encodingHint[getFileBaseName(syntax)];
 }
 
 
@@ -210,6 +215,8 @@ bool DataDir::loadFileTypeConfig (const string& path )
                 readLuaList("Filenames", langName, mapEntry,  &assocByFilename);
             } else if (mapEntry["Shebang"] !=Diluculum::Nil) {
                 assocByShebang.insert ( make_pair ( mapEntry["Shebang"].asString(),  langName ) );
+            } else if (mapEntry["EncodingHint"] !=Diluculum::Nil) {
+                encodingHint.insert ( make_pair ( langName, mapEntry["EncodingHint"].asString() ) );
             }
             idx++;
         }

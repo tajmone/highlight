@@ -467,6 +467,11 @@ string CodeGenerator::getSyntaxDescription()
     return (currentSyntax)? currentSyntax->getDescription(): "syntax undef";
 
 }
+string CodeGenerator::getSyntaxEncodingHint()
+{
+    return (currentSyntax)? currentSyntax->getEncodingHint(): "";
+
+}
 string CodeGenerator::getThemeDescription()
 {
     return docStyle.getDescription();
