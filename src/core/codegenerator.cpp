@@ -1687,7 +1687,7 @@ void CodeGenerator::processRootState()
 {
     bool eof=false,
          firstLine=true; // avoid newline before printing the first output line
-
+         
     applySyntaxTestCase = inFile.find("syntax_test_")!=string::npos;
     
     if ( currentSyntax->highlightingDisabled() ) {
@@ -1710,7 +1710,9 @@ void CodeGenerator::processRootState()
 
     State state=STANDARD;
 
-    openTag ( STANDARD );
+    if (outputType!=ESC_TRUECOLOR && outputType!=ESC_XTERM256)
+        openTag ( STANDARD );
+    
     do {
         // determine next state
         state= getCurrentState(STANDARD);
@@ -1784,11 +1786,17 @@ void CodeGenerator::processRootState()
             processWsState();
             break;
         default:
+            
+            if ((outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) && token.size())
+                openTag ( STANDARD );
+
             printMaskedToken ();
             break;
         }
     } while ( !eof );
-    closeTag ( STANDARD );
+    
+    if (token.size() || lineNumber>1 || (outputType!=ESC_TRUECOLOR && outputType!=ESC_XTERM256))
+        closeTag ( STANDARD );
 
     if (currentSyntax->getDecorateLineEndFct()) {
         Diluculum::LuaValueList res=callDecorateLineFct(false);
