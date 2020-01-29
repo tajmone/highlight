@@ -10,6 +10,7 @@
 
 18.01.2020
 
+  - improved handling of empty files in xterm256 and truecolor output (https://gitlab.com/saalen/highlight/issues/147)
   - added EncodingHint attributes to filetypes.conf and language definitions (https://gitlab.com/saalen/highlight/issues/141)
   - CLI: allowed file paths as --theme and --syntax argument (https://gitlab.com/saalen/highlight/issues/145)
   - GUI: removed deprecated QTime API call
