@@ -8,7 +8,7 @@
 
 == highlight 3.55
 
-18.01.2020
+29.01.2020
 
   - improved handling of empty files in xterm256 and truecolor output (https://gitlab.com/saalen/highlight/issues/147)
   - added EncodingHint attributes to filetypes.conf and language definitions (https://gitlab.com/saalen/highlight/issues/141)
