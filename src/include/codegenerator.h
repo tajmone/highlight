@@ -349,9 +349,10 @@ public:
     void setIncludeStyle ( bool flag );
 
     /** tell parser to omit trailing newline character
-        \param flag true if no trailing newline should be printed
+        \param flag 1 if no trailing newline should be printed, 
+                    2 omit newline only for empty input
      */
-    void disableTrailingNL ( bool flag );
+    void disableTrailingNL ( int flag );
 
     /** Set style input path
         \param path path to style input file
@@ -799,6 +800,10 @@ private:
     unsigned int inputFilesCnt;
     unsigned int processedFilesCnt;
     
+    /** Flag to test if trailing newline should be printed */
+    int noTrailingNewLine;
+
+    
     /**last character of the last line*/
     unsigned char terminatingChar;
 
@@ -817,8 +822,6 @@ private:
     /** Flag if wrapped lines should receive unique line numbers as well */
     bool numberWrappedLines;
 
-    /** Flag to test if trailing newline should be printed */
-    bool noTrailingNewLine;
 
     /** indicator if current state was set by Lua hook function */
     bool resultOfHook;

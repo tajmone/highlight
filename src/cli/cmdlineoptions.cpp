@@ -120,7 +120,7 @@ const Arg_parser::Option options[] = {
         { S_OPT_EOL_DELIM_CR,     OPT_EOL_DELIM_CR,    Arg_parser::no },
         { S_OPT_PRINT_STYLE,      OPT_PRINT_STYLE,     Arg_parser::no },
         { S_OPT_BASE16,           OPT_BASE16,          Arg_parser::maybe },
-        { S_OPT_NO_TRAILING_NL,   OPT_NO_TRAILING_NL,  Arg_parser::no },
+        { S_OPT_NO_TRAILING_NL,   OPT_NO_TRAILING_NL,  Arg_parser::maybe },
         { S_OPT_KEEP_INJECTIONS,  OPT_KEEP_INJECTIONS, Arg_parser::no },
         { S_OPT_FORCE_STDOUT,     OPT_FORCE_STDOUT,    Arg_parser::no },
         { S_OPT_LATEX_BEAMER,     OPT_LATEX_BEAMER,    Arg_parser::no },
@@ -152,6 +152,7 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     lineNrStart ( 1 ),
     lineRangeStart( 0 ),
     lineRangeEnd( 0 ),
+    opt_no_trailing_nl(0),
     canvasPaddingWidth(0),
     wrappingStyle ( highlight::WRAP_DISABLED ),
     outputType ( highlight::HTML ),
@@ -189,7 +190,6 @@ CmdLineOptions::CmdLineOptions ( const int argc, const char *argv[] ) :
     opt_delim_CR (false),
     opt_print_style(false),
     opt_base16_theme(false),
-    opt_no_trailing_nl(false),
     opt_keep_injections(false),
     opt_force_stdout(false),
     opt_no_version_info(false),
@@ -533,7 +533,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
                 styleName = arg;
             break;
         case S_OPT_NO_TRAILING_NL:
-            opt_no_trailing_nl = true;
+            opt_no_trailing_nl = 1;
+            if (arg=="not-empty")
+                opt_no_trailing_nl = 2;
             break;
         case S_OPT_KEEP_INJECTIONS:
             opt_keep_injections = true;
@@ -903,7 +905,7 @@ bool CmdLineOptions::includePageColor() const
 {
   return opt_page_color;
 }
-bool CmdLineOptions::disableTrailingNL() const
+int CmdLineOptions::disableTrailingNL() const
 {
     return opt_no_trailing_nl;
 }

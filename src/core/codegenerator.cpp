@@ -146,13 +146,14 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      maxLineCnt ( UINT_MAX ),
      inputFilesCnt (0),
      processedFilesCnt (0),
+     noTrailingNewLine(0),
+
      terminatingChar ( '\0' ),
      formatter ( NULL ),
      formattingEnabled ( false ),
      formattingPossible ( false ),
      validateInput ( false ),
      numberWrappedLines ( true ),
-     noTrailingNewLine(false),
      resultOfHook(false),
      lineContainedTestCase(false),
      applySyntaxTestCase(false),
@@ -225,7 +226,7 @@ void CodeGenerator::setIncludeStyle ( bool flag )
     includeStyleDef = flag;
 }
 
-void CodeGenerator::disableTrailingNL ( bool flag )
+void CodeGenerator::disableTrailingNL ( int flag )
 {
     noTrailingNewLine = flag;
 }
@@ -1805,7 +1806,7 @@ void CodeGenerator::processRootState()
         }
     }
 
-    printNewLines = !noTrailingNewLine;
+    printNewLines = noTrailingNewLine==0 || ( noTrailingNewLine==2 && ( token.size() || lineNumber>1) );
     *out << getNewLine();
     *out << flush;
 }

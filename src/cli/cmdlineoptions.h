@@ -352,8 +352,9 @@ public:
     /** \return list of astyle options */
     const vector <string> &getAStyleOptions() const;
         
-    /** \return True if trailing nl should be omitted */
-    bool disableTrailingNL() const ;
+    /** \return 1 if trailing nl should be omitted, 
+     *          2 if it should only be ommitted for empty input */
+    int disableTrailingNL() const ;
 
     /** \return The given base font size, empty string by default */
     const string& getBaseFontSize() const ;
@@ -420,6 +421,7 @@ private:
     int lineNrStart;    // line number start count
     int lineRangeStart;    // line range start 
     int lineRangeEnd;    // line range end
+    int opt_no_trailing_nl;
 
     unsigned int canvasPaddingWidth;    // line number start count
 
@@ -484,7 +486,6 @@ private:
     bool opt_delim_CR;
     bool opt_print_style;
     bool opt_base16_theme;
-    bool opt_no_trailing_nl;
     bool opt_keep_injections;
     bool opt_force_stdout;
     bool opt_no_version_info;
