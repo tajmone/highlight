@@ -438,7 +438,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         generator->setStartingInputLine(options.getLineRangeStart());
         generator->setMaxInputLineCnt(options.getLineRangeEnd());    
     }
-    
+
     bool styleFileWanted = !options.fragmentOutput() || options.styleOutPathDefined();
 
     const  vector <string> pluginFileList=collectPluginPaths( options.getPluginPaths());
@@ -511,15 +511,15 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     string inFileName, outFilePath;
     string suffix, lastSuffix;
     string twoPassOutFile=Platform::getTempFilePath();
-    
     if ( options.syntaxGiven() ) { // user defined language definition, valid for all files
         string syntaxByFile=options.getSyntaxByFilename();
         string testSuffix = syntaxByFile.empty() ? options.getSyntax() : dataDir.getFileSuffix(syntaxByFile); 
-        suffix = dataDir.guessFileType (testSuffix, syntaxByFile, syntaxByFile.empty(), true );         
+        //FIXME
+        suffix = dataDir.guessFileType (testSuffix, syntaxByFile, syntaxByFile.empty(), options.getSingleOutFilename().length()==0 );         
     }
-         
+
     generator->setFilesCnt(fileCount);
-        
+
     while ( i < fileCount && !initError ) {
         
         if ( Platform::fileSize(inFileList[i]) > options.getMaxFileSize() ) {

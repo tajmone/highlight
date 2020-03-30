@@ -411,10 +411,9 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             syntax = arg;
             opt_syntax = true;
             
-            if (Platform::fileExists(arg)){
+            if (Platform::fileExists(arg) && string::npos!=arg.find_last_of('.')){
                 absLangPath = arg;
                 syntax = arg.substr(0, arg.find_last_of('.'));
-           
             }
             break;
         case 't':
