@@ -757,19 +757,20 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
 {
     for ( unsigned int i=0; i< s.length(); i++ ) {
         ss << maskCharacter ( s[i] );
-
-        // do not add a trace indicator state for each byte of a UTF-8 sequence, only for the seq start
-        // https://stackoverflow.com/questions/4063146/getting-the-actual-length-of-a-utf-8-encoded-stdstring
-        //if ( applySyntaxTestCase && ( (s[i]&0xff) != 0xC2  || StringTools::change_case(encoding) !="utf-8" ) /*&& ( (s[i] & 0xc0) != 0x80 || StringTools::change_case(encoding) !="utf-8" ) */ ) {
-        if ( applySyntaxTestCase && ( (s[i] & 0xc0) != 0x80  || StringTools::change_case(encoding) !="utf-8" ) /*&& ( (s[i] & 0xc0) != 0x80 || StringTools::change_case(encoding) !="utf-8" ) */ ) {
-            
-            PositionState ps(currentState, getCurrentKeywordClassId(), false);
-            stateTraceCurrent.push_back(ps);
-            
-            if (stateTraceCurrent.size()>200) 
-                stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
-        } 
     }
+    
+    // The test markers position should also be deternmined by calculating the code points
+    if ( applySyntaxTestCase ) {
+            
+        PositionState ps(currentState, getCurrentKeywordClassId(), false);
+        
+        for (int i=0; i< StringTools::utf8_strlen(s); i++ ) {
+            stateTraceCurrent.push_back(ps);
+        }
+        if (stateTraceCurrent.size()>200) 
+            stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
+    } 
+    
 }
 
 
@@ -2405,6 +2406,8 @@ void CodeGenerator::printTrace(const string &s){
 
 //column: lineIndex (not a UTF-8 validated string position)
 void CodeGenerator::runSyntaxTestcases(unsigned int column){
+    
+    column = StringTools::utf8_strlen(line.substr(0, column));
     
     unsigned int assertGroup=0;
     size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);

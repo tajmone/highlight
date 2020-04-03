@@ -8,14 +8,16 @@
 
 == highlight 3.56
 
-xx.03.2020
+03.04.2020
   
   - added support for Sequence Alignment Maps (SAM files)
   - added empty-file mode to `--no-trailing-nl` (https://gitlab.com/saalen/highlight/issues/147)
   - fixed issue with `--syntax-by-name` waiting for stdin (https://gitlab.com/saalen/highlight/-/issues/151)
   - fixed issue with `--syntax` reading matching files in the current working directory (https://gitlab.com/saalen/highlight/-/issues/151)
   - fixed string parsing in lisp.lang (https://gitlab.com/saalen/highlight/-/issues/150)
+  - fixed output of UTF-8 text in xterm256 or truecolor output (https://gitlab.com/saalen/highlight/-/issues/152)
   - fixed regex in js.lang (thanks to Jens Schleusener)
+  - fixed calculation of testcase markers with UTF-8 input
   - allowed number literals with underscores in Java, Scala, D, Julia, C#, Perl and Ada definitions
 
 == highlight 3.55
