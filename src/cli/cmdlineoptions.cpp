@@ -533,7 +533,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             break;
         case S_OPT_NO_TRAILING_NL:
             opt_no_trailing_nl = 1;
-            if (arg=="not-empty")
+            if (arg=="empty-file" || arg=="blank")
                 opt_no_trailing_nl = 2;
             break;
         case S_OPT_KEEP_INJECTIONS:

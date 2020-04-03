@@ -201,7 +201,7 @@ void printHelp(const std::string &topic)
         cout<<"     --keep-injections          output plug-in injections in spite of -f\n";
         cout<<"     --kw-case=<case>           change case of case insensitive keywords\n";
         cout<<"                                  <case> =  [upper, lower, capitalize]\n";
-        cout<<"     --no-trailing-nl[=mode]    omit trailing newline. If mode is not-empty, omit\n";
+        cout<<"     --no-trailing-nl[=mode]    omit trailing newline. If mode is empty-file, omit\n";
         cout<<"                                  only for empty input\n";
         cout<<"     --no-version-info          omit version info comment\n";
        // cout<<"     --two-pass=<file>          write plug-in with persistent state information\n";

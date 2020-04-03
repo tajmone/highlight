@@ -567,6 +567,11 @@ unsigned char CodeGenerator::getInputChar()
 {
     // end of line?
     if ( lineIndex == line.length() ) {
+        
+        //more testing required:
+        if (outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256)
+            lastLineLength=StringTools::utf8_strlen(line);
+        
         bool eof=false;
         if ( preFormatter.isEnabled() ) {
             if ( !preFormatter.hasMoreLines() ) {
@@ -575,7 +580,7 @@ unsigned char CodeGenerator::getInputChar()
                 ++lineNumber;
                 numberCurrentLine = true;
             } else {
-                if(numberWrappedLines)
+                if (numberWrappedLines)
                     ++lineNumber;
                 numberCurrentLine = numberWrappedLines;
             }
@@ -587,7 +592,6 @@ unsigned char CodeGenerator::getInputChar()
 
             numberCurrentLine = true;
         }
-        lastLineLength=lineIndex;
         lineIndex=0;
         
         if (!lineContainedTestCase && applySyntaxTestCase){
@@ -1788,8 +1792,9 @@ void CodeGenerator::processRootState()
             break;
         default:
             
-            if ((outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) && token.size())
-                openTag ( STANDARD );
+         // breaks Unicode sequences:
+         //   if ((outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) && token.size())
+           //     openTag ( STANDARD );
 
             printMaskedToken ();
             break;
@@ -2338,11 +2343,6 @@ void CodeGenerator::flushWs(int arg)
         //std::cerr <<"\nflush >"<<wsBuffer<<"< arg:"<<arg;           
     }
      
-     //fix canvas whitespace
-     if (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR){
-        *out<< maskWsBegin;
-     }
-    
     *out<<wsBuffer;
     wsBuffer.clear();
 }

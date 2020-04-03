@@ -11,9 +11,10 @@
 xx.03.2020
   
   - added support for Sequence Alignment Maps (SAM files)
-  - added not-empty mode to `--no-trailing-nl` (https://gitlab.com/saalen/highlight/issues/147)
+  - added empty-file mode to `--no-trailing-nl` (https://gitlab.com/saalen/highlight/issues/147)
   - fixed issue with `--syntax-by-name` waiting for stdin (https://gitlab.com/saalen/highlight/-/issues/151)
   - fixed issue with `--syntax` reading matching files in the current working directory (https://gitlab.com/saalen/highlight/-/issues/151)
+  - fixed string parsing in lisp.lang (https://gitlab.com/saalen/highlight/-/issues/150)
   - fixed regex in js.lang (thanks to Jens Schleusener)
   - allowed number literals with underscores in Java, Scala, D, Julia, C#, Perl and Ada definitions
 

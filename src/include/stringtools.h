@@ -86,6 +86,8 @@ int calcWeight(const string&s);
 string getPathAcronym(const string&path, char delim);
 
 bool endsWith(std::string const & value, std::string const & ending);
+
+int utf8_strlen(const string& str);
 }
 
 #endif

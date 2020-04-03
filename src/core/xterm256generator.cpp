@@ -89,10 +89,8 @@ void Xterm256Generator::initOutputTags ( )
             bgs << "\033[48;5;"<< bgApprox << "m";
         }
         canvasColSeq = bgs.str();
-        
-        //see CodeGenerator::flushWs
-        maskWsBegin = canvasColSeq;
     }    
+    
     openTags.push_back ( getOpenTag ( docStyle.getDefaultStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getStringStyle() ) );
     openTags.push_back ( getOpenTag ( docStyle.getNumberStyle() ) );
@@ -135,6 +133,7 @@ string  Xterm256Generator::getOpenTag ( const ElementStyle &col )
         // apply color approximation, 256 colour palette (216 colours + 16 ansi + 24 gray) (colors are 24bit)
         s << "38;5;"<< ( int ) rgb2xterm ( rgb ) << "m";
     }
+    
     return  s.str();
 }
 
