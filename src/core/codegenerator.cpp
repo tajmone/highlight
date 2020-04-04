@@ -569,7 +569,7 @@ unsigned char CodeGenerator::getInputChar()
     if ( lineIndex == line.length() ) {
         
         //more testing required:
-        if (outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256)
+        if (encoding=="utf-8" && ( outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) )
             lastLineLength=StringTools::utf8_strlen(line);
         
         bool eof=false;
@@ -764,7 +764,8 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
             
         PositionState ps(currentState, getCurrentKeywordClassId(), false);
         
-        for (int i=0; i< StringTools::utf8_strlen(s); i++ ) {
+        int slen = encoding=="utf-8" ? StringTools::utf8_strlen(s) : s.length();  
+        for (int i=0; i< slen; i++ ) {
             stateTraceCurrent.push_back(ps);
         }
         if (stateTraceCurrent.size()>200) 
@@ -2407,7 +2408,8 @@ void CodeGenerator::printTrace(const string &s){
 //column: lineIndex (not a UTF-8 validated string position)
 void CodeGenerator::runSyntaxTestcases(unsigned int column){
     
-    column = StringTools::utf8_strlen(line.substr(0, column));
+    if (encoding=="utf-8")
+        column = StringTools::utf8_strlen(line.substr(0, column));
     
     unsigned int assertGroup=0;
     size_t typeDescPos=line.find_first_not_of("\t ^", lineIndex);

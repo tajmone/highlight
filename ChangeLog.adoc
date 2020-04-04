@@ -19,6 +19,7 @@
   - fixed regex in js.lang (thanks to Jens Schleusener)
   - fixed calculation of testcase markers with UTF-8 input
   - allowed number literals with underscores in Java, Scala, D, Julia, C#, Perl and Ada definitions
+  - added Nord theme (https://gitlab.com/saalen/highlight/-/merge_requests/125)
 
 == highlight 3.55
 
