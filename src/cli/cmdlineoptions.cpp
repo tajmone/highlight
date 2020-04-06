@@ -515,7 +515,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
         case S_OPT_COMPAT_LINEREF:
             opt_linenumbers = true;
             opt_attach_line_anchors = true;
-            anchorPrefix = ( arg.empty() ) ? "line":arg;
+            anchorPrefix = ( arg.empty() ) ? "line" : arg;
             break;
         case S_OPT_EOL_DELIM_CR:
             opt_delim_CR = true;
@@ -593,10 +593,7 @@ void CmdLineOptions::parseRuntimeOptions( const int argc, const char *argv[], bo
             }
             break;
         }
-    //    case S_OPT_TWO_PASS:
-    //        twoPassFile=arg;
-    //        break;
-            
+        
         default:
             cerr << "highlight: option parsing failed" << endl;
         }

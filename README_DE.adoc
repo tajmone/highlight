@@ -1,6 +1,6 @@
 = HIGHLIGHT HANDBUCH
 André Simon
-v3.55, Januar 2020
+v3.56, April 2020
 :lang: de
 :toc: left
 :toc-title: Contents
@@ -181,8 +181,8 @@ General options:
  -i, --input=<file>             name of single input file
  -o, --output=<file>            name of single output file
  -P, --progress                 print progress bar in batch mode
- -q, --quiet                    supress progress info in batch mode
- -S, --syntax=<type>            specify type of source code
+ -q, --quiet                    suppress progress info in batch mode
+ -S, --syntax=<type|path>       specify type of source code or syntax file path
      --syntax-by-name=<name>    specify type of source code by given name
                                   will not read a file of this name, useful for stdin
  -v, --verbose                  print debug info
@@ -232,7 +232,7 @@ Output formatting options:
  -K, --font-size=<num?>         set font size (specific to output format)
  -l, --line-numbers             print line numbers in output file
  -m, --line-number-start=<cnt>  start line numbering with cnt (assumes -l)
- -s, --style=<style>            set colour style (theme). See  --base16
+ -s, --style=<style|path>       set colour style (theme) or theme file path
  -t, --replace-tabs=<num>       replace tabs by <num> spaces
  -T, --doc-title=<title>        document title
  -u, --encoding=<enc>           set output encoding which matches input file
@@ -249,10 +249,9 @@ Output formatting options:
      --keep-injections          output plug-in injections in spite of -f
      --kw-case=<case>           change case of case insensitive keywords
                                   <case> =  [upper, lower, capitalize]
-     --no-trailing-nl           omit trailing newline
+     --no-trailing-nl[=mode]    omit trailing newline. If mode is empty-file, omit
+                                  only for empty input
      --no-version-info          omit version info comment
-     --two-pass=<file>          write plug-in with persistent state information
-                                  (beta; requires syntax with store instructions)
 
 
 (X)HTML output options:

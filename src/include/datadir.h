@@ -122,7 +122,7 @@ public:
     /** \param snytax name
         \return Encoding hint assigned to the syntax */
     const string getEncodingHint (const string &);
-
+    
         
     /**
      * \param fileName input file name 

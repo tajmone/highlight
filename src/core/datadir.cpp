@@ -168,7 +168,6 @@ const string DataDir::getEncodingHint (const string &syntax) {
     return encodingHint[getFileBaseName(syntax)];
 }
 
-
 string DataDir::getFileSuffix(const string& fileName)
 {
     size_t ptPos=fileName.rfind(".");
@@ -217,7 +216,7 @@ bool DataDir::loadFileTypeConfig (const string& path )
                 assocByShebang.insert ( make_pair ( mapEntry["Shebang"].asString(),  langName ) );
             } else if (mapEntry["EncodingHint"] !=Diluculum::Nil) {
                 encodingHint.insert ( make_pair ( langName, mapEntry["EncodingHint"].asString() ) );
-            }
+            } 
             idx++;
         }
 

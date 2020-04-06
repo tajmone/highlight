@@ -1,6 +1,6 @@
 = HIGHLIGHT TESTCASES MANUAL
 André Simon
-v3.52, May 2019
+v3.56, April 2020
 :lang: en
 :icons: font
 :toc: left
@@ -27,10 +27,11 @@ exit with FAILURE return value.
 
 See the feature discussion here: https://gitlab.com/saalen/highlight/issues/80
 
-[WARNING]
+
+[NOTE]
 ================================================================================
-This feature is considered experimental.
-Please report problems and bugs like false positives.
+For UTF-8 encoded input, you need to set `--encoding=utf-8`. Otherwise the 
+state indicator positions will not be calculated correctly.
 ================================================================================
 
 
@@ -68,7 +69,7 @@ Since release 3.47, the whitespace indicator `ws` is no longer exclusive.
 A test will succeed at a position with whitespace if the enclosing state is matched
 or if `ws` is tested specifically.
 
-Starting with release 3.52, you can negate the state with a leading `~`.
+Add a leading `~` to an indicator to match any other state as success.
 
 
 === Example
@@ -123,5 +124,5 @@ syntax_test_1.c line 17, column 4: got kwa instead of kwb
 .........................................................
 
 
-The highlight GUI will show the error messages in an error summary prompt.
+The highlight GUI will show error messages in an error summary prompt.
 

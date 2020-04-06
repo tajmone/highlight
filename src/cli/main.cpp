@@ -382,7 +382,7 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
     }
 
     string themePath=options.getAbsThemePath().empty() ? dataDir.getThemePath ( options.getThemeName(), options.useBase16Theme() ): options.getAbsThemePath();
-
+    
     unique_ptr<highlight::CodeGenerator> generator ( highlight::CodeGenerator::getInstance ( options.getOutputType() ) );
 
     generator->setHTMLAttachAnchors ( options.attachLineAnchors() );

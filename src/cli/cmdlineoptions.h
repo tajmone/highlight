@@ -116,8 +116,6 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #define OPT_PIPED_FNAME      "syntax-by-name"
 #define OPT_ISOLATE_TAGS     "isolate"
 #define OPT_MAX_FILE_SIZE    "max-size"
-//#define OPT_TWO_PASS         "two-pass"
-
 
 // Improve CLI option compatibility with GNU source-highlight
 #define OPT_COMPAT_DOC       "doc"
@@ -290,6 +288,12 @@ public:
     bool encodingDefined() const
         {
         return opt_encoding_explicit;
+    }
+   
+    /** \return True if style was defined by user*/
+    bool styleDefined() const
+    {
+        return !styleName.empty();
     }
     
     /** \return True if output should be generated if language type is unknown*/

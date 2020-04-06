@@ -8,7 +8,7 @@
 
 == highlight 3.56
 
-03.04.2020
+06.04.2020
   
   - added support for Sequence Alignment Maps (SAM files)
   - added empty-file mode to `--no-trailing-nl` (https://gitlab.com/saalen/highlight/issues/147)
