@@ -569,7 +569,7 @@ unsigned char CodeGenerator::getInputChar()
     if ( lineIndex == line.length() ) {
         
         //more testing required:
-        if (encoding=="utf-8" && ( outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) )
+        if (outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256)
             lastLineLength=StringTools::utf8_strlen(line);
         
         bool eof=false;
@@ -2343,6 +2343,11 @@ void CodeGenerator::flushWs(int arg)
      for ( size_t i=0; i<wsBuffer.size() && ((arg > 3) || ( (arg<4) && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
         stateTraceCurrent.push_back(ps);
         //std::cerr <<"\nflush >"<<wsBuffer<<"< arg:"<<arg;           
+    }
+     
+     //fix canvas whitespace
+    if (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR){
+        *out<< maskWsBegin;
     }
      
     *out<<wsBuffer;

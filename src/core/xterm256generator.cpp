@@ -89,6 +89,7 @@ void Xterm256Generator::initOutputTags ( )
             bgs << "\033[48;5;"<< bgApprox << "m";
         }
         canvasColSeq = bgs.str();
+        maskWsBegin = canvasColSeq;
     }    
     
     openTags.push_back ( getOpenTag ( docStyle.getDefaultStyle() ) );
