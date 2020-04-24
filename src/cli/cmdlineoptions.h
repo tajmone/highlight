@@ -357,7 +357,7 @@ public:
     const vector <string> &getAStyleOptions() const;
         
     /** \return 1 if trailing nl should be omitted, 
-     *          2 if it should only be ommitted for empty input */
+     *          2 if it should only be omitted for empty input */
     int disableTrailingNL() const ;
 
     /** \return The given base font size, empty string by default */

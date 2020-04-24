@@ -37,7 +37,7 @@ link:./highlight_mod.css[The custom CSS stylesheet] defines a default theme plus
 
 === Example 1
 
-For PureBasic code I've defined a dedicated theme mimicing the native IDE of the language.
+For PureBasic code I've defined a dedicated theme mimicking the native IDE of the language.
 
 [source,purebasic]
 ------------------

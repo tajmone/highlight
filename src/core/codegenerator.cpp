@@ -1717,8 +1717,8 @@ void CodeGenerator::processRootState()
 
     State state=STANDARD;
 
-    if (outputType!=ESC_TRUECOLOR && outputType!=ESC_XTERM256)
-        openTag ( STANDARD );
+    // if (outputType!=ESC_TRUECOLOR && outputType!=ESC_XTERM256)
+    openTag ( STANDARD );
     
     do {
         // determine next state
@@ -1793,10 +1793,10 @@ void CodeGenerator::processRootState()
             processWsState();
             break;
         default:
-            
-         // breaks Unicode sequences:
-         //   if ((outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) && token.size())
-           //     openTag ( STANDARD );
+           
+            // see https://gitlab.com/saalen/highlight/-/issues/152
+          //  if (lineNumber==1 && lineIndex==1 && (outputType==ESC_TRUECOLOR || outputType==ESC_XTERM256) && token.size())
+          //      openTag ( STANDARD );
 
             printMaskedToken ();
             break;

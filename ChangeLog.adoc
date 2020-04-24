@@ -6,6 +6,10 @@
 :toc: left
 :toclevels: 1
 
+== highlight 3.57
+
+  - fixed regression in xterm256 or truecolor output (https://gitlab.com/saalen/highlight/-/issues/152)
+
 == highlight 3.56
 
 06.04.2020
