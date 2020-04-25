@@ -1717,7 +1717,7 @@ void CodeGenerator::processRootState()
 
     State state=STANDARD;
 
-    // if (outputType!=ESC_TRUECOLOR && outputType!=ESC_XTERM256)
+    //if (outputType!=ESC_TRUECOLOR && outputType!=ESC_XTERM256)
     openTag ( STANDARD );
     
     do {
@@ -2347,7 +2347,7 @@ void CodeGenerator::flushWs(int arg)
      
      //fix canvas whitespace
     if (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR){
-        *out<< maskWsBegin;
+    //    *out<< maskWsBegin;
     }
      
     *out<<wsBuffer;
