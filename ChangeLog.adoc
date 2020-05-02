@@ -8,6 +8,7 @@
 
 == highlight 3.57
 
+  - added support for Haml (https://gitlab.com/saalen/highlight/-/issues/140)
   - fixed regression in xterm256 or truecolor output (https://gitlab.com/saalen/highlight/-/issues/152)
 
 == highlight 3.56

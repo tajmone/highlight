@@ -21,6 +21,9 @@ Keywords={
   { Id=3,
     List={"function"},
   },
+  { Id=4,
+    Regex=[[ \$[\w]+ ]],
+  }
 }
 
 Strings={

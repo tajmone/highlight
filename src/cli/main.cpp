@@ -168,7 +168,7 @@ int HLCmdLineApp::printInstalledFiles(const string& where, const string& wildcar
             << " with --" << option << ". Filter categories with --list-cat." << endl;
             
         if (kind=="theme") {
-            cout <<"\nApply --base16 to select a Base16 theme." << endl;
+            cout <<"\nAdd base16/ prefix to apply a Base16 theme." << endl;
         }
         
         printConfigInfo();

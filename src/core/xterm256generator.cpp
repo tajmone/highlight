@@ -2,7 +2,7 @@
                    xterm256generator.cpp  -  description
                              -------------------
     begin                : Oct 13 2006
-    copyright            : (C) 2006-2018 by Andre Simon
+    copyright            : (C) 2006-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 

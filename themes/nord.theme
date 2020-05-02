@@ -13,7 +13,7 @@ StringPreProc  = { Colour="#a3be8c" }
 BlockComment   = { Colour="#4c566a" }
 LineComment    = { Colour="#4c566a" }
 PreProcessor   = { Colour="#5e81ac" }
-LineNum        = { Colour="#303030" }
+LineNum        = Default
 Operator       = { Colour="#81a1c1" }
 Interpolation  = { Colour="#ebcb8b" }
 

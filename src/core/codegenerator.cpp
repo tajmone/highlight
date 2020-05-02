@@ -2,7 +2,7 @@
                           codegenerator.cpp  -  description
                              -------------------
     begin                : Die Jul 9 2002
-    copyright            : (C) 2002-2019 by Andre Simon
+    copyright            : (C) 2002-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -2338,16 +2338,16 @@ void CodeGenerator::processWsState()
 
 void CodeGenerator::flushWs(int arg)
 {
-     PositionState ps(currentState, 0, true);
-     //workaround condition
-     for ( size_t i=0; i<wsBuffer.size() && ((arg > 3) || ( (arg<4) && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
+    PositionState ps(currentState, 0, true);
+    //workaround condition
+    for ( size_t i=0; i<wsBuffer.size() && ((arg > 3) || ( (arg<4) && lineIndex>1)) && applySyntaxTestCase ; i++ ) {
         stateTraceCurrent.push_back(ps);
         //std::cerr <<"\nflush >"<<wsBuffer<<"< arg:"<<arg;           
     }
      
-     //fix canvas whitespace
-    if (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR){
-    //    *out<< maskWsBegin;
+    //fix canvas whitespace
+    if (wsBuffer.length() && (outputType==ESC_XTERM256 || outputType==ESC_TRUECOLOR) ){
+        *out<< maskWsBegin;
     }
      
     *out<<wsBuffer;
