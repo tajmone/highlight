@@ -56,6 +56,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTextStream>
 #include <QFileSystemWatcher>
 #include <QDesktopServices>
+#include <QStyleFactory>
 
 #include "version.h"
 #include "codegenerator.h"
