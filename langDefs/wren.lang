@@ -1,0 +1,47 @@
+
+Description="Wren"
+
+Categories = {"source"}
+
+Digits = [[ \d+[\.]?\d+|\d\d* ]]
+
+Keywords={
+  { Id=1,
+    List={
+      "break", "class", "construct", "else", "false", "for", "foreign", "if",
+      "import", "in", "is", "null", "return", "static", "super", "this", "true",
+      "var", "while" }
+  },
+  { Id=2,
+    List= {
+    }
+  },
+  { Id=3,
+    List= {
+    }
+  },
+  { Id=4,
+    Regex=[[(\w+)\s*\(]]
+  }
+}
+
+Strings = {
+  Delimiter=[["]],
+  Interpolation = [[ %\([^\(]+?\) ]],
+  Escape = [[ \\"|\\\\|\\\%|\\\w ]],
+}
+
+Comments = {
+  { Block=true,
+    Nested=true,
+    Delimiter = { [[\/\*]], [[\*\/]] }
+  },
+  {
+    Block=false,
+    Delimiter = { [[//]] }
+  }
+}
+
+IgnoreCase=false
+
+Operators=[[\(|\)|\[|\]|\{|\}|\,|\;|\.|\:|\&|<|>|\!|=|\/|\*|\%|\+|\-|\~|\||\^|\?]]

@@ -28,7 +28,8 @@ Keywords={
 
 Strings={
   Delimiter=[["|']],
-  Escape=[[ [\\%]\d{3}|[\\%]x\d{2}|[\\%][ntvbrfa\\\?'"%] ]]
+  Escape=[[ [\\%]\d{3}|[\\%]x\d{2}|[\\%][ntvbrfa\\\?'"%] ]],
+  Interpolation = [[ %\w ]],
 }
 
 IgnoreCase=true

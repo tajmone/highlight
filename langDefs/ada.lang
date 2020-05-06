@@ -23,7 +23,7 @@ Keywords={
             "long_long_integer", "short_short_float", "long_long_float"},
     },
 
-    { Id=4,
+    { Id=3,
       Regex=[[(\w+)\s*\(]]
     },
     { Id=4,
