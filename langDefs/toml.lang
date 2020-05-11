@@ -1,7 +1,9 @@
 
 Description="TOML"
 
-Categories = {"markup"}
+Categories = {"config"}
+
+Digits=[[ (?:0x|0o|0b)[0-9a-fA-F]+_?[0-9a-fA-F]*|\d*[\.\_]?[\d_]+(?:[eE][\-\+]?\d+)? ]]
 
 Keywords={
   { Id=1,
@@ -13,10 +15,24 @@ Keywords={
   { Id=3,
     Regex=[[^\s*[\[^=#]+\s*=\s*(\S.*)#?]],
   },
+  { Id=4,
+    List={"inf", "nan", "true"}
+  },
+
+  --1979-05-27T00:32:00.999999-07:00
+ { Id=4,
+   --|[\.\d+]?\-\d{2}\:\d{2}|\-\d{2}\:\d{2}
+    Regex=[[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[Z]?|\d{4}-\d{2}-\d{2}]]
+  }
 }
 
+
+--(?!x)x|
 Strings={
-  Delimiter=[["]],
+  Delimiter=[["""|"]],
+  DelimiterPairs= {
+    { Open=[[ \=\s*' ]], Close=[[ \\?'$ ]], Raw=true }
+  }
 }
 
 Comments={
@@ -27,3 +43,20 @@ Comments={
 
 Operators=[[\(|\)|\{|\}|\,|\:|\&|<|>|\!|\=|\/|\*|\%|\+|\-|\[|\] ]]
 
+function OnStateChange(oldState, newState, token, groupID)
+ -- io.write('TOKEN>>')
+ -- io.write(token)
+ -- io.write('<<TOKEN')
+--  if isRawString==1 and token==rawStringDelim then
+--    isRawString=0
+--    rawStringDelim=''
+--    return HL_STRING_END
+--  end
+--  if newState==HL_STRING and token=="'" then
+--    isRawString=1
+--    rawStringDelim=token
+--    return HL_STRING
+--  end
+
+  return newState
+end

@@ -256,8 +256,8 @@ void getFileNames ( const string &directory,const string &wildcard, vector<strin
             return;
         }
 
-        // skip hidden or read only
-        if ( entry->d_name[0] == '.' || ! ( statbuf.st_mode & S_IWUSR ) )
+        // skip hidden
+        if ( entry->d_name[0] == '.' )
             continue;
 
         // if a sub directory and recursive, save sub directory
