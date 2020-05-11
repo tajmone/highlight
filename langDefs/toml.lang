@@ -18,14 +18,10 @@ Keywords={
   { Id=4,
     List={"inf", "nan", "true"}
   },
-
-  --1979-05-27T00:32:00.999999-07:00
- { Id=4,
-   --|[\.\d+]?\-\d{2}\:\d{2}|\-\d{2}\:\d{2}
+  { Id=4,
     Regex=[[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[Z]?|\d{4}-\d{2}-\d{2}]]
   }
 }
-
 
 --(?!x)x|
 Strings={
@@ -57,6 +53,5 @@ function OnStateChange(oldState, newState, token, groupID)
 --    rawStringDelim=token
 --    return HL_STRING
 --  end
-
   return newState
 end

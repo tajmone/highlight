@@ -13,6 +13,7 @@
   - added support for Haml (https://gitlab.com/saalen/highlight/-/issues/140)
   - added support for Wren
   - fixed regression in xterm256 or truecolor output (https://gitlab.com/saalen/highlight/-/issues/152)
+  - fixed `--list-scripts` with read-only language definitions (https://gitlab.com/saalen/highlight/-/issues/154)
   - improved several language definitions
   - Windows GUI: added dark mode
 
