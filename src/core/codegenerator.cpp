@@ -708,7 +708,7 @@ State CodeGenerator::validateState(State newState, State oldState)
             if (currentSyntax->requiresParamUpdate()) {
                 
                  if ( currentSyntax->getOverrideConfigVal("state.string.raw")=="true"){
-                     toggleDynRawString=true;
+                     toggleDynRawString=true; // reset to false in string state fct
                  }
                  if ( currentSyntax->getOverrideConfigVal("format.maskws")=="true") {
                      maskWs=true;

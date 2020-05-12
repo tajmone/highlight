@@ -12,7 +12,7 @@
 
   - added support for Haml (https://gitlab.com/saalen/highlight/-/issues/140)
   - added support for Wren
-  - added Lua fuction OverrideParam
+  - added Lua function `OverrideParam`
   - fixed regression in xterm256 or truecolor output (https://gitlab.com/saalen/highlight/-/issues/152)
   - fixed `--list-scripts` with read-only language definitions (https://gitlab.com/saalen/highlight/-/issues/154)
   - improved several language definitions
@@ -78,7 +78,7 @@
   - CLI: added optional fallback syntax to `--force` (https://gitlab.com/saalen/highlight/issues/126)
   - CLI: added option `--max-size` (https://gitlab.com/saalen/highlight/issues/127)
   - GUI: added multibyte path trace window
-  - GUI: fixed superflouos creation of the same stylesheet file
+  - GUI: fixed superfluous creation of the same stylesheet file
   
 == highlight 3.52
 
@@ -125,14 +125,13 @@
 
 06.02.2019
 
- - fixed more problems with syntax test indicators reporting wrong states 
-     (https://gitlab.com/saalen/highlight/issues/102)
+ - fixed more problems with syntax test indicators reporting wrong states (https://gitlab.com/saalen/highlight/issues/102)
  - added support for Meson, Solidity, TOML and Terraform
  - improved Perl and Yaml highlighting
  - added Categories field to all config files
- - CLI: added category info in --list-scripts output
- - CLI: added --list-cat option (https://gitlab.com/saalen/highlight/issues/99)
- - CLI: added optional topic parameter to --help
+ - CLI: added category info in `--list-scripts` output
+ - CLI: added `--list-cat` option (https://gitlab.com/saalen/highlight/issues/99)
+ - CLI: added optional topic parameter to `--help`
  - GUI: added theme category selection
  - GUI: display categories of selected syntax or theme 
 

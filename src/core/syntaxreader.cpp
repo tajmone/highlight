@@ -2,7 +2,7 @@
                           syntaxreader.cpp  -  description
                              -------------------
     begin                : Wed Nov 28 2001
-    copyright            : (C) 2001-2018 by Andre Simon
+    copyright            : (C) 2001-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -249,7 +249,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
             idx++;
         }
         
-        //TODO replace by fct call
+        /*
         if (globals.count("GeneratorOverride")) {
             idx=1;
             Diluculum::LuaValue lVal = ls["GeneratorOverride"][idx].value();
@@ -258,7 +258,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                 idx++;
                 lVal = ls["GeneratorOverride"][idx].value();
             }
-        }
+        }*/
         
         if (globals.count("KeywordFormatHints")) {
             idx=1;
