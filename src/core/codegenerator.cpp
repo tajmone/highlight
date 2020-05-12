@@ -157,6 +157,8 @@ CodeGenerator::CodeGenerator ( highlight::OutputType type )
      resultOfHook(false),
      lineContainedTestCase(false),
      applySyntaxTestCase(false),
+     toggleDynRawString(false),
+     
      keywordCase ( StringTools::CASE_UNCHANGED ),
      eolDelimiter ('\n'),
      outputType ( type )
@@ -439,9 +441,8 @@ void CodeGenerator::reset()
         vector<int> overrideStyleAttrs=currentSyntax->getOverrideStyleAttributes();
         docStyle.overrideAttributes(overrideStyleAttrs);
         if (overrideStyleAttrs.size())
-            disableStyleCache = true;    
+            disableStyleCache = true;
     }
-    
 }
 
 string CodeGenerator::getThemeInitError()
@@ -547,19 +548,12 @@ void CodeGenerator::matchRegex ( const string &line, State skipState)
         
             regexGroups.insert (
                 make_pair ( matchBegin + 1, ReGroup ( regexElem->open, cur->length(groupID), regexElem->kwClass, regexElem->langName ) ) );
-            
-            //Only return first match
-            //if (regexElem->kwClass==6)
-              //  break;
 
             // priority regex (match required)
             if (regexElem->priority) {
                 return;
             }
-
         }
-        
-        // prio check here if match not necessary
     }
 }
 
@@ -632,10 +626,9 @@ State CodeGenerator::getCurrentState (State oldState)
 
     if ( c==' ' || c=='\t' ) {
         token= c;
-        return _WS;
+        return _WS;    // White space
     }
-    
-    //TODO add control flag
+
     if ( applySyntaxTestCase && ( c=='^' || c=='<') && (oldState == ML_COMMENT || oldState==SL_COMMENT)  ) {
         token= c;
         return _TESTPOS;
@@ -710,6 +703,21 @@ State CodeGenerator::validateState(State newState, State oldState)
 
         resultOfHook = res.size()>=1;
         if (resultOfHook) {
+            
+            // test balloon
+            if (currentSyntax->requiresParamUpdate()) {
+                
+                 if ( currentSyntax->getOverrideConfigVal("state.string.raw")=="true"){
+                     toggleDynRawString=true;
+                 }
+                 if ( currentSyntax->getOverrideConfigVal("format.maskws")=="true") {
+                     maskWs=true;
+                 }
+                 if ( currentSyntax->getOverrideConfigVal("format.spacer").size()) {
+                     spacer=currentSyntax->getOverrideConfigVal("format.spacer");
+                 }
+            }
+            
             State validatedState = (State)res[0].asInteger();
             if ( validatedState== _REJECT) {
                 // proceed using only the first character of the token
@@ -727,6 +735,7 @@ State CodeGenerator::validateState(State newState, State oldState)
                 }
                 return oldState;
             }
+            
             stateTrace.push_back(validatedState);
             if (stateTrace.size()>200) stateTrace.erase(stateTrace.begin(), stateTrace.begin() + 100 );
             return validatedState;
@@ -770,8 +779,7 @@ void CodeGenerator::maskString ( ostream& ss, const string & s )
         }
         if (stateTraceCurrent.size()>200) 
             stateTraceCurrent.erase(stateTraceCurrent.begin(), stateTraceCurrent.begin() + 100 ); 
-    } 
-    
+    }
 }
 
 
@@ -2121,7 +2129,7 @@ bool CodeGenerator::processStringState ( State oldState )
     string openDelim=token;
 
     //Raw String by definition:
-    bool isRawString=currentSyntax->delimiterIsRawString(openDelimID);
+    bool isRawString=currentSyntax->delimiterIsRawString(openDelimID) || toggleDynRawString;
 
     // Test if character before string open delimiter token equals to the
     // raw string prefix (Example: r" ", r""" """ in Python)
@@ -2194,7 +2202,9 @@ bool CodeGenerator::processStringState ( State oldState )
     } while ( !exitState && !eof );
 
     closeTag ( myState );
-
+    
+    toggleDynRawString = false;
+    
     return eof;
 }
 

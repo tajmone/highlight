@@ -1,6 +1,6 @@
 = HIGHLIGHT PLUGIN MANUAL
 André Simon
-v3.53, July 2019
+v3.57, May 2020
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -291,6 +291,29 @@ This function adds the current keyword to the internal keyword list if the
 keyword belongs to keyword group 5. If keyword group 5 is defined by a regex,
 this token will be recognized later as a keyword even if the regular expression
 does no longer match.
+
+
+=== FUNCTION OVERRIDEPARAM
+
+[[OverrideParam]]
+This function enables modification of internal default values concerning the
+parser or output formats. This function is experimental and subject to change.
+Currently it supports these parameters:
+
+[horizontal]
+`state.string.raw`    :: `true` or `false`
+`format.maskws`       :: `true` or `false`
+`format.spacer`       :: whitespace format string
+
+See `langDefs/toml.lang` and `plugins/outhtml_ie7_webctrl.lua` for examples.
+
+................................................................................
+OverrideParam(keyword, kwGroupID)
+
+  Parameters: paramName:   name of configuration item
+              paramVal:    value
+  Returns:    true if successful
+................................................................................
 
 
 === DECORATE FUNCTIONS

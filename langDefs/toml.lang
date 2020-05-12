@@ -1,4 +1,6 @@
 
+-- for highlight 3.57
+
 Description="TOML"
 
 Categories = {"config"}
@@ -16,19 +18,15 @@ Keywords={
     Regex=[[^\s*[\[^=#]+\s*=\s*(\S.*)#?]],
   },
   { Id=4,
-    List={"inf", "nan", "true"}
+    List={"inf", "nan", "true", "false"}
   },
   { Id=4,
     Regex=[[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[Z]?|\d{4}-\d{2}-\d{2}]]
   }
 }
 
---(?!x)x|
 Strings={
-  Delimiter=[["""|"]],
-  DelimiterPairs= {
-    { Open=[[ \=\s*' ]], Close=[[ \\?'$ ]], Raw=true }
-  }
+  Delimiter=[["""|'''|"|']],
 }
 
 Comments={
@@ -39,19 +37,31 @@ Comments={
 
 Operators=[[\(|\)|\{|\}|\,|\:|\&|<|>|\!|\=|\/|\*|\%|\+|\-|\[|\] ]]
 
+
 function OnStateChange(oldState, newState, token, groupID)
- -- io.write('TOKEN>>')
- -- io.write(token)
- -- io.write('<<TOKEN')
---  if isRawString==1 and token==rawStringDelim then
---    isRawString=0
---    rawStringDelim=''
---    return HL_STRING_END
---  end
---  if newState==HL_STRING and token=="'" then
---    isRawString=1
---    rawStringDelim=token
---    return HL_STRING
---  end
+
+  if rawStringDelim~=nil and token==rawStringDelim then
+    rawStringDelim=nil
+    return newState
+  end
+  if  (token=="'''" or token=="'") then
+    rawStringDelim=token
+    OverrideParam("state.string.raw", "true")
+    return newState
+  end
   return newState
 end
+
+--[[============================================================================
+                                  CHANGELOG
+================================================================================
+
+v1.1 (2020/05/12) | Highlight 3.57
+
+  - makes use of OverrideParam to handle raw strings with identical start/end
+    delimiters
+
+v1.0
+  - initial version
+
+--]]

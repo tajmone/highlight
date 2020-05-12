@@ -64,6 +64,7 @@ SyntaxReader::SyntaxReader() :
     allowNestedComments ( true ),
     reformatCode ( false ),
     assertEqualLength(false),
+    paramsNeedUpdate(false),
     rawStringPrefix(0),
     continuationChar(0),
     validateStateChangeFct(NULL),
@@ -171,6 +172,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         lua_register (ls.getState(), "AddKeyword", luaAddKeyword);
         lua_register (ls.getState(), "RemoveKeyword", luaRemoveKeyword);
         lua_register (ls.getState(), "AddPersistentState", luaAddPersistentState);
+        lua_register (ls.getState(), "OverrideParam", luaOverrideParam);
 
         SyntaxReader **s = (SyntaxReader **)lua_newuserdata(ls.getState(), sizeof(SyntaxReader *));
         *s=this;
@@ -232,11 +234,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                 if (ls["Keywords"][idx]["Priority"].value()!=Diluculum::Nil) {
                     priority=ls["Keywords"][idx]["Priority"].value().asInteger();
                 }
-                
-                //string semantics;
-                //if (ls["Keywords"][idx]["Semantics"].value()!=Diluculum::Nil)
-                //         constraintFilename =ls["Keywords"][idx]["Semantics"].value().asString();
-                
+
                 unsigned int constraintLineNum=0;
                 string constraintFilename, semanticDescription;
                 if (ls["Keywords"][idx]["Constraints"].value()!=Diluculum::Nil) {
@@ -251,6 +249,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
             idx++;
         }
         
+        //TODO replace by fct call
         if (globals.count("GeneratorOverride")) {
             idx=1;
             Diluculum::LuaValue lVal = ls["GeneratorOverride"][idx].value();
@@ -512,6 +511,31 @@ int SyntaxReader::luaRemoveKeyword (lua_State *L)
     return 1;
 }
 
+
+void SyntaxReader::overrideParam(const string& name, const string& val)
+{
+    pluginConfigOverride[name] = val;
+    paramsNeedUpdate=true;
+}
+
+
+int SyntaxReader::luaOverrideParam (lua_State *L)
+{
+    int retVal=0;
+    if (lua_gettop(L)==2) {
+        const char* name = lua_tostring(L, 1);
+        const char* val = lua_tostring(L, 2);
+        lua_getglobal(L, GLOBAL_SR_INSTANCE_NAME);
+        SyntaxReader **a=reinterpret_cast<SyntaxReader **>(lua_touserdata(L, 3));
+        if (*a) {
+            (*a)->overrideParam(name, val);
+            retVal=1;
+        }
+    }
+    lua_pushboolean(L, retVal);
+    return 1;
+}
+
 void SyntaxReader::restoreLangEndDelim(const string& langPath)
 {
     if ( !langPath.empty()&& nestedStateEndDelimiters.count(langPath) ) {
@@ -660,6 +684,12 @@ int SyntaxReader::luaAddPersistentState (lua_State *L)
 
 bool SyntaxReader::requiresTwoPassRun(){
     return persistentSyntaxDescriptions.count(langDesc)>0;
+}
+
+bool SyntaxReader::requiresParamUpdate(){
+    bool ret = paramsNeedUpdate;
+    paramsNeedUpdate = false;
+    return ret;
 }
 
 void SyntaxReader::clearPersistentSnippets() {

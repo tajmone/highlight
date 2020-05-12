@@ -260,6 +260,9 @@ public:
     bool allowsInnerSection(const string& langPath);
 
     bool requiresTwoPassRun();
+
+    bool requiresParamUpdate();
+
     
     string getPersistentHookConditions();
 
@@ -432,7 +435,9 @@ private:
          reformatCode,
          
          // string open and close delimiters must have the same length
-         assertEqualLength;
+         assertEqualLength,
+         
+         paramsNeedUpdate;
 
     // character which is prefix of raw string (c#)
     unsigned char rawStringPrefix;
@@ -450,12 +455,17 @@ private:
     
     static int luaAddPersistentState (lua_State *L);
     
+    static int luaOverrideParam (lua_State *L);
+    
     // generate a keyword class 
     unsigned int generateNewKWClass ( int classID );
     
     void addKeyword(unsigned int groupID, const string& kw);
 
     void removeKeyword(const string& kw);
+    
+    void overrideParam(const string& name, const string& val);
+
 
     // Functions accessible in Lua State
     Diluculum::LuaFunction* validateStateChangeFct;

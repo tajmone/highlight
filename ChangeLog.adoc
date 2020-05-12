@@ -8,10 +8,11 @@
 
 == highlight 3.57
 
-06.05.2020
+12.05.2020
 
   - added support for Haml (https://gitlab.com/saalen/highlight/-/issues/140)
   - added support for Wren
+  - added Lua fuction OverrideParam
   - fixed regression in xterm256 or truecolor output (https://gitlab.com/saalen/highlight/-/issues/152)
   - fixed `--list-scripts` with read-only language definitions (https://gitlab.com/saalen/highlight/-/issues/154)
   - improved several language definitions

@@ -888,9 +888,6 @@ enhances the settings of theme and language definition files. Plug-ins make
 it possible to apply custom settings without the need to edit installed
 configuration files.
 You can apply multiple plugins by using the `--plug-in` option more than once.
-If your syntax supports persistent states, use `--two-pass` to generate a 
-plug-in file which can be used in subsequent invocations.
-
 See {README_PLUGINS} for a detailed description and examples of packaged plugins.
 
 

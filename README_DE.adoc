@@ -899,11 +899,8 @@ Mit Hilfe dieser Plugins kann die Ausgabe angepasst werden, ohne installierte
 Konfigurations-Dateien zu aendern.
 Man kann mehrere Plugins anwenden, indem die `--plug-in` Option wiederholt
 angegeben wird.
-Wenn die Syntax Persistenz unterstuetzt, kann mit `--two-pass` ein Plugin erzeugt
-werden, das bei folgenden Aufrufen genutzt werden kann.
 
 Siehe {README_PLUGINS} um mehr darueber zu erfahren.
-
 
 
 === DATEIZUORDNUNGEN

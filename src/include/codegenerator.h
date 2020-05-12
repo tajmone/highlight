@@ -822,13 +822,14 @@ private:
     /** Flag if wrapped lines should receive unique line numbers as well */
     bool numberWrappedLines;
 
-
     /** indicator if current state was set by Lua hook function */
     bool resultOfHook;
     
     bool lineContainedTestCase;
     
     bool applySyntaxTestCase;
+
+    bool toggleDynRawString;
 
     /** flag which determines keyword output (unchangeed, uppercase, lowercase)*/
     StringTools::KeywordCase keywordCase;
