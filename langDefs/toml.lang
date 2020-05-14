@@ -45,7 +45,7 @@ function OnStateChange(oldState, newState, token, groupID)
     rawStringDelim=nil
     return newState
   end
-  if oldState == HL_DEFAULT  and (token=="'''" or token=="'") then
+  if oldState==HL_STANDARD and (token=="'''" or token=="'") then
     rawStringDelim=token
     OverrideParam("state.string.raw", "true")
     return newState
