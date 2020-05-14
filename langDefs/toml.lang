@@ -27,6 +27,7 @@ Keywords={
 
 Strings={
   Delimiter=[["""|'''|"|']],
+  Escape = [[ \\[0%\\\"abfnrtv]|\\U[0-9a-fA-F]{8}|\\u[0-9a-fA-F]{4}|\\x[0-9a-fA-F]{2} ]]
 }
 
 Comments={
@@ -44,7 +45,7 @@ function OnStateChange(oldState, newState, token, groupID)
     rawStringDelim=nil
     return newState
   end
-  if  (token=="'''" or token=="'") then
+  if oldState == HL_DEFAULT  and (token=="'''" or token=="'") then
     rawStringDelim=token
     OverrideParam("state.string.raw", "true")
     return newState
