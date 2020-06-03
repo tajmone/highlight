@@ -16,11 +16,10 @@ HEADERS += ..\\..\\cli\\main.h \
     ..\\..\\cli\\cmdlineoptions.h \
     ..\\..\\cli\\arg_parser.h
 
-INCLUDEPATH += E:\\devel\\cpp\\lua_bin_5.3.0
-#INCLUDEPATH +=D:/Devel/cpp/LuaJIT-2.0.0/src
+INCLUDEPATH += F:/libs/lua_bin_5.3.0
 
-INCLUDEPATH += E:\\devel\\cpp\\boost_1_70_0
-INCLUDEPATH += ..\\..\\include
+INCLUDEPATH += F:/libs/boost_1_70_0
+INCLUDEPATH += ../../include
 QMAKE_CXXFLAGS += -std=c++11
 }
 else {
@@ -34,14 +33,17 @@ HEADERS += src/cli/main.h \
     cli/arg_parser.h
 }
 
+# get rid of mingw32 DLL dependency
+win32:QMAKE_LFLAGS_WINDOWS += -static-libgcc -static-libstdc++
+
 win32:LIBS += -L../../ -lhighlight
 unix:LIBS += -L.. -lhighlight
 
 win32 {
     contains(QT_ARCH, i386) {
-        LIBS += -LE:\Devel\cpp\lua_bin_5.3.0 -llua
+        LIBS += -LF:/libs/lua_bin_5.3.0 -llua
     } else {
-        LIBS += -LE:\Devel\cpp\lua_bin_5.3.0_x64 -llua
+        LIBS += -LF:/libs/lua_bin_5.3.0_x64 -llua
     }
 }
 
@@ -53,4 +55,4 @@ unix:LIBS += -L.. -llua5.2
 unix:DEFINES += USE_LUA52
 }
 
-win32:QMAKE_POST_LINK = E:\Devel\upx393w\upx.exe --best ..\..\..\highlight.exe
+win32:QMAKE_POST_LINK = F:\upx393w\upx.exe --best ..\..\..\highlight.exe

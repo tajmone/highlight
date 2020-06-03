@@ -5,12 +5,12 @@
 AppName=Highlight Code Converter
 
 AppVerName=Highlight
-OutputBaseFilename=highlight-setup-3.56
+OutputBaseFilename=highlight-setup-3.57
 
 AppPublisher=André Simon
 AppPublisherURL=http://www.andre-simon.de
 AppUpdatesURL=http://www.andre-simon.de
-DefaultDirName={pf}\Highlight
+DefaultDirName={commonpf}\Highlight
 DefaultGroupName=Highlight Code Converter
 AllowNoIcons=yes
 LicenseFile=..\..\COPYING
@@ -19,13 +19,15 @@ Compression=lzma2/ultra
 SolidCompression=yes
 PrivilegesRequired=none
 WizardStyle=modern
+SetupIconFile=hl_icon_exe.ico
+UninstallDisplayIcon={app}\highlight-gui.exe
 
 [Tasks]
 Name: "desktopicon"; Description: "Create a &desktop icon"; GroupDescription: "Additional icons:"
 
 [Files]
 Source: "..\..\highlight-gui.exe"; DestDir: "{app}";  Flags: ignoreversion
-Source: "dlls\*.dll"; DestDir: "{app}";  Flags: ignoreversion
+;Source: "dlls\*.dll"; DestDir: "{app}";  Flags: ignoreversion
 Source: "hl_icon_exe.ico"; DestDir: "{app}";  Flags: ignoreversion
 Source: "..\..\langDefs\*.lang"; DestDir: "{app}\langDefs\";  Flags: ignoreversion sortfilesbyextension
 Source: "..\..\themes\*.theme"; DestDir: "{app}\themes\";  Flags: ignoreversion sortfilesbyextension
@@ -66,12 +68,9 @@ Source: "..\core\Diluculum\*.*";  Excludes: "*.o"; DestDir: "{app}\src\core\Dilu
 Source: "..\gui-qt\*.*";  Excludes: "*.o,*.Release,*.Debug,ui_*,*.user,*.qm,Makefile"; DestDir: "{app}\src\gui-qt\";  Flags: ignoreversion; Components: sourcecode;
 Source: "..\cli\*.*";  Excludes: "*.o"; DestDir: "{app}\src\cli\";  Flags: ignoreversion; Components: sourcecode;
 
-Source: "..\w32-projects\*.iss";   DestDir: "{app}\projectfiles\";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\w32-projects\highlight_cli\*.pro";   DestDir: "{app}\projectfiles\highlight_cli\";  Flags: ignoreversion; Components: sourcecode;
-Source: "..\w32-projects\highlight_lib\*.pro";   DestDir: "{app}\projectfiles\highlight_lib\";  Flags: ignoreversion; Components: sourcecode;
-;Source: "..\w32-projects\highlight_gui\*.*"; Excludes: "*.o,*.Release,*.Debug,ui_*,*.user,*.qm,Makefile"; DestDir: "{app}\projectfiles\highlight_gui\";  Flags: ignoreversion; Components: sourcecode;
-
-
+Source: "..\w32-projects\*.iss";   DestDir: "{app}\src\projectfiles\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\w32-projects\highlight_cli\*.pro";   DestDir: "{app}\src\projectfiles\highlight_cli\";  Flags: ignoreversion; Components: sourcecode;
+Source: "..\w32-projects\highlight_lib\*.pro";   DestDir: "{app}\src\projectfiles\highlight_lib\";  Flags: ignoreversion; Components: sourcecode;
 
 [Dirs]
 Name: "{userappdata}\Highlight"; Attribs: hidden
@@ -93,18 +92,9 @@ Name: "{group}\Highlight on the Web"; Filename: "{app}\Highlight.url"
 Name: "{group}\Uninstall Highlight"; Filename: "{uninstallexe}"
 Name: "{userdesktop}\Highlight"; Filename: "{app}\highlight-gui.exe"; Tasks: desktopicon; IconFilename: "{app}\hl_icon_exe.ico";WorkingDir: "{app}"
 Name: "{userdesktop}\Highlight Portable"; Filename: "{app}\highlight-gui.exe"; Tasks: desktopicon; IconFilename: "{app}\hl_icon_exe.ico";WorkingDir: "{app}";Parameters: "--portable";  Components: portable;
-;Name: "{sendto}\Highlight"; Filename: "{app}\highlight-gui.exe";  IconFilename: "{app}\hl_icon_exe.ico";WorkingDir: "{app}"; Check: MyProgCheck
 
 [Run]
 Filename: "{app}\highlight-gui.exe"; Description: "Launch Highlight Code Converter"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
 Type: files; Name: "{app}\Highlight.url"
-
-;[Code]
-
-;function MyProgCheck(): Boolean;
-;begin
-;  Result := MsgBox('Do you want to create an entry of Highlight in your SendTo folder?', mbConfirmation, MB_YESNO) = idYes;
-;end;
-
