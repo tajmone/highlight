@@ -1,11 +1,8 @@
 
 TARGET = highlight-gui
-
 TEMPLATE = app
-
-INCLUDEPATH += .  ../include
-
-QT       += core gui
+INCLUDEPATH += . ../include
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -58,22 +55,22 @@ unix {
 win32 {
     DESTDIR = ../..
 
-    INCLUDEPATH += F:/libs/lua_bin_5.3.0
+    INCLUDEPATH += F:\libs\lua_5.4.0\
     INCLUDEPATH += ../../include
     INCLUDEPATH += F:/libs/boost_1_70_0
 
     DEFINES += WIN32
     CONFIG += static
-    LIBS += -LE:\Devel\git\highlight\src -lhighlight
+    LIBS += -LF:\git\highlight\src -lhighlight
 
     contains(QT_ARCH, i386) {
-        LIBS += -LF:/libs/lua_bin_5.3.0 -llua
+        LIBS += -LF:\libs\lua_5.4.0\x32 -llua
     } else {
-        LIBS += -LF:/libs/lua_bin_5.3.0_x64 -llua
+        LIBS += -LF:\libs\lua_5.4.0\x64 -llua
     }
 
     RC_FILE = highlight-gui.rc
-    QMAKE_POST_LINK = $$quote(F:\upx393w\upx.exe --best --force E:\Devel\git\highlight\highlight-gui.exe)
+    QMAKE_POST_LINK = F:\upx393w\upx.exe --best F:\git\highlight\highlight-gui.exe
 }
 
 macx-clang {

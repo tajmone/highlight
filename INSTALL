@@ -125,13 +125,24 @@ b) Install MingW (gcc toolchain)
 
 c) Compile Qt:
 
-    -Download and extract package from qt.io:
-     https://www.qt.io/download-open-source/ -> qt-everywhere-opensource-src-5.6.0.tar.gz
-    -Open cmd.exe and change into the Qt directory
-    -Configure Qt. Use static if you do not want to ship Qt DLLs:
-     configure -release -opensource -confirm-license -static  -qt-zlib -qt-pcre -qt-libpng -qt-libjpeg -qt-freetype -qt-sql-sqlite -no-openssl -nomake examples -opengl  desktop
-    -Compile Qt:
-     mingw32-make -k -j4
+    -Install git, Python and Perl for Windows
+    -If you install Strawberry Perl, remove its g++ compiler path from your system PATH
+    -Open cmd.exe and change into a directory "QT-ROOT" which will contain the Qt sources
+    -Execute the following cmds
+     git clone git://code.qt.io/qt/qt5.git 
+     cd qt5
+     git checkout 5.15.0
+     perl init-repository
+    -Configure Qt. Create new directories qt-build and qt-5.15.0-x64 in QT-ROOT. Change into qt-build and run
+     ..\qt5\configure -release -opensource -confirm-license -static -static-runtime -optimize-size -no-pch \
+                      -no-fontconfig -no-freetype -qt-libpng -qt-libjpeg -no-tiff -nomake examples -nomake tools \
+                      -nomake tests -skip webengine -skip qtlocation  -opengl desktop -prefix "F:\QT-ROOT\qt-5.15.0-x64"
+
+    -Compile Qt (set numbers of CPU cores after -j):
+     mingw32-make -j8
+
+    -Install the tools and libs in qt-5.15.0-x64:
+     mingw32-make -j8 install
 
 d) Add compiler and Qt paths (location of qmake.exe) in QtCreator
 
@@ -160,9 +171,6 @@ g) Install upx from http://upx.sourceforge.net/
 
 h) Open the pro files in src/w32-projects and src/gui_qt in QtCreator and 
    adjust the paths of libraries and tools. Compile the lib project first.
-
-i) Ship highlight with libgcc_s_dw2-1.dll (32 bit) libgcc_s_seh-1.dll (64 bit)  libstdc++-6.dll libwinpthread-1.dll
-   (all DLLs are located in the mingw32 installation)
 
    
 3.3 Precompiled packages

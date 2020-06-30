@@ -7,13 +7,13 @@ DEFINES -= UNICODE
 DEFINES += NDEBUG
 
 DEFINES += WIN32
-DESTDIR = ../..
+DESTDIR = F:\git\highlight\src\
 
-SOURCES += E:\Devel\git\highlight\src\core\*.cpp
-SOURCES += E:\Devel\git\highlight\src\core\astyle\*.cpp
-SOURCES += E:\Devel\git\highlight\src\core\Diluculum\*.cpp
+SOURCES += F:\git\highlight\src\core\*.cpp
+SOURCES += F:\git\highlight\src\core\astyle\*.cpp
+SOURCES += F:\git\highlight\src\core\Diluculum\*.cpp
 
-INCLUDEPATH += F:/libs/lua_bin_5.3.0
+INCLUDEPATH += F:\libs\lua_5.4.0
 INCLUDEPATH += ../../include
-INCLUDEPATH += F:/libs/boost_1_70_0
+INCLUDEPATH += F:\libs\boost_1_70_0
 QMAKE_CXXFLAGS += -std=c++11
