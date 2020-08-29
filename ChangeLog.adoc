@@ -6,6 +6,14 @@
 :toc: left
 :toclevels: 1
 
+== highlight 3.58
+
+17.08.2020
+
+  - improved `--force` fallback argument handling (https://gitlab.com/saalen/highlight/-/issues/163)
+  - added C++ attribute syntax support
+  - fixed issues in bash.lang (https://gitlab.com/saalen/highlight/-/issues/161)
+  - fixed Bash heredoc highlighting in bash_functions.lua (https://gitlab.com/saalen/highlight/-/issues/156)
 
 == highlight 3.57
 

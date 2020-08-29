@@ -249,17 +249,6 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
             idx++;
         }
         
-        /*
-        if (globals.count("GeneratorOverride")) {
-            idx=1;
-            Diluculum::LuaValue lVal = ls["GeneratorOverride"][idx].value();
-            while (lVal !=Diluculum::Nil) {
-                pluginConfigOverride[StringTools::change_case(lVal["Param"].asString())] = lVal["Value"].asString();
-                idx++;
-                lVal = ls["GeneratorOverride"][idx].value();
-            }
-        }*/
-        
         if (globals.count("KeywordFormatHints")) {
             idx=1;
             Diluculum::LuaValue lVal = ls["KeywordFormatHints"][idx].value();
@@ -418,7 +407,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
                 ++listIdx;
             }
             //allow host syntax
-            allowInnerSections[getCurrentPath()] = true;               
+            allowInnerSections[getCurrentPath()] = true;
         }
 
         if (globals.count("HeaderInjection")) {

@@ -206,7 +206,7 @@ void Xterm256Generator::xterm2rgb ( unsigned char color, unsigned char* rgb )
 
 void Xterm256Generator::maketable()
 {
-    unsigned char c, rgb[3];
+    unsigned char c, rgb[3] = {0};
     for ( c=0; c<=253; c++ ) {
         xterm2rgb ( c,rgb );
         colortable[c][0] = rgb[0];

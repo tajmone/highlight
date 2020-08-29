@@ -12,11 +12,11 @@
 
 # See src/gui-qt/highlight.pro for the Qt GUI compilation options
 
-#CXX=clang++
-CXX=g++
+#CXX ?= clang++
+CXX ?= g++
 
 # was: qmake-qt5
-QMAKE=qmake
+QMAKE ?= qmake
 
 # Added -std=c++11 because of auto_ptr to unique_ptr transition
 CFLAGS:=-Wall -O2 ${CFLAGS} -DNDEBUG -std=c++11 -D_FILE_OFFSET_BITS=64

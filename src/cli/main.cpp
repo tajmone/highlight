@@ -546,8 +546,9 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         if ( !options.syntaxGiven() ) { // determine file type for each file
             suffix = dataDir.guessFileType ( dataDir.getFileSuffix ( inFileList[i] ), inFileList[i] );
         }
-        
+
         if ( suffix.empty()  && options.forceOutput()) suffix=options.getFallbackSyntax(); //avoid segfault
+        
         if ( suffix.empty() ) {
             if ( !options.enableBatchMode() )
                 cerr << "highlight: Undefined language definition. Use --"
@@ -561,6 +562,10 @@ int HLCmdLineApp::run ( const int argc, const char*argv[] )
         if ( suffix != lastSuffix ) {
             
             string langDefPath=options.getAbsLangPath().empty() ? dataDir.getLangPath ( suffix+".lang" ) : options.getAbsLangPath();
+            
+            if (!Platform::fileExists(langDefPath) && !options.getFallbackSyntax().empty()) {
+                langDefPath = dataDir.getLangPath ( options.getFallbackSyntax()+".lang" );
+            }
 
             highlight::LoadResult loadRes= generator-> loadLanguage( langDefPath );
 

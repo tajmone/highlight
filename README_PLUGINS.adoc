@@ -1,6 +1,6 @@
 = HIGHLIGHT PLUGIN MANUAL
 André Simon
-v3.57, May 2020
+v3.57, June 2020
 :lang: en
 :toc: left
 :toc-title: Contents
@@ -275,6 +275,7 @@ OnStateChange(oldState, newState, token, kwGroupID, lineno, column)
 Returns `HL_REJECT` if the recognized token and state should be discarded;
 the first character of token will be outputted and highlighted as `oldState`.
 
+
 Example for its usage in a plugin context:
 
 [source,lua]
@@ -291,6 +292,46 @@ This function adds the current keyword to the internal keyword list if the
 keyword belongs to keyword group 5. If keyword group 5 is defined by a regex,
 this token will be recognized later as a keyword even if the regular expression
 does no longer match.
+
+[IMPORTANT]
+================================================================================
+If both the syntax file and the plug-in script contain an `OnStateChange` 
+function, the plug-in definition will replace the function of the syntax file.
+In order to prevent this, the exising function can be assigned to an new 
+variable and called using this name in the plug-in `OnStateChange` code chunk.
+
+See this example in the plug-in `bash_functions.lua`:
+================================================================================
+
+[source,lua]
+--------------------------------------------------------------------------------
+function syntaxUpdate(desc)
+  if desc=="Bash" then
+
+  table.insert( Keywords,
+                  { Id=5, Regex=[[(\w+)\s*\(]]
+                  } )
+
+    if OnStateChange ~= nil then
+      OrigOnStateChange = OnStateChange;
+    end
+
+    -- add keywords to list 5 if pattern matches
+    function OnStateChange(oldState, newState, token, kwgroup)
+
+      if newState==HL_KEYWORD and kwgroup==5 then
+        AddKeyword(token, 5)
+        return newState
+      end
+      if OrigOnStateChange then
+        return OrigOnStateChange(oldState, newState, token, kwgroup)
+      end
+    end
+
+  end
+end
+--------------------------------------------------------------------------------
+
 
 
 === FUNCTION OVERRIDEPARAM
