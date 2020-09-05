@@ -894,7 +894,6 @@ See {README_PLUGINS} for a detailed description and examples of packaged plugins
 
 === FILE MAPPING
 
-
 The script {filetypes_conf} assigns file extensions and shebang descriptions to
 language definitions.
 A configuration is mandatory only if multiple file extensions are linked to

@@ -12,6 +12,8 @@
 
   - improved `--force` fallback argument handling (https://gitlab.com/saalen/highlight/-/issues/163)
   - added C++ attribute syntax support
+  - added Lua fuction `StoreValue` to set and retrieve information across Lua states
+  - updated mark_lines.lua to output 16m terminal sequences (https://gitlab.com/saalen/highlight/-/issues/164)
   - fixed issues in bash.lang (https://gitlab.com/saalen/highlight/-/issues/161)
   - fixed Bash heredoc highlighting in bash_functions.lua (https://gitlab.com/saalen/highlight/-/issues/156)
 

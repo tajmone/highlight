@@ -27,6 +27,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "syntaxreader.h"
 #include "stringtools.h"
+#include "keystore.h"
 #include "enums.h"
 
 namespace highlight
@@ -173,6 +174,7 @@ LoadResult SyntaxReader::load ( const string& langDefPath, const string& pluginR
         lua_register (ls.getState(), "RemoveKeyword", luaRemoveKeyword);
         lua_register (ls.getState(), "AddPersistentState", luaAddPersistentState);
         lua_register (ls.getState(), "OverrideParam", luaOverrideParam);
+        lua_register (ls.getState(), "StoreValue", KeyStore::luaStore);
 
         SyntaxReader **s = (SyntaxReader **)lua_newuserdata(ls.getState(), sizeof(SyntaxReader *));
         *s=this;

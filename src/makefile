@@ -90,7 +90,7 @@ CORE_OBJECTS:=stylecolour.o stringtools.o \
 	xhtmlgenerator.o latexgenerator.o texgenerator.o rtfgenerator.o \
 	htmlgenerator.o ansigenerator.o svggenerator.o codegenerator.o \
 	xterm256generator.o pangogenerator.o bbcodegenerator.o odtgenerator.o\
-	syntaxreader.o elementstyle.o themereader.o \
+	syntaxreader.o elementstyle.o themereader.o keystore.o\
 	datadir.o preformatter.o platform_fs.o\
 	ASStreamIterator.o ASResource.o ASFormatter.o ASBeautifier.o ASEnhancer.o
 
@@ -137,12 +137,12 @@ themereader.o: ${CORE_DIR}themereader.cpp ${INCLUDE_DIR}themereader.h \
 elementstyle.o: ${CORE_DIR}elementstyle.cpp ${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h
 	${CXX_COMPILE} ${CORE_DIR}elementstyle.cpp
 
-syntaxreader.o: ${CORE_DIR}syntaxreader.cpp ${INCLUDE_DIR}syntaxreader.h \
+syntaxreader.o: ${CORE_DIR}syntaxreader.cpp ${INCLUDE_DIR}syntaxreader.h ${INCLUDE_DIR}keystore.h \
 	${INCLUDE_DIR}platform_fs.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}stringtools.h
 	${CXX_COMPILE} ${CORE_DIR}syntaxreader.cpp
 
 codegenerator.o: ${CORE_DIR}codegenerator.cpp ${INCLUDE_DIR}codegenerator.h ${INCLUDE_DIR}syntaxreader.h \
-	${INCLUDE_DIR}stringtools.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}themereader.h \
+	${INCLUDE_DIR}stringtools.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}themereader.h ${INCLUDE_DIR}keystore.h \
 	${INCLUDE_DIR}elementstyle.h ${INCLUDE_DIR}stylecolour.h ${INCLUDE_DIR}preformatter.h \
 	${INCLUDE_DIR}htmlgenerator.h ${INCLUDE_DIR}version.h ${INCLUDE_DIR}charcodes.h ${INCLUDE_DIR}xhtmlgenerator.h ${INCLUDE_DIR}rtfgenerator.h \
 	${INCLUDE_DIR}latexgenerator.h ${INCLUDE_DIR}texgenerator.h ${INCLUDE_DIR}ansigenerator.h
@@ -190,6 +190,9 @@ stringtools.o: ${CORE_DIR}stringtools.cpp ${INCLUDE_DIR}stringtools.h
 
 stylecolour.o: ${CORE_DIR}stylecolour.cpp ${INCLUDE_DIR}stylecolour.h ${INCLUDE_DIR}enums.h ${INCLUDE_DIR}stringtools.h
 	${CXX_COMPILE} ${CORE_DIR}stylecolour.cpp
+
+keystore.o: ${CORE_DIR}keystore.cpp ${INCLUDE_DIR}keystore.h
+	${CXX_COMPILE} ${CORE_DIR}keystore.cpp
 
 # cli stuff
 arg_parser.o: ${CLI_DIR}arg_parser.cc

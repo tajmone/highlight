@@ -184,6 +184,7 @@ Functions:
 `Decorate`                :: function
 `DecorateLineBegin`       :: function
 `DecorateLineEnd`         :: function
+`StoreValue`              :: function
 
 [IMPORTANT]
 ================================================================================
@@ -333,7 +334,6 @@ end
 --------------------------------------------------------------------------------
 
 
-
 === FUNCTION OVERRIDEPARAM
 
 [[OverrideParam]]
@@ -420,6 +420,18 @@ of the output format.
 The return values are not modified or validated by highlight.
 ================================================================================
 
+=== FUNCTION STOREVALUE
+
+[[StoreValue]]
+................................................................................
+StoreValue(name, value)
+
+  Set or get a value to exchange information across Lua states
+  Parameters: name: the parameter name 
+              value: the parameter value
+  Returns:   if value is not set, the previously assigned value of name
+................................................................................
+
 
 == THEME CHUNK ELEMENTS
 
@@ -463,6 +475,17 @@ Add additional styling information:
 
 [horizontal]
 `Injections`              :: table
+
+[horizontal]
+`StoreValue`              :: function
+
+
+=== FUNCTION STOREVALUE
+
+[[StoreValue]]
+................................................................................
+Like above.
+................................................................................
 
 
 == FORMAT CHUNK ELEMENTS

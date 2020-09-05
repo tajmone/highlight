@@ -178,7 +178,7 @@ void Xterm256Generator::setESCCanvasPadding(unsigned int p) {
 }
 
 /* the following functions are based on Wolfgang Frischs xterm256 converter utility:
-   http://frexx.de/xterm-256-notes/
+   https://web.archive.org/web/20060815160015/http://www.frexx.de/xterm-256-notes/
 */
 
 void Xterm256Generator::xterm2rgb ( unsigned char color, unsigned char* rgb )

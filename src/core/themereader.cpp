@@ -2,7 +2,7 @@
                           themereader.cpp  -  description
                              -------------------
     begin                : Son Nov 10 2002
-    copyright            : (C) 2002-2019 by Andre Simon
+    copyright            : (C) 2002-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
 
@@ -25,6 +25,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "themereader.h"
+#include "keystore.h"
 #include <Diluculum/LuaState.hpp>
 #include <sstream>
 #include <iostream>
@@ -83,6 +84,8 @@ bool ThemeReader::load ( const string &styleDefinitionPath , OutputType type)
         ls["HL_FORMAT_ODT"]=ODTFLAT;
         ls["HL_OUTPUT"] = type;
         ls.doString("Injections={}");
+        
+        lua_register (ls.getState(), "StoreValue", KeyStore::luaStore);
 
         ls.doFile (styleDefinitionPath);
 
