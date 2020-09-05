@@ -5,8 +5,7 @@ Categories = {"format", "html", "rtf" }
 
 function syntaxUpdate(desc)
 
-  if HL_OUTPUT ~= HL_FORMAT_HTML and HL_OUTPUT ~= HL_FORMAT_XHTML
-     and HL_OUTPUT ~= HL_FORMAT_RTF and HL_OUTPUT ~= HL_FORMAT_TRUECOLOR then
+  if HL_OUTPUT ~= HL_FORMAT_HTML and HL_OUTPUT ~= HL_FORMAT_XHTML and HL_OUTPUT ~= HL_FORMAT_RTF and HL_OUTPUT ~= HL_FORMAT_TRUECOLOR then
       return
   end
 
@@ -66,7 +65,7 @@ function syntaxUpdate(desc)
   function DecorateLineEnd()
     if (linesToMark[currentLineNumber]) then
       if HL_OUTPUT==HL_FORMAT_TRUECOLOR then
-          return "" --tostring("\x1B[m")
+          return ""
       end
       if HL_OUTPUT==HL_FORMAT_RTF then
           return '}'
