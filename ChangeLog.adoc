@@ -14,6 +14,7 @@
   - added C++ attribute syntax support
   - added Lua fuction `StoreValue` to set and retrieve information across Lua states
   - added `extras/eclipse-themes/eclipse_color_themes.py` script to retrieve themes from eclipsecolorthemes.org
+  - added support for Web Assembly Text
   - updated mark_lines.lua to output 16m terminal sequences (https://gitlab.com/saalen/highlight/-/issues/164)
   - fixed issues in bash.lang (https://gitlab.com/saalen/highlight/-/issues/161)
   - fixed Bash heredoc highlighting in bash_functions.lua (https://gitlab.com/saalen/highlight/-/issues/156)
