@@ -127,7 +127,7 @@ Check installation.</source>
 Revise su instalación.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="+139"/>
+        <location filename="mainwindow.cpp" line="+138"/>
         <location line="+20"/>
         <source>Initialization error</source>
         <translation type="unfinished">初始化错误</translation>
@@ -163,12 +163,22 @@ Revise su instalación.</translation>
         <translation type="unfinished">找不到语法定义文件.请检查安装.</translation>
     </message>
     <message>
-        <location line="+81"/>
+        <location line="+116"/>
+        <source>NTFS Short Names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>NTFS short names may be disabled on your volumes. Highlight can not read input with multibyte file names if no short name is available. This information will no longer bother you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
         <source>Always at your service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+47"/>
         <source>Select one or more files to open</source>
         <translation type="unfinished">选择一个或多个文件打开</translation>
     </message>
@@ -186,7 +196,7 @@ Revise su instalación.</translation>
         <translation type="obsolete">无法读取 &quot;%1&quot; 的Tag信息</translation>
     </message>
     <message>
-        <location line="+657"/>
+        <location line="+677"/>
         <location line="+31"/>
         <source>Output error</source>
         <translation type="unfinished">输出错误</translation>
@@ -240,24 +250,24 @@ Lua Syntax error: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+147"/>
         <source>Converted %1 files in %2 ms</source>
         <translation type="unfinished">文件%1 转换完毕，用时 %2 ms</translation>
     </message>
     <message>
-        <location line="+185"/>
+        <location line="+189"/>
         <source>Conversion of &quot;%1&quot; not possible.</source>
         <translation type="unfinished">No es posible la conversión de &quot;%1&quot;.</translation>
     </message>
     <message>
         <location line="+0"/>
         <location line="+141"/>
-        <location line="+43"/>
+        <location line="+46"/>
         <source>clipboard data</source>
         <translation type="unfinished">剪贴板数据</translation>
     </message>
     <message>
-        <location line="-113"/>
+        <location line="-116"/>
         <source>%1 options</source>
         <translation type="unfinished">%1 选项</translation>
     </message>
@@ -280,6 +290,11 @@ Lua Syntax error: %2</source>
     <message>
         <location line="+1"/>
         <source>Current theme: %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Contrast: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -345,7 +360,7 @@ Please send a note to as (at) andre-simon (dot) de if you have issues during tra
 <context>
     <name>MainWindowClass</name>
     <message>
-        <location filename="mainwindow.ui" line="+181"/>
+        <location filename="mainwindow.ui" line="+180"/>
         <source>Choose the source code files you want to convert.</source>
         <translation>选择你想要转换的代码文件.</translation>
     </message>
@@ -871,12 +886,12 @@ See ctags.sf.net for details.</source>
         <translation type="obsolete">读取ctags文件：</translation>
     </message>
     <message>
-        <location line="-1949"/>
+        <location line="-1948"/>
         <source>Highlight</source>
         <translation>Highlight</translation>
     </message>
     <message>
-        <location line="+158"/>
+        <location line="+157"/>
         <source>Files</source>
         <translation>文件</translation>
     </message>
@@ -1282,12 +1297,12 @@ Set the width to 0 to keep tabs.</source>
         <translation>停靠浮动面板(&amp;D)</translation>
     </message>
     <message>
-        <location line="-2446"/>
+        <location line="-2445"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location line="+354"/>
+        <location line="+353"/>
         <source>Start the conversion of your input files.</source>
         <translation>点击按钮开始转换文件.</translation>
     </message>
@@ -1332,7 +1347,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>移除所有插件.</translation>
     </message>
     <message>
-        <location line="-532"/>
+        <location line="-531"/>
         <source>Output progress:</source>
         <translation>输出进度：</translation>
     </message>
@@ -1347,7 +1362,7 @@ Set the width to 0 to keep tabs.</source>
         <translation>帮助(&amp;H)</translation>
     </message>
     <message>
-        <location line="+236"/>
+        <location line="+235"/>
         <source>Browse output directory</source>
         <translation type="unfinished"></translation>
     </message>

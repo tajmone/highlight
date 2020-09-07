@@ -1,3 +1,11 @@
+/***************************************************************************
+                          main.ch  -  description
+                             -------------------
+    begin                : Die Apr 23 22:16:35 CEST 2002
+    copyright            : (C) 2002-2020 by Andre Simon
+    email                : a.simon@mailbox.org
+
+ ***************************************************************************/
 
 /*
 This file is part of Highlight.
@@ -62,7 +70,7 @@ private:
     
 
     /** print version info*/
-    void printVersionInfo();
+    void printVersionInfo(bool quietMode=false);
 
     /** print configuration info*/
     void printConfigInfo ();

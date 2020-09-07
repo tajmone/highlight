@@ -483,8 +483,14 @@ string CodeGenerator::getSyntaxCatDescription(){
     return (currentSyntax)? currentSyntax->getCategoryDescription(): "";
 }
 
-string CodeGenerator::getThemeCatDescription(){
+string CodeGenerator::getThemeCatDescription()
+{
     return docStyle.getCategoryDescription();
+}
+
+float CodeGenerator::getThemeContrast()
+{
+    return docStyle.getContrast();
 }
 
 unsigned int CodeGenerator::getLineNumber()

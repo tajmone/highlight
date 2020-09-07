@@ -1,6 +1,6 @@
 = HIGHLIGHT PLUGIN MANUAL
 André Simon
-v3.57, June 2020
+v3.58, August 2020
 :lang: en
 :toc: left
 :toc-title: Contents

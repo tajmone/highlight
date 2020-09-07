@@ -71,7 +71,6 @@ public:
     */
     void setRGB ( const string & colourString );
 
-
     /** Sets red value
         \param red New red value */
     void setRed ( const string & red );
@@ -87,13 +86,14 @@ public:
     /**  @param type Output type
          @return Red value in color representation according to output type */
     string getRed ( OutputType type ) const;
+
     /**  @param type Output type
          @return Green value in color representation according to output type */
     string getGreen ( OutputType type ) const;
+
     /**  @param type Output type
          @return Blue value in color representation according to output type */
     string getBlue ( OutputType type ) const;
-    
     
     /**  @return red value */
     int getRed () const;

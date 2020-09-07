@@ -428,14 +428,17 @@ public:
     /** \return Syntaxreader description */
     string getSyntaxDescription();
 
-        /** \return Encoding hint */
+    /** \return Encoding hint */
     string getSyntaxEncodingHint();
-    
+
     /** \return Theme description */
     string getThemeDescription();
 
     /** \return Syntaxreader category description */
     string getSyntaxCatDescription();
+
+    /** \return Encoding contrast of Canvas and Default colours */
+    float getThemeContrast();
 
     /** \return Theme category description */
     string getThemeCatDescription();

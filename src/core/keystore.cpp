@@ -1,7 +1,7 @@
 /***************************************************************************
                           keystore.cpp  -  description
                              -------------------
-    begin                : Son Nov 10 2002
+    begin                : Sat Aug 05 2020
     copyright            : (C) 2002-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
@@ -40,7 +40,6 @@ KeyStore::~KeyStore()
 
 int KeyStore::luaStore (lua_State *L)
 {
-    int retVal=0;
     if (lua_gettop(L)==1) {
         const char* name = lua_tostring(L, 1);
         lua_pushstring(L, KeyStore::keyStoreMap[name].c_str());
@@ -51,7 +50,7 @@ int KeyStore::luaStore (lua_State *L)
         KeyStore::keyStoreMap[name] = val;
         lua_pushboolean(L, 1);
     } else {
-        lua_pushboolean(L, retVal);
+        lua_pushboolean(L, 0);
     }
     return 1;
 }

@@ -174,6 +174,18 @@ Lua Syntax error: %2</source>
         <source>B16 dark</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>NTFS Short Names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NTFS short names may be disabled on your volumes. Highlight can not read input with multibyte file names if no short name is available. This information will no longer bother you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contrast: %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindowClass</name>

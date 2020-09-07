@@ -71,6 +71,10 @@ private:
     KeywordStyles keywordStyles, originalStyles;
 
     void initStyle(ElementStyle& style, const Diluculum::LuaVariable& var);
+    
+    float getsRGB(int rgbValue);
+
+    float getBrightness(const Colour& colour);
 
 public:
     /** Constructor */
@@ -154,8 +158,10 @@ public:
 
     /** \return True if language definition was found */
     bool found() const ;
-    
+
     void overrideAttributes( vector<int>& attributes);
+
+    float getContrast();
 };
 
 }

@@ -29,6 +29,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include <Diluculum/LuaState.hpp>
 #include <sstream>
 #include <iostream>
+#include <cmath>
 
 namespace highlight
 {
@@ -277,6 +278,24 @@ void ThemeReader::overrideAttributes(vector<int>& attributes) {
             dirtyAttributes = true;
         }
     }
+}
+
+float ThemeReader::getsRGB(int rgbValue) {
+	float s = (float)rgbValue / 255;
+	s = (s <= 0.03928) ? s / 12.92 : std::pow(((s + 0.055) / 1.055), 2.4);
+	return s;
+}
+
+float ThemeReader::getBrightness(const Colour& colour) {
+    return  0.2126*getsRGB(colour.getRed()) + 
+            0.7152*getsRGB(colour.getGreen()) + 
+            0.0722*getsRGB(colour.getBlue());
+}
+float ThemeReader::getContrast() {
+    float canvasBrightness = getBrightness(canvas.getColour());
+    float defaultBrightness = getBrightness(defaultElem.getColour());
+    return  (std::max(canvasBrightness, defaultBrightness) + 0.05) / 
+            (std::min(canvasBrightness, defaultBrightness) + 0.05);
 }
 
 }

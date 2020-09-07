@@ -1615,8 +1615,11 @@ void MainWindow::updatePreview()
 
                 QString syntaxDesc = tr("Current syntax: %1 %2").arg(QString::fromStdString(pwgenerator.getSyntaxDescription())).arg(langInfo);
                 QString themeDesc = tr("Current theme: %1 %2").arg(QString::fromStdString(pwgenerator.getThemeDescription())).arg(themeInfo);
+                float contrast = pwgenerator.getThemeContrast();
+                QString contrastLowHint(contrast<4.5 ? "!":"");
+                QString contrastDesc = tr("Contrast: %1 %2").arg(contrast, 1, 'f', 2).arg(contrastLowHint);
 
-                statusBar()->showMessage(QString("%1 | %2").arg(syntaxDesc, themeDesc));
+                statusBar()->showMessage(QString("%1 | %2 | %3").arg(syntaxDesc, themeDesc, contrastDesc));
             }
 
 

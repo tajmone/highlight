@@ -1,7 +1,7 @@
 /***************************************************************************
                           keystore.h  -  description
                              -------------------
-    begin                : Son Nov 10 2002
+    begin                : Sat Aug 05 2020
     copyright            : (C) 2002-2020 by Andre Simon
     email                : a.simon@mailbox.org
  ***************************************************************************/
@@ -41,8 +41,6 @@ namespace highlight
 
 class KeyStore
 {
-private:
-
 public:
     /** Constructor */
     KeyStore();
